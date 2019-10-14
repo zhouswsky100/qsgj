@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ECharts</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <style type="text/css">
+    .h150{height:150px;}
+    .h200{height:200px;}
+    .h250{height:250px;}
+    .h300{height:300px;}
+    .hd{background:#f36f3b ;color:#FFF;}
+    .cf36026{color:#f36026;}
+    .rankList .item{padding: 5px;font-size: 14px;}
+    .fz12{font-size: 12px;}
+    .fz14{font-size: 14px;}
+    .ta-r{text-align: right;}
+    </style>
+    <script src="./js/echarts.min.js"> </script>
+    <script src="./js/china.js"></script>
+  </head>
+  <body id="echart">
+    <div class="list">
+      <div class="card" style="margin-bottom: 0px;">
+        <div class="item item-divider hd">
+          平台数据总述
+          <span class="item-note " style="color:#FFF;" >单位（万元）</span>
+        </div>
+        <div class="item item-text-wrap">
+        <div class="item item-text-wrap">
+                <ul class="list"  id="platDetail">
+                </ul>
+        </div>
+        </div>
+        <p  class="item item-divider fz12 ta-r cf36026">以下所有数据截止至<span id="time"> 00-00-00 </span></p>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider hd">
+          平台成交额走势(近一年数据)
+          <span class="item-note " style="color:#FFF;" >单位（万元）</span>
+        </div>
+        <div class="item item-text-wrap">
+           <div id="histogram" class="h250"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-divider hd">
+          融资结构分布(近一年数据)
+        </div>
+        <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col h150" id="pie1"></div>
+              <div class="col h150" id="pie2"></div>
+            </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-divider hd">
+          融资地域分布(近一年数据)
+          <span class="item-note " style="color:#FFF;" >单位（万元）</span>
+        </div>
+        <div class="item item-text-wrap ">
+            <div id="map_z" class="h300"></div>
+            <h3 class="item item-divider">TOP 5</h3>
+            <ul class="list rankList fz14" id="list1">
+            </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-divider hd">
+          投资地域分布(近一年数据)
+          <span class="item-note " style="color:#FFF;" >单位（万元）</span>
+        </div>
+        <div class="item item-text-wrap">
+           <div id="map_d" class="h300"></div>
+           <h3 class="item item-divider">TOP 5 </span></h3>
+           <ul class="list rankList fz14" id="list2">
+           </ul>
+      </div>
+    </div>
+     
+      <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts图表
+                var myChart_histogram = echarts.init(document.getElementById('histogram')); //平台成交额走势
+                var myChart_pie1 = echarts.init(document.getElementById('pie1')); //融资结构融资期限分布
+                var myChart_pie2 = echarts.init(document.getElementById('pie2')); //融资结构产品类型分布
+                var myChart_map_z = echarts.init(document.getElementById('map_z')); //融资地域分布
+                var myChart_map_d = echarts.init(document.getElementById('map_d')); //投资地域分布
+                var option_histogram = {
+                    color: ['#3398DB'],
+                    grid: {
+                      left: '3%',
+                      right: '4%',
+                      bottom: '3%',
+                      top:'3%',
+                      containLabel: true
+                     },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : [],
+                            axisTick: {
+                               alignWithLabel: true
+                            },
+                            axisLabel:{
+                            interval:0,
+                            textStyle:{fontSize:5}
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : '成交额',
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        { 
+                            "type":"bar",
+                            "data":[]
+                        }
+                    ]
+                };
+            
+           var option_pie1 = {
+               
+                color: ['#FF7F50','#87CEFA','#DA70D6','#32CD32','#1B60F4','#FFF200'],
+                title : {
+                        text: '',
+                        textStyle:{fontSize:12}
+                    },
+                legend: {
+                    show:true,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    textStyle:{fontSize:9},
+                    itemWidth: 8,
+                    itemHeight:8,
+                    itemGap:5,
+                    selectedMode:false,
+                    data:[]
+                },
+                series: [
+                    {
+                      
+                        type:'pie',
+                        radius: ['35%', '60%'],
+                        avoidLabelOverlap: false,
+                        hoverAnimation:false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '10',
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        center:['35%','50%'],
+                        data:[]
+                    }
+                ]
+            };
+             var   option_map_z = {
+                  textStyle:{
+                    fontSize:'5',
+                  },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                   visualMap: {
+                        show: false,
+                        min: 0,
+                        max: 5000,
+                        color: ['#3366FF','#33CCFF','#CCFFFF']
+                    
+                    },
+                    series: [
+                        {
+                            type: 'map',
+                            mapType: 'china',
+                            roam: false,
+                            zoom:1.2,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    
+                                },
+                                emphasis: {
+                                    show: false
+                                }
+                            },
+                            data:[]
+                        },
+
+                    ]
+                };
+                function GetDateStr() { 
+                  var dd = new Date(); 
+                  dd.setDate(dd.getDate());//获取AddDayCount天后的日期 
+                  var y = dd.getFullYear(); 
+                  var m = dd.getMonth()+1;//获取当前月份的日期 
+                  var d = dd.getDate(); 
+                  return y+"-"+m+"-"+d+" 00:00:00"; 
+                } 
+                window.addEventListener('message',function(msg){
+                  
+                     if(msg.data.flag == "datacount") {
+                      var html =[];
+                      var str='';
+                      var time= document.getElementById("time");
+                      var datacount_data = msg.data.data;
+                      for(var i =0; i<datacount_data.length;i++){
+                          str="<li class='item'>"+datacount_data[i].title+"<span class='item-note cf36026'><span >"+datacount_data[i].amt+"</span>&nbsp<span>"+datacount_data[i].unit+"</span></span></li>";
+                          html.push(str);
+                      }
+                      document.getElementById("platDetail").innerHTML=html.join('');
+                      time.innerHTML=GetDateStr();
+                  }else if(msg.data.flag == "volumes") {
+                    var volumes_data = msg.data.data.volumes;
+                    var xAxis = new Array();
+                    var series = new Array();
+                    for (var i = volumes_data.length - 1; i >= 0; i--) {
+                      xAxis[i] = volumes_data[i].countMonth;
+                      series[i] =  Number(volumes_data[i].totalVolume.replace(/[^0-9-.]/g,''));
+                    }
+                    option_histogram.xAxis[0].data = xAxis;
+                    option_histogram.series[0].data = series;
+                    myChart_histogram.setOption(option_histogram); 
+                  }else if (msg.data.flag == "term") {
+                   var names = ['0-3个月','3-6个月','6-9个月','9-12个月','12-24个月','24个月以上'];
+                   var series = new Array();
+                   var seriesJson = eval(msg.data.data)
+                   series[0] = {name:names[0],value:Number(seriesJson.term3.replace(/[^0-9-.]/g,''))};
+                   series[1] = {name:names[1],value:Number(seriesJson.term6.replace(/[^0-9-.]/g,''))};
+                   series[2] = {name:names[2],value:Number(seriesJson.term9.replace(/[^0-9-.]/g,''))};
+                   series[3] = {name:names[3],value:Number(seriesJson.term12.replace(/[^0-9-.]/g,''))};
+                   series[4] = {name:names[4],value:Number(seriesJson.term24.replace(/[^0-9-.]/g,''))};
+                   series[5] = {name:names[5],value:Number(seriesJson.other.replace(/[^0-9-.]/g,''))};
+                   option_pie1.title.text = '融资期限分布';
+                   option_pie1.legend.data = names;
+                   option_pie1.series[0].data = series;
+                   myChart_pie1.setOption(option_pie1);
+                  }else if(msg.data.flag == "produce"){
+                     var names = ['个人经营贷','企业贷','过桥贷','净值标','其他','个人消费贷'];
+                     var series = new Array();
+                     var seriesJson = eval(msg.data.data)
+                     series[0] = {name:names[0],value:Number(seriesJson.car.replace(/[^0-9-.]/g,''))};
+                     series[1] = {name:names[1],value:Number(seriesJson.company.replace(/[^0-9-.]/g,''))};
+                     series[2] = {name:names[2],value:Number(seriesJson.house.replace(/[^0-9-.]/g,''))};
+                     series[3] = {name:names[3],value:Number(seriesJson.housePawn.replace(/[^0-9-.]/g,''))};
+                     series[4] = {name:names[4],value:Number(seriesJson.other.replace(/[^0-9-.]/g,''))};
+                     series[5] = {name:names[5],value:Number(seriesJson.personal.replace(/[^0-9-.]/g,''))};
+                     option_pie1.title.text= '产品类型分布';
+                     option_pie1.legend.data = names;
+                     option_pie1.series[0].data = series;
+                     myChart_pie2.setOption(option_pie1);
+                  }else if (msg.data.flag == "finance") {
+                     var series = new Array();
+                     var finances = msg.data.data.finances;
+                     for (var i = finances.length - 1; i >= 0; i--) {
+                        series[i]={name:finances[i].province,value:Number(finances[i].totalMoney.replace(/[^0-9-.]/g,''))};
+                     }
+                     option_map_z.series[0].data = series;
+                     myChart_map_z.setOption(option_map_z);
+                      var html = "";
+                     for (var i =0 ; i < 5; i++) {
+                       html += setListData(i+1,finances[i]);
+                     }
+                     document.getElementById('list1').innerHTML+=html;
+                     //$("#list1").append(html);
+                  }else if(msg.data.flag == "invest"){
+                     var series = new Array();
+                     var finances = msg.data.data.finances;
+                     for (var i = finances.length - 1; i >= 0; i--) {
+                        series[i]={name:finances[i].province,value:Number(finances[i].totalMoney.replace(/[^0-9-.]/g,''))};
+                     }
+                     option_map_z.series[0].data = series;
+                     myChart_map_d.setOption(option_map_z);
+                      var html = "";
+                     for (var i =0 ; i < 5; i++) {
+                       html += setListData(i+1,finances[i]);
+                     }
+                       document.getElementById('list2').innerHTML+=html;
+                  }
+                });
+
+              //为echarts对象加载数据 
+              function setListData(id,citys){ 
+                return "<li class='item ' style='font-size:1em;'> "+citys.province+"</span> <span class='item-note cf36026' style='font-size:1em;'>"+citys.totalMoney+"</span></li> "
+              }
+    </script>
+  </body>
+</html>
+

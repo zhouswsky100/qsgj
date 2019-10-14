@@ -1,0 +1,29 @@
+<ion-view view-title="设置密码" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="register1" overflow-scroll="true" >
+    <p class="g-ta-c g-p-10">密码为6-16位，需包含字母加数字</p>
+    <div class="item item-input g-mtb-10">
+      <input type="password" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入密码" ng-model="register.password1" ng-blur="checkpwd1()">
+    </div>
+    <div class="item item-input g-mtb-10">
+      <input type="password" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请确认密码密码" ng-model="register.password2" ng-blur="checkpwd2()">
+    </div>
+    <p class="g-ta-c g-p-10">如您有推荐人，请填写TA的推荐码或手机号码</p>
+    <div class="item item-input g-mtb-10">
+      <input type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入推荐码或手机号码" ng-model="register.recommend">
+    </div>
+    <div class="g-m-10 ">
+        <a class="button button-block  button-orange" ng-click="next()" ng-disabled="!(register.password1 && register.password2)">
+            确定
+        </a>
+    </div>
+    <p class="g-m-10">点击“确定”即代表您已阅读并同意接受
+      <a ng-click="registerCnt()">《合拍在线注册协议》</a>
+    </p>
+  </ion-content>
+</ion-view>       

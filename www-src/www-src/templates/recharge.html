@@ -1,0 +1,34 @@
+<ion-view view-title="账户充值" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-click="viewToRecord()">
+      <i>充提记录</i>
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="recharge" overflow-scroll="true" >
+      <div class="list">
+        <!-- <a class="item  item-icon-right g-mtb-10" href="#/largePayment">
+          <p>大额支付<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+        <!-- <a class="item  item-icon-right g-mtb-10" href="#/quickMoneyPayment/0">
+          <p>大额快捷支付<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/quickPayment">
+          <p>快捷支付<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+        <a class="item  item-icon-right g-mtb-10" ng-click="toNext('rechargeBankTransfer')">
+          <p>银行卡转账<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" ng-click="toNext('quickPaymentZc')">
+          <p>快捷支付<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <!-- <a class="item  item-icon-right g-mtb-10" href="#/wechatPayment">
+          <p>微信支付<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+      </div>
+   </ion-content>
+</ion-view>

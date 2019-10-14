@@ -1,0 +1,60 @@
+<ion-view view-title="" hide-tabs="false" hide-back-button="true">
+  <ion-nav-title>
+    <span >青贝转赠</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="home">
+  <ion-content class="background"  overflow-scroll="true" >
+	    <div ng-show="jy1Flg" >
+		    <div class="item item-input g-pr-10 g-mt-10">
+					<span class="g-fz-14 g-c66">赠送人账号:</span>
+					<div class="keyboardWrapper">
+						  <input type="text"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入赠送人账号" ng-model="business.dfPhone" name="business.dfPhone"  >
+					 </div>
+			</div>
+			<div class="item-input item ">
+				<span class="g-fz-14 g-c66">赠送数量:</span>
+				<div class="keyboardWrapper">
+				<input type="text"  placeholder="请输入赠送数量" ng-model="business.amount" name="business.amount"  >
+				</div>
+			</div>
+		
+			<div class="item-input item ">
+					<span class="g-fz-14 g-c66">备注:</span>
+					<div class="keyboardWrapper">
+						<input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="text"  placeholder="非必填项" ng-model="business.bz" name="business.bz">
+					</div>
+			</div>
+			<div class="g-plr-10">
+					<input type="submit" class="button button-block button-orange" value="下一步"  ng-click="savaQb()">
+			</div>
+		 </div>
+		 <div ng-show="jy2Flg" class="bgf"> 
+			<p class="g-m-10 solid">请核对赠送人头像昵称是否无误，如无误请输入密码确认转赠</p>
+
+			<p class=" g-m-10"><span>转赠人昵称：</span><span>{{datas.nikename}}</span> </p>
+			<p class="g-cf  g-m-10">
+				<span style="float: left;line-height: 40px;">转赠人头像：</span>
+				<span class="g-f-l  photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{datas.photo}}" style="width:100%;height:100%" /></span>
+				
+			</p>
+			<div class="item-input item g-mt-10">
+				<span class="g-fz-14 g-c66">交易密码：</span>
+				<div class="keyboardWrapper">
+				<input type="password"  placeholder="请输入交易密码" ng-model="business.qbpass" name="business.qbpass"  keyboard >
+				<div class="imitateCursor animation">{{business.qbpass}}</div>
+
+				</div>
+			</div>
+			<div class="g-plr-10">
+					<input type="submit" class="button button-block button-orange" value="确定"  ng-click="goQb()">
+			</div>
+		 </div>
+			
+  </ion-content>
+</div>
+</ion-view>

@@ -1,0 +1,78 @@
+<ion-view view-title="会员中心" hide-tabs="false"  hide-back-button="true">
+
+   <ion-content class="background" id="membercenterIndex" overflow-scroll="true" >
+    <div class="baseInfo">
+      <div class="row photoBox">
+        <div class="col col-40 col-center pr" >
+            <div class="photos"> <img ng-src="http://39.97.234.111/base/userFiles/{{data.photo}}" class="photo" ></div>
+            <form role="form" id="imgupload" enctype="multipart/form-data" ng-on:submit.prevent>
+              <input type="file" style=" opacity: 0; position: relative; top: -70px;width: 60px;height: 60px;" name="uploadFile" id="avatar_load"  ng-model="file" accept="image/*" />
+              <input type="text"  style="display: none" class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid"  ng-model="phone" name="phone"  >
+
+            </form>
+        </div>
+  </div>	
+  </div>
+  <div class="list  g-mb-20">
+    <div class="row btnSet">
+      <div class="col col-50">
+        <div class="btn" ng-click="toView('bdFb')">榜单发布</div>
+      </div>
+      <div class="col col-50">
+        <div class="btn right" ng-click="toView('hdFb')">活动发布</div>
+      </div>
+    </div>
+      <div class="item item-icon-right  bb0" ng-click="toView('accountM')">
+        <p class="account">
+          账户管理
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+      <div class="item item-icon-right g-mb-10 bb0"  ng-click="toView('qbManage')">
+        <p class="calendar">
+          青贝管理
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+      <div class="item item-icon-right  bb0"  ng-click="toView('msgCenter')">
+        <p class="bage" ng-show="data.bageFlg"> {{data.size}}</p>
+        <p class="msg">
+          消息中心
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>     
+        <div class="item item-icon-right bb0" ng-click="toView('meScList')">
+          <p class="capital">
+            我的手册
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </div>
+      
+      <div class="item item-icon-right  bb0"  ng-click="toView('actManage')" >
+        <p class="invest">
+          我的活动
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+      <div class="item item-icon-right  bb0"  ng-click="toView('jbJl')">
+        <p class="recommend">
+          揭榜记录
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+      <div class="item item-icon-right bb0 g-mb-10 " ng-click="toView('fbJl')" >
+        <p class="ticket">
+          发榜记录
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+      <div class="item item-icon-right bb0 " ng-click="exitLogin()">
+        <p class="outlogin">
+          安全退出
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </p>
+      </div>
+  </div>
+	
+   </ion-content>
+</ion-view>

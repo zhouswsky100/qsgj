@@ -1,0 +1,51 @@
+<ion-view  view-title="人才详情" hide-tabs="true" hide-back-button="true">
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+              <i class="icon ion-ios-arrow-left color-fff"></i>
+            </button>
+          </ion-nav-buttons>
+          <div id="market">
+            <ion-content class="background" overflow-scroll="true" >
+              <div class="mao_doctorteam">
+
+                  <ul>
+                      <li >
+                          <div>
+                              <img ng-src="http://39.97.234.111/base/userFiles/{{messages.gcphoto}}">
+                          </div>
+                          <div>
+                              <p><span>雅号:</span><span>{{messages.gcnikename}}</span></p>
+                              <p><span>擅长岗位:</span><span>{{messages.rcscgw}}</span></p>
+                              <p><span>成长方向:</span><span>{{messages.rcfangxiang}}</span></p>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+             
+                      <div class="mao_yishengtit bgf" >
+                        <div class="mao_ysjgxs"><img src="img/jj.png" alt=""></div>
+                        <p>人才简介</p>
+                        <span ng-click="open()"><img src="img/show.png" alt=""></span>
+                     </div>
+                     <div class="mao_yissm bgf"  ng-show="showFlg" >
+                        <p><span>共创角色:</span><span>{{messages.rcrole}}</span></p>
+                        <p><span>擅长岗位:</span><span>{{messages.rcscgw}}</span></p>
+                        <p><span>成长方向:</span><span>{{messages.rcfangxiang}}</span></p>
+                        <p><span>擅长解决问题:</span>{{messages.introduce}}<span></p>
+                        <p><span>需要团队成员的特征:</span>{{messages.rcxuyao}}<span</p>
+                        <p><span>使用风险:</span><span>{{messages.rcfengxian}}</span></p>
+                        <p><span>执行案例:</span><span>{{messages.rcanli}}</span></p>
+                        <p><span>揭榜次数:</span><span>{{messages.rcjiebangcount}}</span></p>
+                        <p><span>测试时间:</span><span>{{messages.rctesttime}}</span></p>
+                        <p><span>联系方式:</span><span>{{messages.gcphone}}</span></p>
+                     </div>
+                   <div class="mao_yishengtit bgf" ng-click="cpjl()" >
+                      <div class="mao_ysjgxs"><img src="img/tz.png"></div>
+                      <p>天资禀赋图</p>
+                      <span><img src="img/show.png" alt=""></span>
+                   </div>
+                     
+            </ion-content>
+          </div>
+        </ion-view>
+        

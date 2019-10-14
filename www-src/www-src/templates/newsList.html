@@ -1,0 +1,91 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+  <ion-nav-title>新手专区</ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button back-button buttons button-light button-clear header-item" ng-click="vm.newHelp()">
+        新手指南
+      </button>
+    </ion-nav-buttons>
+  <div id="bidListCly">
+    <ion-content class="background" overflow-scroll="true" >
+      <ion-refresher
+        pulling-text="正在刷新..."
+        refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="vm.doRefresh()">
+      </ion-refresher>
+     <div class="newrule"  ng-if="vm.ajaxEnd && vm.messages.length >0 "> 
+       <p style="padding-left: 10px;font-size: 12px;padding-top: 10px;">1.可投条件：全站已投小于<span >{{vm.showInfo.NOVICETENDERTIMES}}</span>笔可投新手标。</p>
+       <p style="padding-left: 10px;font-size: 12px;">2.新手专区投资限额<span>{{vm.showInfo.NOVICETENDERAMT}}</span>元。</p>
+      </div>
+      <div class="list card" ng-if="vm.ajaxEnd && vm.messages.length > 0" ng-repeat="message in vm.messages">
+        <div class="item item-divider g-cf">
+            <div class="timer g-f-r" ng-if="message.planStatus == '0' && message.spanSeconds > 0" ng-init="getToBeginTime(message.spanSeconds)">
+              <span class="num"><span ng-bind="message.hour"></span>小时<span ng-bind="message.minute"></span>分<span ng-bind="message.second"></span>秒</span><span class="g-ml-5">后开始投标</span>
+            </div>
+            <div >
+            	<span>新手专享标</span> <span class="newfont">(</span><span class="newfont" ng-bind="message.lnNm"></span><span class="newfont">)</span>
+            </div>
+        </div>
+        <a class="item item-body" ng-click="bidDetail(message.lnNo)">
+          <div class="item tabs baseInfo">
+            <div class="tab-item left">
+              <p>历史年化利率</p>
+              <p><span class="num"><i><span ng-bind="message.lnRate | number:2"></span>%</i></span>
+                  <span  style="color: #f36026;" ng-if="message.allowanceRate>0">+<span  style="color: #f36026;"ng-bind="message.allowanceRate" class="ng-binding"></span>%</span>
+              </p>
+            </div>
+            <div class="tab-item right">
+              <p>计划期限</p>
+              <p><span class="term"><i ng-bind="message.lnTerm"></i><span ng-bind="message.lnTermUnitDesc"></span></span></p>
+            </div>
+          </div>
+          <div class="progressBox">
+            <progress progressval="{{message.bidSchd}}"></progress>
+            <span class="surplus">预期可投金额：<span class="num" ng-bind="message.surIvsAmt | number"></span></span>
+          </div>
+        </a>
+      </div>
+            
+      <ul  ng-class="{true: 'g-listNoData_t g-fz-b1 ', false: 'g-listNoData_t g-fz-b1 ' }[vm.CheckClass]" ng-if="vm.ajaxEnd && vm.messages.length <=0" style="text-align: center;">
+	        <div style="margin-bottom: 25px;">
+	          <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+	          <li class="g-c99">暂无可投资项目</li>
+	        </div>
+      </ul>
+	  <div class="recommendBox" ng-if="vm.ajaxEnd && vm.messages.length <=0">
+        <div class="tittle"><span>热门推荐</span></div>
+        <div class="bidItem section" ng-click="viewToBidDetail()">
+          <div class="top">
+            <span ng-bind="sectionData.lnNm"></span>
+          </div>
+          <div class="row g-ta-c">
+            <div class="col col-33">
+              <div class="income"><span class="mainIncome" ng-bind="sectionData.lnRate"></span>%<span ng-if="sectionData.lnRateAdd!=0 && sectionData.lnRateAdd!=undefined"><span>+<span><span ng-bind="sectionData.lnRateAdd"></span>%</div>
+              <div>预期年化</div>
+            </div>
+            <div class="col col-33">
+              <div class="term"><span ng-bind="sectionData.lnTerm"></span><span ng-bind="sectionData.lnTermUnitDesc"></span></div>
+              <div>投资期限</div>
+            </div>
+            <div class="col col-33">
+              <div class="investBtn">
+                <span ng-if="sectionData.lnSts == '04' && sectionData.spanSeconds > 0">即将发布</span>
+                <span ng-if="sectionData.lnSts == '04' && sectionData.spanSeconds < 0">立即投资</span>
+                <span ng-if="sectionData.lnSts == '05' || sectionData.lnSts == '06' || sectionData.lnSts == '07' || sectionData.lnSts == '08' || sectionData.lnSts == '09' || sectionData.lnSts == '10' || sectionData.lnSts == '11' || sectionData.lnSts == '12' || sectionData.lnSts == '98' || sectionData.lnSts == '99'">已满额</span>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <ion-infinite-scroll ng-if="vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+      </ion-infinite-scroll>
+    </ion-content>
+  
+  </div>
+</ion-view>

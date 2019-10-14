@@ -1,0 +1,42 @@
+<ion-view view-title="资金存管" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div ng-if="isLoad==2" id="capitalSuccess">
+    <ion-content class="background" overflow-scroll="true" style="overflow-y:auto;overflow-x:hidden;">
+      <div class="item tabs success tabs-icon-top">
+      <span class="tab-item">
+        <i ng-if="isOpen" class="icon ion-checkmark-circled"></i>
+        <span ng-if="isOpen && pwdsetflag && code=='000000'" class="notice">存管缴费授权处理中</span>
+        <span ng-if="isOpen && pwdsetflag && code=='0'" class="notice">存管缴费授权成功</span>
+        <span ng-if="isOpen && !pwdsetflag" class="notice">资金存管账户开通成功</span>
+        <span ng-if="isOpen && pwdsetflag && code!='0'" class="notice">交易密码设置成功</span>
+      </span>
+      </div> 
+      <div ng-if="isOpen && !pwdsetflag" class="g-m-10 g-ta-c notice2">
+         即将进入<span>交易密码设置</span>...
+      </div>
+      <div ng-if="isOpen && pwdsetflag && (code!='000000' && code!='0')">
+        <div class="g-m-10 g-ta-c notice2">
+           即将进入<span>银行存管缴费授权</span>...
+        </div>
+        <p class="g-m-10 g-ta-c g-c99">授权合拍进行资金操作，授权后才可投资</p>
+      </div>
+      <!-- 全部条件完成进入个人中心 -->
+      <div ng-if="isOpen && pwdsetflag && isPayauth">
+        <div class="g-m-10 g-ta-c notice2">
+           即将进入<span>个人中心</span>...
+        </div>
+      </div>
+      
+      <!-- 1.资金存管开通失败  2.缴费授权处理中状态，数字证书已申请已授权 -->
+      <div ng-if="code == '000000'" class="g-m-10 g-ta-c notice2">
+        <div class="g-m-10 g-ta-c notice2">
+          请稍后重试，即将返回<span>个人中心</span>...
+        </div>
+      </div>
+    </ion-content>
+  </div>
+</ion-view>

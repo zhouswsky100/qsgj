@@ -1,0 +1,36 @@
+<ion-view  view-title="积分兑换" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="accountM" overflow-scroll="true" contentScroll >
+   	  <div id="scoreExchange" class="list">
+        <ul class="investTicket">
+          <li class="list card card1" ng-repeat="item in dataList">
+              <div class="row">
+                <div style="width:25%;text-align:center;border-right:1px dashed #DFDFDF;">
+                  <p><span class="num">{{item.money}}元</span></p>
+                  <p>投资券</p>
+                </div>
+                <div style="width:46%;margin-left:20px;">
+                  <p>{{item.remark}}</p>
+                  <p>有效期截止{{item.endTime}}</p>
+                </div>
+                <div>
+                  <p style="margin-top:20px;"><button ng-if="item.giveAble" class="j_exchange" ng-click="exchange(item.planId,item.money)">点击兑换</button></p>
+                  <p style="margin-top:20px;"><button ng-if="!item.giveAble" class="n_exchange">点击兑换</button></p>
+                </div>
+              </div>
+      
+          </li>
+        </ul>
+       </div>
+       <div class="g-plr-10" style="margin-top:-40px;">
+         <span>说明：</span></br>
+         <span>1、仅限积分兑换投资券，兑换比例为250分=1元投资券</span></br>
+         <span>2、目前提供1元、2元、5元、10元、20元、5元、100元面值的投资券</span></br>
+         <span>3、投资券兑换成功后，请在有效期内使用，否则过期作废</span></br>
+       </div>
+   </ion-content>
+</ion-view>

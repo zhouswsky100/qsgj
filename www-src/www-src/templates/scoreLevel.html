@@ -1,0 +1,56 @@
+<ion-view  view-title="等级规则" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="accountM" overflow-scroll="true" contentScroll >
+   	  <div id="myPointBox" class="list g-fz-14">
+        <p class="item item-icon-right b-mark">
+          <span class="g-fz-14 g-c66">会员等级升级记录</span>
+        </p>
+        <ul class="upgradeList">
+            <li ng-repeat="up in upGradeList">{{up.createDate}} 升级为<span class="orangeColor">{{up.levelName }}</span></li>
+        </ul>
+        <p class="item item-icon-right b-mark">
+          <span class="g-fz-14 g-c66">会员等级及成长值图示</span>
+        </p>
+       
+        <ul class="iconImgWrapper upgradeList">
+          <li class="iconImg">
+            <span class="vipIconSmall general"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;普通会员（V1）&nbsp;&nbsp;0—499</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall bronze"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;青铜会员（V2）&nbsp;&nbsp;500—999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall silver"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;白银会员（V3）&nbsp;&nbsp;1000—1999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall gold"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;黄金会员（V4）&nbsp;&nbsp;2000—4999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall platina"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;白金会员（V5）&nbsp;&nbsp;5000—9999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall jewel"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;钻石会员（V6）&nbsp;&nbsp;10000—19999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall crown"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;皇冠会员（V7）&nbsp;&nbsp;20000—99999</span>
+          </li>
+          <li class="iconImg">
+            <span class="vipIconSmall supremacy"></span>
+            <span class="iconMiddle">&nbsp;&nbsp;至尊会员（V8）&nbsp;&nbsp;10万以上</span>
+          </li>
+        </ul>
+       
+       </div>
+   </ion-content>
+</ion-view>

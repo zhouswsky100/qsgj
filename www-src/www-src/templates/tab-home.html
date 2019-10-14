@@ -1,0 +1,159 @@
+<ion-view view-title="榜单" hide-tabs="vm.hidetabs"  hide-back-button="false">
+  <!-- <ion-nav-buttons side="right" >
+    <button class="button button-clear button-light " ng-click="vm.toLogin()" ng-if="!vm.loginFlg">
+      <i class="g-cf36026">登录</i>
+    </button>
+    <button class="button button-clear button-light " ng-click="vm.tomemberCenter()" ng-if="vm.loginFlg">
+      <p class="bage" ng-show=" vm.msgFlg"></p>
+        <p class="mrtx"> <img ng-src="http://39.97.234.111/base/userFiles/{{vm.gcphoto}}"style="width:100%;height:100%"></p>
+    </button>
+  </ion-nav-buttons> -->
+  <!-- <ion-nav-buttons side="left"> 
+    <div style="width: 46%;">
+        <img src="img/bd/List_logo.png " style="max-width: 100%;">
+    </div>
+  </ion-nav-buttons> -->
+  <div id="home">
+    <ion-content class="background" overflow-scroll="true" >
+     <ion-refresher
+        pulling-text="正在刷新..."
+        refreshing-text="最后更新：今天{{vm.nowDate() | date:'hh:mm'}}"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="vm.doRefresh()">
+      </ion-refresher>
+      <div class="g-mb-10 bgf" ng-if="vm.messages.length > 0 && message.bdstat!='已结榜,无候选人' && message.bdstat!='已结榜' " ng-repeat="message in vm.messages">
+          <div class="div1" ng-click="vm.bdDetail(message)">
+              <ul class="g-cf">
+                <li class="g-f-l g-pl-20  g-pt-15">
+                  <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{message.accountphoto}}" style="width:100%;height:100%" /></p>
+                  <div class="g-f-l g-pl-10"> 
+                    <p class="name "  ng-bind="message.bdnikename"> </p>
+                    <p class="g-cf m0p0">
+                      <span class="g-f-l m0p0 time"  ng-bind="message.bddate">05-10</span>
+                    </p>
+                  </div>
+                </li>
+                <li class=" g-f-r " style=" padding-top: 13px;">
+                  <p  class="name ">财政\预算 </p>
+                    <span class="g-f-l je " style="width: 40px;" ng-bind="message.bdxsje" ></span>
+                    <div  class="g-f-l ">
+                      <div style=" width: 40%;">  <img src="img/bd/List_shell.png " ></div>
+                    </div>                  
+                </li>
+              </ul>
+          </div>
+          <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                    <p class="cont "  ng-bind-html ="message.title"  ng-click="vm.bdDetail(message)"></p> 
+                    <p class="cont "  ng-bind-html ="message.cont"  ng-click="vm.bdDetail(message)"></p> 
+                     <div class="g-cf ">
+                    
+                       <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}','{{message.imgTemp}}')"> 
+                          <img ng-src="http://39.97.234.111/base/userFiles/bdImg/{{img}}"   style="width:100%;height:100%">
+                        </div>
+
+                      </div> 
+          </div>   
+          <div class="div1"> 
+                <ul class="g-cf">
+                  <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                    <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                    <div class="g-f-l g-pl-10"> 
+                      <p class="bl6 " style="padding-top: 4px;"><span ng-bind="message.jiebangrensize"></span><span>人参与</span></p>
+                    </div>
+                  </li>
+                  <li class=" g-f-r " style=" padding-top: 12px;">
+                      <div class="g-cf">
+                        <div class="gifshow" gifShow="{{$index}}">
+                          <img src ="img/bd/biggif.gif" style="position: absolute;">
+                        </div>
+                          <div class=" m0p0 g-f-l " ng-click="vm.bdDetail(message)">
+                             <div class="g-f-l g-pl-5"> <div  style="width: 52%;">  <img src="img/bd/List_message.png" >  </div></div> 
+                              <p class="g-f-l g-pl-5" style="position: relative; top: 2px; left: -20px;">  <span class=" m0p0 bl6"  ng-bind="message.pinglunsize"></span></p>
+                         </div>
+                         <div class=" m0p0 g-f-l "  ng-click ="vm.dianzan(message.bdid,$index)">
+                            <div class="g-f-l g-pl-5" > <div style="width: 52%;"> <img src="img/bd/List_praise.png"  imgindex="{{$index}}" class="dzimg">  </div></div>
+                            <p class="g-f-l g-pl-5"style="position: relative; top: 2px; left: -20px;"> <span  class=" m0p0 bl6 dzsize"  ng-bind="message.bddzcount"  dzsize="{{$index}}"></span></p>
+                        </div>  
+                      </div>
+                  </li>
+                </ul>
+          </div>
+      </div>
+
+
+
+
+      <div class="g-mb-10 bgf" style="background: #ddd;" ng-if="message.bdstat=='已结榜,无候选人'||message.bdstat=='已结榜'" ng-repeat="message in vm.messages">
+        <div class="div1" ng-click="vm.bdDetail(message)">
+            <ul class="g-cf">
+              <li class="g-f-l g-pl-20  g-pt-15">
+                <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{message.accountphoto}}" style="width:100%;height:100%" /></p>
+                <div class="g-f-l g-pl-10"> 
+                  <p class="name "  ng-bind="message.bdnikename"> </p>
+                  <p class="g-cf m0p0">
+                    <span class="g-f-l m0p0 time"  ng-bind="message.bddate">05-10</span>
+                  </p>
+                </div>
+              </li>
+              <li class=" g-f-r " style=" padding-top: 13px;">
+                <p  class="name ">榜单状态</p>
+                  <span class="g-f-l je " style="width: 110px;" ng-bind="message.bdstat" ></span>
+                                 
+              </li>
+            </ul>
+        </div>
+        <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                  <p class="cont "  ng-bind-html ="message.title"  ng-click="vm.bdDetail(message)"></p> 
+                  <p class="cont "  ng-bind-html ="message.cont"  ng-click="vm.bdDetail(message)"></p> 
+                   <div class="g-cf ">
+                      <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}','{{message.imgTemp}}')"> 
+                        <img ng-src="http://39.97.234.111/base/userFiles/bdImg/{{img}}"   style="width:100%;height:100%">
+                      </div>
+                  </div> 
+        </div>   
+        <div class="div1" > 
+              <ul class="g-cf">
+                <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                  <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                  <div class="g-f-l g-pl-10"> 
+                    <p class="bl6 " style="padding-top: 4px;"><span ng-bind="message.jiebangrensize"></span><span>人参与</span></p>
+                  </div>
+                </li>
+                <li class=" g-f-r " style=" padding-top: 12px;">
+                    <div class="g-cf">
+                      <div class="gifshow" gifShow="{{$index}}">
+                        <img src ="img/bd/biggif.gif" style="position: absolute;">
+                      </div>
+                        <div class=" m0p0 g-f-l ">
+                           <div class="g-f-l g-pl-5"> <div  style="width: 52%;">  <img src="img/bd/List_message.png" >  </div></div> 
+                            <p class="g-f-l g-pl-5" style="position: relative; top: 2px; left: -20px;">  <span class=" m0p0 bl6"  ng-bind="message.pinglunsize"></span></p>
+                       </div>
+                       <div class=" m0p0 g-f-l "  ng-click ="vm.dianzan(message.bdid,$index)">
+                          <div class="g-f-l g-pl-5" > <div style="width: 52%;"> <img src="img/bd/List_praise.png"  imgindex="{{$index}}" class="dzimg">  </div></div>
+                          <p class="g-f-l g-pl-5"style="position: relative; top: 2px; left: -20px;"> <span  class=" m0p0 bl6 dzsize"  ng-bind="message.bddzcount"  dzsize="{{$index}}"></span></p>
+                      </div>  
+                    </div>
+                </li>
+              </ul>
+        </div>
+    </div>
+   
+ 
+
+      
+      <ul class="g-listNoData g-fz-b1" ng-if="vm.messages.length <=0">
+        <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+        <li class="g-c99">暂无数据</li>
+       </ul>
+     <ion-infinite-scroll ng-if="!vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+    </ion-infinite-scroll>
+   
+  </ion-content>
+  <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+    <div class="shadow"></div>
+    <img ng-src="{{vm.url}}"/>
+</div>
+</div>
+
+</ion-view>

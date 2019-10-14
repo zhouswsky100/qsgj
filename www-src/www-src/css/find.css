@@ -1,0 +1,88 @@
+#find .item{
+  border: none;
+}
+#find a .desc,#find .date{
+  float: right;
+  color: #999;
+}
+#find a img{
+  width: 25px;
+  position: absolute;
+  top: 14px;
+}
+#find a .text{
+  padding-left: 40px;
+}
+
+/* 我的任务 */
+#myTasks .goto{
+    padding: 2px 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 80px;
+    text-align: center;
+}
+#myTasks .orange{
+    background-color: #2BC9C0;
+}
+#myTasks .gray{
+    background-color: #999;
+}
+#myTasks .info{
+    width: 100%;
+}
+
+#myTasks .item{
+    white-space: inherit;
+    text-overflow: inherit;
+    padding-left: 10px;
+}
+#myTasks .item p{
+    white-space: inherit;
+}
+#myTasks .item .prize{
+  float: left;
+  padding-right: 10px;
+  padding-top: 2px;
+  color: #A0A0A0;
+}
+#myTasks .taskIcon{
+    display: inline-block;
+    float: left;
+    border: 1px solid;
+    border-radius: 12px;
+    height: 45px;
+    color: #fff;
+    background: #f36026;
+    width: 45px;
+    text-align: center;
+    padding-top: 8px;
+    margin-right: 10px;
+}
+#myTasks .taskIcon i{
+    font-size: 28px !important;
+}
+#myTasks .taskIcon.no{
+    background-color: #f36026;
+}
+#myTasks .taskIcon.has{
+    background-color: #999;
+}
+#myTasks .taskIcon .icon-realName{
+    font-size: 24px !important;
+}
+
+#platfromData .gray{
+    background-color: #ccc;
+    font-size: 16px !important;
+    color: #000;
+    padding-top: 10px;
+    height:40px;
+    margin-top: 20px;
+
+}
+
+

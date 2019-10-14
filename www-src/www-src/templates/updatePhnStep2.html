@@ -1,0 +1,29 @@
+<ion-view  view-title="更改绑定手机" hide-tabs="true" hide-back-button="true"> 
+	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="list" id="updatePhnStep2">
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">新绑定手机</p>
+			        <input type="text" placeholder="请输入新的绑定的手机号码" name="phone" ng-model="new.mbPhn" required="required" ng-blur="checkTel()" />
+			    </label>
+			    <div class="item item-input g-mtb-10">
+			    	<p class="input-label">验证码</p>
+			    	<input type="text" class="getMsgCodeIpt" placeholder="请输入短信验证码" name="valiCode" ng-model="new.smsCode" required="required">
+			    	<div ng-click="getMsgCode()" class="getmsgcode">
+		          		<getmsgcode></getmsgcode>
+		        	</div>
+			    </div>
+			    <div class="g-m-10 ">
+		<!-- 	  	    <input type="submit" class="button button-block button-orange" value="确定" ng-click="updatePhone()" /> -->
+              <a ng-class="{'button-gray':isGray}" class="button button-block button-orange g-m-10" href="#" ng-click="updatePhone()">
+                 确定
+                <ion-spinner ng-if="isGray" icon="dots" class="spinner-light request-spinner"></ion-spinner>
+              </a>
+			    </div>
+		</div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view view-title="注册成功" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" id="registerSuccess" overflow-scroll="true">
+    <p class="g-ta-c g-p-10 g-fz-b1 g-fw-b g-mt-10">恭喜您成功注册合拍在线！</p>
+    <div class="wrapper g-ta-c">
+        <img ng-src="{{registerImg}}" class="g-m-5">
+        <p class="text">使用投资券抵扣投资金额，享受投资收益</p>
+        <div class="g-m-10 " ng-show="!hasGet">
+          <a class="button button-block  button-orange" ng-click="getAward()">
+              领取奖励
+          </a>
+        </div>
+        <div class="g-m-10" ng-show="hasGet">
+          <span class="button button-block button-gray">
+              领取成功
+          </span>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>       

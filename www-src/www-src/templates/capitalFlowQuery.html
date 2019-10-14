@@ -1,0 +1,64 @@
+<ion-view view-title="资金流水查询" hide-tabs="true" hide-back-button="true">
+  	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background 	queryStyle" id="capitalFlowQuery" overflow-scroll="true" >
+    	<div class="list">
+		  <label class="item item-input item-select">
+		    <div class="input-label">交易类型</div>
+		    <select ng-model="data.txType">
+			    <option value="">不限</option>
+			    <option value="01">充值</option>
+			    <option value="02">提现</option>
+			    <option value="03">居间服务费</option>
+			    <option value="04">借款人担保费</option>
+			    <option value="05">投标扣款</option>
+			    <option value="06">还款</option>
+			    <option value="07">债权转让</option>
+			    <option value="08">代偿还款</option>
+			    <option value="09">投标冻结</option>
+		    </select>
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">收支</div>
+		    <select ng-model="data.ipFlag">
+		    	<option value="">不限</option>
+		        <option value="I">收入</option>
+		        <option value="P">支出</option>
+		    </select>
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      开始时间
+		    </div>
+		    <input type="date" value="2014-01-20" class="g-ta-r time" ng-model="data.timeStart">
+		    <select class="arrow"></select>
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      结束时间
+		    </div>
+		    <input type="date" value="2014-01-20" class="g-ta-r time" ng-model="data.timeEnd">
+		    <select class="arrow"></select>
+		   <!--  <i class="icon ion-android-arrow-dropdown arrow"></i> -->
+		  </label>
+		  <label class="item item-input">
+		    <div class="input-label">
+		      备注
+		    </div>
+		    <div class="keyWord">
+		    	<input type="text" class="g-ta-r" value="" placeholder="请输入搜索关键词" ng-model="data.keyword" ng-change="change()">
+		    </div>
+		  </label>
+		</div>
+
+		<div class="wrapper">
+			<button class="button button-orange button-block" ng-click="queryList()">
+	          查询
+	        </button>
+		</div>
+		
+    </ion-content>
+</ion-view>

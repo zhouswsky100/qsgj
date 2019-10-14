@@ -1,0 +1,36 @@
+<ion-view view-title="选择银行卡" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-click="data.showDelete = !data.showDelete">
+      <i ng-if="hasCards" ng-bind="(data.showDelete)?'完成':'编辑'"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background rechargeCommon" id="quickSelectBank" overflow-scroll="true" >
+        <ion-list show-delete="data.showDelete">
+            <ion-item ng-repeat="item in banks" item="item" ion-delete-button class="item-remove-animate">
+                <ion-radio class="red" ng-model="radio.value" ng-value="item.bankName" ng-change="serverSideChange(item)">
+                  <div class="list card">
+                      <div class="item">
+                        <h2>{{item.bankName}}（尾号{{item.bankNoAfter}}）</h2>
+                      </div>
+                      <div class="item item-body">
+                        <p>
+                          <a href="#" class="subdued">单笔限额：{{item.oneLimit}}元</a>
+                          <a href="#" class="subdued">每日限额：{{item.dayLimit}}元</a>
+                        </p>
+                      </div>           
+                  </div>
+                </ion-radio>
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+        </ion-list>
+        <div ng-if="!data.showDelete" class="list card">
+          <div class="item">
+            <a class="addKqBanks g-ta-c" href="#/tab/addKqBanks" class="g-ta-c">新增快捷支付</a>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

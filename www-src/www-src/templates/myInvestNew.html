@@ -1,0 +1,282 @@
+<ion-view view-title="我的投资" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="myInvestNew">
+    <ion-content class="background" overflow-scroll="true">
+      <div class="new-tab">
+        <ul class="g-slide-tab item tabs">
+          <li ng-class="slideIndex==0?'current':''" class="tab-item m-w-n">
+            <a href="#" ng-click="activeSlide(0)">投资项目（<span ng-bind="BIDCNT1 ? BIDCNT1 : 0"></span>）</a>
+          </li>
+          <li ng-class="slideIndex==1?'current':''" class="tab-item m-w-n">
+            <a href="#" ng-click="activeSlide(1)">定期计划（<span ng-bind="BIDCNT2 ? BIDCNT2 : 0"></span>）</a>
+          </li>
+        </ul>
+      </div>
+      <ion-slide-box active-slide="slideIndex" show-pager="false" does-continue="false" id="myInvestSlide" ng-style="myStyle">
+        <ion-slide>
+          <div>
+            <div>
+              <div class="row accountInfo">
+                <div class="col">
+                  <div ng-if="dataMyInvest.qryTyp == '2'">
+                    <p>待收本金</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expPrnAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '3'">
+                    <p>已收本金</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].repaymentPrnAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '4'">
+                    <p>已收本金</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expPrnAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '5'">
+                    <p>已收本金</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expPrnAmt | number:2"></div>
+                  </div>
+                </div>
+                <div class="col border-lr">
+                  <div ng-if="dataMyInvest.qryTyp == '2'">
+                    <p>待收利息</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expIntAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '3'">
+                    <p>已赚收益</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].repaymentIntAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '4'">
+                    <p>已赚收益</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expIntAmt | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyInvest.qryTyp == '5'">
+                    <p>已赚收益</p>
+                    <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].expIntAmt | number:2"></div>
+                  </div>
+                </div>
+                <div class="col">
+                  <p class="myInvestSelectBox">
+                    <label class="item item-input item-select">
+                      <select class="myInvestSelect" ng-model="dataMyInvest.qryTyp" ng-change="myInvestChange()">
+                        <option value="2">持有中</option>
+                        <option value="3">已结清</option>
+                        <option value="4">已债转</option>
+                        <option value="5">已交割</option>
+                      </select>
+                    </label>
+                  </p>
+                  <div class="money" ng-bind="myInvestObj.totalInfo[dataMyInvest.qryTyp].totalCount"></div>
+                </div>
+              </div>
+              <ul ng-if="myInvestObj.ajaxEnd[dataMyInvest.qryTyp] && myInvestObj.dataCache[dataMyInvest.qryTyp].length > 0">
+                <li class="list" ng-repeat="message in myInvestObj.dataCache[dataMyInvest.qryTyp]">
+                  <div ng-if="message.viewFlag != '1' && (message.lnStsDesc).indexOf('竞标中') < 0" ng-click="toInvestDetail(dataMyInvest.qryTyp)">
+                    <p>
+                      <span ng-bind="message.lnNm"></span>
+                      <i class="g-ml-5 state" ng-if="dataMyInvest.qryTyp != '4'" ng-class="message.lnSts=='09'?'red':'green'" ng-bind="message.viewFlag == '1' ? '竞标中' : message.lnStsDesc"></i>
+                      <i class="g-ml-5 state" ng-if="dataMyInvest.qryTyp == '4'" ng-class="message.lnSts=='09'?'red':'green'" ng-bind="message.lnStsDesc"></i>
+                    </p>
+                    <div class="row">
+                      <div class="col col-40 col1">
+                        <div ng-if="dataMyInvest.qryTyp == '2'">
+                          <div>本金/利息</div>
+                          <div class="num">
+                            <span ng-bind="message.lnAmt | number:2"></span>/
+                            <span ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstIntAmt | number:2"></span>
+                            <span ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</span>
+                          </div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '3'">
+                          <div>本金/收益</div>
+                          <div class="num"><span ng-bind="message.lnAmt | number:2"></span>/<span ng-bind="message.mstIntAmt | number:2"></span></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '4'">
+                          <div>转让本金/转让利息</div>
+                          <div class="num"><span ng-bind="message.lnAmt | number:2"></span>/<span ng-bind="(message.rstCredAmt - message.lnAmt) | number:2"></span></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '5'">
+                          <div>本金/利息</div>
+                          <div class="num">
+                            <span ng-bind="message.lnAmt | number:2"></span>/
+                            <span ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstIntAmt | number:2"></span>
+                            <span ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col col-20">
+                        <div>年利率</div>
+                        <div class="num"><span ng-bind="message.lnRate"></span>%</div>
+                      </div>
+                      <div class="col">
+                        <div ng-if="dataMyInvest.qryTyp == '2'">
+                          <div>下个还款日</div>
+                          <div class="num" ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstRtnDt"></div>
+                          <div class="num" ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '3'">
+                          <div>到期日</div>
+                          <div class="num" ng-bind="message.mstRtnDt"></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '4'">
+                          <div>转让时间</div>
+                          <div class="num" ng-bind="message.ivsDate | limitTo:10"></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '5'">
+                          <div>下个还款日</div>
+                          <div class="num" ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstRtnDt"></div>
+                          <div class="num" ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ng-if="message.viewFlag == '1' || (message.lnStsDesc).indexOf('竞标中') >= 0" ng-click="jbTip()">
+                    <p>
+                      <span ng-bind="message.lnNm"></span>
+                      <i class="g-ml-5 state" ng-if="dataMyInvest.qryTyp != '4'" ng-class="message.lnSts=='09'?'red':'green'" ng-bind="message.viewFlag == '1' ? '竞标中' : message.lnStsDesc"></i>
+                      <i class="g-ml-5 state" ng-if="dataMyInvest.qryTyp == '4'" ng-class="message.lnSts=='09'?'red':'green'" ng-bind="message.lnStsDesc"></i>
+                    </p>
+                    <div class="row">
+                      <div class="col col-40 col1">
+                        <div ng-if="dataMyInvest.qryTyp == '2'">
+                          <div>本金/利息</div>
+                          <div class="num">
+                            <span ng-bind="message.lnAmt | number:2"></span>/
+                            <span ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstIntAmt | number:2"></span>
+                            <span ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</span>
+                          </div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '3'">
+                          <div>本金/收益</div>
+                          <div class="num"><span ng-bind="message.lnAmt | number:2"></span>/<span ng-bind="message.mstIntAmt | number:2"></span></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '4'">
+                          <div>转让本金/收益</div>
+                          <div class="num"><span ng-bind="message.lnAmt | number:2"></span>/<span ng-bind="message.mstIntAmt | number:2"></span></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '5'">
+                          <div>本金/利息</div>
+                          <div class="num">
+                            <span ng-bind="message.lnAmt | number:2"></span>/
+                            <span ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05' && message.lnSts != '98' && message.lnSts != '99' " ng-bind="message.mstIntAmt | number:2"></span>
+                            <span ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05' || message.lnSts == '98' || message.lnSts == '99'">--</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col col-20">
+                        <div>年利率</div>
+                        <div class="num"><span ng-bind="message.lnRate"></span>%</div>
+                      </div>
+                      <div class="col">
+                        <div ng-if="dataMyInvest.qryTyp == '2'">
+                          <div>下个还款日</div>
+                          <div class="num" ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstRtnDt"></div>
+                          <div class="num" ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '3'">
+                          <div>到期日</div>
+                          <div class="num" ng-bind="message.mstRtnDt"></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '4'">
+                          <div>转让时间</div>
+                          <div class="num" ng-bind="message.ivsDate | limitTo:10"></div>
+                        </div>
+                        <div ng-if="dataMyInvest.qryTyp == '5'">
+                          <div>下个还款日</div>
+                          <div class="num" ng-if="message.viewFlag != '1' && message.lnSts != '04' && message.lnSts != '05'" ng-bind="message.mstRtnDt"></div>
+                          <div class="num" ng-if="message.viewFlag == '1' || message.lnSts == '04' || message.lnSts == '05'">--</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="myInvestNoData g-fz-b1" ng-if="myInvestObj.ajaxEnd[dataMyInvest.qryTyp] && myInvestObj.dataCache[dataMyInvest.qryTyp].length <= 0">
+                <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+                <li class="g-c99">暂无数据</li>
+              </ul>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <div>
+              <div class="row accountInfo">
+                <div class="col">
+                  <div ng-if="dataMyLoanPlan.planStatus != '3'">
+                    <p>待收本金</p>
+                    <div ng-bind="loanPlanObj.totalInfo[dataMyLoanPlan.planStatus].ivs | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyLoanPlan.planStatus == '3'">
+                    <p>已收本金</p>
+                    <div ng-bind="loanPlanObj.totalInfo[dataMyLoanPlan.planStatus].ivs | number:2"></div>
+                  </div>
+                </div>
+                <div class="col border-lr">
+                  <div ng-if="dataMyLoanPlan.planStatus != '3'">
+                    <p>待收利息</p>
+                    <div ng-bind="loanPlanObj.totalInfo[dataMyLoanPlan.planStatus].expire | number:2"></div>
+                  </div>
+                  <div ng-if="dataMyLoanPlan.planStatus == '3'">
+                    <p>已赚收益</p>
+                    <div ng-bind="loanPlanObj.totalInfo[dataMyLoanPlan.planStatus].expire | number:2"></div>
+                  </div>
+                </div>
+                <div class="col">
+                  <p class="myInvestSelectBox">
+                    <label class="item item-input item-select">
+                      <select class="myInvestSelect" ng-model="dataMyLoanPlan.planStatus" ng-change="myInvestChange()">
+                        <option value="1">持有中</option>
+                        <option value="2">退出中</option>
+                        <option value="3">已退出</option>
+                      </select>
+                    </label>
+                  </p>
+                  <div ng-bind="loanPlanObj.totalInfo[dataMyLoanPlan.planStatus].totalCount"></div>
+                </div>
+              </div>
+              <ul ng-if="loanPlanObj.ajaxEnd[dataMyLoanPlan.planStatus] && loanPlanObj.dataCache[dataMyLoanPlan.planStatus].length > 0">
+                <li class="list" ng-repeat="message in loanPlanObj.dataCache[dataMyLoanPlan.planStatus]">
+                  <a ng-click="toPlanDetail()">
+                    <p><span ng-bind="message.planName"></span></p>
+                    <div class="row">
+                      <div class="col col-40 col1">
+                        <div ng-if="dataMyLoanPlan.planStatus != '3'">
+                          <div>本金/利息</div>
+                          <div class="num"><span ng-bind="message.ivsAmt | number:2"></span>/<span ng-bind="message.expireAmt | number:2"></span></div>
+                        </div>
+                        <div ng-if="dataMyLoanPlan.planStatus == '3'">
+                          <div>本金/收益</div>
+                          <div class="num"><span ng-bind="message.ivsAmt | number:2"></span>/<span ng-bind="message.expireAmt | number:2"></span></div>
+                        </div>
+                      </div>
+                      <div class="col col-20">
+                        <div>年利率</div>
+                        <div class="num"><span ng-bind="message.rate"></span>%</div>
+                      </div>
+                      <div class="col">
+                        <div>退出日</div>
+                        <div class="num" ng-bind="message.exitDate"></div>
+                      </div>
+                      <!-- <div class="col col-10 item-icon-right">
+						              	<i class="icon ion-chevron-right arrow" style="font-size:1em;"></i>
+						              </div> -->
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul class="myInvestNoData g-fz-b1" ng-if="loanPlanObj.ajaxEnd[dataMyLoanPlan.planStatus] && loanPlanObj.dataCache[dataMyLoanPlan.planStatus].length <= 0">
+                <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+                <li class="g-c99">暂无数据</li>
+              </ul>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      <ion-infinite-scroll ng-if="slideIndex == 0 ? moreDataObj[slideIndex][dataMyInvest.qryTyp] : moreDataObj[slideIndex][dataMyLoanPlan.planStatus]" immediate-check="false" on-infinite="loadMore(slideIndex)" distance="5%" icon="ion-load-a">
+      </ion-infinite-scroll>
+    </ion-content>
+  </div>
+</ion-view>

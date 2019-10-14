@@ -1,0 +1,32 @@
+<ion-view view-title="" hide-tabs="false" hide-back-button="true">
+  <ion-nav-title>
+    <span >设置交易密码</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="register1" overflow-scroll="true" >
+	  <div >
+			<div class="item-input item g-mt-10">
+				<span class="g-fz-14 g-c66">交易密码:</span>
+				<div class="keyboardWrapper">
+					<input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="password"  placeholder="请输入交易密码" ng-model="business.password" name="business.password" >
+					<!-- <div class="imitateCursor animation">{{business.password}}</div> -->
+
+				</div>
+			</div>
+			<!-- <div class="item-input item g-mt-10">
+		    	<span class="g-fz-14 g-c66">登录密码：</span>
+		    	<div class="keyboardWrapper">
+					<input type="password"  placeholder="请输入登录密码" ng-model="login.loginPwd" name="login.loginPwd"   keyboard >
+				</div>
+			</div> -->
+		</div>
+			<div class="g-plr-10">
+				<input type="submit" class="button button-block button-orange" value="确定"  ng-click="setPassword()">
+			</div>
+  </ion-content>
+</ion-view>

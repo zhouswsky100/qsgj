@@ -1,0 +1,38 @@
+<ion-view  view-title="" hide-tabs="true+'-242736'" hide-back-button="true"><!-- hide-nav-bar = "true" -->
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <div id="gestureLogin">
+    <ion-content class="background" overflow-scroll="true">
+      <p class="errorTip" ng-if="errorTime>0">您已经输错了 <span class="red">{{errorTime}}</span> 次,还有 <span class="red">{{5-errorTime}}</span> 次机会！</p>
+      <p class="errorTip" ng-if="lessFour>0">至少需要输入4个点</p>
+      <div class="row photoBox">
+          <div class="col ">
+            <img ng-src="{{photo}}" class="photo" onerror="this.src='img/photo.png';this.onerror=null;">
+            <p>{{ciNm}}</p>
+          </div>
+      </div>
+      <iframe id="gestrueIframe" name="gestrueIframe" ng-src="page/gestrue.html" width="100%"  scrolling="no" height="300px"></iframe>
+      <div class="row pwdSetTip" ng-if="mode==0">
+          <div class="col g-ta-c" ng-if="setPwdStep==0">
+            手势密码将在您进入本应用时启动
+          </div>
+          <div class="col g-ta-c" ng-if="setPwdStep==1">
+            重新设置手势密码
+          </div>
+      </div>
+      <table width="100%" cellspacing="0px" cellpadding="0px" ng-if="mode==1">
+        <tr>
+          <td align="center" width="50%">
+            <a ng-click="forgetPwd()" class="link">忘记手势密码</a>
+          </td>
+          <td align="center" width="50%">
+            <a ng-click="viewToLogin()"  class="link">登录其他账户</a>
+          </td>
+        </tr>
+      </table> 
+    </ion-content>
+  </div>
+</ion-view>

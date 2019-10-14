@@ -1,0 +1,569 @@
+/*投资专区首页*/
+#investIndex{}
+#investIndex .bidlist .bidItem{margin:10px 0px;background:#FFF;}
+#investIndex .bidlist .bidItem .bidAreaName{color:#666;padding:0px 10px;height: 38px;line-height: 38px;}
+#investIndex .bidlist a.item{}
+#investIndex .bidlist .item p{font-size:0.8em;color:#999;}
+#investIndex .bidlist .item h2{color:#666;}
+#investIndex .bannerHeight:before{content:"";background:url("../img/default_banner.jpg") center center no-repeat;background-size:cover;position:absolute;left:0;top:0;font-family:Helvetica;width:100%;height:150px;}
+#investIndex .bannerHeight{height: 150px;background:#f3f3f3;text-align: center;font-size:1em;color:#f36026;}
+/*新手专区和热门推荐*/
+#investIndex .section{font-size:1em;color:#999;}
+#investIndex .section .item{font-size:1em;padding:0;}
+#investIndex .section .top{position:relative;padding-left:100px;line-height:30px;margin-bottom:5px;}
+#investIndex .section .tittle{position:absolute;top:0;left:15px;font-size:1.2em;color:#fff;background-color:#ff0000;padding:0 5px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;}
+#investIndex .section .income{color:#f36026;font-size:1em;}
+#investIndex .section .income .mainIncome{font-size:1.3em;}
+#investIndex .section .term{color:#666;font-size:1.2em;}
+#investIndex .section .investBtn{color:#fff;font-size:1.2em;text-align:center;line-height:34px;background-color:#f36026;margin-bottom:5px;}
+/*投资列表*/
+#bidList{}
+#bidList .goMainInvestBtn{
+    width: 50%;
+    padding: 3px 0;
+    margin: 20px auto;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 34px;
+    background-color: #f36026;
+    margin-bottom: 5px;
+}
+#bidList .item-body p{margin:5px;}
+#bidList .banner{position: relative;}
+#bidList .banner .link{ position: absolute;right:10px;bottom:10px;color:#FFF; text-decoration: none;}
+#bidList .item-divider,#bidList .item{background:#FFF;color:#666;padding:5px 10px;font-size: 1em;}
+#bidList .item-divider2,#bidList .item{background:#FFF;color:#666;font-size: 1em;}
+
+#bidList a.title{font-size:1em;text-decoration:none;color:#f36026;}
+#bidList .num{color:#f36026;}
+#bidList .num i{font-size:1.5em;font-weight: bold;}
+#bidList .term{color:#666;}
+#bidList .term i{font-size:1.5em;font-weight: bold;}
+#bidList .baseInfo{ height:auto;}
+#bidList .baseInfo .tab-item{line-height: 24px;}
+#bidList .baseInfo .tab-item.left{-webkit-box-flex: 3;-webkit-flex: 3;-moz-box-flex: 3;-moz-flex: 3;-ms-flex: 3;flex: 3;max-width: 180px;}
+#bidList .baseInfo .tab-item.right{-webkit-box-flex: 2;-webkit-flex: 2;-moz-box-flex: 2;-moz-flex: 2;-ms-flex: 2;flex: 2;max-width: 180px;}
+#bidList td{padding:5px 0px;}
+#bidList .progressBox{padding:15px 10px 5px;;}
+#bidList .g-bar-unfill{margin:10px 10px 0px;}
+#bidList .surplus{font-size:0.8em;color:#999;}
+#bidList .timer{font-size:0.8em;}
+#bidList .g-listNoData{top:25%;}
+#bidList .section{font-size:1em;color:#999;margin:3%;margin-top:30px;background-color:#fff;}
+#bidList .section .item{font-size:1em;padding:0;}
+#bidList .section .top{position:relative;text-align:left;padding-left:15px;line-height:30px;margin-bottom:5px;}
+#bidList .section .tittle{position:absolute;top:0;left:15px;font-size:1.2em;color:#fff;background-color:#ff0000;padding:0 5px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;}
+#bidList .section .income{color:#f36026;font-size:1em;}
+#bidList .section .income .mainIncome{font-size:1.3em;}
+#bidList .section .term{color:#666;font-size:1.2em;}
+#bidList .section .investBtn{color:#fff;font-size:1.2em;text-align:center;line-height:34px;background-color:#f36026;margin-bottom:5px;}
+#bidList .recommendBox, #bidList .historyBox{text-align:center;margin-top:50px;}
+#bidList .recommendBox .tittle, #bidList .historyBox .tittle{width:80%;margin:20px auto;font-size:1.2em;line-height:0;border-top:1px solid #666;color:#666;}
+#bidList .recommendBox .tittle span, #bidList .historyBox .tittle span{background-color:#f4f2f4;padding:0 10px;}
+
+/*新手标投资列表*/
+#bidListNewFish{}
+#bidListNewFish .item-body p{margin:5px;}
+#bidListNewFish .banner{position: relative;}
+#bidListNewFish .banner .link{ position: absolute;right:10px;bottom:10px;color:#FFF; text-decoration: none;}
+#bidListNewFish .item-divider,#bidListNewFish .item{background:#FFF;color:#666;padding:5px 10px;font-size: 1em;}
+#bidListNewFish a.title{font-size:1em;text-decoration:none;color:#f36026;}
+#bidListNewFish .num{color:#f36026;}
+#bidListNewFish .num i{font-size:1.5em;font-weight: bold;}
+#bidListNewFish .term{color:#666;}
+#bidListNewFish .term i{font-size:1.5em;font-weight: bold;}
+#bidListNewFish .baseInfo{ border-bottom-style: dashed;height:auto;}
+#bidListNewFish .baseInfo .tab-item{line-height: 24px;}
+#bidListNewFish td{padding:5px 0px;}
+#bidListNewFish .progressBox{padding:15px 10px 5px;;}
+#bidListNewFish .g-bar-unfill{margin:10px auto 0px;}
+#bidListNewFish .surplus{font-size:0.8em;color:#999;}
+#bidListNewFish .timer{font-size:0.8em;}
+/*长利盈投资列表*/
+#bidListCly{}
+#bidListCly .item-body p{margin:5px;}
+#bidListCly .banner{position: relative;}
+#bidListCly .banner .link{ position: absolute;right:10px;bottom:10px;color:#FFF; text-decoration: none;}
+#bidListCly .item-divider,#bidListCly .item{background:#FFF;color:#666;padding:5px 10px;font-size: 1em;}
+#bidListCly a.title{font-size:1em;text-decoration:none;color:#f36026;}
+#bidListCly .num{color:#f36026;}
+#bidListCly .num i{font-size:1.5em;font-weight: bold;}
+#bidListCly .term{color:#666;}
+#bidListCly .term i{font-size:1.5em;font-weight: bold;}
+#bidListCly .baseInfo{ border-bottom-style: dashed;height:auto;}
+#bidListCly .baseInfo .tab-item{line-height: 24px;}
+#bidListCly .baseInfo .tab-item.left{-webkit-box-flex: 3;-webkit-flex: 3;-moz-box-flex: 3;-moz-flex: 3;-ms-flex: 3;flex: 3;max-width: 180px;}
+#bidListCly .baseInfo .tab-item.right{-webkit-box-flex: 2;-webkit-flex: 2;-moz-box-flex: 2;-moz-flex: 2;-ms-flex: 2;flex: 2;max-width: 180px;}
+#bidListCly td{padding:5px 0px;}
+#bidListCly .progressBox{padding:15px 10px 5px;;}
+#bidListCly .g-bar-unfill{margin:10px auto 0px;}
+#bidListCly .surplus{font-size:0.8em;color:#999;}
+#bidListCly .timer{font-size:0.8em;}
+#bidListCly .g-listNoData{top:25%;}
+#bidListCly .section{font-size:1em;color:#999;margin:3%;margin-top:30px;background-color:#fff;}
+#bidListCly .section .item{font-size:1em;padding:0;}
+#bidListCly .section .top{position:relative;text-align:left;padding-left:15px;line-height:30px;margin-bottom:5px;}
+#bidListCly .section .tittle{position:absolute;top:0;left:15px;font-size:1.2em;color:#fff;background-color:#ff0000;padding:0 5px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;}
+#bidListCly .section .income{color:#f36026;font-size:1em;}
+#bidListCly .section .income .mainIncome{font-size:1.3em;}
+#bidListCly .section .term{color:#666;font-size:1.2em;}
+#bidListCly .section .investBtn{color:#fff;font-size:1.2em;text-align:center;line-height:34px;background-color:#f36026;margin-bottom:5px;}
+#bidListCly .recommendBox, #bidListCly .historyBox{text-align:center;margin-top:50px;}
+#bidListCly .recommendBox .tittle, #bidListCly .historyBox .tittle{width:80%;margin:20px auto;font-size:1.2em;line-height:0;border-top:1px solid #666;color:#666;}
+#bidListCly .recommendBox .tittle span, #bidListCly .historyBox .tittle span{background-color:#f4f2f4;padding:0 10px;}
+/*借款标详情*/
+#bidDetail{}
+#bidDetail .footBtn{position:fixed;bottom:0;width:100%;z-index:10000;height:50px;line-height: 50px;text-align:center;font-size: 20px;color: #fff;}
+#bidDetail .bidName{padding:10px;}
+#bidDetail .bidName span{diplay:block; margin: 0 2px; padding: 0 2px; font-size: 12px; color: #ff9c0f; border: 1px solid #ffcd87;}
+#bidDetail .bidRequire{padding:20px 0px;height:auto; background-size: 100% 0;}
+#bidDetail .border-bot{border-bottom: solid 1px #f2f2f2 !important; margin-bottom: 1px;}
+#bidDetail .pd{padding: 5px 16px;}
+#bidDetail .pdt0{padding-top:0;}
+#bidDetail .proDel{color: #666; font-size: 14px; white-space: normal;}
+#bidDetail .c-f36026{color:#f36026;}
+#bidDetail .c-eaa500{color:#eaa500;}
+#bidDetail .c-53cf00{color:#53cf00;}
+#bidDetail .c-ef473a{color:#ef473a;}
+#bidDetail .g-c99{color: #999;}
+#bidDetail .list{margin-bottom:10px;}
+#bidDetail .item{border-width: 0;}
+#bidDetail .baseInfo{color: #666; background-color: #fff; padding: 10px 0px;}
+#bidDetail .baseInfo .tab-item{line-height: 24px;color:#FFF;opacity: 1;}
+#bidDetail .baseInfo .num{color:#f36026;}
+#bidDetail .baseInfo .num i{font-size:1.5em;font-weight: bold;}
+#bidDetail .bidName span.label{color: #ff0000; border: 1px solid #ff0000;}
+#bidDetail .baseInfo .bidTypeBg{position: absolute;z-index:99;right: 0;top: 0;width: 0;height: 0;border-width: 24px;border-style: solid;border-color: #ff0000 #ff0000 transparent transparent;}
+#bidDetail .baseInfo .bidType{position: absolute;z-index:100;text-align:center;right: 0;top: 0;width: 72px;height: 72px;color: #fff;font-size: 14px;-moz-transform: rotate(45deg);/* Firefox 旋转属性，参数表示角度(deg表示角度)，负数逆时针，正数顺时针 */                -webkit-transform: rotate(45deg);/* Safari和Chrome */-ms-transform: rotate(45deg);/* IE 9 */-o-transform: rotate(45deg);/* Opera */}
+#bidDetail .more{font-size: 16px; margin-right: -10px;}
+#bidDetail .item-icon-right .icon{right: 3px;}
+#bidDetail .pro-intr{width: calc(100%); width: -moz-calc(100% ); width: -webkit-calc(100%);padding-left: 70px; display: block; margin-top: -21px; line-height: 25px;}
+#bidDetail .bidRequire img{display: block; margin-bottom: 5px;}
+/*#bidDetail .baseInfo .term{color:#FFF;}*/
+#bidDetail .baseInfo .term i{font-size:1.5em;font-weight: bold;}
+#bidDetail .baseInfo .g-bar-unfill{margin:30px 0px 5px;;}
+#bidDetail .surplus{font-size:0.8em;}
+#bidDetail .surplus .num{font-size:1.5em;}
+#bidDetail .bar-footer a{text-decoration: none;}
+#bidDetail .mb-30{margin-bottom: 30px;}
+#bidDetail .jjsTips{
+	font-size: 0.8em;
+    overflow: hidden;
+    padding: 2px 16px;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #f36026;
+}
+#bidDetail .jjsTips .txt{
+	float: left;
+    width: 80%;
+}
+#bidDetail .jjsTips i{
+	float: right;
+    padding: 5px;
+    font-size: 18px;
+}
+#bidDetail .p-normal{
+  text-overflow: normal;
+  white-space: normal; 
+}
+#bidDetail .td-bor{
+  border-right: solid 1px #ddd;
+}
+#bidDetail .a-link{
+  display: block;
+  text-decoration: none;
+  color: #666;	
+}
+/*项目来源*/
+#projectResource ul{
+	background-color: #fff;
+}
+/*我要投资*/
+#myInvest a{
+  text-decoration: none;
+}
+
+#myInvest .item{
+	color: #666;
+  border-width: 0px;
+}
+#myInvest .info1{
+	height: 54px;
+	line-height: 54px;
+	padding: 0 16px;
+}
+#myInvest .info1 .tab-item{
+	text-align: left;
+}
+#myInvest .info2{
+	margin-top: 10px;
+	display: block;
+}
+#myInvest .allTxt{
+	width: 13%;
+  position: absolute;
+  height: 40px;
+  right: 6px;
+  top: 22px;
+  text-align: center;
+  padding: 0;
+  line-height: 40px;
+}
+#myInvest .allTxt1{
+  width: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+#myInvest .input1-yuan{
+  position: absolute;
+  left: 214px;
+  top:17px;
+  font-size: 14px;
+  line-height: 32px;
+  background: #fff;
+  padding-right: 5px;
+}
+#myInvest .info3{
+	margin: 60px 10px;
+}
+#myInvest .orangeInput{
+	color: #f36026;
+}
+#myInvest span{
+	font-size: 14px;
+}
+#myInvest .f-mark{
+  font-size: 1.2em;
+}
+#myInvest .investInput1{
+  border: solid 1px #ddd;
+  max-width: 150px;
+  padding-top:0;
+}
+/*#myInvest .investInput2{
+  max-width: 0;
+}*/
+#myInvest .f-16{
+  font-size: 16px;
+}
+#myInvest .invest-checkBox{
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+/*借款协议*/
+#protocolWrapper{
+  padding-top:10px;
+}
+#protocolWrapper .list{
+	margin: 10px 0 10px 0;
+	padding: 10px;
+}
+/*投资成功*/
+#investSuccess .success .tab-item{
+	color: #FF824F;
+	font-size: 18px;
+}
+#investSuccess .success .tab-item span{
+	color: #108ccf;
+}
+#investSuccess .success .icon{
+	font-size: 42px;
+	height: 50px;
+}
+#investSuccess .success.item{
+	background-color: inherit;
+	border: none;
+	height: 120px;
+	padding-top: 20px;
+	margin-bottom: 5px;
+}
+#investSuccess .spanBox{
+  max-width: 250px;
+  display: block;
+  white-space: normal;
+  line-height: 23px;
+}
+#investSuccess .redPacket{
+	text-align: center;
+	padding: 10px;
+	font-size: 18px;
+	color: #333;
+}
+#investSuccess .bar-footer a{
+	text-decoration: none;
+}
+/*项目详情*/
+#projectDetail{}
+#projectDetail .content{
+	padding: 10px;
+	color: #666;
+}
+#projectDetail p.title,#projectDetail .box2 .g-table thead{
+	color: #333;
+	background: #e0e0e0;
+	padding: 10px;
+}
+#projectDetail .box1 ul li{
+	line-height: 25px;
+	width: 100%;
+}
+#projectDetail .box1 ul .inAddress{
+  white-space: normal;
+}
+#projectDetail .box1  .item{
+	background-color: inherit;
+	border: none;
+	padding: 0;
+}
+#projectDetail .box1 .licence .item{
+	margin-bottom: 20px;
+	height: 85px;
+	display: flex;
+}
+#projectDetail .box1 .picture{
+	height: 60px;
+	border: 1px solid #bfbfbf;
+	width: 80%;
+	margin-bottom: 5px;
+}
+#projectDetail .bcgf{
+	background-color: #000;
+    color: #fff;
+}
+#projectDetail .tc{
+text-align: center;
+}
+#projectDetail .box1 .subTitle{
+	display: inline-block;
+	width: 70px;
+}
+#projectDetail .box1 .subTitles{
+	display: inline-block;
+	width: 200px;
+}
+#projectDetail .box1 .subContent{
+    width: calc(100% - 100px);
+    float:left;
+}
+#projectDetail .box1 .ellipsis{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+#projectDetail .box1 .watchDetail{
+	font-size: 0.9em;
+	color:#387ef5;
+}
+#projectDetail .box1 .fileImage{
+    width: 33%;
+    float: left;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+#projectDetail .box2 ul li{
+	border-bottom: 1px solid #b5b5b5;
+	margin-bottom: 10px;
+}
+#projectDetail .box3 .tips{
+	padding: 10px 0;
+	color: #999;
+}
+#projectDetail .jjb-pro{
+  color: #666;
+}
+#projectDetail .jjb-pro li{
+  padding: 10px;
+  font-size: 14px;
+  background-color: #fff;
+}
+#projectDetail .jjb-pro .subTitles{
+  position: relative;
+  padding-left: 10px;
+  font-weight: bold;
+}
+#projectDetail .jjb-pro .subContent{
+  display: block;
+  line-height: 25px;
+  color: #999;
+}
+.bor-mark-left:after{
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 3px;
+  height: 12px;
+  background-color: #F26027;
+}
+#projectDetail .jjb-pro .bor-mark-left{
+  position: relative;
+  padding-left: 10px;
+}
+.jjb-table td{
+  border: none;
+}
+.jjb-table thead td{
+  background-color: #E7E7E7;
+  border-right: solid 1px #fff; 
+}
+.jjb-table thead td:last-child{
+  border-right: none;
+}
+/*稳利盈*/
+.mgbt{
+  margin-bottom: 45px;
+}
+.institutionDetail h2{
+  line-height: 74px;
+}
+.institutionDetail .button{
+  width: 100%;
+  background-color: #e0e0e0;
+  color: #AFADAD;
+}
+#projectDetail #institutionul .subTitles{
+  width: 100px;
+}
+#projectDetail #institutionul .subContent{
+  float: right;
+  text-align: right;
+}
+#projectDetail .box1 #wlyul li{
+  line-height: 30px;
+  white-space: normal;
+}
+#projectDetail .box1 #wlyul .subTitles{
+  font-weight: bold;
+}
+#projectDetail .box1 #wlyul .subContent{
+  float: none;
+  margin-left: 70px;
+  display: block;
+}
+#projectDetail .wlylist{
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+#projectDetail .wlylist li{
+  width: 100%;
+  line-height: 30px;
+  overflow: hidden;
+}
+#projectDetail .wlylist li span{
+  display: inline-block;
+}
+#projectDetail .wlylist li span.nu1{
+  width: 40%;
+  float: left;
+  padding-left: 1%;
+}
+#projectDetail .wlylist li span.nu2{
+  width: 22%;
+  float: left;
+}
+#projectDetail .wlylist li span.nu3{
+  float: right;
+  width: 34%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#projectDetail .wlyready li span{
+  width: 50%;
+  padding: 0;
+}
+
+/**/
+.hlytabs li{
+  max-width: 50%;
+}
+
+/*注册*/
+#register1 .registerBanner{
+    width: 100%;
+}
+#registerSuccess .wrapper{
+    padding: 20px;
+    margin: 20px;
+}
+#registerSuccess .wrapper .text{
+	margin-bottom: 30px;
+}
+#register1 .registerTip{
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
+#register1 .registerBtn{
+  margin-top: 40px;
+}
+/**/
+.jxTip{
+  margin: 10px 0 20px;
+}
+
+#registerNew .iconfont{
+  color:#666;
+  margin-top: 0px !important;
+  margin-right: 10px;
+}
+#registerNew .orangeColor{
+  color: #f36026;
+}
+#registerNew .registerBtn{
+  width: 60%;
+  margin:0 auto;
+}
+#registerNew .recommend{
+  width: 90%;
+  background-color: #e6e6e6;
+}
+#registerNew input::-webkit-input-placeholder{
+  padding-left: 5px
+}
+#registerNew .registerTip{
+  text-align: center;
+  width: 100%;
+}
+.registerBanner img{
+    width: 100%;
+}
+#registerNew .recommendWrapper{
+  margin-left: 16px;
+}
+.register-popup{
+  text-align: center;
+}
+.register-popup .close{
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+.register-popup .popup-head{
+  padding: 30px 10px 10px;
+  border-bottom: none;
+}
+.register-popup .popup-title {
+  font-size: 24px;
+}
+.register-popup .goBtn{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.subTitle2{
+	display: inline-block;
+	width: 65%;
+}

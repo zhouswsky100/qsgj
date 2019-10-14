@@ -1,0 +1,131 @@
+<ion-view  view-title="稳利盈详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+  <button class="button back-button buttons button-light button-clear header-item" ng-click="$ionicGoBack()">
+    <i class="icon ion-ios-arrow-left color-fff"></i>
+  </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+    <button wechart-share sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}" hasurl="1" webpageurl="https://m.he-pai.cn/wechat/#/bidWlyDetail/{{lnNo}}/10" class="button button-clear ion-android-share-alt button-light">
+      <i>分享</i>
+    </button>
+  </ion-nav-buttons>
+  <div id="bidDetail">
+    <ion-content class="background" overflow-scroll="true" >
+      <div class="list baseInfo">
+        <div class="item bidName border-bot" style="padding-top:0;">
+          <span class="red g-f-r" ng-if="body.isDz =='1'">高端定制</span>
+          <p class="g-c33 g-fz-16">{{body.plan_name}}</p>
+        </div>
+        <div class="item-body">
+          <table cellpadding="0px" cellspacing="0px" width="100%">
+            <tr>
+              <td width="50%" align="center" class="td-bor">
+                <span class="num"><i><span style="font-size: 30px;" ng-bind="body.rate | number:2"></span>%</i></span>
+                <div class="g-mb-5 g-c99 g-fz-14">历史年化利率</div>
+              </td>
+              <td width="50%" align="center">
+                <span class="term"><i ng-bind="body.term"></i><span ng-bind="body.term_unit_desc"></span></span>
+                <div class="g-mb-5 g-c99 g-fz-14">计划期限</div>
+              </td>
+            </tr>
+          </table>
+          <div ng-if="!body.bid_schd">
+            <progress progressval="0" class="progressThemeB"></progress>
+          </div>
+          <div ng-if="body.bid_schd">
+            <progress progressval="{{body.plan_status == '0' ? body.bid_schd : '100'}}" class="progressThemeB"></progress>
+          </div>
+          <span class="g-fz-14">剩余可投金额：<span ng-bind="body.can_bid_bal | number:2"></span>元</span>
+        </div>
+      </div>
+      <div class="list">
+        <!-- <div class="item bidName">
+          <span class="g-c66" ng-bind="body.plan_name"></span>
+          <span class="red" ng-if="body.isDz =='1'">高端定制</span>
+        </div> -->
+
+        <div class="item tabs tabs-secondary tabs-icon-top bidRequire">
+          <div class="item tabs tabs-secondary tabs-icon-top bidRequire">
+            <p class="tab-item" style="font-size: 14px;">
+              <img class="icon" src="img/icon-d1.png" alt="tu" />
+              <span class="g-fz-14" ng-bind="body.min_amt"></span>元起投
+            </p>
+            <p class="tab-item icon-top">
+              <img class="icon" src="img/icon-d2.png" alt="tu" />
+              <span class="g-fz-14">定期还款，智能投标</span>
+            </p>
+            <p class="tab-item">
+              <img class="icon" src="img/icon-d3.png" alt="tu" />
+              <span class="g-fz-14">当日计息</span>
+            </p>
+          </div>
+        </div>
+        <div class="item g-mt-10 item-icon-right">
+          <a class="more a-link" href="#/tab/projectWlyDetailCpxq/{{lnNo}}/{{type}}/1">
+            产品详情
+            <span class="item-note">更多</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </a>
+        </div>
+        <label class="item pd pdt0">
+          <p class="g-c99">开始投标：<span class="g-c99">{{body.release_date}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">结束投标：<span class="g-c99">{{body.deadline}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">融资金额：<span class="g-c99">{{body.total_amt | number}}元</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">起投金额：<span class="g-c99">{{body.min_amt | number}}元</span></p>
+        </label>
+        <label class="item pd" style="padding-bottom:16px">
+          <p class="g-c99">退出时间：<span class="g-c99">{{body.exit_date}}</span></p>
+        </label>
+    <!--     <label class="item  g-mt-10">
+          <p>开始时间：<span class="g-c99" ng-bind="body.release_date"></span></p>
+        </label>
+        <label class="item ">
+          <p>结束时间：<span class="g-c99" ng-bind="body.deadline"></span></p>
+        </label>
+        <label class="item ">
+          <p>退出时间：<span class="g-c99" ng-bind="body.exit_date"></span></p>
+        </label> -->
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/projectWlyDetailYtxm/{{lnNo}}/{{type}}">
+          <p class="more">已投项目<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/investWlyRecord/{{lnNo}}/{{type}}">
+          <p class="more">投资记录<span class="item-note"><span ng-bind="body.totalCount"></span>人已投资</span><i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <p class="g-ta-c jxTip">——  每一笔交易资金由江西银行存管  ——</p>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="orange" ng-if="canBid(body.plan_status,body.plan_status_desc)&&body.plan_status == '0'">
+      <a class="title g-cff" ng-click="toInvestPage()">
+        <span ng-if="body.isDz =='1'">
+          <span ng-bind="body.min_amt"></span>元起投，
+        </span>
+        立即投资
+      </a>
+    </ion-footer-bar>
+	
+	 <ion-footer-bar align-title="center" class="orange" ng-if="!ajax">
+      <a class="title g-cff" ng-click="toInvestPage()">
+        <span ng-if="body.isDz =='1'">
+          <span ng-bind="body.min_amt"></span>元起投，
+        </span>
+        立即投资
+      </a>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="gray" ng-if="!canBid(body.plan_status,body.plan_status_desc)&& ajax">
+      <div class="title g-cff" ng-bind="body.plan_status_desc"></div>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="gray" ng-if="!canBid(body.plan_status,body.plan_status_desc)&&body.plan_status == '-1'&& ajax"> 
+      <a  ng-click="toInvestPage()">
+        <div class="title g-cff" ng-init="getToBeginTime(remainTime)">
+          <span class="num"><span ng-bind="message.hour"></span>小时<span ng-bind="message.minute"></span>分<span ng-bind="message.second"></span>秒</span>后开抢
+        </div>
+      </a>
+    </ion-footer-bar>
+  </div>
+</ion-view>

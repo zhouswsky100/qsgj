@@ -1,0 +1,59 @@
+<ion-view  view-title="订单发布" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div  id="home">
+    <ion-content class="background" overflow-scroll="true" >
+        <div  class="mint-navbar"  >
+          <a  ng-class="showFlg == '0'?'mint-navbar-change':'mint-tab-item'"  ng-click="menuOn('0')"> 
+              <div class="mint-tab-item-label" >青贝兑出</div>
+          </a>
+          <a  ng-class="showFlg == '1'?'mint-navbar-change':'mint-tab-item'"   ng-click="menuOn('1')"> 
+              <div class="mint-tab-item-label">青贝兑入</div>
+          </a>
+        
+      </div>
+      <div class="g-pt-50 ">
+        <p class="g-m-10 ">青贝交易金额保留后2位小数，请您认真核对输入金额，交易金额为:<span>{{allnum}}</span>RMB</p>
+      </div>
+      <div ng-if="showFlg==0"class="g-pt-10 " > 
+        <div class="item-input item g-mt-10">
+          <span class="g-fz-14 g-c66">兑出数量:</span>
+          <div class="keyboardWrapper">
+          <input type="text"  placeholder="请输入兑出数量"  ng-keyup="calc()" ng-model="data.cqbNum">
+          </div>
+        </div>
+        <div class="item-input item ">
+          <span class="g-fz-14 g-c66">兑出单价:</span>
+          <div class="keyboardWrapper">
+          <input type="text"  placeholder="请输入兑出单价" ng-keyup="calc()"  ng-model="data.cqbPrice">
+          <span class="qbdw">RMB</span>
+          </div>
+        </div>
+      
+      </div>
+      <div ng-if="showFlg==1" class="g-pt-10 "> 
+        <div class="item-input item g-mt-10">
+          <span class="g-fz-14 g-c66">兑入数量:</span>
+          <div class="keyboardWrapper">
+          <input type="text"  placeholder="请输入兑入数量"   ng-keyup="calc()" ng-model="data.sqbNum">
+          </div>
+        </div>
+        <div class="item-input item ">
+          <span class="g-fz-14 g-c66">兑入单价:</span>
+          <div class="keyboardWrapper">
+          <input type="text"  placeholder="请输入兑入单价"  ng-keyup="calc()" ng-model="data.sqbPrice">
+          <span class="qbdw">RMB</span>
+          </div>
+        </div>
+       </div>
+       <div class="g-plr-10">
+        <input type="submit"class="button button-block button-orange" value="发布订单"  ng-click="POrders()">
+    </div>
+    </ion-content>
+
+ </div>
+
+</ion-view>

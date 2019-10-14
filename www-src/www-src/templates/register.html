@@ -1,0 +1,27 @@
+<ion-view view-title="" hide-tabs="false" hide-back-button="true">
+  <ion-nav-title>
+    <span>填写手机号码</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <span class="iconfont icon-change" ng-if="loginState && !hasRegister" ng-click="change()"></span>
+  </ion-nav-buttons>
+  <ion-content class="background" id="register1" overflow-scroll="true" >
+	  <div ng-if="!loginState">
+	  	<div class="item-input item g-mt-10">
+		    	<span class="g-fz-14 g-c66">手机号码：</span>
+		    	<div class="keyboardWrapper">
+				    <input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="text"  placeholder="请输入您的手机号码" ng-model="login.tel" name="login.tel" boardtype="v2" focus="true" keyboard>
+				    <div class="imitateCursor animation">{{login.tel}}</div>
+			    </div>
+			</div>
+			<div class="g-mlr-10 g-plr-10 registerBtn">
+			    <input type="submit" class="button button-block button-orange" value="确定" ng-disabled="!login.tel" ng-click="next()">
+			</div>
+	  </div>
+  </ion-content>
+</ion-view>

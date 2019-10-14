@@ -1,0 +1,196 @@
+/*新改版样式*/
+#home .bannerHeight:before{
+	content: "";
+	background: url("../img/default_banner.jpg") center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-family: Helvetica;
+	width: 100%;
+	height: 150px;
+}
+#home .bannerHeight{
+	height: 150px;
+	background: #f3f3f3;
+	text-align: center;
+	font-size: 1em;
+	color: #f36026;
+}
+#home .noticeBlock{
+	background-color: #fff;
+	font-size: 14px;
+}
+#home .noticeBlock .icon-notice{
+	vertical-align: middle;
+	color: #f47340;
+}
+#home .noticeBlock .more{
+	line-height: 24px;
+	text-align: right;
+}
+#home .noticeBlock .txtSlide{
+	position: relative;
+}
+#home .noticeBlock .slideboxWp{
+	top: 5px;
+	width: 96%;
+}
+#home .noticeBlock a{
+	color: #666;
+	text-decoration: none;
+}
+#home .noticeBlock .more{
+	color: #999;
+}
+#home .toolBlock{
+	text-align: center;
+	background-color: #fff;
+	margin: 10px 0;
+}
+#home .toolBlock a{
+	color: #666;
+	text-decoration: none;
+}
+#home .toolBlock .toolIcon{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+}
+#home .toolBlock .toolName{
+	padding: 5px 0 0 0 ;
+}
+#home .bidBlock{
+	text-align: center;
+	background-color: #fff;
+	margin: 10px 0;
+	position: relative;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	overflow: hidden;
+}
+#home .bidBlock .bidTypeBg{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-width: 28px;
+	border-style: solid;
+	border-color: #ff0000 #ff0000 transparent transparent;
+}
+#home .bidBlock .bidType{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 90px;
+	height: 90px;
+	color: #fff;
+	font-size: 14px;
+	-moz-transform: rotate(45deg);/* Firefox 旋转属性，参数表示角度(deg表示角度)，负数逆时针，正数顺时针 */                
+    -webkit-transform: rotate(45deg);/* Safari和Chrome */
+    -ms-transform: rotate(45deg);/* IE 9 */
+    -o-transform: rotate(45deg);/* Opera */
+}
+#home .bidBlock .corange{
+	color: #ff0000;
+}
+#home .bidBlock .br{
+	border-right: 1px solid #ccc;
+}
+#home .bidBlock .row{
+	margin: 10px 0;
+}
+#home .bidBlock .button{
+	width: 60%;
+	background-color: #f36026;
+	color: #fff;
+	margin: auto;
+	line-height: 47px;
+}
+#home .bidBlock .row.wid80p{
+	width: 80%;
+	margin: 10px auto;
+}
+#home .adPop{
+	position: fixed;
+	right: 15px;
+	bottom: 120px;
+	width: 60px;
+}
+#home .adPop img{
+	width: 100%;
+}
+#home .learnMore{
+	background-color: #fff;
+	margin: 10px 0;
+	padding: 5px;
+}
+#home .learnMore .tit{
+	margin: 5px 0 10px 0;
+}
+#home .totalDataWp{
+	position: relative;
+	background-color: #36bff8;
+	color: #fff;
+}
+#home .totalData{
+	text-align: center;
+	padding: 20px 0;
+	margin: 0 auto;
+	width: 90%;
+}
+#home .totalData .col{
+	padding: 0;
+	position: relative;
+}
+#home .totalData .col:after{
+	position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    content: '';
+    margin: 5px auto;
+    width: 1px;
+    background: #fff;
+}
+#home .totalData .col.last:after{
+    background: #36bff8;
+}
+#home .totalData .col.col-30 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 30%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 30%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%; 
+}
+#home .totalData .data{
+	height: 22px;
+	font-size: 14px;
+}
+#home .icon-arrow-right{
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	color: #fff;
+	font-size: 20px;
+	margin: auto !important;
+}
+#home .brightPoint{
+	text-align: center;
+}
+#home .brightPoint a{
+	color: #666;
+	text-decoration: none;
+}
+#home .brightPoint .bIcon{
+	width: 32px;
+	height:32px;
+}
+/*新改版样式*/
+#registerLoginStep12 .agreeCnt{
+	margin-top: 40px;
+}

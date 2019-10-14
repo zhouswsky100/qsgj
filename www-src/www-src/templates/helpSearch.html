@@ -1,0 +1,38 @@
+  <ion-view hide-tabs="false"  view-title="搜索结果"  hide-back-button="true">
+   <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" id="find" overflow-scroll="true" >
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <!--ion-ios-arrow-up ion-ios-arrow-down ion-ios-arrow-right-->
+    <div class="dynamics g-mt-10" >
+      <div class="bts">
+        <a class="item  item-icon-right separate2" style="padding:5px" >
+          <p>
+           <span>搜索"<span>{{keytxt}}</span><span>"</span></span>
+          </p>
+        </a>
+      </div>
+      <div class="bts" ng-click="openBts()" ng-repeat="helpList in helpList">
+        <a class="item  item-icon-right separate2" style="padding:10px" ng-click="gohelpDetail(helpList.article_id)">
+          <p>
+            <span style="padding-left: 10px" ng-bind="$index+1"></span><span>、</span><span>{{helpList.title}}</span>
+            <i class="icon ion-ios-arrow-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+      </div>
+    </div>
+     <ul class="g-listNoData_t g-fz-b1" ng-if="helpList.length <=0 && ajaxEnd">
+          <div style="margin-bottom: 25px;">
+            <li class=" icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+            <li class="g-c99">暂无相关内容</li>
+          </div>
+      </ul>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view  view-title="提现成功" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons button-light button-clear header-item" ng-click="backToWithdraw()">
+            <i class="icon ion-ios-arrow-left color-fff"></i>
+        </button>
+    </ion-nav-buttons>
+    <div id="withdrawSuccess">
+      <ion-content class="background" overflow-scroll="true" >
+        
+            <div class="row okSign">
+              <div class="col g-ta-c">
+                <i class="icon ion-checkmark-circled ion-checkmark-circled"></i>
+                <p>提现申请成功</p>
+              </div>
+            </div>
+          <!--   <div ng-if="!id" class="list">
+              <p>- 工作日15：00之前的提交提现申请成功当天可以到账</p>
+              <p>- 工作日15：00之后的提现申请一般是下一个工作日到账</p>
+              <p>- 周五15：00之后和周六周天的提现申请，由于第三方支付通道关闭，会在下一个工作日的处理，并在周一到账</p>
+            </div>
+            <div ng-if="id" class="g-m-10">
+              <p>您的提现交易，银行将在工作日9:00-16:00处理，到账时间30分钟左右，非工作日或非工作时间将自动延顺</p>
+            </div> -->
+          
+            <div class="g-ml-10 g-mr-10">
+              <button class="button button-block  button-orange " ng-click="viewToRecord()">
+                查看充提记录
+              </button>
+            </div>
+        
+      </ion-content>
+    </div>
+</ion-view>

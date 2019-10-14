@@ -1,0 +1,38 @@
+<ion-view  view-title="账户提现" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background"  overflow-scroll="true" >
+    <div id="withDrawList">
+      <div class="row g-ta-c listTitle">
+        <div class="col col-40">提现时间</div>
+        <div class="col">提现金额</div>
+        <div class="col">状态/操作</div>
+      </div>
+      <ul>
+        <li class="row g-ta-c">
+          <div class="col col-40">2016-12-15 10:12</div>
+          <div class="col">200.02</div>
+          <a class="col g-c66">审核中</a>
+        </li>
+        <li class="row g-ta-c">
+          <div class="col col-40">2016-12-15 10:12</div>
+          <div class="col">200.02</div>
+          <a class="col g-c66">审核中</a>
+        </li>
+        <li class="row g-ta-c">
+          <div class="col col-40">2016-12-15 10:12</div>
+          <div class="col">200.02</div>
+          <a  href="#/withdrawZc" class="col g-cf36026">继续提现</a>
+        </li>
+      </ul>
+      <a href="#/withdrawZc" class="add g-cf36026">+ 新增一笔提现</a>
+    </div>
+    <div class="list g-m-10 g-fz-12">
+      <p>-为了您的资金账户安全，当存在资金异常的可能时，提现将进入人工审核，审核通过后您可以点击“继续提现”，完成提现。</p>
+      <p>-人工审核的处理时间为：周一至周五、周日的08:30-17:00</p>
+    </div>
+  </ion-content>
+</ion-view>

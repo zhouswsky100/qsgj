@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>资金存管提现</title>
+  </head>
+  <body>
+  <!-- {"returnCode":"0","returnMsg":"操作成功","resultMap":{"idNo":"150927197609174961","idType":"01","acqRes":"100005866908","accountId":"6212461660000702181","userIP":"192.168.0.1","seqNo":"121777","errCode":"000000","bindCardUrl":"https://test.credit2go.cn/escrow/p2p/page/bindCardPage","txDate":"20180510","successfulUrl":"","bankCode":"30050000","version":"10","sign":"iztObn43eAtjUr6zwtpj3DFV4i+E2mj7r8ftLR26eFU056HAbfxmyAmQYSsm92kw3BP8FjGOHd5b2ylN3ROUkDI4N/whDja+RMOv3SnhcBAvkuR9zvzgVsvBsWbaw60XdqMgTBnPIL4L6so/V3Bgua/+u+828Jm3m1r+la53AE+pSMfAt0fuCOyOTkf0j1/q8Zj1qX9/9W7KG0nqACQzGg95hSvPhMRVg2hGt74mDJmnZG579pR0sgmUS+jwCaBGKl/xz4Bh5QM5KDdVZT7rkroiqmzYgNkRjzGJfAkfofV9VxAB1D1Ed9DhkL8aEP9wjQgWruINGDUf3RZqJ/3aYw==","verifyOrderNoUrl":"","txTime":"145503","txCode":"bindCardPage","errMsg":"绑卡表单数据生成成功","name":"惠朵一","retUrl":"https://m.he-pai.cn/wechat/#/memberCenter","notifyUrl":"http://218.17.125.194:28300/hpweb/account/bindCardNotify.do","channel":"000001","forgotPwdUrl":"https://m.he-pai.cn/wechat/#/resetZcTradePwd","instCode":"00560001"}} -->
+    <form action="" method="post" id="addBanksZcPage">
+        <input type="hidden" id="idNo" name="idNo" value='' />
+        <input type="hidden" id="idType" name="idType" value='' />
+        <input type="hidden" id="acqRes" name="acqRes" value='' />
+        <input type="hidden" id="accountId" name="accountId" value='' />
+        <input type="hidden" id="userIP" name="userIP" value='' />
+        <input type="hidden" id="seqNo" name="seqNo" value='' />
+        <input type="hidden" id="txDate" name="txDate" value='' />
+        <input type="hidden" id="successfulUrl" name="successfulUrl" value='' />
+        <input type="hidden" id="bankCode" name="bankCode" value='' />
+        <input type="hidden" id="version" name="version" value='' />
+        <input type="hidden" id="sign" name="sign" value='' />
+        <input type="hidden" id="verifyOrderNoUrl" name="verifyOrderNoUrl" value='' />
+        <input type="hidden" id="txTime" name="txTime" value='' />
+        <input type="hidden" id="txCode" name="txCode" value='' />
+        <input type="hidden" id="relname" name="name" value='' />
+        <input type="hidden" id="retUrl" name="retUrl" value='' />
+        <input type="hidden" id="notifyUrl" name="notifyUrl" value='' />
+        <input type="hidden" id="channel" name="channel" value='' />
+        <input type="hidden" id="forgotPwdUrl" name="forgotPwdUrl" value='' />
+        <input type="hidden" id="instCode" name="instCode" value='' />
+      </form>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=JSON.parse(decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.length));
+          document.getElementById('addBanksZcPage').attributes['action'].value=data.bindCardUrl;
+          document.getElementById('idNo').value=data.idNo;
+          document.getElementById('idType').value=data.idType;
+          document.getElementById('acqRes').value=data.acqRes;
+          document.getElementById('accountId').value=data.accountId;
+          document.getElementById('userIP').value=data.userIP;
+          document.getElementById('seqNo').value=data.seqNo;
+          document.getElementById('txDate').value=data.txDate;
+          document.getElementById('successfulUrl').value=data.successfulUrl;
+          document.getElementById('bankCode').value=data.bankCode;
+          document.getElementById('version').value=data.version;
+          document.getElementById('sign').value=data.sign;
+          document.getElementById('verifyOrderNoUrl').value=data.verifyOrderNoUrl;
+          document.getElementById('txTime').value=data.txTime;
+          document.getElementById('txCode').value=data.txCode;
+          document.getElementById('relname').value=data.name;
+          document.getElementById('retUrl').value=data.retUrl;
+          document.getElementById('notifyUrl').value=data.notifyUrl;
+          document.getElementById('channel').value=data.channel;
+          document.getElementById('forgotPwdUrl').value=data.forgotPwdUrl;
+          document.getElementById('instCode').value=data.instCode;
+
+          document.getElementById('addBanksZcPage').submit();
+    </script>
+  </body>
+</html>

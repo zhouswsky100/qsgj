@@ -1,0 +1,58 @@
+<ion-view view-title="投资成功" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button wechart-share sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}" class="button button-clear ion-android-share-alt button-light">
+      <i>分享</i>
+    </button>
+  </ion-nav-buttons>
+  <div id="investSuccess">
+  <ion-content class="background investSuccess" overflow-scroll="true" >
+    <div class="item tabs success tabs-icon-top">
+      <span class="tab-item spanBox">
+        <i class="icon ion-checkmark-circled ion-checkmark-circled"></i>
+        <span class="g-fz-14" style="font-weight: bold;" ng-bind="msg"></span>
+      </span>
+    </div>
+    <div class="list">
+      <div class="item ">
+        <p ng-bind="LN_NM"></p>
+      </div>
+      <div class="item">
+        <p>
+          <span class="g-c99">借款期限：</span><span ng-bind="LN_TERM>0?LN_TERM:0"></span><span ng-bind="LN_TERM_UNIT_DESC"></span>
+        </p>
+      </div>
+      <div class="item">
+        <p>
+          <span class="g-c99">历史年化利率：</span><span ng-bind="LN_RATE | number:2"></span>%
+          <span ng-if="extraRate > 0">+<span ng-bind="extraRate"></span>%</span>
+        </p>
+      </div>
+      <div class="item">
+        <p>
+          <span class="g-c99">投资金额：</span><span ng-bind="investMoney|currency:''"></span>元
+        </p>
+      </div>
+      <div class="item">
+        <p>
+          <span class="g-c99"> 预期收益：</span><span ng-bind="investIncome | formatMoneyFloor | number:2"></span>元
+        </p>
+      </div>
+    </div>
+    
+    <!-- <p class="redPacket">
+      恭喜您获得投资红包一个!
+    </p> -->
+  </ion-content>
+  <!-- <ion-footer-bar align-title="center" class="orange">
+    <a class="title g-cff" href="#/doing">立即拆红包</a>
+  </ion-footer-bar> -->
+  <ion-footer-bar align-title="center" class="orange">
+      <a class="title g-cff" ng-click="toMyInvest()">查看我的投资</a>
+  </ion-footer-bar>
+  </div>
+</ion-view>

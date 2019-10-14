@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>开通资金存管</title>
+  </head>
+  <body>
+    <form action="" method="post" id="openSupervision">
+        <input type="hidden" id="idNo" name="idNo" value='' />
+        <input type="hidden" id="idType" name="idType" value='' />
+        <input type="hidden" id="acqRes" name="acqRes" value='' />
+        <input type="hidden" id="smsFlag" name="smsFlag" value='' />
+        <input type="hidden" id="seqNo" name="seqNo" value='' />
+        <input type="hidden" id="txDate" name="txDate" value='' />
+        <input type="hidden" id="acctUse" name="acctUse" value='' />
+        <input type="hidden" id="bankCode" name="bankCode" value='' />
+        <input type="hidden" id="version" name="version" value='' />
+        <input type="hidden" id="sign" name="sign" value='' />
+        <input type="hidden" id="identity" name="identity" value='' />
+        <input type="hidden" id="txTime" name="txTime" value='' />
+        <input type="hidden" id="email" name="email" value='' />
+        <input type="hidden" id="txCode" name="txCode" value='' />
+        <input type="hidden" id="name" name="name" value='' />
+        <input type="hidden" id="gender" name="gender" value='' />
+        <input type="hidden" id="notifyUrl" name="notifyUrl" value='' />
+        <input type="hidden" id="channel" name="channel" value='' />
+        <input type="hidden" id="coinstName" name="coinstName" value='' />
+        <input type="hidden" id="mobile" name="mobile" value='' />
+        <input type="hidden" id="instCode" name="instCode" value='' />
+        <input type="hidden" id="openAccUrl" name="openAccUrl" value='' />
+        <input type="hidden" id="retUrl" name="retUrl" value='' />
+      </form>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=JSON.parse(decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.length));
+          document.getElementById('openSupervision').attributes['action'].value=data.openAccUrl;
+          document.getElementById('idNo').value=data.idNo;
+          document.getElementById('idType').value=data.idType;
+          document.getElementById('acqRes').value=data.acqRes;
+          document.getElementById('smsFlag').value=data.smsFlag;
+          document.getElementById('seqNo').value=data.seqNo;
+          document.getElementById('txDate').value=data.txDate;
+          document.getElementById('acctUse').value=data.acctUse;
+          document.getElementById('bankCode').value=data.bankCode;
+          document.getElementById('version').value=data.version;
+          document.getElementById('sign').value=data.sign;
+          document.getElementById('identity').value=data.identity;
+          document.getElementById('txTime').value=data.txTime;
+          document.getElementById('email').value=data.email;
+          document.getElementById('txCode').value=data.txCode;
+          document.getElementById('name').value=data.name;
+          document.getElementById('gender').value=data.gender;
+          document.getElementById('notifyUrl').value=data.notifyUrl;
+          document.getElementById('channel').value=data.channel;
+          document.getElementById('coinstName').value=data.coinstName;
+          document.getElementById('mobile').value=data.mobile;
+          document.getElementById('instCode').value=data.instCode;    
+          document.getElementById('retUrl').value=data.retUrl;    
+          document.getElementById('smsFlag').value=data.smsFlag;    
+          document.getElementById('openSupervision').submit();
+    </script>
+  </body>
+</html>

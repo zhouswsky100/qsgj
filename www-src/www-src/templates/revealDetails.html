@@ -1,0 +1,26 @@
+<ion-view  view-title="签署合同" hide-tabs="true" hide-back-button="true"><!-- hide-nav-bar = "true" -->
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" overflow-scroll="true" overflow-scroll="true" >
+  <div class="compensatoryReveal">
+    <div class="wrapper">
+        <p class="tip">您有收购回款冻结中！</p>
+        <p>尊敬的合拍会员：您好！您投资的借款标【<span ng-bind="lnNm"></span>】，因借款人逾期满30天未能全额还款，为保障您的权益，现已由第三方机构收购。收购款项已在您的资金账户并处于冻结状态，请您及时查看并签署
+        <a class="noUnderline" href="javascript:void(0)" ng-click="viewToOldContract(cntlist.cnflNo)" ng-repeat="cntlist in cntlists">
+          <span>《{{cntlist.cntplNm}}》</span>，
+        </a>
+        签署完毕之后，您的资金即可解冻回账户可用余额。感谢您的配合，祝您投资愉快！</p>
+        <div class="buttonWrapper">
+            <button class="button button-orange" ng-click="sign()">签署合同</button>
+            <button class="button button-gray" ng-click="cancel()">取消</button>
+        </div>
+    </div>
+    <div class="g-c99 g-p-10">
+      当借款人未按期还款后，由项目担保公司或第三方资产收购方代为偿还，回款后需要您签署代偿或收购协议，资金方可解冻！
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

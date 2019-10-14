@@ -1,0 +1,21 @@
+<ion-view  view-title="数字证书" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true">
+		  <div class="g-p-10">
+          <div class="item b-mark border0">
+              <p class="g-pb-10">证书类型：数字软证书</p>
+              <p class="g-pb-10">申请时间：{{fddInfo.APL_DT.substring(0,4)}}-{{fddInfo.APL_DT.substring(4,6)}}-{{fddInfo.APL_DT.substring(6,8)}}</p>
+              <p>证书序列号：******{{fddInfo.CUSTOMER_ID.substring(fddInfo.CUSTOMER_ID.length-8,fddInfo.CUSTOMER_ID.length)}}</p>
+          </div>
+          <div class="item border0">
+              <p class="g-pb-10">手机号码：{{fddInfo.MOBILE | formatMoblie}}</p>
+              <p ng-if="!(fddInfo.EMAIL == '' || fddInfo.EMAIL == 'null')">登记邮箱：<span ng-bind="fddInfo.EMAIL"></span></p>
+          </div>
+          <p class="g-mt-10">投融资时使用数字证书，确保合同法律效应；并为每次交易签订在线电子合同，确保合法权益；电子合同由第三方托管，确保证据安全。</p>
+      </div>
+    </ion-content>
+</ion-view>

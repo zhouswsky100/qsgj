@@ -1,0 +1,128 @@
+<ion-view  view-title="债转标详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+  <button class="button back-button buttons button-light button-clear header-item" ng-click="$ionicGoBack()">
+    <i class="icon ion-ios-arrow-left color-fff"></i>
+  </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+    <button wechart-share sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}" hasurl="1" webpageurl="https://m.he-pai.cn/wechat/#/bidZzbDetail/{{lnNo}}/100" class="button button-clear ion-android-share-alt button-light">
+      <i>分享</i>
+    </button>
+  </ion-nav-buttons>
+<!--  <ion-nav-buttons side="right">
+   <a class="button button-clear ion-android-share-alt button-light" href="#/doing">
+     <i>分享</i>
+   </a>
+ </ion-nav-buttons> -->
+  <div id="bidDetail">
+    <ion-content class="background" overflow-scroll="true" >
+      <div class="list baseInfo">
+        <div class="item bidName border-bot" style="padding-top:0;">
+          <p class="g-f-r g-c66" ng-bind="body.LN_STS == '09'?'逾期中':''"></p>
+          <p class="g-c66" ng-bind="body.LN_NM"></p>
+        </div>
+        <div class="item-body">
+          <table cellpadding="0px" cellspacing="0px" width="100%">
+            <tr>
+              <td width="50%" align="center" class="td-bor">
+                <span class="num"><i><span style="font-size: 30px;" ng-bind="body.LN_RATE | number:2"></span>%</i><span ng-if="body.LN_STS == '09'">+<span ng-bind="body.LN_RATE*body.LN_RATE_UP | number:2"></span>%</span></span>
+                <div class="g-mb-5 g-c99 g-fz-14">历史年化利率</div>
+              </td>
+              <td width="50%" align="center">
+                <span class="term"><i ng-bind="body.EXTS_DAY < 0 ? 0 : body.EXTS_DAY"></i>天</span>
+                <div class="g-mb-5 g-c99 g-fz-14">剩余期限</div>
+              </td>
+            </tr>
+          </table>
+          <div ng-if="!body.BID_SCHD">
+            <progress progressval="0" class="progressThemeB"></progress>
+          </div>
+          <div ng-if="body.BID_SCHD">
+            <progress progressval="{{body.BID_SCHD}}" class="progressThemeB"></progress>
+          </div>
+          <span class="g-fz-14">剩余可投金额：<span ng-bind="body.CAN_BID_BAL+body.REM_IVS_INT_AMT | number:2"></span>元</span>
+        </div>
+      </div>
+      <div class="list">
+        <div class="item tabs tabs-secondary tabs-icon-top bidRequire">
+          <p class="tab-item">
+            <img class="icon" src="img/icon-d1.png" alt="tu" />
+            <span class="g-fz-14">{{body.MEM_MIN_AMT}}元起投</span>
+          </p>
+          <p class="tab-item icon-top" ng-click="payMethDec(body.PAY_METH)">
+            <img class="icon" src="img/icon-d2.png" alt="tu" />
+            <span class="g-fz-14" ng-bind="body.PAY_METH_DESC"></span>
+          </p>
+          <p class="tab-item">
+            <img class="icon" src="img/icon-d3.png" alt="tu" />
+            <span class="g-fz-14">当日计息</span>
+          </p>
+        </div>
+        <div class="item g-mt-10 item-icon-right">
+          <p class="more" ng-click="original(body.SRC_LN_NO,body.SRC_PRD_TYP)">
+          转让说明
+          <span class="item-note">原借款标详情</span>
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </div>
+        <label class="item pd pdt0">
+          <p class="g-c99">开始投标：<span class="g-c99">{{body.MEM_BEG_TM}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">结束投标：<span class="g-c99">{{body.MEM_END_TM}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">
+            债转本金：<span class="g-c99" ng-bind="body.TRF_AMT < 0 ? 0 : (body.TRF_AMT | number:2)">元</span>
+          </p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">
+            垫付利息：<span class="g-c99" ng-bind="body.REM_IVS_INT_AMT | number:2">元</span>
+          </p>
+        </label>
+        <label class="item pd" style="padding-bottom:16px">
+          <p class="g-c99">
+            起投金额：<span class="g-c99">起投{{body.MEM_MIN_AMT | number:2}}元</span>
+          </p>
+        </label>
+        <div class="item g-mt-10 item-icon-right">
+          <p class="more">
+          担保机构：
+          </p>
+        </div>
+        <label class="item pdt0">
+          <p class="g-c99">本产品融资由<br/>{{body.ORG_NM}}提供本息担保</p>
+        </label>
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/investRecord/{{lnNo}}/{{bidId}}">
+          <p class="more">投资记录<span class="item-note"><span ng-bind="body.tzCount"></span>人已投资</span><i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <p class="g-ta-c jxTip">——  每一笔交易资金由江西银行存管  ——</p>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="orange" ng-if="canBid(body.CRED_LN_STS,body.SPANSECONDS) && isInvestment=='1'">
+      <div class="title g-cff" ng-click="toViewInvest()">立即投资</div>
+    </ion-footer-bar>
+	<ion-footer-bar align-title="center" class="orange" ng-if="!ajax">
+      <a class="title g-cff" ng-click="toInvestPage()">
+        <span ng-if="body.isDz =='1'">
+          <span ng-bind="body.min_amt"></span>元起投，
+        </span>
+        立即投资
+      </a>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="gray" ng-if="!canBid(body.CRED_LN_STS,body.SPANSECONDS) && body.CRED_LN_STS != '1'&&ajax">
+      <div class="title g-cff" ng-bind="body.CRED_LN_STS_DESC"></div>
+    </ion-footer-bar>
+	<ion-footer-bar align-title="center" class="gray" ng-if="isInvestment=='0'">
+      <div class="title g-cff">正在还款结算，稍后再投</div>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="gray" ng-if="!canBid(body.CRED_LN_STS,body.SPANSECONDS) && body.CRED_LN_STS == '1'&&ajax">
+      <div  ng-click="toViewInvest()">
+        <div class="title g-cff timer g-f-r" ng-if="body.SPANSECONDS > 0" ng-init="getToBeginTime(body.SPANSECONDS)">
+          <span class="num"><span ng-bind="message.hour"></span>小时<span ng-bind="message.minute"></span>分<span ng-bind="message.second"></span>秒</span><span class="g-ml-5">后开始投标</span>
+        </div>
+      </div>
+     
+    </ion-footer-bar>
+  </div>
+</ion-view>

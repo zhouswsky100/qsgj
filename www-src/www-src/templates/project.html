@@ -1,0 +1,124 @@
+<ion-view view-title="项目" hide-tabs="false"  hide-back-button="true">
+<div id="home">
+       <ion-content class="background" overflow-scroll="true" >
+              <ion-refresher
+              pulling-text="正在刷新..."
+              refreshing-text="最后更新：今天{{vm.nowDate() | date:'hh:mm'}}"
+              pulling-icon="ion-load-a"
+              refreshing-icon="ion-load-a"
+              on-refresh="vm.doRefresh()">
+              </ion-refresher>
+              <div class="g-mb-10 bgf" >
+                     <div class="div1 bgsolid" >
+                            <ul class="g-cf">
+                                   <li class="g-f-l g-pl-20  g-pt-15">
+                                          <p class="g-f-l photo"> <img src="img/photo.png" style="width:100%;height:100%" /></p>
+                                          <div class="g-f-l g-pl-10"> 
+                                                 <p class="name "  >劳拉 </p>
+                                                 <p class="g-cf m0p0">
+                                                        <span class="g-f-l m0p0 time"  >05-10</span>
+                                                 </p>
+                                          </div>
+                                   </li>
+                                   <li class=" g-f-r " style=" padding-top: 13px;">
+                                          <p  class="name m0p0">融资金额</p>
+                                          <p class="g-cf m0p0">
+                                                 <span class="g-f-l je m0p0"  >1050/3000</span>
+                                                 <i class="g-f-l g-pl-5" style=" width: 20%;"> <img src="img/bd/List_shell.png " >
+                                                 </i>
+                                          </p>
+                                   </li>
+                            </ul>
+                            <div class="g-ml-25" style="font-size: 13px">
+                                   <p ><span>团队成员：</span><span>苹果/黄瓜</span></p>
+                                   <p ><span>团队项目：</span><span>宿舍超市</span></p>
+                            </div>
+                     </div>
+                     <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                                   <p class="cont " >宿舍超市，集资3000青贝，供应宿舍楼零食生活用品666</p> 
+                                   <div class="g-cf ">
+                                          <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                 <img ng-src="img/temp1.png"   style="width:100%;height:100%">
+                                          </div>
+                                          <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                 <img ng-src="img/temp2.png"   style="width:100%;height:100%">
+                                          </div>
+                                          <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                  <img ng-src="img/temp3.png"   style="width:100%;height:100%">
+                                          </div>
+                                   </div> 
+                     </div>   
+                     <div class="div1"> 
+                            <ul class="g-cf">
+                                   <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                                          <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                                          <div class="g-f-l g-pl-10"> 
+                                          <p class="bl6 " style="padding-top: 4px;"><span >100</span><span>人参与</span></p>
+                                          </div>
+                                    </li>
+
+                            </ul>
+                     </div>
+              </div>
+              <div class="g-mb-10 bgf" >
+                            <div class="div1 bgsolid" >
+                                   <ul class="g-cf">
+                                          <li class="g-f-l g-pl-20  g-pt-15">
+                                                 <p class="g-f-l photo"> <img src="img/photo.png" style="width:100%;height:100%" /></p>
+                                                 <div class="g-f-l g-pl-10"> 
+                                                        <p class="name "  >劳拉 </p>
+                                                        <p class="g-cf m0p0">
+                                                               <span class="g-f-l m0p0 time"  >05-10</span>
+                                                        </p>
+                                                 </div>
+                                          </li>
+                                          <li class=" g-f-r " style=" padding-top: 13px;">
+                                                 <p  class="name m0p0">融资金额</p>
+                                                 <p class="g-cf m0p0">
+                                                        <span class="g-f-l je m0p0"  >1050/3000</span>
+                                                        <i class="g-f-l g-pl-5" style=" width: 20%;"> <img src="img/bd/List_shell.png " >
+                                                        </i>
+                                                 </p>
+                                          </li>
+                                   </ul>
+                                   <div class="g-ml-25" style="font-size: 13px">
+                                          <p ><span>团队成员：</span><span>苹果/黄瓜</span></p>
+                                          <p ><span>团队项目：</span><span>宿舍超市</span></p>
+                                   </div>
+                            </div>
+                            <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                                          <p class="cont " >宿舍超市，集资3000青贝，供应宿舍楼零食生活用品666</p> 
+                                          <div class="g-cf ">
+                                                 <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                        <img ng-src="img/temp1.png"   style="width:100%;height:100%">
+                                                 </div>
+                                                 <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                        <img ng-src="img/temp2.png"   style="width:100%;height:100%">
+                                                 </div>
+                                                 <div class="limg"  ng-click="vm.showBigImage('{{img}}')"> 
+                                                         <img ng-src="img/temp3.png"   style="width:100%;height:100%">
+                                                 </div>
+                                          </div> 
+                            </div>   
+                            <div class="div1"> 
+                                   <ul class="g-cf">
+                                          <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                                                 <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                                                 <div class="g-f-l g-pl-10"> 
+                                                 <p class="bl6 " style="padding-top: 4px;"><span >100</span><span>人参与</span></p>
+                                                 </div>
+                                           </li>
+       
+                                   </ul>
+                            </div>
+                     </div>
+              <ion-infinite-scroll ng-if="!vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+              </ion-infinite-scroll>
+       </ion-content>     
+       </div>
+       <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+                     <div class="shadow"></div>
+                     <img ng-src="{{vm.url}}"/>
+        </div>
+      </ion-view>
+      

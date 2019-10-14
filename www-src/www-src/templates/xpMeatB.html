@@ -1,0 +1,34 @@
+<ion-view  view-title="媒体报道" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" style="background-color: rgb(255, 255, 255);color: #222;" id="AnnouncementContent">
+     <ion-refresher
+        pulling-text="正在刷新..."
+        refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="vm.doRefresh()">
+      </ion-refresher>
+      <div class="card yj" ng-if="vm.messages.length > 0" ng-repeat="message in vm.messages">
+         <a style="text-decoration:none" href="#/xpMeatDetail/{{message.article_id}}/{{vm.bidName}}"">
+           <div class="item">
+             <p style="font-size: 14px;color: #222;" ng-bind="message.title" class="ng-binding"></p>
+             <div style="font-size:10px;margin-top: 3px;" class="item-text-wrap">
+               <p class="g-cb2 ng-binding" style="color: rgb(200, 200, 200);"></p>
+             </div>
+           </div>
+           <div class="item item-text-wrap">
+             <span class="g-cb2 g-fz-12 ng-binding" ng-bind="message.sdate">2017-10-20 14:03:45</span>
+             <span class="g-f-r g-fz-12">查看详情&gt;</span>
+           </div>
+         </a>
+        </div>
+        <ion-infinite-scroll ng-if="!vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+        </ion-infinite-scroll>
+    </ion-content>
+  <div class="" style="margin-bottom: 0px;margin-top: 0px;background-color: rgb(229, 229, 229);">
+  </div>
+</ion-view>

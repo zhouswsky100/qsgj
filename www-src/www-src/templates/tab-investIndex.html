@@ -1,0 +1,137 @@
+<ion-view view-title="投资专区" hide-tabs="false"  hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear ion-android-unlock button-light " ng-click="viewToLogin()" ng-if="logined==0">
+      <i>登录</i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear ion-android-person-add button-light" ng-click="register()" ng-if="logined==0">
+      <i>注册</i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" overflow-scroll="true" >
+      <ion-refresher
+        pulling-text="下拉刷新..."
+        refreshing-text="数据刷新完成"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="doRefresh()">
+      </ion-refresher>
+      <div id="investIndex">
+        <ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged(index)" class="bannerHeight">
+          <ion-slide ng-repeat="item in slides">
+            <div class="g-slideItem" ng-click="inAppBrowserRef.openUrl(item.linkUrl+'&id='+id)">
+                <img ng-src="{{item.url}}" alt="{{item.title}}">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+
+        <div class="bidlist">
+          <div class="bidItem section" ng-if="isNew && sectionData!=undefined">
+
+           <!-- <a class="item item-body" href="#/tab/bidDetail/{{sectionData.LN_NO}}/1000">-->
+            <a class="item item-body" href="#/newsList">
+              <div class="top">
+                <span class="tittle">新手专享</span>
+                <span  class="ft-10" style="visibility: hidden;">可投条件：合拍投资小于3笔，专区投资限额1万元。</span>
+              </div>
+              <div class="row" style="padding: 10px;">
+                <div style="margin-left: 63px;" >      
+                   <img src="img/newb.png" class="newimg">
+                   <h2 style="margin-top: 0px; margin-bottom: 0px;">新手专享标
+                    <span ng-show="nums.t_88 > 0" class="badge badge-assertive ng-binding" ng-bind="nums.t_88" style="
+                      top: 46px;"></span>
+                   </h2>
+                   <p style="margin-top: 0px; margin-bottom: 0px;">预期年化最高12%以上，期限短5-30天</p>
+                </div>          
+              </div>
+            </a>
+          </div>
+          <div class="bidItem section" ng-if="!isNew" ng-click="viewToBidDetail()">
+            <div class="top">
+              <span class="tittle">热门推荐</span>
+              <span ng-bind="sectionData.lnNm"></span>
+            </div>
+            <div class="row g-ta-c">
+              <div class="col col-33">
+                <div class="income"><span class="mainIncome" ng-bind="sectionData.lnRate"></span>%<span ng-if="sectionData.lnRateAdd!=0 && sectionData.lnRateAdd!=undefined"><span>+</span><span ng-bind="sectionData.lnRateAdd"></span>%</span></div>
+                <div>预期年化</div>
+              </div>
+              <div class="col col-33">
+                <div class="term"><span ng-bind="sectionData.lnTerm"></span><span ng-bind="sectionData.lnTermUnitDesc"></span></div>
+                <div>投资期限</div>
+              </div>
+              <div class="col col-33">
+                <div class="investBtn">
+                  <span ng-if="sectionData.lnSts == '04' && sectionData.spanSeconds > 0">即将发布</span>
+                  <span ng-if="sectionData.lnSts == '04' && sectionData.spanSeconds < 0">立即投资</span>
+                  <span ng-if="sectionData.lnSts == '05' || sectionData.lnSts == '06' || sectionData.lnSts == '07' || sectionData.lnSts == '08' || sectionData.lnSts == '09' || sectionData.lnSts == '10' || sectionData.lnSts == '11' || sectionData.lnSts == '12' || sectionData.lnSts == '98' || sectionData.lnSts == '99'">已满额</span>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="bidItem">
+            <div class="bidAreaName">定期计划</div>
+            <div class="list">
+             <!-- <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/11/1/0">
+                <img src="img/hly.png">
+                <h2>活力盈<span ng-show="nums.t_11 > 0" class="badge badge-assertive" ng-bind="nums.t_11"></span></h2>
+                <p>随时提取(T+1到账)，智能投标</p>
+              </a>
+			 --> 
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidListCly/2/1">
+                <img src="img/cly.png">
+                <h2>长利盈<span ng-show="nums.t_2 > 0" class="badge badge-assertive" ng-bind="nums.t_2"></span></h2>
+                <p>长期投资，稳定收益，智能投标 </p>
+              </a>
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/10/1/0">
+                <img src="img/wly.png">
+                <h2>稳利盈<span ng-show="nums.t_10 > 0" class="badge badge-assertive" ng-bind="nums.t_10"></span></h2>
+                <p>风险分散，定期回款，智能投标</p>
+              </a>
+			  
+            </div>
+          </div>
+
+          <div class="bidItem">
+            <div class="bidAreaName">散标投资</div>
+            <div class="list">
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/1/1/0">
+                <img src="img/ptb.png">
+                <h2>普通借款 <span ng-show="nums.t_1 > 0" class="badge badge-assertive" ng-bind="nums.t_1"></span></h2>
+                <p>精选项目，企业融资，本息担保</p>
+              </a>
+            <!--  <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/12/1/0">
+                <img src="img/jjs.png">
+                <h2>金交宝<span ng-show="nums.t_12 > 0" class="badge badge-assertive" ng-bind="nums.t_12"></span></h2>
+                <p>
+			-->
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/9/1/0">
+                <img src="img/cbd.png">
+                <h2>车保贷<span ng-show="nums.t_9 > 0" class="badge badge-assertive" ng-bind="nums.t_9"></span></h2>
+                <p>期限短，额度小，有抵押</p>
+              </a>
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/8/1/0">
+                <img src="img/xfd.png">
+                <h2>消费贷<span ng-show="nums.t_8 > 0" class="badge badge-assertive" ng-bind="nums.t_8"></span></h2>
+                <p>小额分散，定期等额回款</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="bidItem">
+            <div class="bidAreaName">转让专区</div>
+            <div class="list">
+              <a class="item item-avatar" type="item-text-wrap" href="#/tab/bidList/100/1/0">
+                <img src="img/zzb.png">
+                <h2>债权转让标<span ng-show="nums.t_100 > 0" class="badge badge-assertive" ng-bind="nums.t_100 > 9 ? '9+' : nums.t_100"></span></h2>
+                <p>期限灵活，逾期转让收益更高</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,36 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<div id="hpTabs">
+ <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-item-hide': $root.hideTabs}">
+
+    <!-- home Tab -->
+    <ion-tab title="榜单" icon-off="iconfont icon-Tab_list_un" icon-on="iconfont icon-Tab_list_un" ng-click="goTab('tab.home')">
+      <ion-nav-view name="tab-home" animation="fadeIn"></ion-nav-view>
+    </ion-tab>
+    <!-- invest Tab -->
+    <ion-tab title="活动" icon-off="iconfont icon-Tab_interaction_un" icon-on="iconfont icon-Tab_interaction_un" ng-click="goTab('tab.act')">
+      <ion-nav-view name="tab-act" animation="fadeIn"></ion-nav-view>
+    </ion-tab>
+    <!-- find Tab -->
+    
+    <ion-tab   title="人才" icon-off="iconfont icon-tuandui" icon-on="iconfont icon-tuandui" ng-click="goTab('tab.find')">
+      <ion-nav-view name="tab-find" animation="fadeIn">
+      </ion-nav-view>
+    </ion-tab>
+    
+    <!-- memberCenter Tab -->
+    <ion-tab title="市场" icon-off="iconfont icon-Tab_bazaar_un" icon-on="iconfont icon-Tab_bazaar_un" ng-click="goTab('tab.market')" >
+      <ion-nav-view name="tab-market" animation="fadeIn"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="项目" icon-off="iconfont icon-Tab_project_un" icon-on="iconfont icon-Tab_project_un" ng-click="goTab('tab.project')" >
+      <ion-nav-view name="tab-project" animation="fadeIn"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我的" icon-off="iconfont icon-Tab_talents_un" icon-on="iconfont icon-Tab_talents_un" ng-click="checkLogin()" >
+      <ion-nav-view name="tab-memberCenter" animation="fadeIn"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</div>

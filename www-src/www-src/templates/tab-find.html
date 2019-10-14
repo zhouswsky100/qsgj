@@ -1,0 +1,32 @@
+<ion-view hide-tabs="false"  view-title="人才"  hide-back-button="true">
+    
+      <div  id="market">
+        <ion-content class="background" overflow-scroll="true" >
+            <div  class="bgf g-cf ft-16 g-m-10"> 
+                <p class="g-f-l g-p-10"><span>人才记录: </span>  <span class="g-cf36026"> 200</span></p>
+                <div class="g-f-l" style="width: 7%;    padding-top: 5px;"><img src="img/talents_list.png" class="dzimg"> </div> 
+           </div>
+           <ion-refresher
+           pulling-text="正在刷新..."
+           refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+           pulling-icon="ion-load-a"
+           refreshing-icon="ion-load-a"
+           on-refresh="vm.doRefresh()">
+           </ion-refresher>
+           <div class="mao_doctorteam"  ng-if="vm.messages.length > 0 " ng-click="vm.rcDetail(message)" ng-repeat="message in vm.messages">
+              <ul>
+                  <li >
+                      <div>
+                          <img ng-src="http://39.97.234.111/base/userFiles/{{message.gcphoto}}">
+                      </div>
+                      <div>
+                          <p><span>雅号:</span><span>{{message.gcnikename}}</span></p>
+                          <p><span>擅长岗位:</span><span>{{message.rcscgw}}</span></p>
+                          <p><span>成长方向:</span><span>{{message.rcfangxiang}}</span></p>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+        </ion-content>
+     </div>
+</ion-view>

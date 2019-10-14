@@ -1,0 +1,24 @@
+<ion-view  view-title="申请债权转让" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-android-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" overflow-scroll="true" contentScroll >
+    <div id="creditTransferSuc">
+      <div class="infoWp">
+        <p class="suc">
+          <i class="icon ion-checkmark-circled ion-checkmark-circled"></i>
+          <span>申请债权转让成功</span>
+        </p>
+        <p>5秒后返回...</p>
+      </div>
+      <div class="list">
+        <div class="item item-icon-right" ng-click="viewToProDetail()">
+          <span>查看该债转标</span>
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+        </div>
+      </div>
+    </div>
+   </ion-content>
+</ion-view>

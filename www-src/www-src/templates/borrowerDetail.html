@@ -1,0 +1,140 @@
+<ion-view  view-title="借款详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true" >
+    	<ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-init="lockSlide()">
+    		<ion-slide>
+				<ul class="box1 content" ng-show="!isShow">
+					<li class="g-pb-10">
+						<p class="title">借款人信息<!-- 公司借贷信息 --></p>
+						<ul class="g-mb-10 g-plr-10">
+						  <div class="borrowerDetailCont">
+							<li  class="g-cf " ng-if="data.COMPANY_NAME_DES">
+									<span class="borrowerDetailSpan g-f-l">公司全称：</span>
+									<span class="borrowerDetailSpan2 g-f-l">{{data.COMPANY_NAME_DES}}</span>
+							</li>
+							<li  class="g-cf" ng-if="data.REGISTER_CAPITAL">
+									<span class="borrowerDetailSpan g-f-l">注册资本：</span>
+									<span class="borrowerDetailSpan2 g-f-l">{{data.REGISTER_CAPITAL}}</span>
+							</li>
+							<li class="g-cf" ng-if="data.REGISTER_DRESS_DES">
+									<span class="borrowerDetailSpan g-f-l">注册地址：</span>
+									<span class="borrowerDetailSpan2 g-f-l">{{data.REGISTER_DRESS_DES}}</span>
+							</li>
+								<li class="g-cf " ng-if="data.ESTABLISH_TIME">
+									<span class="borrowerDetailSpan g-f-l">成立时间：</span>
+									<span class="borrowerDetailSpan2 g-f-l">{{data.ESTABLISH_TIME}}</span>
+
+								</li>
+								<li class="g-cf" ng-if="data.LEGALER_DES">
+									<span  class="borrowerDetailSpan g-f-l">法定代表人：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.LEGALER_DES}}</span>
+								</li>
+								<li class="g-cf" ng-if="data.LN_USE">
+									<span class="borrowerDetailSpan g-f-l">借款用途：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.LN_USE}}</span>
+								</li>	
+								<li class="g-cf"  ng-if="data.SHAREHOLDER_NAME_DES">
+									<span class="borrowerDetailSpan g-f-l">股东信息：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.SHAREHOLDER_NAME_DES}}</span>
+								</li>	
+								<li class="g-cf"  ng-if="data.LEGALER_CREDIT_INFO">
+									<span class="borrowerDetailSpan g-f-l">法定代表人信用信息：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.LEGALER_CREDIT_INFO}}</span>
+								</li>	
+								<li class="g-cf" ng-if="data.PAID_CAPITAL">
+									<span  class="borrowerDetailSpan g-f-l">实缴资本：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.PAID_CAPITAL}}</span>
+								</li>	
+								<li class="g-cf" ng-if="data.WORK_DRESS_DES">
+									<span class="borrowerDetailSpan g-f-l">办公地址：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.WORK_DRESS_DES}}</span>
+								</li>	
+								<li class="g-cf" ng-if="data.OPERATING_AREA">
+									<span class="borrowerDetailSpan g-f-l">经营区域：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.OPERATING_AREA}}</span>
+								</li>	
+								<li class="g-cf" ng-if="data.CREDIT_INFO">
+									<span class="borrowerDetailSpan g-f-l">近6个月征<br>信逾期情况：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.CREDIT_INFO}}</span>
+								</li>	
+								<li class="g-cf" ng-if="data.LOAN_INFO">
+									<span class="borrowerDetailSpan g-f-l">其他网贷平<br>台借款情况：</span>
+									<span  class="borrowerDetailSpan2 g-f-l">{{data.LOAN_INFO}}</span>
+								</li>	
+							</div>
+						</ul>
+					</li>
+				</ul>
+					<!-- 个人-->
+				<ul class="box1 content" ng-show="isShow">
+					<li class="g-pb-10">
+						<p class="title">借款人信息<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+						<ul class="g-mb-10 g-plr-10">
+							<div class="borrowerDetailCont">
+								<li  class="g-cf" ng-if="data.CI_REL_NM">
+										<span class="borrowerDetailSpan g-f-l">借款人姓名：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.CI_REL_NM}}</span>
+									</li>
+									<li  class="g-cf" ng-if="data.IDNO">
+										<span class="borrowerDetailSpan g-f-l">证件号码：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.IDNO}}</span>
+									</li>
+									<li class="g-cf" ng-if="data.LN_USE">
+										<span class="borrowerDetailSpan g-f-l"> 借款用途：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.LN_USE}}</span>
+									</li>
+									<li class="g-cf" ng-if="data.HOUSE_INFO">
+										<span class="borrowerDetailSpan g-f-l">房产信息：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.HOUSE_INFO}}</span>
+									</li>
+									<li class="g-cf" ng-if="data.CAR_INFO">
+										<span class="borrowerDetailSpan g-f-l">车辆信息：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.CAR_INFO}}</span>
+									</li>
+									<li class="g-cf" ng-if="data.INCOME_INFO">
+										<span class="borrowerDetailSpan g-f-l">借款人收入<br>负债情况：</span>
+										<span class="borrowerDetailSpan2 g-f-l"> {{data.INCOME_INFO}}</span>
+									</li>
+									<li class="g-cf" ng-if="data.CREDIT_INFO">
+										<span class="borrowerDetailSpan g-f-l">  近6个月征<br>信逾期情况：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.CREDIT_INFO}}</span>
+									</li>	
+									<li class="g-cf" ng-if="data.LOAN_INFO">
+										<span class="borrowerDetailSpan g-f-l">其他网贷平<br>台借款情况：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.LOAN_INFO}}</span>
+									</li>	
+									<p class="title" >其它基本信息</p>
+									<li class="g-cf" ng-if="data.SEX">
+										<span class="borrowerDetailSpan g-f-l">性别：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.SEX}}</span>
+									</li>	
+									<li class="g-cf" ng-if="data.AGE">
+										<span class="borrowerDetailSpan g-f-l">年龄：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.AGE}}</span>
+									</li>	
+									<li class="g-cf" ng-if="data.EDUCATION_INFO">
+										<span class="borrowerDetailSpan g-f-l">学历：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.EDUCATION_INFO}}</span>
+									</li>	
+									<li class="g-cf" ng-if="data.INDUSTRY">
+										<span class="borrowerDetailSpan g-f-l">从事行业：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.INDUSTRY}}</span>
+									</li>	
+									<li class="g-cf" ng-if="data.LITIGATION_INFO">
+										<span class="borrowerDetailSpan g-f-l">诉讼情况：</span>
+										<span class="borrowerDetailSpan2 g-f-l">{{data.LITIGATION_INFO}}</span>
+									</li>		
+							</div>
+						</ul>
+					</li>
+				</ul>	
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>
+  </div>
+</ion-view>

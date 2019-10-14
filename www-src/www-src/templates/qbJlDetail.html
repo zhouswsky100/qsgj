@@ -1,0 +1,19 @@
+<ion-view  view-title="账单详情" hide-tabs="true" hide-back-button="true">
+     <ion-nav-buttons side="left">
+       <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+         <i class="icon ion-ios-arrow-left color-fff"></i>
+       </button>
+     </ion-nav-buttons>
+      <ion-content class="background"  overflow-scroll="true" >
+               <div class="g-pt-10  bgf" ng-if="vm.messages.length > 0" ng-repeat="message in vm.messages">
+                    <p class=" g-m-10"><span>转赠人昵称：</span><span>{{message.qbjyszdname}}</span> </p>
+                    <p class=" g-m-10"><span>接收人昵称：</span><span>{{message.qbjyzgsnikename}}</span> </p>
+
+                    <p class=" g-m-10"><span>转赠时间:</span><span>{{message.qbjydate}}</span> </p>
+                    <p class=" g-m-10"><span>转赠日志：</span><span>{{message.qbjysm}}</span> </p>
+                    <p class=" g-m-10"><span>青贝动态:</span><span>{{message.qbjyjine}}</span> <span>MQB</span></p>
+                    <!-- <p class=" g-m-10"><span>转赠前青贝:</span><span>{{message.zhuanzengqianqingbei}}</span> </p>
+                    <p class=" g-m-10"><span>转赠后青贝:</span><span>{{message.zhuanzenghouqingbei}}</span> </p> -->
+               </div>
+      </ion-content>
+   </ion-view>

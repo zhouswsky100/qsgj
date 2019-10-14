@@ -1,0 +1,35 @@
+<ion-view view-title="充提记录详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="recordInfo" overflow-scroll="true" >
+      <ul class="list">
+        <li class="item item-icon-right">
+          交易类型
+          <i class="icon" ng-bind="isCz(info.NUMBERNO)?'充值':'提现'"></i>
+        </li>
+        <li class="item item-icon-right">
+          时间
+          <i class="icon" ng-bind="info.TM"></i>
+        </li>
+        <li class="item item-icon-right">
+          流水号
+          <i class="icon" ng-bind="info.NUMBERNO"></i>
+        </li>
+        <li class="item item-icon-right">
+          金额
+          <i class="icon" ng-bind="info.AMT"></i>
+        </li>
+        <li class="item item-icon-right">
+          手续费
+          <i class="icon" ng-bind="info.FEE"></i>
+        </li>
+        <li class="item item-icon-right">
+          状态
+          <i class="icon" ng-bind="getStatus(info.PS)"></i>
+        </li>
+      </ul>
+   </ion-content>
+</ion-view>

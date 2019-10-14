@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ECharts</title>
+    <style type="text/css">
+    .h200{height:200px;}
+    .item{padding: 5px;font-size: 14px;}
+    </style>
+     <script src="./js/echarts.common.min.js"></script>
+  </head>
+  <body id="echart">
+      <div class="row">
+        <div class="col h200" id="pie1"></div>
+      </div>
+     
+      <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart_pie1 = echarts.init(document.getElementById('pie1'));        
+      var option_pie1 = {
+                tooltip: {
+                    axisPointer: {
+                        type: 'none'
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap :false,
+                        data : []
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        splitNumber: 2,
+                        scale: true,
+                        show:false,
+                        splitLine:{
+                            show:false
+                        }
+                    }
+                ],
+                series : [
+                    {
+                        name:'资金',
+                        type:'line',
+                        stack: '总量',
+                         itemStyle:{
+                          normal:{
+                            color: "#FF6633", //图标颜色
+                            label : {show: true}
+                          }
+            },
+                        data:[]
+                    }
+
+                ]
+            };
+      
+        window.addEventListener('message',function(msg){
+          var seriesJson = eval(msg.data);
+          option_pie1.xAxis[0].data=seriesJson.month_ec;
+          option_pie1.series[0].data=seriesJson.data_ec;
+          myChart_pie1.setOption(option_pie1);         
+        });
+    </script>
+  </body>
+</html>

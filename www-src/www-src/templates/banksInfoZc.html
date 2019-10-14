@@ -1,0 +1,57 @@
+<ion-view  view-title="银行卡信息" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+     <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+     </button>
+   </ion-nav-buttons>
+   <ion-content class="background" id="banksInfoZc" overflow-scroll="true">
+    <div ng-if="judge.hasBanks&&judge.isBind&&judge.isLoad">
+   	  <ul class="g-p-10">
+        <li class="item border0">
+          <p class="g-pb-10">银行：<span ng-bind="bank.bcnNm"></span></p>
+       <!--   <div class="g-f-r g-cb2 g-fz-14 toTop">已绑定</div> -->
+         <p class="g-pb-10">户名：{{bank.acNm | frormatRelNm}}</p>
+         <a class="g-f-r g-cf36026 g-fz-14" ng-click="unBind()">解绑</a>
+         <p>账号：{{bank.acNo | formatCardNo}}</p>
+        </li>
+      </ul>
+      <div class="g-m-10 g-ta-l">
+          已绑定的银行卡为您的提现银行卡，为了确保您的资金安全，只有您账户不存在待收金额并且账户余额为0时，才允许解绑、更换该银行卡。
+      </div>
+    </div>
+
+    <div ng-if="judge.hasBanks&&!judge.isBind&&judge.isLoad">
+      <ul class="g-p-10">
+        <li class="item border0">
+          <p class="g-pb-10">银行：<span ng-bind="bank.bcnNm"></span></p>
+          <p class="g-pb-10">户名：{{bank.acNm | frormatRelNm}}</p>
+       <!--   <div class="g-f-r g-cb2 g-mr-10 g-fz-14 toTop">未绑定</div> -->
+         <a class="g-f-r g-cf36026 g-fz-14" ng-click="add()">绑定到存管</a>
+         <p>账号：{{bank.acNo | formatCardNo}}</p>
+        </li>
+      </ul>
+      <div class="g-m-10 g-ta-l">
+          您的个人账户已升级为江西银行存管账户，为了您的资金安全，请尽快将您的银行卡绑定到银行存管账户。
+      </div>
+    </div>
+    
+
+    <div ng-if="!judge.hasBanks&&!judge.isBind&&judge.isLoad" class="g-fz-b1 g-ta-c">
+      <ul class="g-p-10 g-ta-c">
+        <li class="bg-fff g-pb-10">
+          <div class="noCard g-c99 g-fz-14">无绑定银行卡</div>
+          <div class="g-cf36026 g-fz-14 g-pt-10" ng-click="add()">去绑定银行卡</div>
+        </li>
+      </ul>
+      <div class="g-m-10 g-ta-l g-fz-14">
+          已绑定的银行卡为您的提现银行卡，为了确保您的资金安全，只有您账户不存在待收金额并且账户余额为0时，才允许解绑、更换该银行卡。
+      </div>
+    </div>
+     <!-- <div ng-if="!isOpen&&isLoad" class="g-fz-b1 g-ta-c">
+       <p class="banksInfoP">
+         绑定银行卡之前，请先开通资金存管
+       </p>
+       <a href="#/tab/capitalSupervision" class="button button-block button-orange g-m-10">开通资金存管</a>
+     </div> -->
+   </ion-content>
+</ion-view>

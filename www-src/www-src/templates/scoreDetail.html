@@ -1,0 +1,33 @@
+<ion-view  view-title="{{titleName}}" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="accountM" overflow-scroll="true" contentScroll >
+   	  <div id="scoreDetail" class="list g-m-10">
+          <table>
+              <tr class="title">
+                  <th width="44%"><span class="g-ml-10">获得时间</span></th>
+                  <th ng-if="type=='1'" width="15%">成长值</th>
+                  <th ng-if="type=='2'" width="15%"><span class="g-mr-10">积分</span></th>
+                  <th width="40%">来源详情</th>
+                </tr>
+                <tbody ng-repeat="d in scoreDetailList">
+                  <!-- 成长值记录排除消费积分的记录  -->
+                  <tr ng-if="type == '1' && d.payInteral >= 0">
+                      <td width="44%"><span class="g-ml-10">{{d.createDate}}</span></td>
+                      <td width="15%">{{d.levelInteral}}</td>
+                      <td width="40%"><span class="g-mr-10">{{d.remark}}</span></td>
+                  </tr>
+                  <tr ng-if="type == '2'">
+                      <td width="44%"><span class="g-ml-10">{{d.createDate}}</span></td>
+                      <td width="15%">{{d.payInteral}}</td>
+                      <td width="40%"><span class="g-mr-10">{{d.remark}}</span></td>
+                  </tr>
+              </tbody>
+          </table>
+       </div>
+       <p style="position: absolute; bottom: -1%; left: 35%;">仅显示最近20条记录</p>
+   </ion-content>
+</ion-view>

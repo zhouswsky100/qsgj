@@ -1,0 +1,143 @@
+<ion-view  view-title="定期计划" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="$ionicGoBack()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="myInvest">
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="">
+    		<ul class="g-slide-tab item tabs">
+    			<li ng-class="slideIndex==0?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(0)">持有中</a>
+      			</li>
+      			<li ng-class="slideIndex==1?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(1)">退出中</a>
+      			</li>
+      			<li ng-class="slideIndex==2?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(2)">已退出</a>
+      			</li>
+    		</ul>
+    	</div>
+
+    	<ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="myInvestSlide" ng-style="myStyle">
+    		<ion-slide>
+    			<div>
+	    			<div ng-if="ajaxEnd[0] && dataCache[0].length > 0">
+						<div class="g-ml-10 g-mt-10">
+							持有项目：<span class="g-mr-10" ng-bind="totalInfo[0].totalCount"></span>
+			    			待收本金：<span class="g-mr-10" ng-bind="totalInfo[0].ivs | number:2"></span>
+			    			利息：<span ng-bind="totalInfo[0].expire | number:2"></span>
+					    </div>
+				    	<ul>
+					        <li class="list" ng-repeat="message in dataCache[0]">
+					        	<a href="#" ng-click="goPlanDetail('{{message.planId}}','{{message.txNo}}','{{message.ivsAmt }}','{{message.rate}}','{{message.joinDate}}','{{message.exitDate}}','{{message.remainAmt}}','{{message.waitBackAmt}}','{{message.expireAmt}}')">
+						        	<p><span ng-bind="message.planName"></span></p>
+						            <div class="row">
+						              <div class="col col-50">
+										<div>本金/收益</div>
+										<div class="num">
+											<span ng-bind="message.ivsAmt | number:2"></span>/<span ng-bind="message.expireAmt==0?'--':(message.expireAmt | number:2)"></span>
+										</div>
+						              </div>
+						              <div class="col col-20">
+						              	<div>年利率</div>
+										<div class="num"><span ng-bind="message.rate"></span>%</div>
+						              </div>
+						              <div class="col">
+										<div>退出日</div>
+										<div class="num" ng-bind="message.exitDate"></div>
+						              </div>
+					            	</div>
+					            </a>
+					        </li>
+				      	</ul>
+			      	</div>
+			      	<ul class="myInvestNoData g-fz-b1" ng-if="ajaxEnd[0] && dataCache[0].length <= 0">
+			      		<li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      					<li class="g-c99">暂无数据</li>
+			      	</ul>
+			    </div>
+		 	</ion-slide>
+		 	<ion-slide>
+    			<div>
+    				<div ng-if="ajaxEnd[1] && dataCache[1].length > 0">
+						<div class="g-ml-10 g-mt-10">
+							持有项目：<span class="g-mr-10" ng-bind="totalInfo[1].totalCount"></span>
+			    			待收本金：<span class="g-mr-10" ng-bind="totalInfo[1].ivs | number:2"></span>
+			    			待收收益：<span ng-bind="totalInfo[1].expire | number:2"></span>
+					    </div>
+				    	<ul>
+					        <li class="list" ng-repeat="message in dataCache[1]">
+					        	<a href="#" ng-click="goPlanDetail('{{message.planId}}','{{message.txNo}}','{{message.ivsAmt }}','{{message.rate}}','{{message.joinDate}}','{{message.exitDate}}','{{message.remainAmt}}','{{message.waitBackAmt}}','{{message.expireAmt}}')">
+						        	<p><span ng-bind="message.planName"></span></p>
+						            <div class="row">
+						              <div class="col col-50">
+										<div>本金/收益</div>
+										<div class="num">
+											<span ng-bind="message.ivsAmt | number:2"></span>/<span ng-bind="message.expireAmt | number:2"></span>
+										</div>
+						              </div>
+						              <div class="col col-20">
+						              	<div>年利率</div>
+										<div class="num"><span ng-bind="message.rate"></span>%</div>
+						              </div>
+						              <div class="col">
+										<div>退出日</div>
+										<div class="num" ng-bind="message.exitDate"></div>
+						              </div>
+					            	</div>
+					            </a>
+					        </li>
+				      	</ul>
+				    </div>
+				    <ul class="myInvestNoData g-fz-b1" ng-if="ajaxEnd[1] && dataCache[1].length <= 0">
+			      		<li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      					<li class="g-c99">暂无数据</li>
+			      	</ul>
+		      	</div>
+		 	</ion-slide>
+		 	<ion-slide>
+    			<div>
+    				<div ng-if="ajaxEnd[2] && dataCache[2].length > 0">
+						<div class="g-ml-10 g-mt-10">
+			    			项目：<span class="g-mr-10" ng-bind="totalInfo[2].totalCount"></span>
+			    			本金：<span class="g-mr-10" ng-bind="totalInfo[2].ivs | number:2"></span>
+			    			收益：<span ng-bind="totalInfo[2].expire | number:2"></span>
+					    </div>
+				    	<ul>
+					        <li class="list" ng-repeat="message in dataCache[2]">
+					        	<a href="#" ng-click="goPlanDetail('{{message.planId}}','{{message.txNo}}','{{message.ivsAmt }}','{{message.rate}}','{{message.joinDate}}','{{message.exitDate}}','{{message.remainAmt}}','{{message.waitBackAmt}}','{{message.expireAmt}}')">
+						        	<p><span ng-bind="message.planName"></span></p>
+						            <div class="row">
+						              <div class="col col-50">
+										<div>本金/收益</div>
+										<div class="num">
+											<span ng-bind="message.ivsAmt | number:2"></span>/<span ng-bind="message.expireAmt | number:2"></span>
+										</div>
+						              </div>
+						              <div class="col col-20">
+						              	<div>年利率</div>
+										<div class="num"><span ng-bind="message.rate"></span>%</div>
+						              </div>
+						              <div class="col">
+										<div>退出日</div>
+										<div class="num" ng-bind="message.exitDate"></div>
+						              </div>
+					            	</div>
+					            </a>
+					        </li>
+				      	</ul>
+				    </div>
+			      	<ul class="myInvestNoData g-fz-b1" ng-if="ajaxEnd[2] && dataCache[2].length <= 0">
+			      		<li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      					<li class="g-c99">暂无数据</li>
+			      	</ul>
+		      	</div>
+		 	</ion-slide>
+    	</ion-slide-box>
+	    <ion-infinite-scroll ng-if="moredata[slideIndex]" immediate-check="false" on-infinite="loadMore(slideIndex)" distance="5%" icon="ion-load-a">
+	    </ion-infinite-scroll>
+    </ion-content>
+  </div>
+</ion-view>

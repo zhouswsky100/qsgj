@@ -1,0 +1,50 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+  <ion-nav-title>新手标</ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="bidListNewFish">
+    <ion-content class="background" overflow-scroll="true" >
+      <ion-refresher
+        pulling-text="正在刷新..."
+        refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="vm.doRefresh()">
+      </ion-refresher>
+<!--       <div class="banner g-slideItem">
+    <img src="{{bidBannerImgSrc}}" alt="">
+    <a href="{{bidBannerLink}}" class="link">了解更多>></a>
+</div> -->
+
+      <div class="list card" ng-if="vm.ajaxEnd && body">
+        <div class="item item-divider g-cf">
+            <div class="timer g-f-r">每笔投资限额：<span ng-bind="body.MEM_MAX_AMT"></span></div>
+            <div ng-bind="body.LN_NM"></div>
+        </div>
+        <a class="item item-body" href="#/tab/bidDetail/{{body.LN_NO}}/{{bidId}}">
+          <div class="item tabs baseInfo">
+            <div class="tab-item">
+              <p>历史年化利率</p>
+              <p><span class="num"><i><span ng-bind="body.LN_RATE | number:2"></span>%</i><span ng-if="body.ALLOWANCE_RATE>0">+<span ng-bind="body.ALLOWANCE_RATE | number:2"></span>%</span></span></p>
+            </div>
+            <div class="tab-item">
+              <p>借款期限</p>
+              <p><span class="term"><i ng-bind="body.LN_TERM"></i><span ng-bind="body.LN_TERM_UNIT_DESC"></span></p>
+            </div>
+          </div>
+          <div class="progressBox">
+            <progress progressval="{{body.BID_SCHD}}"></progress>
+            <span class="surplus">剩余可投金额：<span class="num" ng-bind="body.CAN_BID_BAL | number:2"></span></span>
+          </div>
+        </a>
+      </div>
+      <ul class="g-listNoData g-fz-b1" ng-if="vm.ajaxEnd && !body">
+        <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+        <li class="g-c99">暂无可投资项目</li>
+      </ul>
+    </ion-content>
+  </div>
+</ion-view>

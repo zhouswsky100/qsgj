@@ -1,0 +1,72 @@
+<ion-view  view-title="申请债权转让" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" overflow-scroll="true" contentScroll >
+    <div id="creditTransfer">
+   	  <div class="list">
+        <p class="item">
+          原标编号：<span ng-bind="lntBidInfo.lnNm"></span>
+        </p>
+        <p class="item">
+          还款日期：<span ng-bind="lntBidInfo.mstRtnDt"></span>
+        </p>
+        <p class="item g-mt-10">
+          至今（<span ng-bind="lntBidInfo.ivsDate"></span>）<span class="ml-20">转让总价：<span class="colorOrange" ng-bind="lntBidInfo.trfAmt | formatMoneyRound | number:2"></span>元</span>
+        </p>
+        <p class="item">
+          转让本金<span ng-bind="lntBidInfo.srpPrnAmt | formatMoneyRound | number:2"></span>元+转让利息<span ng-bind="lntBidInfo.trfIntAmt | formatMoneyRound | number:2"></span>元+逾期利息<span ng-bind="lntBidInfo.trfOvdintAmt | formatMoneyRound | number:2"></span>-居间服务费<span ng-bind="lntBidInfo.trfSrvAmt | formatMoneyRound | number:2"></span>
+        </p>
+        <p class="item g-mt-10">
+          债转开始时间：
+          当天
+          <select class="sel" ng-model="t.shour" ng-options="hour for hour in hours"></select>
+          点
+          <select class="sel" ng-model="t.smin" ng-options="min for min in mins"></select>
+          分
+        </p>
+        <p class="item">
+          债转手续费：
+          <span class="colorOrange" ng-if="!ipt.agreeAuto" ng-bind="lntBidInfo.trfZzAtm | formatMoneyRound | number:2"></span>
+          <span class="colorOrange" ng-if="ipt.agreeAuto" ng-bind="(lntBidInfo.trfZzAtm + lntBidInfo.servicesFee) | formatMoneyRound | number:2"></span>
+          元
+        </p>
+        <p class="item colorGray">
+          收回投资券：<span ng-bind="lntBidInfo.reAmt | formatMoneyRound | number:2"></span>元+债转服务费<span ng-bind="lntBidInfo.assFee | formatMoneyRound | number:2"></span>元<span ng-if="ipt.agreeAuto">+技术服务费<span ng-bind="lntBidInfo.servicesFee | formatMoneyRound | number:2"></span>元</span><span ng-if="isShowRestBackIntAmt">+交割时平台垫付{{lntBidInfo.restBackIntAmt}}元</span>
+        </p>
+
+        <p ng-show="showIsBuy == '1'" class="item g-mt-10 g-cf" ng-class="{'inactive':isGrey=='1'}">
+          <input type="checkbox" ng-if="isGrey == '0'" class="ipt" ng-model="ipt.agreeAuto">
+          <input type="checkbox" ng-if="isGrey == '1'" class="ipt inactive" ng-model="ipt.agreeAuto"  disabled>
+          <span ng-class="{'inactive':isGrey=='1'}">允许使用&lt;速转通&gt;服务</span>
+          <a href="#/tab/creditTransferRule" class="g-f-r">查看规则></a>
+        </p>
+
+        <p ng-show="showIsBuy == '1'" class="item colorGray" ng-class="{'inactive':isGrey=='1'}">
+            &lt;速转通&gt;是合拍为<span ng-bind="lntBidInfo.minVip"></span>及以上会员专属打造，可提高债转成功率的星级服务。成功债转后将收取服务费=按实际转让本金*<span ng-bind="lntBidInfo.urgentFeeRate | formatMoneyRound | number:2"></span>%
+        </p>
+      </div>
+      <div class="plr-16">
+        <div class="agree">
+          <input type="checkbox" class="ipt" ng-model="agreeChk">
+          <span>我已阅读并同意签署本次转让借款标的<a ng-click="goProtocol(1)">《债权转让协议》</a>、<a ng-click="goProtocol(2)">《债权转让合同》</a></span>
+        </div>
+
+        <div class="btnWp">
+          <div ng-class="agreeChk?'orange btn':'gray btn'" ng-click="creditTransfer()">确认转让</div>
+        </div>
+
+        <div class="tip">
+          <p>说明：</p>
+          <p>1、非还款日，债权持有时间已满1天、距还款日>3天且债权本金金额>100元，才可以债权转让</p>
+          <p>2、债权转让发布与竞标时间为每日8：00－17：00</p>
+          <p>3、债权转让总价＝转让的债权本金+截止至转让生效日应收利息+逾期利息-扣除居间服务费</p>
+          <p>4、债转手续费，债权手续费=回收投资券金额+债转服务费=已使用投资券金额*实际转让比例*（1-持有时段天数/借款周期天数）+债转总价*实际转让比例*0.05%</p>
+          <p>5、持有时间超过借款期限，逾期后再进行的债权转让，免债转手续费。</p>
+        </div>
+      </div>
+    </div>
+   </ion-content>
+</ion-view>

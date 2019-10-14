@@ -1,0 +1,173 @@
+<ion-view hide-tabs="false"  view-title="我的任务"  hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background g-p-10" id="myTasks" overflow-scroll="true" >
+      <p class="tuiguang g-p-10 g-mt-10">
+          <span class="g-fz-b1">新手任务</span>
+          <span class="g-f-r">（<span ng-bind="total"></span>/5）</span>
+      </p>
+      <ul>
+        <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[0] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-register"></i>
+          </span>
+          <span ng-if="list[0] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-register"></i>
+          </span>
+          <div class="info">
+            <h2>注册会员</h2>
+            <p>成为合拍在线智慧投资人</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券1888元</p>
+            <a ng-if="list[0] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[0] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[0] == '1'" href="#/registerNew" class="goto orange">前往</a>
+            <a ng-if="list[0] == '2'" ng-click="getAward(0)" class="goto orange">领取奖励</a>
+            <a ng-if="list[0] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li>
+        <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[4] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-realName"></i>
+          </span>
+          <span ng-if="list[4] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-realName"></i>
+          </span>
+          <div class="info">
+            <h2>开通存管账户</h2>
+            <p>银行存管资金，资金安全更合规</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券5元</p>
+            <a ng-if="list[4] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[4] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[4] == '1'" href="#/tab/capitalSupervision" class="goto orange">前往</a>
+            <a ng-if="list[4] == '2'" ng-click="getAward(5)" class="goto orange">领取奖励</a>
+            <a ng-if="list[4] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li>
+        <!-- <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[0] == '2'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-lockScreen"></i>
+          </span>
+          <span ng-if="list[0] != '2'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-lockScreen"></i>
+          </span>
+          <div class="info">
+            <h2>开启锁屏密码</h2>
+            <p>开启后每次打开APP都自动登录</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券5元</p>
+            <a ng-if="list[0] == '0'" href="#/registerNew" class="goto orange">前往</a>
+            <a ng-if="list[0] == '1'" ng-click="getAward(0)" class="goto orange">领取奖励</a>
+            <a ng-if="list[0] == '2'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li> -->
+       <!--  <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[1] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-realName"></i>
+          </span>
+          <span ng-if="list[1] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-realName"></i>
+          </span>
+          <div class="info">
+            <h2>实名认证</h2>
+            <p>需要完成实名认证才能在平台进行投资</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券5元</p>
+            <a ng-if="list[1] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[1] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[1] == '1'" href="#/tab/realName" class="goto orange">前往</a>
+            <a ng-if="list[1] == '2'" ng-click="getAward(1)" class="goto orange">领取奖励</a>
+            <a ng-if="list[1] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li> -->
+        <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[1] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-firstRecharge"></i>
+          </span>
+          <span ng-if="list[1] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-firstRecharge"></i>
+          </span>
+          <div class="info">
+            <h2>首次充值</h2>
+            <p>马上转入资金赚取高额收益</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券10元</p>
+            <a ng-if="list[1] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[1] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[1] == '1'" href="#/recharge" class="goto orange">前往</a>
+            <a ng-if="list[1] == '2'" ng-click="getAward(2)" class="goto orange">领取奖励</a>
+            <a ng-if="list[1] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li>
+        <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[2] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-certificate"></i>
+          </span>
+          <span ng-if="list[2] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-certificate"></i>
+          </span>
+          <div class="info">
+            <h2>申请数字证书</h2>
+            <p >通过新数字证书来签署合同，保障您合法权益</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券5元</p>
+            <a ng-if="list[2] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[2] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[2] == '1'" href="#/tab/safetyApplyCertificate" class="goto orange">前往</a>
+            <a ng-if="list[2] == '2'" ng-click="getAward(3)" class="goto orange">领取奖励</a>
+            <a ng-if="list[2] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li>
+        <!-- <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[4] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-tradingPwd"></i>
+          </span>
+          <span ng-if="list[4] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-tradingPwd"></i>
+          </span>
+          <div class="info">
+            <h2>设置交易密码</h2>
+            <p>投资、提现输入交易密码，保障资金安全</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：现金券5元</p>
+            <a ng-if="list[4] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[4] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[4] == '1'" href="#/tab/resetTradePwdFirstSetPwd" class="goto orange">前往</a>
+            <a ng-if="list[4] == '2'" ng-click="getAward(4)" class="goto orange">领取奖励</a>
+            <a ng-if="list[4] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li> -->
+        <li class="item item-avatar" type="item-text-wrap">
+          <span ng-if="list[3] == '3'" class="g-f-l taskIcon has" >
+            <i class="iconfont icon-newBid"></i>
+          </span>
+          <span ng-if="list[3] != '3'" class="g-f-l taskIcon no" >
+            <i class="iconfont icon-newBid"></i>
+          </span>
+          <div class="info">
+            <h2>投资新手标</h2>
+            <p>新手专享，利率高，期限短</p>
+          </div>
+          <div class="g-f-r g-ta-r g-mt-5">
+            <p class="prize">奖励：享受3%额外加息</p>
+            <a ng-if="list[3] == '-1'" href="#" class="goto gray">已过期</a>
+            <a ng-if="list[3] == '0'" href="#" class="goto gray">前往</a>
+            <a ng-if="list[3] == '1'" href="#/tab/bidListNewFish/1000" class="goto orange">前往</a>
+            <a ng-if="list[3] == '2'" ng-click="getAward(4)" class="goto orange">领取奖励</a>
+            <a ng-if="list[3] == '3'" href="#" class="goto gray">已完成</a>
+          </div>
+        </li>
+      </ul>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view id="chooseCity" class="background" view-title="城市选择">
+    <ion-nav-title>
+        <form style="height:44px;">
+            <div class="item-input-inset" style="height:100%;">
+                <div class="item-input-wrapper" style="background-color:#fff;height:32px;">
+                    <i class="icon ion-android-search placeholder-icon g-cb2 g-fz-b2"></i>
+                    <input type="search" placeholder="请输入城市名称" ng-change="startDot()" ng-model="$parent.cityName">
+                    <i ng-if="searchEmptyShow" class="ion-close-circled" ng-click="searchEmpty()"></i>
+                </div>
+            </div>
+        </form>
+    </ion-nav-title>
+
+    <ion-content scroll="true">
+         <div class="pb120">
+            <div id="city_{{d.iniData}}" class="mr30" ng-repeat="d in cityDatas | filter:cityName">
+                <div class="choose_city_abc">{{d.iniData}}</div>
+                <div class="choose_city_data">
+                    <div class="choose_city_border g-ptb-10" ng-repeat="city in d.datas | filter:cityName" ng-click="confirmCity('{{city.zoneCityId}}','{{city.zoneCity}}')">{{city.zoneCity}}</div>
+                    <div class="choose_city_border g-ptb-10" style="border-bottom:0;" ng-if="d.datas.length==0">暂无城市</div>
+                </div>
+            </div>
+         </div>
+    </ion-content> 
+    <div class="letter"> 
+        <div ng-repeat="c in indexs" style="height:{{hIndex}}px;" ng-click="mTouch('{{c}}')">
+            {{c}}
+        </div> 
+    </div>
+    <div class="showMiddle" ng-if="showMiddle">
+        {{hint}}
+    </div>
+</ion-view>

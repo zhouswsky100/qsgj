@@ -1,0 +1,45 @@
+<ion-view view-title="填写登录密码" hide-tabs="false" hide-back-button="true">
+	<ion-nav-buttons side="left">
+		<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+		  <i class="icon ion-ios-arrow-left color-fff"></i>
+		</button>
+	</ion-nav-buttons>
+
+	<ion-content class="background" id="registerLoginStep12" overflow-scroll="true" >
+		<div class="item item-input">
+			<span  class="g-fz-14 g-c66">登录密码：</span>
+		    <div ng-show="!hasClose" class="keyboardWrapper">
+				<input  type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="设置您的登录密码(6-16位)" ng-model="register.password" name="register.password1" password="register.password" focus="true" keyboard>
+			    <div class="imitateCursor animation">{{!hasClose?register.password:register.password1}}</div>
+		    </div>
+			<div ng-show="hasClose" class="keyboardWrapper">
+				<input  type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="设置您的登录密码(6-16位)" ng-model="register.password1" name="register.password1" password="register.password" focus="true" keyboard>
+			    <div class="imitateCursor animation">{{!hasClose?register.password:register.password1}}</div>
+		    </div>
+	      	<span ng-if="!hasClose" class="iconfont icon-eye g-pr-10" ng-click="closeEye()"></span>
+	      	<span ng-if="hasClose" class="iconfont icon-eye-off g-pr-10" ng-click="closeEye()"></span>
+	    </div>
+	    <div class="g-mtb-10 g-pl-10 recommendWrapper">
+	    	<p ng-click="showRecommend()">
+	    		<span ng-if="!show" class="showArrow ion-arrow-right-b"></span>
+				<span ng-if="show" class="showArrow ion-arrow-down-b"></span>
+				<span class="orangeColor">邀请人手机号码</span>
+	    	</p>
+	    	<div class="keyboardWrapper">
+		      	<input ng-show="show" type="text" class="g-pl-5 getMsgCodeIpt recommend ng-pristine ng-untouched ng-valid" placeholder="请输入推荐码或手机号码" ng-model="register.recommend" name="register.recommend" keyboard>
+		      	<div class="imitateCursor animation-gray">{{register.recommend}}</div>
+		    </div>
+	    </div>
+	    <p class="g-m-10 g-ta-c agreeCnt">注册即表示您已同意
+	      <a class="orangeColor" ng-click="registerCnt()">《合拍在线注册协议》</a>
+	    </p>
+
+		<div class="g-mtb-10 g-plr-10">
+		    <a ng-class="{'button-gray':isGray}" class="button button-block  button-orange" ng-click="next()" ng-disabled="!(register.password)">
+		        完成
+		        <ion-spinner ng-if="isGray" icon="dots" class="spinner-light request-spinner"></ion-spinner>
+		    </a>
+		</div>
+
+	</ion-content>     
+</ion-view>

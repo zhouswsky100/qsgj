@@ -1,0 +1,43 @@
+<ion-view view-title="" hide-tabs="false" hide-back-button="true">
+  <ion-nav-title>
+    <span >登录</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="register1" overflow-scroll="true" >
+	  <div >
+			<div class="item-input item g-mt-10">
+				<span class="g-fz-14 g-c66">手机号码：</span>
+				<div class="keyboardWrapper">
+					<input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="text"  placeholder="请输入手机号" ng-model="login.tel" name="login.tel" boardtype="v2" focus="true" keyboard>
+					<div class="imitateCursor animation">{{login.tel}}</div>
+				</div>
+			</div>
+			<div class="item-input item g-mt-10">
+		    	<span class="g-fz-14 g-c66">登录密码：</span>
+		    	<div class="keyboardWrapper">
+					<input type="password"  placeholder="请输入登录密码" ng-model="login.loginPwd" name="login.loginPwd"    >
+					<!-- <div class="imitateCursor animation">{{login.loginPwd}}</div> -->
+				</div>
+			</div>
+		</div>
+			<p class="g-m-10">
+					<a class="item-note g-mb-10" href="#/register">
+				还未注册？
+			</a>
+			</p>
+			<br>
+			<p class="g-m-10">
+				<a class="item-note g-mb-10" href="#/updateLoginPwds">
+				找回密码&nbsp;&nbsp;
+				</a>
+			</p>
+			<div class="g-plr-10">
+				<input type="submit" class="button button-block button-orange" value="确定"  ng-click="doLogin()">
+			</div>
+  </ion-content>
+</ion-view>

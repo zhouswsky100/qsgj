@@ -1,0 +1,37 @@
+
+<ion-view  view-title="密码管理" hide-tabs="false" hide-back-button="true">
+	<ion-nav-buttons side="left">
+	  <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+		<i class="icon ion-ios-arrow-left color-fff"></i> 
+	  </button>
+	</ion-nav-buttons>
+	 <ion-content class="background" id="passwordM" overflow-scroll="true" >
+		<div class="list" id="modLoginPwd">
+			<label class="item item-input g-mtb-10">
+				<p class="g-ta-c g-mtb-10 g-ptb-10">已向手机{{login.gcphone|formatMoblie}}发送短信，<br/>请在输入框中完善信息进行修改密码</p>
+			</label>
+			
+			<div class="item item-input g-pr-10">
+				<span class="g-fz-14 g-c66">验证码：</span>
+				<div class="keyboardWrapper">
+					<input type="text"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入验证码" ng-model="login.validateCode" name="login.validateCode"  boardtype="v2" focus="true" keyboard>
+					<div class="imitateCursor animation">{{login.validateCode}}</div>
+			 </div>
+			 
+				 <getmsgcode1 tel="{{login.gcphone}}" callback="getMsgCode()" init="auto"></getmsgcode1>
+			</div>
+		
+			<div class="item item-input g-mtb-10">
+				<span class="g-fz-14 g-c66">新登录密码：</span>
+				  <div class="keyboardWrapper">
+					<input  type="password"  placeholder="请输入新密码"   ng-model="login.gcpass" name="login.gcpass" >
+				  </div>
+			  </div>
+			<div class="g-mlr-10 registerBtn">
+				<a class="button button-block  button-orange" ng-click="next()" >
+					修改
+				</a>
+			</div>
+	</div>
+	 </ion-content>
+  </ion-view>

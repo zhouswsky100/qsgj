@@ -1,0 +1,85 @@
+<ion-view view-title="" hide-tabs="true" hide-back-button="true">
+  <ion-nav-title>
+    <span ng-bind="nowDate"></span>
+  </ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+        <i class="icon ion-ios-arrow-left color-fff"></i> 
+      </button>
+    </ion-nav-buttons> 
+   <ion-content class="background" id="calendar" overflow-scroll="true" >
+      <div class="g-p-10 selectWrapper">
+        <span class="goToday" ng-click="goToday()">返回今天</span>
+        <!-- <div class="g-ta-c">
+          
+          <select ng-change="changeYear(editModel.yearSelected)" ng-model="editModel.yearSelected" ng-options="year for year in years"></select>年
+          <select ng-change="changeMonth(editModel.monthSelected)" ng-model="editModel.monthSelected" ng-options="mon for mon in mons"></select>月
+        </div> -->
+        <div class="g-f-r goWrapper">
+          <span class="chevronButton ion-chevron-left" ng-click="pre()"></span>
+          <span class="g-fw-b" ng-bind="nowDate"></span>
+          <span class="chevronButton ion-chevron-right" ng-click="next()"></span>
+        </div>
+        
+      </div>
+      <ul class="month">
+        <li ng-repeat="item in items" ng-click="clickChanged($index)" ng-class="slideIndex==$index?'current':''">{{item.month}}月</li>
+      </ul>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="slideIndex" auto-play="false"> 
+          <ion-slide ng-repeat="item in items">
+            <div class="sign-time-box">    
+              <div class='sign' id='sign_cal' compile="sign_cal"></div>
+              <p ng-if="guessAllMoney > 0" class="g-mt-10 g-plr-10">预计当月待收
+                <span class="g-f-r">{{guessAllMoney | number:2}}元</span>
+              </p>
+              <p ng-if="receivedMoney > 0" class="g-mt-10 g-plr-10">当月已收
+                <span class="g-f-r">{{receivedMoney | number:2}}元</span>
+              </p>
+            </div> 
+          </ion-slide>
+      </ion-slide-box>      
+            <div class="collectionList">
+              <!-- <p class="g-ta-c g-p-10" ng-if="noInfo">您当月暂无收款</p> -->
+              <p><span class="g-ml-10" ng-bind="recentInfo"></span><span class="g-ml-10">({{countDay}})笔</span></p>
+              <div class="g-ta-c g-p-10" ng-if="vm.ajaxEnd && vm.messages.length == 0 && noInfo">无还款记录</div>
+              <div ng-if="vm.ajaxEnd && vm.messages.length > 0" ng-repeat="message in vm.messages">
+                <a ng-if="message.PTYPE == 0" class="item item-button-right g-p-10" href="#/tab/investDetail/{{message.LN_NO}}/{{message.TX_NO}}/{{message.PRD_TYP}}/00/2">
+                  <div class="g-f-l type yuqi" ng-if="message.OVD_STS == '2'">逾期</div>
+                  <div class="g-f-l type daishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'T'">待收</div>
+                  <div class="g-f-l type yishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Y'">已收</div>
+                  <div class="g-f-l type yizhuan" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Z'">已转</div>
+                  <div class="g-f-l">
+                    <h2>{{message.LN_AMT | number:2}}元</h2>
+                    <p class="g-fz-s1" ng-bind="message.LN_NM"></p>
+                  </div>
+                  <i class="icon ion-chevron-right icon-accessory arrow"></i>
+                </a>
+                <a ng-if="message.PTYPE == 1" class="item item-button-right g-p-10" href="#/tab/planDetail/{{message.LN_NO}}/{{message.TX_NO}}">
+                  <div class="g-f-l type yuqi" ng-if="message.OVD_STS == '2'">逾期</div>
+                  <div class="g-f-l type daishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'T'">待收</div>
+                  <div class="g-f-l type yishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Y'">已收</div>
+                  <div class="g-f-l type yizhuan" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Z'">已转</div>
+                  <div class="g-f-l">
+                    <h2>{{message.LN_AMT | number:2}}元</h2>
+                    <p class="g-fz-s1" ng-bind="message.LN_NM"></p>
+                  </div>
+                  <i class="icon ion-chevron-right icon-accessory arrow"></i>
+                </a>
+                <a ng-if="message.PTYPE == 3" class="item item-button-right g-p-10" href="#/tab/bidZzbDetail/{{message.LN_NO}}/100">
+                  <div class="g-f-l type yuqi" ng-if="message.OVD_STS == '2'">逾期</div>
+                  <div class="g-f-l type daishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'T'">待收</div>
+                  <div class="g-f-l type yishou" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Y'">已收</div>
+                  <div class="g-f-l type yizhuan" ng-if="message.OVD_STS != '2' && message.UTYPE == 'Z'">已转</div>
+                  <div class="g-f-l">
+                    <h2>{{message.LN_AMT | number:2}}元</h2>
+                    <p class="g-fz-s1" ng-bind="message.LN_NM"></p>
+                  </div>
+                  <i class="icon ion-chevron-right icon-accessory arrow"></i>
+                </a>
+              </div>
+            </div> 
+          
+	  <ion-infinite-scroll ng-if="!vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+      </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

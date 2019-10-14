@@ -1,0 +1,48 @@
+<ion-view  view-title="贷后信息" hide-tabs="true" hide-back-button="true">
+        <ion-nav-buttons side="left">
+          <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+            <i class="icon ion-ios-arrow-left color-fff"></i>
+          </button>
+        </ion-nav-buttons>
+        <div id="projectDetail">
+          <ion-content class="background" overflow-scroll="true" >
+                    <p style="padding:10px"> 借款人完成借款后，贷后管理人员将对借款人进行持续跟进，以了解借款人最新的资金使用情况、还款能力变化等情况。 </p>
+                    <p style="padding:10px" ng-if="data.tips=='1'&& ajaxFlg">仅本项目的<span style="color:#016ec2;">借款人和出借人可见</span></p>
+                    <p style="padding:10px" ng-if="data.tips=='2'&& ajaxFlg">暂无贷后信息，借款标进入还款状态时将显示贷后信息  </p>
+              <ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-init="lockSlide()">
+                <ion-slide>
+                      <ul class="box1 content" ng-if="data.tips=='3'&& ajaxFlg">
+                          <li class="g-pb-10">
+                              <p class="title">贷后信息<!-- 公司借贷信息 --></p>
+                              <ul class="g-mb-10 g-plr-10">
+                                  <li  class="g-cf" ng-if="data.LOAN_AMT_USE_INFO">
+                                          <span class="subTitles g-f-l">借款资金运用情况：</span>
+                                          <span>{{data.LOAN_AMT_USE_INFO}}</span>
+                                  </li>
+                                  <li  class="g-cf" ng-if="data.LOAN_MANAGEMENT_INFO">
+                                          <span class="subTitles g-f-l">借款人经营状况及财务状况：</span>
+                                          <span>{{data.LOAN_MANAGEMENT_INFO}}</span>
+                                  </li>
+                                  <li class="g-cf" ng-if="data.LOAN_OVD_INFO">
+                                          <span class="subTitles g-f-l">借款人逾期情况：</span>
+                                          <span>{{data.LOAN_OVD_INFO}}</span>
+                                  </li>
+                                      <li class="g-cf" ng-if="data.LOAN_SS_INFO">
+                                          <span class="subTitles g-f-l">借款人涉诉情况：</span>
+                                          <span>{{data.LOAN_SS_INFO}}</span>
+      
+                                      </li>
+                                      <li class="g-cf" ng-if="data.LOAN_LNTPAY_INFO">
+                                          <span class="subTitles g-f-l">借款人还款能力变化情况：</span>
+                                          <span>{{data.LOAN_LNTPAY_INFO}}</span>
+                                      </li>
+                                      <li class="g-cf"  ng-if="data.LOAN_PUNISH_INFO">
+                                          <span class="subTitles g-f-l">借款人受行政处罚情况：</span>
+                                          <span>{{data.LOAN_PUNISH_INFO}}</span>
+                                      </li>	
+                          </ul>
+                   </ion-slide>
+              </ion-slide-box>
+          </ion-content>
+        </div>
+      </ion-view>

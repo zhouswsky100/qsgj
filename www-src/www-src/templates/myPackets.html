@@ -1,0 +1,30 @@
+ <ion-view view-title="我的红包" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content id="investTicket" overflow-scroll="true" >
+    <ul ng-if="noData" class="g-listNoData g-fz-b1">
+      <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      <li class="g-c99">暂无数据</li>
+    </ul>
+    <ul class="investTicket">
+      <li ng-class="item.hpbSts == '0'?'list card card1':'list card card2'" ng-repeat="item in tickets">
+          <div class="row">
+            <div class="col col-33 item1">
+              <p class="num">{{item.valBal}}元</p>
+              <p class="g-fz-12" ng-if="item.hpbSts == '0'">未使用</p>
+              <p class="g-fz-12" ng-if="item.hpbSts == '1'">已使用</p>
+              <p class="g-fz-12" ng-if="item.hpbSts == '2'">已过期</p>
+            </div>
+            <div class="col">
+              <p class="g-mb-0 g-fz-12 g-c99"><span>说明：</span><span ng-bind-html="item.useRuleDec"></p>
+              <p class="g-mb-0 g-fz-12 g-c99"><span>期限：</span>{{item.hpbValidays}}</p>
+              <p class="g-mb-0 g-fz-12 g-c99"><span>来源：</span>{{item.source}}</p>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

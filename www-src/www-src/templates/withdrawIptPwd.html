@@ -1,0 +1,36 @@
+<ion-view  view-title="账户提现" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <div id="resetTradePwd">
+  <ion-content class="background" overflow-scroll="true" >
+    <div class="list" >
+      <div class="row g-ml-5">
+        <div class="col">提现金额：<span ng-bind="totalMoney"></span>元</div>
+        <div class="col">手续费：<span ng-bind="fee|currency:''"></span>元</div>
+      </div>
+     <!--  <label class="item item-input">
+        <p class="input-label">交易密码</p>
+        <input type="password" placeholder="请输入交易密码" ng-model="withdraw.pwd">
+      </label> -->
+      <div class="item item-input g-mtb-10">
+        <p class="input-label">验证码</p>
+        <input type="text" class="getMsgCodeIpt" placeholder="请再输入短信验证码" ng-model="withdraw.msgCode">
+        <div ng-click="getMsgCode()" class="getmsgcode">
+          <getmsgcode></getmsgcode>
+        </div>
+        
+      </div>
+      <div class="g-m-10 ">
+        <button class="button button-block  button-orange" ng-disabled="!withdraw.msgCode||isLock" ng-click="withdrawSubmit()">
+          确定
+        </button>
+        <div>提交申请后将进入江西银行验证页面完成提现，过程中请勿关闭页面，如因中断操作等出现账户问题请联系客服。</div>
+      </div>
+    </div>
+
+  </ion-content>
+  </div>
+</ion-view>

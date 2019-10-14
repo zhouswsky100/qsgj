@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>解绑银行卡</title>
+  </head>
+  <body>
+    <form action="" method="post" id="unbind">
+        <input type="hidden" id="accountId" name="accountId" />
+        <input type="hidden" id="acqRes" name="acqRes" />
+        <input type="hidden" id="bankCode" name="bankCode" />
+        <input type="hidden" id="cardNo" name="cardNo" />
+        <input type="hidden" id="channel" name="channel" />
+        <input type="hidden" id="idNo" name="idNo" />
+        <input type="hidden" id="idType" name="idType" />
+        <input type="hidden" id="instCode" name="instCode" />
+        <input type="hidden" id="mobile" name="mobile" />
+        <input type="hidden" id="name" name="name" />
+        <input type="hidden" id="notifyUrl" name="notifyUrl" />
+        <input type="hidden" id="retUrl" name="retUrl" />
+        <input type="hidden" id="seqNo" name="seqNo" />
+        <input type="hidden" id="sign" name="sign" />
+        <input type="hidden" id="txCode" name="txCode"/>
+        <input type="hidden" id="txDate" name="txDate" />
+        <input type="hidden" id="txTime" name="txTime" />
+        <input type="hidden" id="version" name="version" />
+      </form>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=JSON.parse(decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.length));
+          document.getElementById('unbind').attributes['action'].value=data.reqUrl;
+          document.getElementById('accountId').value=data.accountId;
+          document.getElementById('acqRes').value=data.acqRes;
+          document.getElementById('bankCode').value=data.bankCode;
+          document.getElementById('cardNo').value=data.cardNo;
+          document.getElementById('channel').value=data.channel;
+          document.getElementById('idNo').value=data.idNo;
+          document.getElementById('idType').value=data.idType;
+          document.getElementById('instCode').value=data.instCode;
+          document.getElementById('mobile').value=data.mobile;
+          document.getElementById('name').value=data.name;
+          document.getElementById('notifyUrl').value=data.notifyUrl;
+          document.getElementById('retUrl').value=data.retUrl;
+          document.getElementById('seqNo').value=data.seqNo;
+          document.getElementById('sign').value=data.sign;
+          document.getElementById('txCode').value=data.txCode;
+          document.getElementById('txDate').value=data.txDate;
+          document.getElementById('txTime').value=data.txTime;
+          document.getElementById('version').value=data.version;
+
+
+
+          document.getElementById('unbind').submit();
+    </script>
+  </body>
+</html>

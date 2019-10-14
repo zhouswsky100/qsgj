@@ -1,0 +1,29 @@
+<ion-view view-title="我的收款码" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="home" overflow-scroll="true">
+      <div class="ewm" >
+          <ul class="g-cf">
+            <li class="g-f-l g-pl-20  g-pt-15">
+              <p class="g-f-l photo" style="border-radius: 5px;"> 
+                <img ng-src="http://39.97.234.111/base/userFiles/{{gcphoto}}" style="width:100%;height:100%" />
+              </p>
+              <div class="g-f-l g-pl-10"> 
+                <p class="time "  > {{gcnikename}}</p>
+                <p class="g-cf m0p0">
+                  <span class="g-f-l m0p0 time" >{{tel}}</span>
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="g-mt-20 g-ta-c">
+              <img ng-src="http://39.97.234.111/base/userFiles/{{qbqrcod}}">
+          </div>
+          <p class="sm">扫一扫上面二维码图案，向我转赠青贝。</p>
+      </div>
+  </ion-content>
+</ion-view>

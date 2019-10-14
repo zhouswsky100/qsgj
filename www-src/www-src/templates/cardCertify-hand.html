@@ -1,0 +1,21 @@
+<ion-view view-title="银行卡认证" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+      <div>
+        <p class="g-m-10">我们已向您的银行卡转账一笔小金额款，请填写该笔转账的具体金额</p>
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">绑定银行卡</p>
+          <p><span>平安银行（尾号1234）</span></p>
+        </label>
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">转账金额</p>
+          <input type="number" ng-model="cardNumber" placeholder="请输入该笔转账的具体金额">
+        </label>
+        <a class="button button-block button-orange g-m-10" href="#">确定</a>
+      </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,97 @@
+<ion-view  view-title="账户提现" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear ion-clipboard button-light" ng-click="viewToRecord()">
+    <i>充提记录</i>
+    </button>
+  </ion-nav-buttons>
+  <div id="withdraw">
+    <ion-content class="background"  overflow-scroll="true" >
+      <div class="list">
+        <div class="item">
+          <p>可用余额：<span ng-bind="keyye"></span> 元</p>
+        </div>
+        <label ng-if="hasCard" class="item item-input g-mt-10">
+          <div class="input-label g-c66 g-fz-14">
+            银行卡
+          </div>
+          <p ng-bind="banks.bcnNm"></p>
+        </label>
+        <a ng-if="!hasCard" class="item  item-icon-right g-mtb-10" ng-click="addBank()">
+          <p> 银行卡
+            <span class="item-note">添加银行卡</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <label class="item item-input item-select g-mt-10">
+          <div class="input-label g-c66 g-fz-14">
+            提现方式
+          </div>
+          <select ng-disabled="!hasCard"  ng-change="sleType(type)" ng-model="type" ng-options="i.type as i.type for i in withdrawTypes"></select>
+        </label>
+        <label class="item item-input">
+          <div ng-if="hintFlag&&(id=='1')" class="input-label g-c99 g-fz-14">单笔最高5万，单日最多10次</div>
+          <div ng-if="!hintFlag&&(id=='1')" class="input-label g-c99 g-fz-14">单笔最高5万，单日最多10次</div>
+          <div ng-if="(id=='2')" class="input-label g-c99 g-fz-14">金额不限，工作日0:00至17:00间处理，30分钟到账</div>
+        </label>
+        <a ng-if="id=='2'?true:false" class="item  item-icon-right g-mtb-10" href="#/chooseCity">
+          <p> 所在城市
+            <span class="item-note" ng-bind="city"></span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <label ng-if="(id=='2'?true:false)&&(hasCity)" class="item item-input item-select g-mt-10">
+          <div class="input-label g-c66 g-fz-14">
+            开户支行
+          </div>
+           <!-- <select style="max-width: 80%; padding: 0 23px 0 0;" ng-change="sleBranch(subBchNm)" ng-model="subBchNm" ng-options="i.SUB_BCH_NM as i.SUB_BCH_NM for i in branchs">
+           </select> -->
+           <select style="max-width: 80%; padding: 0 23px 0 0;" ng-change="sleBranch(bchNo)" ng-model="bchNo" ng-options="i.BCH_NO as i.BRANCH_NM for i in branchs">
+              <option value="">请选择开户行支行</option>
+           </select>
+        </label>
+        <label class="item item-input g-mt-10">
+          <p class="input-label" aria-label="提现金额">提现金额</p>
+          <!-- <input style="background-color: #fff;" type="text" placeholder="请输入提现金额" ng-model="withdraw.withdrawCash" ng-blur="blur()" ng-keyup="onKeyUp()" ng-readOnly="isTiny"> -->
+          <div class="keyboardWrapper">
+            <input type="text" style="background-color: #fff;"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入提现金额" ng-model="withdraw.withdrawCash" name="withdraw.withdrawCash" boardtype="v1" ng-blur="blur()" ng-keyup="onKeyUp()" ng-readOnly="isTiny" keyboard>
+            <div class="imitateCursor animation">{{withdraw.withdrawCash}}</div>
+          </div>
+        </label>
+        <label class="item item-input">
+          <p class="input-label" aria-label="手续费">手续费</p>
+          <p class="txtAuto"><span ng-bind="fee|formatMoneyFloor | number:2"></span>元<span class="g-cf36026 g-fz-s1">（已抵扣 <span ng-bind="hasDeduction|formatMoney:'2'"></span>元）</span></p>
+        </label>
+        <label class="item item-input borderDashed">
+          <p class="input-label" aria-label="到账金额">到账金额</p>
+          <p class="txtAuto"><span ng-bind="borderDashed|number:2"></span>元</p>
+        </label>
+        <a class="item  item-icon-right g-mtb-10" ng-click="goWithdrawFee()">
+          <p> 手续费抵扣
+            <span class="item-note" ng-bind="deductionType"></span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <div class="g-m-10 ">
+          <button class="button button-block  button-orange" ng-click="next()" ng-disabled="!hasCard">
+            下一步
+          </button>
+        </div>
+
+        <div class=" g-m-10 tip">
+          <p class="g-c66">手续费抵扣说明：</p>
+          <ul>
+            <li><p class="g-c99">-单笔提现低于2000元时，按0.125%收取手续，单笔提现在2000元及以上时，按0.1%收取手续费；</p></li>
+            <li><p class="g-c99">-VIP会员手续费打折：VIP4打9.8折，VIP5打9.5折，VIP6打9.3折 ，VIP7打9折，VIP8打8.8折；</p></li>
+            <li><p class="g-c99">-单笔提现手续费最低2元，最高50元；</p></li>
+            <li><p class="g-c99">-单笔提现金额最低为100元，最高为5000000元；</p></li>
+          </ul>
+        </div>
+      </div>
+    </ion-content>
+  </div>
+</ion-view>

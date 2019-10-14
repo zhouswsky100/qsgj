@@ -1,0 +1,32 @@
+ <ion-view hide-tabs="false"  view-title="{{title}}"  hide-back-button="true">
+   <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" id="find" overflow-scroll="true" >
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <!--ion-ios-arrow-up ion-ios-arrow-down ion-ios-arrow-right-->
+    <div class="dynamics g-mt-10"  >
+      <div class="bts">
+        <a class="item  item-icon-right separate2" style="padding:10px">
+          <p>
+            <span style="padding-left: 10px">{{title}}</span>
+          </p>
+        </a>
+      </div>
+      <div class="bts" ng-repeat="helpList in helpList" ng-show="listFlg">
+        <a class="item  item-icon-right separate2" style="padding:10px" ng-click="gohelpDetail(helpList.article_id)" >
+          <p>
+            <span style="padding-left: 10px" ng-bind="$index+1"></span><span>、</span><span>{{helpList.title}}</span>
+            <i class="icon ion-ios-arrow-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

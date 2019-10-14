@@ -1,0 +1,26 @@
+<ion-view view-title="投资协议" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" overflow-scroll="true" >
+	<div class="protocolWrapper" id="protocolWrapper">
+	      <div class="item  item-icon-right" ng-click="goLoanCnt()">
+          <p>借款合同<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </div>
+<!--         <div class="item  item-icon-right g-mtb-10" ng-click="goDbCnt()">
+  <p>担保函<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+</div> -->
+        <div class="item  item-icon-right g-mtb-10" ng-click="goBidCnt()">
+          <p>出借人及出借人金额明细表<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </div>
+        <div class="item  item-icon-right g-mtb-10" ng-click="goLoanFWCnt()">
+          <p>居间服务协议<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </div>
+        <div class="item  item-icon-right g-mtb-10" ng-click="goCN1001()">
+          <p>合拍在线投资（出借）权利义务说明书<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </div>
+	</div>
+  </ion-content>
+</ion-view>

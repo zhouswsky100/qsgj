@@ -1,0 +1,215 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+  <ion-nav-title>
+    <span ng-if="bidId != '12'">借款标详情</span>
+    <span ng-if="bidId == '12'">投资项目</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button wechart-share sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}" hasurl="1" webpageurl="https://m.he-pai.cn/wechat/#/bidDetail/{{lnNo}}/{{bidId}}" class="button button-clear ion-android-share-alt button-light">
+      <i>分享</i>
+    </button>
+  </ion-nav-buttons>
+  <div id="bidDetail">
+    <ion-content class="background" overflow-scroll="true" >
+      <div class="list baseInfo">
+        <div ng-if="bidId=='1000'" class="bidTypeBg"></div>
+        <div ng-if="bidId=='1000'" class="bidType">新手标</div>
+        <div class="item bidName border-bot" style="padding-top:0;">
+		  	  <div class="timer g-f-r" ng-if="spanSecondAdd>0" ng-init="getToBeginTime(spanSecondAdd)">
+            <span ng-repeat="i in lN_TAG_ITEM" class="item-note">{{i.ITEM_NAME}}</span>
+
+    			  <div class="num">
+    				  <div>
+    						<img src="img/add.png" style="float: left;position: relative;left: 1px;width: 17px;" />
+    						<span class="g-ml-5" style="float: left;color:#000;border:0px;position: relative;left: 2px;">加息剩余</span>
+    				  </div>
+    				  <div>
+    					  <span ng-bind="message.hour"  style="color:#fff;border:0px;margin:0px;padding:0px;"  class="bgtime"></span>
+    						<span class="bgol" style="color:#f26025;border:0px; margin:0px;padding:0px;" >&nbsp;:&nbsp;</span>
+    					  <span ng-bind="message.minute" class="bgtime" style="color:#fff;border:0px; margin:0px;padding:0px;" ></span>
+    						<span class="bgol" style="color:#f26025;border:0px; margin:0px;padding:0px;" >&nbsp;:&nbsp;</span>
+    					  <span ng-bind="message.second" class="bgtime" style="color:#fff;border:0px; margin:0px;padding:0px;" > </span>
+    				  </div>
+    				  
+    			  </div>
+          </div>
+          <div class="g-c6 g-fz-16" ng-class="{'lin_40':spanSecondAdd!=0}">{{body.INVESTMENTDETAILINFO.lnNm}}
+              <span class="LNG" ng-if="tag" ng-repeat="tag in tag">{{tag}}</span>
+
+            <span ng-if="bidId=='1000'">前{{NOVICETENDERTIMES}}笔可投</span>
+            <span ng-if="bidId=='1000'">限额{{NOVICETENDERAMT}}元</span>
+            <span ng-repeat="i in lN_TAG_ITEM" class="item-note">{{i.ITEM_NAME}}</span>
+          </div>
+        </div>
+        <div class="item-body">
+          <table cellpadding="0px" cellspacing="0px" width="100%">
+            <tr>
+              <td width="50%" align="center" class="td-bor">              
+                <span class="num">
+                  <i><span style="font-size: 30px;" ng-bind="body.INVESTMENTDETAILINFO.lnRate | number:2"></span>%</i>
+				 <span ng-if="body.INVESTMENTDETAILINFO.lN_RATE_ADD>0">+<span ng-bind="body.INVESTMENTDETAILINFO.lN_RATE_ADD"></span>%</span>
+                  <span ng-if="body.INVESTMENTDETAILINFO.ovdRate>0">+<span ng-bind="body.INVESTMENTDETAILINFO.ovdRate"></span>%</span>
+                  <span ng-if="nrdRate">+<span ng-bind="body.INVESTMENTDETAILINFO.bz1"></span>%</span></span>
+                <div class="g-mb-5 g-c99 g-fz-14">历史年化利率<span ng-if="nrdRate">+本店奖励</span></div>
+              </td>
+              <td width="50%" align="center">
+                <span class="term" ng-if="bidId !='101' && bidId !='102'"><i ng-bind="body.INVESTMENTDETAILINFO.lnTerm>0?body.INVESTMENTDETAILINFO.lnTerm:0"></i><span ng-bind="body.INVESTMENTDETAILINFO.lnTermUnitDesc=='月'?'个月':body.INVESTMENTDETAILINFO.lnTermUnitDesc"></span></span>
+                <span class="term" ng-if="bidId=='101' || bidId=='102'"><i ng-bind="body.INVESTMENTDETAILINFO.extsDay>0?body.INVESTMENTDETAILINFO.extsDay:0"></i>天</span>
+                <div class="g-mb-5 g-c99 g-fz-14" ng-bind="getInterm()"></div>
+              </td>
+            </tr>
+          </table>
+          <div ng-if="!body.INVESTMENTDETAILINFO.bidSchd">
+            <progress progressval="0" class="progressThemeB"></progress>
+          </div>
+          <div ng-if="body.INVESTMENTDETAILINFO.bidSchd">
+            <progress progressval="{{body.INVESTMENTDETAILINFO.bidSchd}}" class="progressThemeB"></progress>
+          </div>
+          <span class="g-fz-14">剩余可投金额：<span ng-bind="body.INVESTMENTDETAILINFO.canBidBal | number:2"></span>元</span>
+        </div>
+      </div>
+      <div class="list">
+        <div class="item tabs tabs-secondary tabs-icon-top bidRequire">
+          <p class="tab-item">
+            <img class="icon" src="img/icon-d1.png" alt="tu" />
+            <span  class="g-fz-14">{{body.INVESTMENTDETAILINFO.memMinAmt}}元起投</span>
+          </p>
+          <p class="tab-item icon-top" ng-click="payMethDec(body.INVESTMENTDETAILINFO.payMeth)">
+            <img class="icon" src="img/icon-d2.png" alt="tu" />
+            <span class="g-fz-14" ng-bind="body.INVESTMENTDETAILINFO.payMethDesc"></span>
+          </p>
+          <p class="tab-item" href="#" ng-if="bidId=='101' || bidId=='12' || bidId=='102'">
+            <img class="icon" src="img/icon-d3.png" alt="tu" />
+            <span class="g-fz-14">当日计息</span>
+          </p>
+          <p class="tab-item" href="#" ng-if="bidId!='101' && bidId!='12' && bidId!='102'" ng-click="rules()">
+            <img class="icon" src="img/icon-d3.png" alt="tu" />
+            <span class="g-fz-14">计息时间规则</span>
+          </p>
+        </div>
+
+        <div ng-if="bidId == '12' && !hasClose && isShow" class="jjsTips">
+          <span class="txt">
+            需符合投资者人数200上限合规要求，起投金额随着投标进度会持续下调
+          </span>
+          <i ng-click="closeTip()" class="icon ion-android-close"></i>
+        </div>
+        <div class="item g-mt-10 item-icon-right">
+          <a class="more a-link" href="#/tab/projectDetailCpxq/{{lnNo}}/{{bidId}}/{{body.INVESTMENTDETAILINFO.pRD_TYP}}/{{body.INVESTMENTDETAILINFO.sRC_LN_NO}}">
+          产品详情
+          <span class="item-note">更多</span>
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </a>
+        </div>
+        <label class="item pd pdt0">
+          <p class="g-c99">开始投标：<span class="g-c99">{{body.INVESTMENTDETAILINFO.memBegTm}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">结束投标：<span class="g-c99">{{body.INVESTMENTDETAILINFO.memEndTm}}</span></p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99 p-normal">
+            借款用途：
+            <span class="g-c99 pro-intr" ng-bind="body.PAYERINFO.lnUse"></span>
+          </p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99 p-normal">
+            还款来源：
+            <span class="g-c99 pro-intr" ng-bind="body.PAYERINFO.payCode"></span>
+          </p>
+        </label>
+        <label class="item pd">
+          <p class="g-c99">
+            融资金额：<span class="g-c99">{{body.INVESTMENTDETAILINFO.lnAmt | number}}元</span>
+          </p>
+        </label>
+        <label class="item pd" style="padding-bottom:16px">
+          <p class="g-c99">
+            起投金额：<span class="g-c99">起投{{body.INVESTMENTDETAILINFO.memMinAmt | number}}元</span>
+          </p>
+        </label>
+        <div class="item g-mt-10 item-icon-right">
+          <a class="more a-link" href="#/borrowerDetail/{{lnNo}}">
+            借款人信息
+          <span class="item-note"></span>
+          <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </a>
+          <p class="g-c99" ng-if="body.loanMap.payerName && body.loanMap.ciType!='1'">公司全称：<span>{{body.loanMap.payerName}}</span></p>
+          <p class="g-c99" ng-if="body.loanMap.payerName && body.loanMap.ciType=='1'">借款人名称：<span>{{body.loanMap.payerName}}</span></p>
+
+        </div>
+        <div class="item g-mt-10 item-icon-right">
+          <a class="more a-link" href="#/tab/projectDetailDbjg/{{lnNo}}/{{bidId}}/{{body.INVESTMENTDETAILINFO.pRD_TYP}}/{{body.INVESTMENTDETAILINFO.sRC_LN_NO}}">
+          担保机构：
+          <span class="item-note">更多</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </a>
+        </div>
+        <label class="item pdt0">
+          <p class="g-c99">本产品融资由<br/>{{body.INVESTMENTDETAILINFO.orgNm}}提供本息担保</p>
+        </label>
+        <label ng-if="bidId == '12'" class="item ">
+          <p>备案机构：<span class="g-c99" ng-bind="body.INVESTMENTDETAILINFO.aGENCYNM"></span></p>
+        </label>
+        <a ng-if="bidId == '12'" class="item  item-icon-right g-mt-10" href="#/tab/projectResource/{{lnNo}}">
+          <p>资产说明  
+            <span class="item-note red">金融资产交易所备案资产</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/projectDetailFkcs/{{lnNo}}/{{bidId}}/{{body.INVESTMENTDETAILINFO.pRD_TYP}}/{{body.INVESTMENTDETAILINFO.sRC_LN_NO}}">
+          <p class="more">风控措施<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/postLoanInformation/{{lnNo}}">
+          <p class="more">贷后信息<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mt-10" href="#/tab/investRecord/{{lnNo}}/{{bidId}}">
+          <p class="more">投资记录
+            <span ng-if="bidId == '12'" class="g-c99">投资人数不超过200人</span>
+            <span class="item-note"><span ng-bind="body.INVESTMENTDETAILINFO.tzCount"></span>人已投资</span><i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <div class="item g-mt-10 item-icon-right">
+          <a class="more a-link" href="#/lenderRisk/{{body.INVESTMENTDETAILINFO.memMinAmt}}">
+            出借人风险提示
+          <span class="item-note">更多</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </a>
+        </div>
+        <!-- <a class="item  item-icon-right g-mtb-10" href="#">
+          <p> 投资抢红包<span class="item-note">投资满8319元即可领取</span><i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+        <p class="g-ta-c jxTip">——  每一笔交易资金由江西银行存管  ——</p>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="orange" ng-if="canBid(body.INVESTMENTDETAILINFO.lnSts,body.INVESTMENTDETAILINFO.lnStsDesc) && ajax">
+      <div class="title g-cff" ng-click="toViewInvest()">
+        <span ng-if="bidId == '12'">当前起投金额：<i ng-bind="body.INVESTMENTDETAILINFO.memMinAmt"></i>元,</span>
+        立即投资
+      </div>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="orange" ng-if="!ajax">
+      <div class="title g-cff" ng-click="toViewInvest()">
+        <span ng-if="bidId == '12'">当前起投金额：<i ng-bind="body.INVESTMENTDETAILINFO.memMinAmt"></i>元,</span>
+        立即投资
+      </div>
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="gray" ng-if="body.INVESTMENTDETAILINFO.lnSts != '04' && !canBid(body.INVESTMENTDETAILINFO.lnSts,body.INVESTMENTDETAILINFO.lnStsDesc)&& ajax">
+      <div class="title g-cff" ng-bind="lnDesc(body.INVESTMENTDETAILINFO.lnSts,body.INVESTMENTDETAILINFO.cRED_LN_STS_DESC)"> 立即投资</div>
+    </ion-footer-bar>
+
+    
+    <ion-footer-bar align-title="center" class="gray" ng-if="body.INVESTMENTDETAILINFO.lnSts == '04' && !canBid(body.INVESTMENTDETAILINFO.lnSts,body.INVESTMENTDETAILINFO.lnStsDesc)&& ajax">
+      <div  ng-click="toViewInvest()">
+        <div class="title g-cff timer g-f-r" ng-if="body.INVESTMENTDETAILINFO.spanSecond > 0" ng-init="getToBeginTime(body.INVESTMENTDETAILINFO.spanSecond)">
+          <span class="num"><span ng-bind="message.hour"></span>小时<span ng-bind="message.minute"></span>分<span ng-bind="message.second"></span>秒</span><span class="g-ml-5">后开始投标</span>
+        </div>
+      </div>
+    </ion-footer-bar>
+  </div>
+</ion-view>

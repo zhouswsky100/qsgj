@@ -1,0 +1,20 @@
+<ion-view  view-title="借款详情" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+      <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+        <i class="icon ion-ios-arrow-left color-fff"></i>
+      </button>
+    </ion-nav-buttons>
+    <div id="projectDetail">
+      <ion-content class="background" overflow-scroll="true" >
+          <p style="padding:10px">
+            根据对借款人当前的经营情况评估，其经营所得可以覆盖还款
+            ，但不排除未来因宏观经济、市场产品价格波动、经
+            营不善等因素导致借款人经营情况、财务状况恶化，
+            从而发生逾期的可能。投资有风险，请查看
+            <a ng-click="inAppBrowserRef.openUrl('https://mobi.he-pai.cn/newmobi/contract/onLoanBook.do');">《网络借贷风险及禁止性行为提示书》</a>。
+            请根据您的风险测评结果进行合理的金额出借操作，最低起投金额<span>{{num}}</span>元。
+          </p>
+     </ion-content>
+    </div>
+  </ion-view>
+  

@@ -1,0 +1,49 @@
+<ion-view  view-title="{{tit}}" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" overflow-scroll="true"  id="messSubcription">
+    <ion-refresher
+        pulling-text="正在刷新..."
+        refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+        pulling-icon="ion-load-a"
+        refreshing-icon="ion-load-a"
+        on-refresh="doRefresh()">
+      </ion-refresher>
+    <div id="messSubcriptionIndex" style="margin-top: -15px;">
+      <div id="messSubcription">
+          <ul ng-repeat="msgDetailList in msgDetailList">
+            <p class="g-ta-c" style="margin-bottom: 2px;" ng-bind="dateFormats(msgDetailList.cretsStr)"></p>
+            <li class="list">
+              <div id="messSetd" >
+                  <p class="detailTit">{{msgDetailList.msgTtl}}</p>
+                  <p style="font-size: 12px; margin: 5px 0px 0px 10px;" ng-bind="dateFormat(msgDetailList.cretsStr)"></p>
+                  <p class="cont">{{msgDetailList.msgCntt}}<span>&nbsp;&nbsp;</span></p>
+                  <img  ng-if="msgDetailList.imgUrl!=''&& msgDetailList.imgUrl!=null && msgDetailList.imgUrl!=undefined" src="https://m.he-pai.cn{{msgDetailList.imgUrl}}" style="display: block;width: 95%;margin: 5px 10px 10px 10px;">
+                    <div style="margin: 5px 10px 0px 10px;border-bottom: 1px dashed #ddd;"  ng-if="msgDetailList.targetUrl !=null && msgDetailList.targetUrl !=undefined && msgDetailList.targetUrl !=''&& prd_Typ=='1' " ></div>
+                    <p  ng-click="showDetail(msgDetailList.targetUrl)"  ng-if="msgDetailList.targetUrl !=null && msgDetailList.targetUrl !=undefined && msgDetailList.targetUrl !=''&& prd_Typ=='1' " style="margin: 5px 10px 5px 10px;">
+                        <a style="color: #adadad;">详情</a>
+                        <i class="icon ion-chevron-right g-f-r" style="color: #adadad;"> </i>
+                    </p>
+                    <p ng-click="showDetail(msgDetailList.lnNo,msgDetailList.txNo,msgDetailList.lnTyp,msgDetailList.planNo)" ng-if="msgDetailList.txNo !='' &&  msgDetailList.txNo !=null &&   msgDetailList.txNo !=undefined " style="margin: 5px 10px 5px 10px;">
+                        <a style="color: #adadad;">详情</a>
+                        <i class="icon ion-chevron-right g-f-r" style="color: #adadad;"> </i>
+                    </p>
+              </div>
+            </li>
+          </ul>
+         <ul class="g-listNoData_t g-fz-b1" ng-if="msgDetailList.length <=0 && ajaxEnd">
+          <div style="margin-bottom: 25px;">
+            <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+            <li class="g-c99">暂无消息</li>
+          </div>
+      </ul>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="!moredata" immediate-check="false" on-infinite="loadMore()" distance="5%" icon="ion-load-a">
+      </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
+

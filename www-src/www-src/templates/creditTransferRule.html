@@ -1,0 +1,34 @@
+<ion-view  view-title="规则说明" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-android-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" overflow-scroll="true">
+    <div id="creditTransferRule">
+   	  <dl class="dlList">
+        <dt>1、技术服务费率</dt>
+        <dd>
+          <p>勾选使用&lt;速转通&gt;服务，成功债转则收取技术服务费=债转本金*实际转让比例*N%，最高不超过利息；未成功则不收取；N%值如下：</p>
+          <table class="table">
+            <tr><td>序号</td><td>剩余周期(M)</td><td>技术服务费率(N%)</td></tr>
+            <tr ng-repeat="item in data">
+              <td>{{item.SEQ_NO}}</td>
+              <td>{{item.REMARK}}</td>
+              <td>{{item.URGENT_FEE_RATE}}%</td>
+            </tr>
+          </table>
+        </dd>
+      </dl>
+      <dl class="dlList">
+        <dt>2、债转先后顺序</dt>
+        <dd>
+          1）系统默认按会员级别从高到低，把勾选使用<速转通>服务的标的自动债转；由于购买标的债权资金有限，可成功债转总额仅限资金额度内。
+        </dd>
+        <dd>
+          2）勾选使用&lt;速转通&gt;服务的标的，则系统统一在当天11：00-13：00来债转，期间该标暂不充许其它人投资，自动债转作业完成后，其它投资人可继续投资该剩余债权。
+        </dd>
+      </dl>
+    </div>
+   </ion-content>
+</ion-view>

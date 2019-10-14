@@ -1,0 +1,84 @@
+<ion-view view-title="榜单详情" hide-tabs="false"  hide-back-button="true">
+  <ion-nav-buttons side="left">
+       <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+       <i class="icon ion-ios-arrow-left color-fff"></i>
+       </button>
+  </ion-nav-buttons>
+ 
+  <div id="home">
+       <ion-content class="background" id="project" overflow-scroll="true" >
+            <div class="g-mb-10 bgf" ng-if="vm.messages.length > 0" ng-repeat="message in vm.messages">
+                 <div class="div1" >
+                     <ul class="g-cf">
+                       <li class="g-f-l g-pl-20  g-pt-15">
+                         <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{vm.gcphoto}}" style="width:100%;height:100%" /></p>
+                         <div class="g-f-l g-pl-10"> 
+                           <p class="name "  ng-bind="message.bdnikename"> </p>
+                           <p class="g-cf m0p0">
+                             <span class="g-f-l m0p0 time"  ng-bind="message.bddate">05-10</span>
+                           </p>
+                         </div>
+                       </li>
+                       <li class=" g-f-r " style=" padding-top: 13px;">
+                                <p  class="name ">悬赏金额</p>
+                                  <span class="g-f-l je " style="width: 40px;" ng-bind="message.bdxsje" ></span>
+                                  <div  class="g-f-l ">
+                                    <div style=" width: 40%;">  <img src="img/bd/List_shell.png " ></div>
+                                  </div>                  
+                       </li>
+                     </ul>
+                 </div>
+                 <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                    <p class="cont "  ng-bind-html ="message.title" ></p> 
+                    <p class="cont "  ng-bind-html ="message.cont"  ></p>                            
+                     <div class="g-cf ">
+                               <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}')"> 
+                                 <img ng-src="http://39.97.234.111/base/userFiles/bdImg/{{img}}"   style="width:100%;height:100%">
+                               </div>
+                            </div> 
+                 </div>   
+            </div>
+           
+            <div class="g-mt-10 bgf" style="margin-bottom: 50px;">
+                 <ul class="g-cf bgsolid"  ng-if="vm.lyList.length > 0" ng-repeat="message in vm.lyList">
+                      <li class="g-f-l g-pl-10  g-pt-15">
+                           <p class="g-f-l photo">
+                                <img ng-src="http://39.97.234.111/base/userFiles/{{message.gcphoto}}" style="width:100%;height:100%"></p>
+                           <div class="g-f-l g-pl-10"> 
+                                 <p class="name " ng-bind="message.gcnikename"></p>
+                                <p class="g-cf " style="margin-top: 5px;">
+                                 <span class="g-f-l  time" ng-bind="message.jbdate"></span>
+                                </p>
+                           </div>
+                       </li>     
+                       <span class="jiebang" ng-click=vm.jiebang(message.jbrid)> 结榜</span>
+                       <br>
+                      <span class="jiebang" style="background: #fff; margin-top: 20px;    margin-right: 7px;"><a  style="text-decoration: none;" class="g-f-l  time" ng-href="tel: {{message.gcphone}}">{{message.gcphone}}</a></span>
+                  </ul>
+            </div>
+          
+
+            <p class="g-mt-20 g-ta-c" ng-if="vm.lyList.length == 0">暂无揭榜记录</p>
+   
+       </ion-content>
+       <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+            <div class="shadow"></div>
+            <img ng-src="{{vm.url}}"/>
+       </div>
+  </div>
+  <ion-footer-bar align-title="center" class="orange" style=" background-color: #2BC9C0;    bottom: 50px;  ">
+	<div class="title g-cff"ng-click=vm.jiebang()>
+	  <span style="color: #fff">立即结榜</span>
+  </div>
+ 
+  </ion-footer-bar>
+  <ion-footer-bar align-title="center" class="orange" style=" background-color: #2BC9C0;">
+      <div class="title g-cff"ng-click=vm.delect()>
+          <span style="color: #fff">删除榜单</span>
+        </div>
+     
+  </ion-footer-bar>
+
+</ion-view>
+
+   

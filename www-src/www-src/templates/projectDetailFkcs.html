@@ -1,0 +1,52 @@
+<ion-view  view-title="风控措施" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true" >
+    	<ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-init="lockSlide()">
+    		<ion-slide>
+		    	<ul class="box1 jjb-pro">
+		    		<li class="licence g-pb-10" ng-if="dataCache[0][1].length > 0">
+		    			<p class="bor-mark-left">证明/资质文件</p>
+		    				<div class="g-cf">
+							    <a class="tab-item g-fz-12 fileImage" href="#" ng-repeat="image in dataCache[0][1]">
+							      <img class="icon picture" ng-src="{{image.ATT_PATH}}" ng-click="showBigImage('{{image.ATT_PATH}}')">
+							      <span ng-bind="image.ATT_NAME"></span>
+							    </a>
+						  </div>
+		    		</li>
+		    		<li>
+		    			<p class="bor-mark-left">还款计划</p>
+		    			<p class="g-c99"><i>此为还款计划，还款日期以实际为准</i></p>
+			    		<table class="g-list jjb-table">
+				    		<thead>
+				    			<tr>
+				    				<th>期数</th>
+				    				<th>还款日期</th>
+				    				<th>还款金额</th>
+				    			</tr>
+				    		</thead>
+				    		<tbody>
+				    			<tr ng-repeat="message in dataCache[2]">
+				    				<td ng-bind="message.trm"></td>
+				    				<td ng-bind="dateFormat(message.mstRtnDt)"></td>
+				    				<td ng-bind="toFixTwo(message.mstAmt) | number:2"></td>
+				    			</tr>
+				    		</tbody>
+			    		</table>
+		    		</li>
+		    	</ul>
+		 	</ion-slide>
+		    
+    	</ion-slide-box>
+    </ion-content>
+   	<div class="g-popover-backdrop" ng-if="bigImage" ng-click="hideBigImage()">
+   		<div class="shadow"></div>
+    	<img ng-src="{{url}}"/>
+	</div>
+
+  </div>
+</ion-view>

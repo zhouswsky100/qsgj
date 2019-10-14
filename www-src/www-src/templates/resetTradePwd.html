@@ -1,0 +1,12 @@
+<ion-view  view-title="忘记交易密码" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+		<div ng-if="!auhSts" ng-include="'templates/resetTradePwd-unAuthen.html'"></div>
+		<div ng-if="auhSts && !isSetTradePwd" ng-include="'templates/resetTradePwd-unSetPwd.html'"></div>
+		<div ng-if="auhSts && isSetTradePwd" ng-include="'templates/resetTradePwd-valid.html'"></div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,110 @@
+<ion-view hide-tabs="true" hide-back-button="true">
+  <ion-nav-title>
+    <span ng-bind="type=='2'?'长利盈':'稳利赢'"></span>项目详情
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true">
+      <div class="">
+        <ul class="g-slide-tab item tabs">
+          <li ng-class="slideIndex==0?'current':''" class="tab-item m-w-n">
+            <a href="#" ng-click="activeSlide(0)">计划详情</a>
+          </li>
+<!--           <li ng-class="slideIndex==1?'current':''" class="tab-item">
+  <a href="#" ng-click="activeSlide(1)">计划项目</a>
+</li> -->
+          <li ng-class="slideIndex==1?'current':''" class="tab-item m-w-n">
+            <a href="#" ng-click="activeSlide(1)">已投项目</a>
+          </li>
+        </ul>
+      </div>
+
+      <ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-style="myStyle" ng-init="lockSlide()">
+        <ion-slide>
+          <ul class="box1 content">
+            <li class="g-pb-10">
+              <ul class="g-mb-10 g-plr-10" id="wlyul">
+                <li class="g-cf">
+                    <span class="subTitle g-f-l">产品名称：</span>
+                    <span class="subContent" ng-bind="dataCache[0][0].plan_name"></span>
+                </li>
+                <li class="g-cf">
+                    <span class="subTitle g-f-l">产品介绍：</span>
+                    <span class="subContent">{{dataCache[0][0].plan_desc}}《<a href="#" ng-click="goWlyCnt()"><span ng-bind="type == '2'?'长利盈':'稳利赢'"></span>产品说明书</a>》</span>
+                </li>
+                <li class="g-cf" ng-if="type == '2'">
+                    <span class="subTitle g-f-l">起息时间：</span>
+                    <span class="subContent">次日计息</span>
+                </li>
+                <li class="g-cf">
+                    <span class="subTitle g-f-l"><span ng-bind="type=='2'?'到期':'退出'"></span>日期：</span>
+                    <span class="subContent" ng-bind="dataCache[0][0].exit_date"></span>
+                </li>
+                <li class="g-cf">
+                    <span class="subTitle g-f-l">退出方式：</span>
+                    <span class="subContent" ng-bind="dataCache[0][0].expire_exit_way"></span>
+                </li>
+                <li class="g-cf" ng-if="type == '10'">
+                    <span class="subTitle g-f-l">提前退出：</span>
+                    <span class="subContent" ng-bind="dataCache[0][0].ahead_exit_way"></span>
+                </li>
+                <li class="g-cf">
+                    <span class="subTitle g-f-l">费用：</span>
+                    <span class="subContent" ng-repeat="i in dataCache[0][0].fee_arr"><span>{{i.fee_typ_desc}}：{{i.fee_rate}}%</span></span>
+                </li>
+                <li class="g-cf">
+                    <span class="subTitle g-f-l">保障模式：</span>
+                    <span class="subContent" ng-bind="dataCache[0][0].securit_pattern"></span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </ion-slide>
+<!--         <ion-slide>
+  <div>
+    <table class="g-list">
+      <thead>
+      <tr>
+        <th width="40%">借款标</th>
+        <th width="22%">借款人姓名</th>
+        <th width="37%">借款用途</th>
+      </tr>
+      </thead>
+    </table>
+    <ul ng-if="noPlanData" class="wlylist">
+      <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      <li class="g-c99">暂无数据</li>
+    </ul>
+    <ul class="wlylist">
+      <li ng-repeat="i in list"><span class="nu1" ng-bind="i.LN_NM"></span><span class="nu2">{{i.CI_NM.substring(0,1)}}****</span><span class="nu3" ng-bind="i.LOANPURPOSE"></span></li>
+    </ul>
+  </div>
+</ion-slide> -->
+        <ion-slide>
+          <div>
+            <table class="g-list">
+              <thead>
+              <tr>
+                <th width="50%">借款标</th>
+                <th width="50%">投资金额</th>
+              </tr>
+              </thead>
+            </table>
+            <ul ng-if="noRePayData" class="wlylist g-pt-10">
+              <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+              <li class="g-c99">暂无数据</li>
+            </ul>
+            <ul class="wlylist wlyready" ng-repeat="i in listRePay">
+              <li><span ng-bind="i.LN_NM"></span><span ng-bind="i.LN_AMT"></span></li>
+            </ul>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      <ion-infinite-scroll ng-if="moredata[slideIndex]" immediate-check="false" on-infinite="loadMore(slideIndex)" distance="5%" icon="ion-load-a"></ion-infinite-scroll>
+    </ion-content>
+  </div>
+</ion-view>

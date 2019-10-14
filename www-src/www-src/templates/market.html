@@ -1,0 +1,73 @@
+<ion-view view-title="市场" hide-tabs="false"  hide-back-button="true">
+      <div id="market">
+            <ion-content class="background" overflow-scroll="true">
+                  <div class="g-m-10">
+                  <div  class="bgf g-cf ft-16 "> 
+                       <p class="g-f-l g-p-10"><span>累计交易额: </span>  <span class="g-cf36026"> {{vm.data.lishi}}</span></p>
+                       <div class="g-f-l" style="width: 7%;    padding-top: 5px;"><img src="img/market/bazaar_shell.png" class="dzimg"> </div> 
+                      
+                  </div>
+                  <div  class="bgf g-cf ft-16"> 
+                        <p  class="g-f-l g-p-10"><span>今日交易额:</span> <span class="g-cf36026"> {{vm.data.today}}</span></p>
+                        <div class="g-f-l" style="width: 7%;    padding-top: 5px;"><img src="img/market/bazaar_shell.png" class="dzimg"> </div> 
+                       
+                   </div>
+                   <div  class="bgf g-cf ft-16"> 
+                        <p  class="g-f-l g-p-10"><span> 今日交易笔数:</span> <span class="g-cf36026"> {{vm.data.todayCount}}</span></p>
+                        <p  class="g-f-l g-p-10"><span>累计交易笔数 :</span> <span class="g-cf36026"> {{vm.data.totlecount}}</span></p>
+
+                   </div>
+               
+                  </div>
+                  <ion-refresher
+                  pulling-text="正在刷新..."
+                  refreshing-text="最后更新：今天{{nowDate() | date:'hh:mm'}}"
+                  pulling-icon="ion-load-a"
+                  refreshing-icon="ion-load-a"
+                  on-refresh="vm.doRefresh()">
+                  </ion-refresher>
+                  <div class="list g-m-10" >
+                        <div class=" bgf" >
+                              <ul class="g-cf bgsolid"   ng-if="vm.messages.length > '0' && message.qbsctype== '1' " ng-repeat="message in vm.messages">
+                                   <li class="g-f-l g-pl-10  g-pt-15">
+                                        <div class="g-f-l g-pl-10 " style="color: #a9acb1;"> 
+                                              <p class="name " >青贝出售</p>
+                                             <p class="g-cf " style="margin-top: 5px;">
+                                              <span class="g-f-l  time" ng-bind="message.qbscdate"></span>
+                                             </p>
+                                        </div>
+                                        <div class="g-f-l g-pl-10"> 
+                                          <p class="name" style="font-weight: bold;" ><span>{{message.qbscshuliang}}</span><span>MBQ</span></p>
+                                         <p class="g-cf " style="margin-top: 5px;font-weight: bold;">
+                                       <span class="g-f-l  time" >{{message.qbscrmb}}</span>   <span>RMB</span> 
+                                         </p>
+                                           </div>
+                                    </li>     
+                                    <span class="jiebang" ng-click="vm.qbdh(message)" style="margin-top: 25px;"> 购买</span>
+                               </ul>
+                               <ul class="g-cf bgsolid"   ng-if="vm.messages.length > '0' && message.qbsctype== '2' " ng-repeat="message in vm.messages">
+                                          <li class="g-f-l g-pl-10  g-pt-15">
+                                                <div class="g-f-l g-pl-10" style="color: #a9acb1;"> 
+                                                      <p class="name " >青贝购买</p>
+                                                      <p class="g-cf " style="margin-top: 5px;">
+                                                      <span class="g-f-l  time" ng-bind="message.qbscdate"></span>
+                                                      </p>
+                                                </div>
+                                                <div class="g-f-l g-pl-10"> 
+                                                      <p class="name "style="font-weight: bold;" ><span>{{message.qbscrmb}}</span><span>RMB</span></p>
+                                                       <p class="g-cf " style="margin-top: 5px; font-weight: bold;">
+                                                      <span class="g-f-l  time" >{{message.qbscshuliang}}</span><span>MBQ</span>
+                                                </p>
+                                                      </div>
+                                          </li>     
+                                                <span class="jiebang" style="margin-top: 25px;" ng-click="vm.qbgm(message)"> 出售</span>
+                               </ul>
+                         </div>
+                  </div>
+                  <ion-infinite-scroll ng-if="!vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+                  </ion-infinite-scroll>
+            </ion-content>
+      </div>
+</ion-view>
+      
+

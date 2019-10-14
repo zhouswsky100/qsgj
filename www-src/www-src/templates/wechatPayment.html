@@ -1,0 +1,47 @@
+<ion-view view-title="微信支付" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+	<ion-content class="background rechargeCommon" id="wechatPayment" overflow-scroll="true" >
+		<form class="J-llpay" id="mform">
+			<input type="hidden" id="reqData" name="reqData" value='reqData' />
+
+			<ul class="list">
+				<li>
+					<label class="item item-input item-select g-mt-10 borderDashed" ng-show="showType">
+						<div class="input-label g-c66 g-fz-14">
+							充值用途
+						</div>
+						<select ng-change="sleType(typeName.name)" ng-model="typeName.name" ng-options="type.name as type.name for type in types"></select>
+					</label>
+				</li>
+				<li>
+					<label class="item item-input g-mt-10 borderDashed">
+						<p class="input-label" aria-label="充值金额" id="_label-1">充值金额</p>
+						<input ng-model="recharge.value" type="number" placeholder="请输入充值金额">
+					</label>
+					<div class="row g-fz-12 tips">
+						<div class="col"><i class="g-c99">手续费：</i><span ng-bind="(recharge.value*rate).toFixed(2)"></span>元手续费</div>
+						<div class="col"><i class="g-c99">到账金额：</i><span ng-bind="(recharge.value-recharge.value*rate).toFixed(2)"></span>元</div>
+					</div>
+				</li>
+			</ul>
+			<div class="g-m-10 ">
+				<a class="button button-block  button-orange" ng-click="successForm()" ng-disabled="!recharge.value">
+					下一步
+				</a>
+			</div>
+		</form>
+		<div class=" g-m-10 tip">
+			<p>由微信支付提供支付服务</p>
+			<p class="g-c66">费率说明：</p>
+			<ul>
+				<li><p class="g-c99">-如果您是投资人，充值免收手续费；</p></li>
+				<li><p class="g-c99">-如果您是借款人，且账户有未结清的借款金额，单笔按0.3%收取充值手续费（还款充值）；</p></li>
+				<li><p class="g-c99">-微信支付限额为1万~5万不等，详情可<a href="#/doing">查看各银行的限额说明</a>；</p></li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

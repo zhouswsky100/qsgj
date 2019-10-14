@@ -1,0 +1,79 @@
+<ion-view  view-title="担保机构" hide-tabs="true"  hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail" class="institutionDetail">
+    <ion-content class="background" overflow-scroll="true" >
+        <div>
+          <div class="item item-thumbnail-left"><img src="{{orgFm.ATT_PATH_MIN}}" alt="{{orgFm.ATT_NAME}}">
+            <h2 ng-bind="body.ORG_NM"></h2>
+          </div>
+        </div>
+
+		    	<ul class="box1 content" id="institutionul">
+		    		<li class="g-pb-10">
+		    			<p class="title">基本信息</p>
+		    			<ul class="g-mb-10 g-plr-10">
+		    				<li class="item">
+		    					<p>
+		    						<span class="subTitle g-f-l">注册资金：</span>
+		    						<span class="subContent">{{body.REG_FUNDS}}万元</span>
+		    					</p>
+		    				</li>
+		    				<li class="item">
+		    					<p>
+			    					<span class="subTitle g-f-l">公司成立日期：</span>
+			    					<span class="subContent" ng-bind="body.REG_TIME"></span>
+		    					</p>
+		    				</li>
+		    				<li class="item">
+		    					<p>
+			    					<span class="subTitle g-f-l">开始合作时间：</span>
+			    					<span class="subContent" ng-bind="body.CPA_TIME"></span>
+		    					</p>
+		    				</li>
+		    				<li class="item">
+		    					<p>
+			    					<span class="subTitle">公司网址：</span>
+			    					<span class="subContent" ng-bind="body.WEBSITE"></span>
+		    					</p>
+		    				</li>
+                <li class="item inAddress">
+                  <p class="inAddress">
+                    <span class="subTitle">公司地址：</span>
+                    <span class="subContent" ng-bind="body.Address"></span>
+                  </p>
+                </li>
+                <li class="item">
+                  <p>
+                    <span class="subTitle">联系电话：</span>
+                    <span class="subContent" ng-bind="body.Tel"></span>
+                  </p>
+                </li>
+		    			</ul>
+		    		</li>
+		    		<li class="g-pb-10">
+		    			<p class="title">公司简介</p>
+		    			<p class="g-pl-10" ng-bind="body.COMPANY_INFO"></p>
+		    		</li>
+		    		<li class="licence g-pb-10">
+		    			<p class="title">担保资质文件</p>
+		    				<div class="item tabs-icon-top" id="imageList">
+							    <a class="tab-item g-fz-12" href="#" ng-repeat="i in orgZg">
+							      <img class="icon picture" ng-src="{{i.ATT_PATH_MIN}}" ng-click="showBigImage('{{i.ATT_PATH}}')">
+							      <span ng-bind="i.ATT_NAME"></span>
+							    </a>
+						    </div>
+              <button class="button" ng-click="showAll()">查看全部图片({{num}})</button>
+		    		</li>
+		    	</ul>
+    </ion-content>
+   	<div class="g-popover-backdrop" ng-if="bigImage" ng-click="hideBigImage()">
+   		<div class="shadow"></div>
+    	<img ng-src="{{url}}"/>
+	</div>
+
+  </div>
+</ion-view>

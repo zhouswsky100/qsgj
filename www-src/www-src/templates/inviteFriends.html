@@ -1,0 +1,102 @@
+<ion-view view-title="邀请好友" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="about" overflow-scroll="true">
+    <div id="invite" class="g-pb-10">
+      <div class="banner">
+        <img src="img/invite/invite_banner.png" alt="banner">
+        <div ng-click="toInvite()" class="rule bg">活动规则</div>
+      </div>
+      <div class="box1 bg" wechart-share sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}">
+        立即邀请
+      </div>
+      <div class="wrap-box">
+        <div class="box2 g-m-10">
+          <h3>
+            <span class="sign">◇◇◇</span>
+            <span>邀请步骤</span>
+            <span class="sign">◇◇◇</span>
+          </h3>
+          <ul>
+            <li>
+              <img src="img/invite/invite_img02.png" alt="banner">
+              <span>1.点击“立即邀请”按钮邀请好友</span>
+            </li>
+            <li>
+              <img src="img/invite/invite_img03.png" alt="banner">
+              <span>2.好友进入分享的注册页，完成注册</span>
+            </li>
+            <li>
+              <img src="img/invite/invite_img04.png" alt="banner">
+              <span>3.好友投资后即可获得268元奖励</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap-box g-mt-20">
+        <div class="box2 box3 g-m-10">
+          <h3>
+            <span class="sign">◇◇◇</span>
+            <span>好友专属新手大礼包</span>
+            <span class="sign">◇◇◇</span>
+          </h3>
+          <ul>
+            <li class="g-ta-c">
+              <img src="img/invite/invite_img05.png" alt="banner">
+              <span><i>1888</i>元新人礼包</span>
+            </li>
+            <li class="g-ta-c">
+              <img src="img/invite/invite_img06.png" alt="banner">
+              <span><i>15%</i>利率新手标特权</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap-box g-mt-20">
+        <div class="box2 box4 g-m-10 g-p-5">
+          <h3>
+            <span class="sign">◇◇◇</span>
+            <span>为什么选择合拍在线</span>
+            <span class="sign">◇◇◇</span>
+          </h3>
+          <div class="dis">
+            <dl>
+              <dt><img src="img/invite/invite_icon01.png" alt="tu" ></dt>
+              <dd class="mark">5年安全运营</dd>
+              <dd>稳健运营5年<br/>安全老品牌</dd>
+            </dl>
+            <dl>
+              <dt><img src="img/invite/invite_icon02.png" alt="tu" ></dt>
+              <dd class="mark">本息担保</dd>
+              <dd>第三方担保机构提供本息担保</dd>
+            </dl>
+            <dl>
+              <dt><img src="img/invite/invite_icon03.png" alt="tu" ></dt>
+              <dd class="mark">收益安心</dd>
+              <dd>历史5年，100%兑付</dd>
+            </dl>
+            <dl>
+              <dt><img src="img/invite/invite_icon04.png" alt="tu" ></dt>
+              <dd class="mark">资金存管</dd>
+              <dd>资金存管江西银行，保障每一笔资金进出安全</dd>
+            </dl>
+            <dl>
+              <dt><img src="img/invite/invite_icon05.png" alt="tu" ></dt>
+              <dd class="mark">风控保障</dd>
+              <dd>线上线下双重审核资产，P2P网贷合规性前十</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="box1 bg" wechart-share sharetitle="我是合拍在线老会员，来看看吧，新手特权标利率15%、周期为5天，即投资赚利息" sharedescription="
+您好友选择的平台合拍在线稳健运营5年，历史100%兑付，注册即送1888元投资券！">
+        立即邀请
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

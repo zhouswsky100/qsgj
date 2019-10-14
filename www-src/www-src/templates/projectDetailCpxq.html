@@ -1,0 +1,110 @@
+<ion-view  view-title="项目详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true" >
+    	<ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-init="lockSlide()">
+    		<ion-slide>
+		    	<ul class="box1 content" style="word-wrap: break-word;word-break: break-all;">
+		    		<li class="g-pb-10">
+		    			<p class="title">项目简介<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+		    			<ul class="g-mb-10 g-plr-10">
+		    				<li class="g-cf">
+		    					<span class="subTitle1 g-f-l">借款人：</span>
+		    					<span class="subTitle2" ng-bind="formatPayerNm(dataCache[0][0].payerNm)"></span>
+							</li>
+							<li class="g-cf" ng-if="data.PRODES">
+								<span class="subTitle1 g-f-l">项目简介：</span>
+								<span class="subTitle2 g-f-l" >{{data.PRODES}}</span>
+
+							</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle1 g-f-l">借款类型：</span>
+			    				<span  class="subTitle2" ng-bind="dataCache[0][0].bussTypDesc?dataCache[0][0].bussTypDesc:dataCache[0][0].payTyp"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle1 g-f-l">借款用途：</span>
+			    				<span class="g-o-h subTitle2" ng-class="{ellipsis : payWayObj.open}" ng-bind="(bidId=='101' || bidId=='102') ? dataCache[0][0].jKYT : dataCache[0][0].payWay"></span>
+			    				<span class="g-f-r subTitle2" style="color:#108ccf;width:10%;" ng-if="(bidId=='101' || bidId=='102') ? ifDisplay(dataCache[0][0].jKYT) : ifDisplay(dataCache[0][0].payWay)" ng-click="viewDetail(payWayObj)" ng-bind="payWayObj.button?'展开':'收起'"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle1 g-f-l">还款来源：</span>
+			    				<span class="g-o-h subTitle2" ng-class="{ellipsis : paySourceObj.open}" ng-bind="(bidId=='101' || bidId=='102') ? dataCache[0][0].hKLY : dataCache[0][0].paySource"></span>
+			    				<span class="g-f-r subTitle2" style="color:#108ccf;width: 10%;" ng-if="(bidId=='101' || bidId=='102') ? ifDisplay(dataCache[0][0].hKLY) : ifDisplay(dataCache[0][0].paySource)" ng-click="viewDetail(paySourceObj)" ng-bind="paySourceObj.button?'展开':'收起'"></span>
+							</li>
+							<li class="g-cf" ng-if="data.LNPAYERINFO">
+								<span class="subTitle1 g-f-l" >个人基本信息：</span>
+								<span class="subTitle2 g-f-l" >{{data.LNPAYERINFO}}</span>
+
+							</li>
+		    			</ul>
+		    		</li>
+		    		<li class="g-pb-10" ng-if = "showCompany">
+		    			<p class="title">企业信息<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+		    			<ul class="g-mb-10 g-plr-10">
+		    				<li class="g-cf">
+			    				<span class="subTitle1 g-f-l">基本信息：</span>
+			    				<span class="g-o-h subTitle2" ng-class="{ellipsis : companyInfoObj.open}" ng-bind="dataCache[0][0].companyInfo"></span>
+			    				<span class="g-f-r subTitle2" style="color:#108ccf;width: 10%;" ng-if="ifDisplay(dataCache[0][0].companyInfo)" ng-click="viewDetail(companyInfoObj)" ng-bind="companyInfoObj.button?'展开':'收起'"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle1 g-f-l">经营状况：</span>
+			    				<span class="g-o-h subTitle2" ng-class="{ellipsis : companyBussObj.open}" ng-bind="dataCache[0][0].companyBuss"></span>
+			    				<span class="g-f-r subTitle2" style="color:#108ccf;width:10%;" ng-if="ifDisplay(dataCache[0][0].companyBuss)" ng-click="viewDetail(companyBussObj)" ng-bind="companyBussObj.button?'展开':'收起'">查看</span>
+		    				</li>
+		    			</ul>
+		    		</li>
+		    		<li class="g-pb-10">
+		    			<p class="title">借款记录</p>
+		    			<p class="g-pl-10">累积借款 <span ng-bind="dataCache[0][2].MS_JIR_TOTAL | number"></span>笔 共 <span ng-bind="dataCache[0][2].MS_JIR_AMT | number:2"></span>元</p>
+		    			<table class="g-table">
+								<tr>
+										<td>累计借款金额（元)</td>
+										<td ng-bind="dataCache[0][2].MS_JIR_AMT | number"></td>
+								</tr>
+								<tr>
+										<td> 已成功借款标（笔）</td>
+										<td ng-bind="dataCache[0][2].MS_JIR_TOTAL| number"></td>
+								</tr>	
+								<tr>
+		    							<td>已结清借款数（笔）</td>
+										<td ng-bind="dataCache[0][2].ZC_HK| number"></td>
+								</tr>
+								<tr>
+										<td>正常还款中(笔)</td>
+										<td ng-bind="dataCache[0][2].YI_HUAN| number"></td>
+								</tr>									
+								
+								<tr>
+										<td>累计逾期数（笔）</td>
+										<td ng-bind="dataCache[0][2].yuqiCount| number"></td>
+								</tr>
+								<tr>
+										<td>累计逾期金额（元）</td>
+										<td ng-bind="dataCache[0][2].yuqiAmt| number"></td>
+								</tr>
+								<tr>
+										<td>当前逾期金额（元）</td>
+										<td ng-bind="dataCache[0][2].yqAmt| number"></td>
+								</tr>
+								<!-- <td ng-bind="dataCache[0][2].YUQIYIHUAN_TOTAL"></td> -->		
+								<!-- <td>逾期中</td> -->
+								<!-- <td>担保代偿</td> -->
+								<!-- <td ng-bind="dataCache[0][2].DB_DC"></td> -->
+		    			</table>
+		    		</li>
+		    	</ul>
+		 	</ion-slide>
+			</ion-slide-box>
+			<p class="g-m-10"><a ng-click="inAppBrowserRef.openUrl('https://mobi.he-pai.cn/newmobi/contract/loanContract.do');">查看借款合同模板</a></p>
+    </ion-content>
+  <!--  	<div class="g-popover-backdrop" ng-if="bigImage" ng-click="hideBigImage()">
+   		<div class="shadow"></div>
+    	<img ng-src="{{url}}"/>
+	</div> -->
+
+  </div>
+</ion-view>

@@ -1,0 +1,177 @@
+<ion-view  view-title="项目详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="new-tab">
+    		<ul class="g-slide-tab item tabs">
+    			<li ng-class="slideIndex==0?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(0)">项目详情</a>
+      			</li>
+      			<li ng-class="slideIndex==1?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(1)">担保信息</a>
+      			</li>
+      			<li ng-class="slideIndex==2?'current':''" class="tab-item">
+    				<a href="#" ng-click="activeSlide(2)">还款计划</a>
+      			</li>
+    		</ul>
+    	</div>
+
+    	<ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-style="myStyle" ng-init="lockSlide()">
+    		<ion-slide>
+		    	<ul class="box1 content">
+		    		<li class="g-pb-10">
+		    			<p class="title">项目简介<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+		    			<ul class="g-mb-10 g-plr-10">
+		    				<li>
+		    					<span class="subTitle g-f-l">借款人</span>
+		    					<span ng-bind="formatPayerNm(dataCache[0][0].payerNm)"></span>
+		    				</li>
+		    				<li>
+			    				<span class="subTitle g-f-l">借款类型</span>
+			    				<span ng-bind="dataCache[0][0].bussTypDesc?dataCache[0][0].bussTypDesc:dataCache[0][0].payTyp"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle g-f-l">借款用途</span>
+			    				<span class="g-o-h subContent" ng-class="{ellipsis : payWayObj.open}" ng-bind="(bidId=='101' || bidId=='102') ? dataCache[0][0].jKYT : dataCache[0][0].payWay"></span>
+			    				<span class="g-f-r watchDetail" ng-if="(bidId=='101' || bidId=='102') ? ifDisplay(dataCache[0][0].jKYT) : ifDisplay(dataCache[0][0].payWay)" ng-click="viewDetail(payWayObj)" ng-bind="payWayObj.button?'展开':'收起'"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle g-f-l">还款来源</span>
+			    				<span class="g-o-h subContent" ng-class="{ellipsis : paySourceObj.open}" ng-bind="(bidId=='101' || bidId=='102') ? dataCache[0][0].hKLY : dataCache[0][0].paySource"></span>
+			    				<span class="g-f-r watchDetail" ng-if="(bidId=='101' || bidId=='102') ? ifDisplay(dataCache[0][0].hKLY) : ifDisplay(dataCache[0][0].paySource)" ng-click="viewDetail(paySourceObj)" ng-bind="paySourceObj.button?'展开':'收起'"></span>
+		    				</li>
+		    			</ul>
+		    		</li>
+		    		<li class="g-pb-10" ng-if="dataCache[0][0].companyInfo || dataCache[0][0].companyBuss && dataCache[0][0].companyInfo != '' && dataCache[0][0].companyBuss != '' ">
+		    			<p class="title">企业信息<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+		    			<ul class="g-mb-10 g-plr-10">
+		    				<li class="g-cf">
+			    				<span class="subTitle g-f-l">基本信息</span>
+			    				<span class="g-o-h subContent" ng-class="{ellipsis : companyInfoObj.open}" ng-bind="dataCache[0][0].companyInfo"></span>
+			    				<span class="g-f-r watchDetail" ng-if="ifDisplay(dataCache[0][0].companyInfo)" ng-click="viewDetail(companyInfoObj)" ng-bind="companyInfoObj.button?'展开':'收起'"></span>
+		    				</li>
+		    				<li class="g-cf">
+			    				<span class="subTitle g-f-l">经营状况</span>
+			    				<span class="g-o-h subContent" ng-class="{ellipsis : companyBussObj.open}" ng-bind="dataCache[0][0].companyBuss"></span>
+			    				<span class="g-f-r watchDetail" ng-if="ifDisplay(dataCache[0][0].companyBuss)" ng-click="viewDetail(companyBussObj)" ng-bind="companyBussObj.button?'展开':'收起'">查看</span>
+		    				</li>
+		    			</ul>
+		    		</li>
+		    		<li class="licence g-pb-10" ng-if="dataCache[0][1].length > 0">
+		    			<p class="title">证明/资质文件<!-- <span class="g-f-r g-cf36026">展开</span> --></p>
+		    				<div class="g-cf">
+							    <a class="tab-item g-fz-12 fileImage" href="#" ng-repeat="image in dataCache[0][1]">
+							      <img class="icon picture" ng-src="{{image.ATT_PATH}}" ng-click="showBigImage('{{image.ATT_PATH}}')">
+							      <span ng-bind="image.ATT_NAME"></span>
+							    </a>
+						  </div>
+		    		</li>
+		    		<li class="g-pb-10">
+		    			<p class="title">借款记录</p>
+		    			<p class="g-pl-10">累积借款 <span ng-bind="dataCache[0][2].MS_JIR_TOTAL | number"></span>笔 共 <span ng-bind="dataCache[0][2].MS_JIR_AMT | number:2"></span>元</p>
+		    			<table class="g-table">
+		    				<thead>
+		    					<tr>
+		    						<td>已还清</td>
+		    						<td>还款中</td>
+		    						<!-- <td>逾期中</td> -->
+		    						<!-- <td>担保代偿</td> -->
+		    					</tr>
+		    				</thead>
+		    				<tbody>
+		    					<tr>
+		    						<td ng-bind="dataCache[0][2].ZC_HK"></td>
+		    						<td ng-bind="dataCache[0][2].YI_HUAN"></td>
+		    						<!-- <td ng-bind="dataCache[0][2].YUQIYIHUAN_TOTAL"></td> -->
+		    						<!-- <td ng-bind="dataCache[0][2].DB_DC"></td> -->
+		    					</tr>
+		    				</tbody>
+		    			</table>
+		    		</li>
+		    	</ul>
+		 	</ion-slide>
+		    <ion-slide>
+		    	<ul class="box2 content">
+		    		<li class="g-pb-10">
+		    			<p class="title">担保范围</p>
+		    			<p class="g-pl-10" ng-bind="dataCache[1][0].codeVInfo.orgAssure"></p>
+		    		</li>
+		    		<li class="g-pb-10">
+		    			<p class="title">担保机构</p>
+		    			<p class="g-pl-10" ng-if="dataCache[1][0].codeVInfo.orgNm">
+		    				<span ng-bind="dataCache[1][0].codeVInfo.orgNm"></span>
+                <a class="g-f-r" href="#/institutionDetail/{{lnno}}/{{dataCache[1][0].codeVInfo.orgNo}}">查看详情</a>
+		    			</p>
+		    		</li>
+<!-- 		    		<li class="g-pb-10">
+	<p class="title">授信额度</p>
+	<div class="g-pl-10">
+		<p class="g-mb-10 g-pb-10">授信可担保总额：<span ng-bind="dataCache[1][0].CREDIT_TOTAL | number:2"></span>万元</p>
+		<div ng-if="!dataCache[1][0].CREDIT_TOTAL_PERCENT">
+					        	<progress progressval="0"></progress>
+					        </div>
+		<div ng-if="dataCache[1][0].CREDIT_TOTAL_PERCENT">
+					        	<progress progressval="{{dataCache[1][0].CREDIT_TOTAL_PERCENT |number:2}}"></progress>
+					        </div>
+	</div>
+</li> -->
+		    		<li class="g-pb-10">
+		    			<p class="title">担保记录</p>
+		    			<p class="g-pl-10">累积担保 <span ng-bind="dataCache[1][0].PROJE_DB_TOTAL | number"></span>笔 共 <span ng-bind="dataCache[1][0].TOTAL_DB_AMT"></span>万元</p>
+		    			<table class="g-table">
+		    				<thead>
+		    					<tr>
+		    						<td>已还清</td>
+		    						<td>还款中</td>
+		    						<td>逾期中</td>
+		    						<td>代偿</td>
+		    						<td>未履行担保</td>
+		    					</tr>
+		    				</thead>
+		    				<tbody>
+		    					<tr>
+		    						<td ng-bind="dataCache[1][0].ALRED_REPY_TOTAL"></td>
+		    						<td ng-bind="dataCache[1][0].PYING_REPY_TOTAL"></td>
+		    						<td ng-bind="dataCache[1][0].ALERD_OVDU_TOTAL"></td>
+		    						<td ng-bind="dataCache[1][0].PROXY_REPY_TOTAL"></td>
+		    						<td ng-bind="dataCache[1][0].UNDO_DB_TOTAL"></td>
+		    					</tr>
+		    				</tbody>
+		    			</table>
+		    		</li>
+		    	</ul>
+		    </ion-slide>
+		    <ion-slide>
+		    	<div class="box3 content">
+		    		<p class="g-c99 g-fz-12"><i>此为还款计划，还款日期以实际为准</i></p>
+		    		<table class="g-list">
+			    		<thead>
+			    			<tr>
+			    				<th>期数</th>
+			    				<th>还款日期</th>
+			    				<th>还款金额</th>
+			    			</tr>
+			    		</thead>
+			    		<tbody>
+			    			<tr ng-repeat="message in dataCache[2]">
+			    				<td ng-bind="message.trm"></td>
+			    				<td ng-bind="dateFormat(message.mstRtnDt)"></td>
+			    				<td ng-bind="toFixTwo(message.mstAmt) | number:2"></td>
+			    			</tr>
+			    		</tbody>
+		    		</table>
+		    	</div>
+		    </ion-slide>
+    	</ion-slide-box>
+    </ion-content>
+   	<div class="g-popover-backdrop" ng-if="bigImage" ng-click="hideBigImage()">
+   		<div class="shadow"></div>
+    	<img ng-src="{{url}}"/>
+	</div>
+
+  </div>
+</ion-view>

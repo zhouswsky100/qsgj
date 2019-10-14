@@ -1,0 +1,38 @@
+<ion-view  view-title="青贝管理" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="passwordM" overflow-scroll="true" >
+   	  <div class="list">
+          <div  class="bgf g-cf ft-16"> 
+              <p class="g-f-l g-p-10"><span>我的青贝: </span>  <span class="g-cf36026"> {{amount}}</span>&nbsp;<span  class="g-cf36026">MQB</span></p>
+              <div class="g-f-l" style="width: 10%; "><img src="img/market/bazaar_shell.png" class="dzimg" style="max-width: 100%"> </div> 
+       
+         </div>
+         <a class="item  item-icon-right g-mt-10 " href="#/myewm" >
+          <p>我的收款码<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right " href="#/mebqSell">
+          <p>我的订单<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right " href="#/mbqSell">
+          <p>订单发布<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mt-10 " href="#/qbZs" >
+          <p>青贝转赠<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right " href="#/qbJl">
+          <p>交易记录<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right " href="#/upjymm">
+          <p>修改交易密码<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+    
+        <!-- <a class="item  item-icon-right " ng-click="scanCode()">
+          <p>扫一扫<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+      </div>
+   </ion-content>
+</ion-view>

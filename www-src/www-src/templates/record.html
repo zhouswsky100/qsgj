@@ -1,0 +1,45 @@
+<ion-view view-title="充提记录" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-light" href="#/recordQuery">
+    <i>查询</i>
+    </a>
+  </ion-nav-buttons>
+   <ion-content class="background" id="record" overflow-scroll="true" >
+      <div class="orange baseInfo">
+          <p><span ng-bind="vm.commonData.startTime"></span>至<span ng-bind="vm.commonData.endTime"></span>期间</p>
+          <div class="row accountInfo">
+              <div class="col">
+                  <p>充值金额</p>
+                  <p ng-bind="vm.commonData.chongzhi | number"></p>
+              </div>
+              <div class="col border-lr">
+                  <p>提现金额</p>
+                  <p ng-bind="vm.commonData.tixian | number"></p>
+              </div>
+          </div>
+      </div>
+      <ul ng-if="ajaxEnd && vm.messages.length >0">
+        <li class="list" ng-repeat="message in vm.messages">
+          <a href="#/recordInfo/{{$index}}">
+              <div class="row">
+                <div class="col" ng-bind="isCz(message.NUMBERNO)?'充值':'提现'"></div>
+                <div class="col" ng-bind="message.TM | limitTo:10"></div>
+                <div class="col g-ta-r profit"><span ng-bind="isCz(message.NUMBERNO)?'+':'-'"></span><span ng-bind="message.AMT | number"></span></div>
+              </div>
+              <p><span class="g-mr-10" ng-bind="getStatus(message.PS)"></span><span class="g-ml-10">手续费</span><span ng-bind="message.FEE | number"></span>元</p>
+          </a>
+        </li>
+      </ul>
+      <ul class="recordNoData g-fz-b1" ng-if="ajaxEnd && vm.messages.length <=0">
+        <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+        <li class="g-c99">暂无数据</li>
+      </ul>
+      <ion-infinite-scroll ng-if="vm.moredata" immediate-check="false" on-infinite="vm.loadMore()" distance="5%" icon="ion-load-a">
+      </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

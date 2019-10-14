@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>资金存管提现</title>
+  </head>
+  <body>
+    <form action="" method="post" id="withdrawZcPage">
+        <input type="hidden" id="version" name="version" value='' />
+        <input type="hidden" id="txCode" name="txCode" value='' />
+        <input type="hidden" id="instCode" name="instCode" value='' />
+        <input type="hidden" id="bankCode" name="bankCode" value='' />
+        <input type="hidden" id="txDate" name="txDate" value='' />
+        <input type="hidden" id="txTime" name="txTime" value='' />
+        <input type="hidden" id="seqNo" name="seqNo" value='' />
+        <input type="hidden" id="channel" name="channel" value='' />
+        <input type="hidden" id="accountId" name="accountId" value='' />
+        <input type="hidden" id="idType" name="idType" value='' />
+        <input type="hidden" id="idNo" name="idNo" value='' />
+        <input type="hidden" id="name" name="name" value='' />
+        <input type="hidden" id="mobile" name="mobile" value='' />
+        <input type="hidden" id="cardNo" name="cardNo" value='' />
+        <input type="hidden" id="txAmount" name="txAmount" value='' />
+        <input type="hidden" id="txFee" name="txFee" value='' />
+        <input type="hidden" id="routeCode" name="routeCode" value='' />
+        <input type="hidden" id="cardBankCnaps" name="cardBankCnaps" value='' />
+        <input type="hidden" id="cardBankCode" name="cardBankCode" value='' />
+        <input type="hidden" id="cardBankNameCn" name="cardBankNameCn" value='' />
+        <input type="hidden" id="cardBankNameEn" name="cardBankNameEn" value='' />
+        <input type="hidden" id="cardBankProvince" name="cardBankProvince" value='' />
+        <input type="hidden" id="cardBankCity" name="cardBankCity" value='' />
+        <input type="hidden" id="forgotPwdUrl" name="forgotPwdUrl" value='' />
+        <input type="hidden" id="retUrl" name="retUrl" value='' />
+        <input type="hidden" id="notifyUrl" name="notifyUrl" value='' />
+        <input type="hidden" id="acqRes" name="acqRes" value='' />
+        <input type="hidden" id="sign" name="sign" value='' />
+      </form>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=JSON.parse(decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.length));
+          document.getElementById('withdrawZcPage').attributes['action'].value=data.reqUrl;
+          document.getElementById('version').value=data.version;
+          document.getElementById('txCode').value=data.txCode;
+          document.getElementById('instCode').value=data.instCode;
+          document.getElementById('bankCode').value=data.bankCode;
+          document.getElementById('txDate').value=data.txDate;
+          document.getElementById('txTime').value=data.txTime;
+          document.getElementById('seqNo').value=data.seqNo;
+          document.getElementById('channel').value=data.channel;
+          document.getElementById('accountId').value=data.accountId;
+          document.getElementById('idType').value=data.idType;
+          document.getElementById('idNo').value=data.idNo;
+          document.getElementById('name').value=data.name;
+          document.getElementById('mobile').value=data.mobile;
+          document.getElementById('cardNo').value=data.cardNo;
+          document.getElementById('txAmount').value=data.txAmount;
+          document.getElementById('txFee').value=data.txFee;
+          document.getElementById('routeCode').value=data.routeCode;
+          document.getElementById('cardBankCnaps').value=data.cardBankCnaps;
+          document.getElementById('cardBankCode').value=data.cardBankCode;
+          document.getElementById('cardBankNameCn').value=data.cardBankNameCn;
+          document.getElementById('cardBankNameEn').value=data.cardBankNameEn;
+          document.getElementById('cardBankProvince').value=data.cardBankProvince;
+          document.getElementById('cardBankCity').value=data.cardBankCity;
+          document.getElementById('forgotPwdUrl').value=data.forgotPwdUrl;
+          document.getElementById('retUrl').value=data.retUrl;
+          document.getElementById('notifyUrl').value=data.notifyUrl;
+          document.getElementById('acqRes').value=data.acqRes;
+          document.getElementById('sign').value=data.sign;
+          document.getElementById('withdrawZcPage').submit();
+    </script>
+  </body>
+</html>

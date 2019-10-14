@@ -1,0 +1,28 @@
+<ion-view view-title="注册" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="register1" overflow-scroll="true" >
+    <form  method="post" class="J-llpay" id="mform">
+    	<img class="registerBanner" src="https://www.he-pai.cn/activity/static/pc/images/app/registerBanner.jpg">
+	    <ion-item class="item-input item">
+		    <input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="text" placeholder="请输入手机号码" ng-model="register.tel" ng-blur="checkTel()">
+		</ion-item>
+		<div class="item item-input g-mtb-10 g-pr-10">
+	        <input type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入验证码" ng-model="register.msgCode">
+	        <div ng-click="getMsgCode()" class="getmsgcode">
+	            <getmsgcode></getmsgcode>
+	        </div>
+      	</div>
+      	<p ng-show="register.tip" class="registerTip">验证码短信已发送到您的手机上，1分钟内有效</p>
+		<div class="g-mlr-10 registerBtn">
+		    <a class="button button-block  button-orange" ng-click="next()" ng-disabled="!register.tel">
+		        下一步
+		    </a>
+		</div>
+	</form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,106 @@
+<ion-view view-title="活动详情" hide-tabs="false"  hide-back-button="true">
+     <ion-nav-buttons side="left">
+          <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+          <i class="icon ion-ios-arrow-left color-fff"></i>
+          </button>
+     </ion-nav-buttons>
+     <!-- <ion-nav-buttons side="right">
+          <button wechart-share sharetitle="test" sharedescription="test" hasurl="1" webpageurl="https://m.he-pai.cn/wechat/#/bidHlyDetail/1/11"  class="button button-clear icon ion-android-share button-light">
+               <i>分享</i>
+          </button>
+      </ion-nav-buttons> -->
+     <div id="home">
+          <ion-content class="background" id="project" overflow-scroll="true" >
+               <div> 
+                    <div class="g-mb-10 bgf" ng-if="vm.messages.length > 0" ng-repeat="message in vm.messages">
+                      <div class="div1" >
+                          <ul class="g-cf">
+                            <li class="g-f-l g-pl-20  g-pt-15">
+                              <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{message.gcphoto}}" style="width:100%;height:100%" /></p>
+                              <div class="g-f-l g-pl-10"> 
+                                <p class="name "  ng-bind="message.gcnikename"> </p>
+                                <p class="g-cf m0p0">
+                                  <span class="g-f-l m0p0 time"  ng-bind="message.hdfqdate">05-10</span>
+                                </p>
+                              </div>
+                            </li>
+                            <li class=" g-f-r " style=" padding-top: 13px;">
+                              <p  class="name ">财政\预算   </p>
+                                <span class="g-f-l je " style="width: 40px;" ng-bind="message.hbjfje" ></span>
+                                <div  class="g-f-l ">
+                                  <div style=" width: 40%;">  <img src="img/bd/List_shell.png " ></div>
+                                </div>                  
+                            </li>
+                          </ul>
+                      </div>
+                      <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                                  <p class="cont "  ng-bind-html ="message.title"  ></p> 
+                                  <p class="cont "  ng-bind-html ="message.cont"  ></p>                                  <div class="g-cf ">
+                                
+                                   <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}')"> 
+                                      <img ng-src="http://39.97.234.111/base/userFiles/hdImg/{{img}}"   style="width:100%;height:100%">
+                                    </div>
+            
+                                  </div> 
+                      </div>   
+                      <div class="div1"> 
+                            <ul class="g-cf">
+                              <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                                <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                                <div class="g-f-l g-pl-10"> 
+                                  <p class="bl6 " style="padding-top: 4px;"><span ng-bind="message.zyrcount"></span><span>人参与</span></p>
+                                </div>
+                              <!-- </li>
+                              <li class=" g-f-r " style=" padding-top: 12px;">
+                                  <div class="g-cf">
+                                    <div class="gifshow" gifShow="{{$index}}">
+                                      <img src ="img/bd/biggif.gif" style="position: absolute;">
+                                    </div>
+                                      <div class=" m0p0 g-f-l ">
+                                         <div class="g-f-l g-pl-5"> <div  style="width: 52%;">  <img src="img/bd/List_message.png" >  </div></div> 
+                                          <p class="g-f-l g-pl-5" style="position: relative; top: 2px; left: -20px;">  <span class=" m0p0 bl6"  ng-bind="message.pinglunsize"></span></p>
+                                     </div>
+                                     <div class=" m0p0 g-f-l "  ng-click ="vm.dianzan(message.bdid,$index)">
+                                        <div class="g-f-l g-pl-5" > <div style="width: 52%;"> <img src="img/bd/List_praise.png"  imgindex="{{$index}}" class="dzimg">  </div></div>
+                                        <p class="g-f-l g-pl-5"style="position: relative; top: 2px; left: -20px;"> <span  class=" m0p0 bl6 dzsize"  ng-bind="message.bddzcount"  dzsize="{{$index}}"></span></p>
+                                    </div>  
+                                  </div>
+                              </li> -->
+                            </ul>
+                      </div>
+                    </div>
+                   </div>
+      
+          </ion-content>
+          <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+            <div class="shadow"></div>
+            <img ng-src="{{vm.url}}"/>
+          </div>
+          <ion-footer>
+               <div class="bottom_box">
+                    <!-- <ul>
+                         <li class="botblue cylf">
+                              <p class="g-f-l "> <img src="img/bd/comment_compile.png" style="   width: 60%;"></p>
+                              <div class="g-f-l g-pl-10" style="width: 120px;    padding-left: 0px;"> 
+                                <p class="bl6 " style="padding-top: 4px;" ng-click="vm.showPop()">请输入您的评论</p>
+                              </div>
+                         </li>
+                         <li class="botblue" >
+                              <span  ng-click="vm.jiebang()" style=" color: #2BC9C0; line-height: 34px;" id="qq_online">立即揭榜</span>
+                         </li>
+     
+                    </ul> -->
+                    <div class="g-plr-10" style="margin-top: -30px;">
+			            		<input type="submit"  class="button button-block button-orange" value="参加活动"  ng-click="vm.joinAct()">
+                     </div>
+               </div>
+          </ion-footer>
+          <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+               <div class="shadow"></div>
+               <img ng-src="{{vm.url}}"/>
+          </div>
+     </div>
+
+</ion-view>
+
+      

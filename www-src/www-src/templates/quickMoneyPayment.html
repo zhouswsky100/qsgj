@@ -1,0 +1,75 @@
+<ion-view view-title="大额快捷支付" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background rechargeCommon" id="largePayment" overflow-scroll="true" >
+        <form action="https://yintong.com.cn/llpayh5/authpay.htm" method="post" class="J-llpay" id="mform">
+            <input type="hidden" id="reqData" name="reqData" value='reqData' />
+
+            <ul class="list">
+                <li>
+                    <a ng-if="hasKqCard" class="item  item-icon-right g-mt-10" href="#/tab/quickMoneySelectBank">
+                      <p> 银行卡
+                        <span class="item-note">{{bankName}}(尾号{{bankNoAfter}})</span>
+                        <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+                      </p>
+                    </a>
+
+                    <a ng-if="!hasKqCard" class="item  item-icon-right g-mtb-10" href="#/tab/quickMoneySelectBank">
+                      <p> 银行卡
+                        <span class="item-note">去开通快捷支付</span>
+                        <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+                      </p>
+                    </a>
+
+                    <div ng-if="!noSupport&&hasKqCard" class="row g-fz-12 tips">
+                        <div class="col"><i class="g-c99">单笔限额：</i><span ng-bind="oneLimit"></span>元</div>
+                        <div class="col"><i class="g-c99">每日限额：</i><span ng-bind="dayLimit"></span>元</div>
+                    </div>
+                </li>
+                <li>
+                    <label class="item item-input item-select g-mt-10 borderDashed" ng-if="showType">
+                        <div class="input-label g-c66 g-fz-14">
+                            充值用途
+                        </div>
+                        <select ng-change="sleType(typeName.name)" ng-model="typeName.name" ng-options="type.name as type.name for type in types"></select>
+                    </label>
+                </li>
+                <li>
+                    <label class="item item-input g-mt-10 borderDashed">
+                        <p class="input-label" aria-label="充值金额" id="_label-1">充值金额</p>
+                        <input ng-model="recharge.value" type="text" placeholder="请输入充值金额"> 
+                    </label>
+                    <div class="row g-fz-12 tips">
+                        <div class="col"><i class="g-c99">手续费：</i><span ng-bind="(recharge.value*rate).toFixed(2)"></span>元</div>
+                        <div class="col"><i class="g-c99">到账金额：</i><span ng-bind="(recharge.value-recharge.value*rate).toFixed(2)"></span>元</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item item-input g-mtb-10">
+                      <p class="input-label">验证码</p>
+                      <input type="text" class="getMsgCodeIpt" placeholder="请输入短信验证码" name="valiCode" ng-model="user.smsCode" required="required">
+                      <div ng-click="getMsgCode()" class="getmsgcode" style="margin-right: 48px;">
+                        <getmsgcode></getmsgcode>
+                      </div>
+                    </div>
+              </li>
+            </ul>
+            <div class="g-m-10 ">
+                <a class="button button-block  button-orange" ng-click="successForm()" ng-disabled="!(recharge.value&&hasKqCard&&user.smsCode)">
+                    下一步
+                </a>
+            </div>
+        </form>
+        <div class=" g-m-10 tip">
+            <p>由快钱提供快捷支付服务</p>
+            <p class="g-c66">费率说明：</p>
+            <ul>
+                <li><p class="g-c99">-如果您是投资人，充值免收手续费；</p></li>
+                <li><p class="g-c99">-如果您是借款人，且账户有未结清的借款金额，单笔按0.2%收取充值手续费（还款充值）；</p></li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

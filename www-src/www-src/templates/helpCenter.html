@@ -1,0 +1,102 @@
+<ion-view  view-title="帮助中心" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="bidService" overflow-scroll="true" contentScroll >
+    <div class="dynamics g-mt-10">
+     <div class="helpsearch">
+        <form ng-submit="submitForm()" style="height: 50px;" >
+          <input type="text" class="helpmsg"  placeholder="搜索" ng-blur="hide()" ng-focus="show()" ng-model="helpList.keytxt"  name="search" style="width: 100%;height: 50px;padding-left: 40px;"/>
+          <span  ng-show="closeFlg"  ng-click="closeKeyboard()" class="closeses">取消</span>     
+        </form>
+     </div>
+     <div class="g-mt-10 g-table">
+       <a  ng-click="goSearch('注册')">注册</a>
+       <a  ng-click="goSearch('充值')" class="g-pl-10">充值</a>
+       <a  ng-click="goSearch('投资')" class="g-pl-10">投资</a>
+       <a  ng-click="goSearch('转让')" class="g-pl-10">转让</a>
+     </div>
+     <div class="item  item-icon-right g-mt-20" style="padding: 10px;border-top: none;">
+        <p class="g-pl-10">操作指引</p>
+     </div>
+     <div class="item" style="padding: 10px;  border-bottom: none;">
+       <div class="g-cf">
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('成为会员')">
+          <img src="img/msg/help4.png"style="width: 80%;">
+          <br><span class="helpf">成为会员</span>
+        </div>
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('投资流程')">
+          <img src="img/msg/help3.png"style="width: 80%;">
+          <br><span class="helpf">投资流程</span>
+        </div>
+       </div>
+     </div>
+     <div class="item  item-icon-right g-mt-10" style="padding: 10px;border-top: none;">
+        <p class="g-pl-10">常见问题</p>
+     </div>
+     <div class="item" style="padding:0px; border-bottom: none;">
+      <div class="g-cf">
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('新手指南')">
+          <img src="img/msg/help12.png"style="width: 80%;">
+          <br><span class="helpf">新手指南</span>
+        </div>
+         <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('账户管理')">
+          <img src="img/msg/help11.png"style="width: 80%;">
+          <br><span class="helpf">账户管理</span>
+        </div>
+         <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('投资项目')">
+          <img src="img/msg/help9.png" style="width: 80%;">
+          <br> <span class="helpf">投资项目</span>
+        </div>
+         <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('定期计划')">
+          <img src="img/msg/help13.png" style="width: 80%;">
+          <br> <span class="helpf">定期计划</span>
+        </div>
+      </div>
+      <div  class="g-cf" style="margin-bottom: 15px;">
+       <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('银行存管')">
+          <img src="img/msg/help8.png" style="width: 80%;">
+          <br> <span class="helpf">银行存管</span>
+        </div>
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('借款与还款')">
+          <img src="img/msg/help7.png" style="width: 80%;">
+          <br> <span class="helpf">借款还款</span>
+        </div>
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('会员积分')">
+          <img src="img/msg/help6.png" style="width: 80%;">
+          <br> <span class="helpf"> 会员积分</span>
+        </div>
+        <div class="g-f-l" style="margin-left: 15px;margin-top: 15px;" ng-click="gohelpList('名称解释')">
+          <img src="img/msg/help14.png" style="width: 80%;">
+          <br> <span class="helpf">名称解释</span>
+        </div>
+      </div>
+     </div>
+     <div class="g-f-l" style=" width: 100%;">
+       <div class="item  item-icon-right g-mt-10 g-f-l" style="width: 48%;padding:0px;border: none;">
+          <div class="msgmain">
+            <img src="img/msg/help16.png" style="width: 60%;">
+          </div>
+          <div class="msgtit" style="width: 80px">
+             <p>客服热线</p>
+             <p><a  style="text-decoration:none" href="tel:10101588">10101588</a></p>
+          </div>
+      </div>
+      <div class="item  item-icon-right g-mt-10 g-f-l" style="margin-left: 17px;width: 48%;padding: 0px;border: none;" ng-click="chatRoot()">
+          <div class="msgmain">
+               <img src="img/msg/help15.png" style="width: 60%;">
+          </div>
+          <div class="msgtit" style="width: 80px">
+             <p>在线客服</p>
+             <p>点击咨询</p>
+          </div>
+      </div>
+     </div>
+     <div class="item  item-icon-right g-mt-10 g-f-l g-table" style="padding: 5px;">
+        <p>客服时间:08:00-21:00</p>
+     </div>
+    </div>
+  </ion-content>
+</ion-view>

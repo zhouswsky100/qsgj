@@ -1,0 +1,44 @@
+<ion-view  view-title="资金存管" hide-tabs="true" hide-back-button="true"> 
+	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="list" id="capitalSupervision">
+    			<p class="g-m-10">合拍在线已升级为江西银行资金存管，资金更安全，开通后您才能进行投资操作</p>
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">姓名</p>
+              <input type="text" placeholder="请输入姓名" name="name" required="required" ng-model="user.acNm" ng-readonly="hasAcNm"/>
+			    </label>
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">身份证号</p>
+              <input type="text" placeholder="请输入身份证号" name="idCard" required="required" ng-model="user.idNo" ng-readonly="hasIdNo"/>
+			    </label>
+			    <div class="item item-input g-mtb-10">
+			        <p class="input-label">银行预留手机</p>
+			        <!-- <span class="g-f-r g-fz-12"><span ng-bind="user.mbPhn | limitTo:3"></span>****<span ng-bind="user.mbPhn | limitTo:-4"></span>（建议银行预留手机号 <a style="text-decoration: underline;" href="#/tab/updatePhn">修改</a>）</span> -->
+              <span class="g-f-r g-fz-12">
+                <input type="text" ng-model="user.mbPhn" placeholder="请输入手机号码" ng-blur="blur()" />
+              </span>
+			    </div>
+          <div ng-if="!isOldMbPhn" class="g-pl-10">开通成功后绑定手机将换为您修改的新号码</div>
+			    <div class="item item-input g-mtb-10">
+			        <p class="input-label">注册角色</p>
+			        <span class="g-f-r">投资人</span>
+			    </div>
+			    <div class="g-m-10 pdb">
+			    	下一步：将进入江西银行页面填写绑定银行卡，完成账户开通。
+			    </div>
+			    <div class="g-m-10">
+			    	点击“开通”即代表您已阅读并同意<a href="#" ng-click="zjcgCnt()">《合拍在线P2P账户江西存管银行资金存管服务协议》</a><a href="#" ng-click="zjcgCntSq()">《用户授权协议》</a>
+			    </div>
+			    <div class="g-m-10 ">
+			  	    <a ng-class="{'button-gray':isGray}" class="button button-block button-orange g-m-10" href="#" ng-click="openJxcg()" ng-disabled="!(user.acNm && user.idNo  && user.mbPhn)">
+                 开通
+                <ion-spinner ng-if="isGray" icon="dots" class="spinner-light request-spinner"></ion-spinner>
+              </a>
+			    </div>
+		</div>
+    </ion-content>
+</ion-view>

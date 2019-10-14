@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>资金存管投资</title>
+  </head>
+  <body>
+    <div id="invest"></div>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=JSON.parse(decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.length));
+        document.getElementById('invest').innerHTML = data; //将表单赋给页面
+        document.getElementById('req_form').submit(); //提交表单
+    </script>
+  </body>
+</html>

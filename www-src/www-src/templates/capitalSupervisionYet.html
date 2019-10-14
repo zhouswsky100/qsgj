@@ -1,0 +1,21 @@
+<ion-view  view-title="存管账户" hide-tabs="true" hide-back-button="true"> 
+	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="g-p-10">
+			    <div class="item b-mark border0">
+              <p class="g-pb-10">银行：江西银行<span class="item-note g-c99">Ⅱ类银行账户</span></p>
+			        <p class="g-pb-10">户名：<span ng-bind="user.acNm"></span></p>
+			        <p>账号：<span ng-bind="user.eleAccount"></span></p>
+          </div>
+          <div class="item border0">
+              <p class="g-pb-10">开户城市：江西省南昌市</p>
+			        <p>开户支行：江西银行股份有限公司总行营业部</p>
+			    </div>
+          <p class="g-mt-10">开通银行存管时，为您在江西银行开立以上存管资金的账户，确保您的资金安全。</p>
+		</div>
+    </ion-content>
+</ion-view>

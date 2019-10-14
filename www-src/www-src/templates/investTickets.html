@@ -1,0 +1,46 @@
+ <ion-view view-title="我的投资券" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content id="investTicket" overflow-scroll="true" >
+    <ul ng-if="noData" class="g-listNoData g-fz-b1">
+      <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+      <li class="g-c99">暂无数据</li>
+    </ul>
+    <div ng-if="ticketsShow" class="noUse" ng-click="noUse()">不使用投资券</div>
+    <ul class="investTicket">
+      <li ng-class="item.hpbSts == '0'?'list card card1':'list card card2'" ng-repeat="item in tickets">
+        <div class="mask" ng-if="lookUp"></div>
+          <ion-radio ng-if="item.hpbSts == '0'" ng-model="item.source" ng-change="serverSideChange(item.valBal,item.ciHpbNo,item.useAmt)">
+            <div class="row">
+              <div class="col col-33 item1">
+                <p class="num">{{item.valBal}}元</p>
+                <p class="g-fz-12">未使用</p>
+              </div>
+              <div class="col">
+                <p><span>说明：</span>{{item.useRuleDec}}</p>
+                <p><span>期限：</span>{{item.hpbValidays}}</p>
+                <p><span>来源：</span>{{item.source}}</p>
+              </div>
+            </div>
+          </ion-radio>
+          <div class="row" ng-if="item.hpbSts != '0'">
+            <div class="col col-33 item1">
+              <p class="num">{{item.valBal}}元</p>
+              <p class="g-fz-12" ng-if="item.hpbSts == '1'">已使用</p>
+              <p class="g-fz-12" ng-if="item.hpbSts == '2'">已过期</p>
+            </div>
+            <div class="col ticketP">
+              <p><span>说明：</span>{{item.useRuleDec}}</p>
+              <p><span>期限：</span>{{item.hpbValidays}}</p>
+              <p><span>来源：</span>{{item.source}}</p>
+            </div>
+          </div>
+      </li>
+    </ul>
+    <ion-infinite-scroll ng-if="!moreData&&!isInvest" immediate-check="false" on-infinite="loadMore()" distance="5%" icon="ion-load-a">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

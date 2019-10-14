@@ -1,0 +1,29 @@
+<ion-view  view-title="安全认证" hide-tabs="true" hide-back-button="true">
+	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="viewToAccountM()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i>
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background" id="safeAuthen" overflow-scroll="true" >
+		<div class="list">
+		    <p class="item item-icon-right g-mtb-10">
+		      <span>绑定手机</span>
+		      <span class="pl20 cgray"><span ng-bind="user.mbPhn | limitTo:3"></span>****<span ng-bind="user.mbPhn | limitTo:-4"></span></span>
+		      <a class="g-f-r cgray" href="#/tab/updatePhn">修改<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		    </p>
+		    <p class="item item-icon-right g-mtb-10">
+		      <span>资金存管</span>
+		      <a class="g-f-r cgray" href="#/tab/capitalSupervisionYet" ng-if="yet&&isBind">已开通<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		      <a class="g-f-r cgray" href="#/tab/banksInfoZc" ng-if="yet&&!isBind">已开通<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		      <a class="g-f-r cgray" href="#/tab/capitalSupervision" ng-if="!yet">未开通<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		    </p>
+		    <p class="item item-icon-right g-mtb-10">
+		      <span>数字证书</span>
+		      <span class="g-f-r cgray" ng-if="user.isApplyCert == '1' && user.isSignCertAuth == '1'">已申请；已授权</span>
+		      <a class="g-f-r cgray" ng-if="user.isApplyCert == '1' && user.isSignCertAuth == '0'" href="#/tab/safetySuccess">已申请；未授权<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		      <a class="g-f-r cgray" ng-if="user.isApplyCert == '0'" ng-click="apply()" href="#">未申请<i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+		    </p>
+		</div>
+
+    </ion-content>
+</ion-view>

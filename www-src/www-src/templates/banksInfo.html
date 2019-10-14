@@ -1,0 +1,40 @@
+<ion-view  view-title="银行卡信息" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+     <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+     </button>
+   </ion-nav-buttons>
+   <ion-content class="background" id="banksInfo" overflow-scroll="true">
+    <div ng-if="hasBanks&&auhSts">
+   	  <ul class="list">
+        <li class="item" ng-repeat="bank in banks">
+          <p ng-bind="bank.bcnNm"></p>
+
+          <div ng-if="verSts != '3'" class="g-f-r g-cf36026 g-mr-10 g-fz-14" ng-bind="bank.cVerSts" ng-click="bank.cVerSts=='银行卡认证成功'?'':gobankCertify(bank.bcnNm,bank.acNo)"></div>
+          <div ng-if="verSts == '3'" class="g-f-r g-cf36026 g-mr-10 g-fz-14" ng-bind="bank.cVerSts"></div>
+
+          <p>**** **** **** <span ng-bind="bank.acNo | limitTo:-4"></span></p>
+        </li>
+      </ul>
+      <div class="g-m-10 g-ta-l">
+          更换绑定银行卡，请联系合拍在线客服  <a href="tel:400-666-8585">1010-1588</a>
+          <p>
+            为避免网络诈骗，保障您的资金安全，更换银行卡将采取严格的审核机制，需要您提供相应的身份资料。
+          </p>
+      </div>
+    </div>
+    <div ng-if="!hasBanks&&auhSts&&!list" class="g-fz-b1 g-ta-c">
+      <p class="banksInfoP">您还没有绑定银行卡，请添加银行卡</p>
+      <a href="#/tab/addBanks" class="button button-block button-orange g-m-10">添加银行卡</a>
+      <div class="g-m-10 g-ta-l">
+          请绑定您账户名下经常使用储蓄卡，并尽量不要更换。为避免网络诈骗，保障您的资金安全，更换银行卡将采取严格的审核机制，需要您提供相应的身份资料。
+      </div>
+    </div>
+     <div ng-if="!hasBanks&&!auhSts&&!list" class="g-fz-b1 g-ta-c">
+       <p class="banksInfoP">
+         绑定银行卡之前，请先完成实名认证
+       </p>
+       <a href="#/tab/realName" class="button button-block button-orange g-m-10">实名认证</a>
+     </div>
+   </ion-content>
+</ion-view>

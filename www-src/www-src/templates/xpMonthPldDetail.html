@@ -1,0 +1,28 @@
+ <ion-view  view-title="月度运营数据" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" style="background-color: rgb(255, 255, 255);color: #222;" id="AnnouncementContent">
+      <div style="margin-left: 10px;margin-right: 10px;margin-bottom: 10px;">
+        <h4 class="item-text-wrap" ng-bind="data.title"></h4>
+        <p style="font-size:12px;color: #69717d;" ng-bind="data.sdate"></p>
+        <div id="AnnouncementContentDIV" style="font-size:14px;margin-top: 3px;margin-bottom: 0px;" class="item-text-wrap">
+		  <p ng-if="type" style="padding-top: 20px;font-size: 16px;"> <a ng-click="openPdf('{{url}}')">{{title}} </a></p>
+         <div ng-if="!type" class="margin:0 auto;width:90%">
+         	<img src="{{url}}" style="max-width: 100%">
+         </div>
+
+        </div>
+      </div>
+  </ion-content>
+  <div class="" style="margin-bottom: 0px;margin-top: 0px;background-color: rgb(229, 229, 229);">
+    <ion-footer-bar align-title="center">
+      <div style="background-color: rgb(229, 229, 229);">
+        <a style="text-decoration:none;color: #222;background-color: rgb(229, 229, 229);margin: 0px;" href="#/Announcement" class="title">查看更多公告</a>
+      </div>
+
+    </ion-footer-bar>
+  </div>
+</ion-view>

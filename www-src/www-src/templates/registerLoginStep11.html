@@ -1,0 +1,39 @@
+<ion-view view-title="填写验证码" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goRegisterView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="registerLoginStep11" overflow-scroll="true" >
+  <p class="g-ta-c g-mtb-10 g-ptb-10">已向手机{{register.tel|formatMoblie}}发送短信，<br/>请在输入框中完善信息进行注册</p>
+	<div class="item item-input g-pr-10">
+		<span class="g-fz-14 g-c66">验证码：</span>
+		<div class="keyboardWrapper">
+	        <input type="text"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入验证码" ng-model="register.msgCode" name="register.msgCode" boardtype="v2" focus="true" keyboard>
+	        <div class="imitateCursor animation">{{register.msgCode}}</div>
+     </div>
+     
+         <getmsgcode1 tel="{{register.tel}}" callback="getMsgCode()" init="auto"></getmsgcode1>
+    </div>
+    <div class="item item-input g-pr-10">
+        <span class="g-fz-14 g-c66">昵称：</span>
+        <div class="keyboardWrapper">
+              <input type="text"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="请输入昵称：" ng-model="register.gcnikename" name="register.gcnikename"   >
+         </div>
+         
+        </div>
+        <div class="item item-input g-mtb-10">
+          <span class="g-fz-14 g-c66">登录密码：</span>
+            <div class="keyboardWrapper">
+              <input  type="password"  placeholder="请输入登录密码"   ng-model="register.gcpass" name="register.gcpass" >
+              <!-- <div class="imitateCursor animation">{{register.gcpass}}</div> -->
+            </div>
+        </div>
+      
+      
+  	<div class="g-mtb-10 g-plr-10 registerBtn">
+	     <input type="submit" class="button button-block button-orange" value="确定" ng-click="next()" ng-disabled="!register.msgCode">
+	</div>
+  </ion-content>
+</ion-view>

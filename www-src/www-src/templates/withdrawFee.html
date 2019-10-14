@@ -1,0 +1,51 @@
+<ion-view  view-title="手续费抵扣" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="withdraw">
+    <ion-content class="background"  overflow-scroll="true" >
+      <div class="list">
+        <label class="item item-input item-select g-mt-10">
+          <div class="input-label g-c66 g-fz-14">
+            抵扣方式
+          </div>
+          <select ng-change="sleFeeType(feeTypeDesc)" ng-model="feeTypeDesc" ng-options="type.desc as type.desc for type in feeTypes" ng-selected="feeType==$index"></select>
+        </label>
+        <p class="g-pl-10 g-pr-10 g-mt-10 g-c66 g-ml-5" ng-if="feeType==1">本月剩余免费抵扣次数：<span class="g-cf36026" ng-bind="freeTime"></span></p>
+        <div ng-if="feeType==2">
+          <label class="item item-input g-mt-10">
+            <p class="input-label" aria-label="手续费">手续费</p>
+            <p class="txtAuto">{{fee.money}}元 </p>
+          </label>
+          <label class="item item-input">
+            <p class="input-label" aria-label="可消费积分">可消费积分</p>
+            <p class="txtAuto" ng-bind="totalPoints"></p>
+          </label>
+          <label class="item item-input">
+            <p class="input-label" aria-label="抵扣手续费">抵扣手续费(元)</p>
+            <input type="text" placeholder="请输入抵扣金额" ng-model="offset.money">
+          </label>
+          <label class="item item-input borderDashed">
+            <p class="input-label" aria-label="将消费积分">将消费积分</p>
+            <p class="txtAuto" ng-bind="offset.money*250"></p>
+          </label>
+        </div>
+        <div class="g-m-10 ">
+          <button class="button button-block  button-orange" ng-click="doFeeSle()">
+            确定
+          </button>
+        </div>
+
+        <div class=" g-m-10 tip" ng-if="feeType==1">
+          <p class="g-c66">手续费抵扣说明：</p>
+          <ul>
+            <li><p class="g-c99">-VIP专享每月免费提现：VIP1-VIP4每月有1次，VIP5及以上每月有2次；当月未使用免费提现机会可延续次月使用；</p></li>
+            <li><p class="g-c99">-消费积分可按250:1抵扣手续费；</p></li>
+          </ul>
+        </div>
+      </div>
+    </ion-content>
+  </div>
+</ion-view>

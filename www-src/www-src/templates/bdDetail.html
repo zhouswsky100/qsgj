@@ -1,0 +1,146 @@
+<ion-view view-title="榜单详情" hide-tabs="false"  hide-back-button="true">
+     <ion-nav-buttons side="left">
+          <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+          <i class="icon ion-ios-arrow-left color-fff"></i>
+          </button>
+     </ion-nav-buttons>
+     <!-- <ion-nav-buttons side="right">
+          <button wechart-share sharetitle="test" sharedescription="test" hasurl="1" webpageurl="https://m.he-pai.cn/wechat/#/bidHlyDetail/1/11"  class="button button-clear icon ion-android-share button-light">
+               <i>分享</i>
+          </button>
+      </ion-nav-buttons> -->
+     <div id="home">
+          <ion-content class="background" id="project" overflow-scroll="true" >
+               <div class="g-mb-10 bgf" ng-if="vm.messages.length > 0 && message.bdstat!='已结榜,无候选人'" ng-repeat="message in vm.messages">                    <div class="div1" >
+                        <ul class="g-cf">
+                          <li class="g-f-l g-pl-20  g-pt-15">
+                            <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{message.accountphoto}}" style="width:100%;height:100%" /></p>
+                            <div class="g-f-l g-pl-10"> 
+                              <p class="name "  ng-bind="message.bdnikename"> </p>
+                              <p class="g-cf m0p0">
+                                <span class="g-f-l m0p0 time"  ng-bind="message.bddate">05-10</span>
+                              </p>
+                            </div>
+                          </li>
+                          <li class=" g-f-r " style=" padding-top: 13px;">
+                                   <p  class="name ">财政\预算   </p>
+                                     <span class="g-f-l je " style="width: 40px;" ng-bind="message.bdxsje" ></span>
+                                     <div  class="g-f-l ">
+                                       <div style=" width: 40%;">  <img src="img/bd/List_shell.png " ></div>
+                                     </div>                  
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                              <p class="cont "  ng-bind-html ="message.title" ></p> 
+
+                              <p class="cont "   ng-bind-html="message.cont"  ></p> 
+                               <div class="g-cf ">
+                                  <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}')"> 
+                                    <img ng-src="http://39.97.234.111/base/userFiles/bdImg/{{img}}"   style="width:100%;height:100%">
+                                  </div>
+                              </div> 
+                    </div>   
+                    <div class="div1"> 
+                          <ul class="g-cf">
+                            <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                              <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                              <div class="g-f-l g-pl-10"> 
+                                <p class="bl6 " style="padding-top: 4px;"><span ng-bind="message.jiebangrensize"></span><span>人参与</span></p>
+                              </div>
+                            </li>
+                          </ul>
+                    </div>
+               </div>
+               <div class="g-mb-10 bgf" style="background: #ddd;" ng-if="vm.messages.length > 0 && message.bdstat=='已结榜,无候选人'" ng-repeat="message in vm.messages">                    <div class="div1" >
+                    <ul class="g-cf">
+                      <li class="g-f-l g-pl-20  g-pt-15">
+                        <p class="g-f-l photo"> <img ng-src="http://39.97.234.111/base/userFiles/{{message.accountphoto}}" style="width:100%;height:100%" /></p>
+                        <div class="g-f-l g-pl-10"> 
+                          <p class="name "  ng-bind="message.bdnikename"> </p>
+                          <p class="g-cf m0p0">
+                            <span class="g-f-l m0p0 time"  ng-bind="message.bddate">05-10</span>
+                          </p>
+                        </div>
+                      </li>
+                      <li class=" g-f-r " style=" padding-top: 13px;">
+                         <p  class="name ">榜单状态</p>
+                           <span class="g-f-l je " style="width: 110px;" ng-bind="message.bdstat" ></span>
+                                          
+                       </li>
+                    </ul>
+                </div>
+                <div class="g-cf g-m-10 bgsolid " style=" margin-bottom: 0px;">
+                         <p class="cont "  ng-bind-html ="message.title" ></p> 
+
+                         <p class="cont "   ng-bind-html="message.cont"  ></p> 
+                           <div class="g-cf ">
+                              <div class="limg" ng-if="message.imgTemp.length > 0" ng-repeat=" img in message.imgTemp  track by $index" ng-click="vm.showBigImage('{{img}}')"> 
+                                <img ng-src="http://39.97.234.111/base/userFiles/bdImg/{{img}}"   style="width:100%;height:100%">
+                              </div>
+                          </div> 
+                </div>   
+                <div class="div1"> 
+                      <ul class="g-cf">
+                        <li class="g-f-l g-pl-10   g-pt-10" style="width: 50%;">
+                          <p class="g-f-l " style=" width: 53%;"> <img src="img/bd/List_people.png" ></p>
+                          <div class="g-f-l g-pl-10"> 
+                            <p class="bl6 " style="padding-top: 4px;"><span ng-bind="message.jiebangrensize"></span><span>人参与</span></p>
+                          </div>
+                        </li>
+                      </ul>
+                </div>
+           </div>
+               <div  class="mint-navbar"  ng-if="vm.messages.length > 0" ng-repeat="message in vm.messages">
+                    <a class="mint-navbar-change" > 
+                         <div class="mint-tab-item-label">评论<span ng-bind="message.pinglunsize"></span></div>
+                    </a>
+                    <a  class="mint-tab-item ">
+                         <div class="mint-tab-item-label">点赞<span ng-bind="message.bddzcount"></span></div>
+                    </a>
+               </div>
+               <div class="g-mt-40 bgf" style="margin-bottom: 50px;">
+                    <ul class="g-cf"  ng-if="vm.lyList.length > 0" ng-repeat="item in vm.lyList">
+                         <li class="g-f-l g-pl-10  g-pt-15">
+                              <p class="g-f-l photo">
+                                   <img ng-src="http://39.97.234.111/base/userFiles/{{item.gcphoto}}" style="width:100%;height:100%"></p>
+                              <div class="g-f-l g-pl-10"> 
+                                    <p class="name " ng-bind="item.bdplrnikename"></p>
+                                   <p class="g-cf m0p0">
+                                    <span class="g-f-l m0p0 time" ng-bind="vm.dateFormats(item.bdpldate)"></span>
+                                   </p>
+                              </div>
+                         </tli>     
+                         <br>
+                         <li  style=" padding-top: 70px; padding-left: 10px;">
+                             <p class="name m0p0"  style ="color: #333333; padding-left: 10px;"><span ng-bind="item.bdplcontent"></span></p>
+                         </li>
+                    </ul>
+               </div>
+      
+          </ion-content>
+          <ion-footer>
+               <div class="bottom_box">
+                    <ul>
+                         <li class="botblue cylf">
+                              <p class="g-f-l "> <img src="img/bd/comment_compile.png" style="   width: 60%;"></p>
+                              <div class="g-f-l g-pl-10" style="width: 120px;    padding-left: 0px;"> 
+                                <p class="bl6 " style="padding-top: 4px;" ng-click="vm.showPop()">请输入您的评论</p>
+                              </div>
+                         </li>
+                         <li class="botblue" >
+                              <span  ng-click="vm.jiebang()" style=" color: #2BC9C0; line-height: 34px;" id="qq_online">立即揭榜</span>
+                         </li>
+     
+                    </ul>
+               </div>
+          </ion-footer>
+          <div class="g-popover-backdrop" ng-if="vm.bigImage" ng-click="vm.hideBigImage()">
+               <div class="shadow"></div>
+               <img ng-src="{{vm.url}}"/>
+          </div>
+     </div>
+
+</ion-view>
+
+      

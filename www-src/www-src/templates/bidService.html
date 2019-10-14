@@ -1,0 +1,56 @@
+<ion-view  view-title="银行存管授权" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light " ng-click="toView('tab.bidList',{'bidId':'1','querytype':'1'})">
+      <i class="color-fff">现在投资</i>
+    </button>
+  </ion-nav-buttons>
+   <ion-content class="background" id="bidService" overflow-scroll="true" contentScroll >
+    <div class="g-pt-10">
+      <p class="item" ng-class="{'item-icon-right': !isPayauth}">
+          <span class="g-fz-16 g-c66">缴费授权</span>
+          <span ng-if = "code == '0'">
+            <span class="item-note g-fz-14" style="margin-top:-8px;">已授权</span>
+            <span class="flag">授权到期日：{{payAuthExpTime}}</span>
+          </span>
+          <span ng-if = "code == '1'" ng-click = "payauth()" class="item-note g-fz-14 g-cf36026">去授权
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </span>
+          <span ng-if = "code == '000000'">
+            <span class="item-note g-fz-14">处理中</span>
+          </span>
+      </p>
+      <p class="item" ng-class="{'item-icon-right': !isAutobidauth}">
+          <span class="g-fz-16 g-c66">自动投标授权</span>
+          <span ng-if = "isAutobidauth">
+            <span class="item-note g-fz-14">已授权</span>
+            <!-- <span class="item-note g-fz-14" style="margin-top:-8px;">已授权</span>
+            <span class="flag">授权到期日：2019-10-01</span> -->
+          </span>
+          <span ng-if = "!isAutobidauth" ng-click = "autobidauth()" class="item-note g-fz-14 g-cf36026">去授权
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </span>
+      </p>
+      <p class="item" ng-class="{'item-icon-right': !isAutoCreditauth}">
+          <span class="g-fz-16 g-c66">自动债转授权</span>
+          <span ng-if = "isAutoCreditauth">
+            <span class="item-note g-fz-14">已授权</span>
+            <!-- <span class="item-note g-fz-14" style="margin-top:-8px;">已授权</span>
+            <span class="flag">授权到期日：2019-10-01</span> -->
+          </span>
+          <span ng-if = "!isAutoCreditauth" ng-click = "autoCreditauth()" class="item-note g-fz-14 g-cf36026">去授权
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </span>
+      </p>
+      <div class="g-m-10">
+        <p class="g-pt-10">说明:</p>
+        <p class="g-mt-10">1、缴费授权：授权后合拍才可收取居间服务费，授权后才可进行投资、借款操作。</p>
+        <p class="g-mt-10">2、自动投标授权、自动债转授权：2个都授权后才可投资定期计划。</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view view-title="我的推荐" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="myRecommend" overflow-scroll="true">
+    <div class="item">
+      <div class="position-r"><p class="bor-mark-left g-fz-16 g-pl-10">邀请方式</p></div>
+      <p class="g-pt-5 g-pb-5">我的推荐码：<span class="g-cf36026" ng-bind="prsCd"></span></p>
+      <img ng-src="{{wechart}}" alt="二维码">
+      <p class="dis">注册时填写推荐码，或用手机扫描二维码，或直接分享好友，好友注册时系统自动记录推荐关系</p>
+      <div wechart-share class="share" sharetitle="{{share.sharetitle}}" sharedescription="{{share.sharedescription}}">分享好友</div>
+    </div>
+    <div class="g-mt-10">
+      <div>
+        <div class="item item-icon-right">
+            <p class="position-r">
+              <span class="g-fz-16 bor-mark-left g-pl-10">我的推荐</span>
+              <span ng-if="isSwitch" class="item-note g-c99" ng-click="toView('tab.awardRule')">{{titile}}</span>
+            </p>
+            <i ng-if="isSwitch" class="icon ion-chevron-right" style="font-size:1em; margin-top: -2px;"></i>
+        </div>
+        <div class="item friend">
+          <div ng-click="toView('tab.myPackets')">
+            <p class="g-c33 g-fz-16" ng-bind="user.invCerSum"></p>
+            <p class="g-c99">我的红包</p>
+          </div>
+          <div ng-click="toView('tab.myFriends')">
+            <p class="g-c33">
+              <span class="g-fz-16" ng-bind="user.memCount"></span>人
+            </p>
+            <p class="g-c99">我的好友</p>
+          </div>
+        </div>
+        <div class="re-remark g-c99 g-pl-10 g-pr-10">备注：我的红包是指定活动获得的奖励投资券，可使用或赠送好友</div>
+        <div ng-click="toView('tab.myFriends')" class="item g-ta-c g-cf36026">赠送好友 ></div>
+      </div>
+    </div>
+    <div ng-click="toView('tab.recommendPerson')" class="item g-mt-10 item-icon-right">
+      <p>
+        推荐我的人
+        <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+      </p>
+    </div>
+  </ion-content>
+</ion-view>

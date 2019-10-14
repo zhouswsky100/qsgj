@@ -1,0 +1,85 @@
+<ion-view view-title="快捷支付" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background rechargeCommon" id="quickPaymentZc" overflow-scroll="true" >
+        <ul class="list">
+            <li>
+                <label ng-if="hasCard" class="item item-input g-mt-10 borderDashed">
+                    <div class="input-label g-c66 g-fz-14">
+                        银行卡
+                    </div>
+                    <p ng-bind="bankName.bcnNm"></p>
+                </label>
+
+                <a ng-if="!hasCard" class="item  item-icon-right g-mtb-10" href="#/tab/banksInfoZc">
+                  <p> 银行卡
+                    <span class="item-note">添加银行卡</span>
+                    <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+                  </p>
+                </a>
+                
+                <div class="row g-fz-12 tips">
+                  <div class="col"><span ng-bind="bankName.limitRmk"></span></div>
+                </div>
+                <!-- <div ng-if="!noSupport" class="row g-fz-12 tips">
+                    <div class="col"><i class="g-c99">单笔限额：</i><span ng-bind="oneLimit"></span>元</div>
+                    <div class="col"><i class="g-c99">每日限额：</i><span ng-bind="dayLimit"></span>元</div>
+                </div>
+                <div ng-if="noSupport" class="row g-fz-12 tips">
+                  <div class="col g-cf36026">
+                    暂不支持该卡快捷充值，请使用转账充值。
+                  </div>
+                </div> -->
+            </li>
+            <li>
+                <label class="item item-input item-select g-mt-10 borderDashed" ng-if="showType">
+                    <div class="input-label g-c66 g-fz-14">
+                        充值用途
+                    </div>
+                    <select ng-change="sleType(typeName.name)" ng-model="typeName.name" ng-options="type.name as type.name for type in types"></select>
+                </label>
+            </li>
+            <li>
+                <label class="item item-input g-mt-10 borderDashed">
+                    <p class="input-label" aria-label="充值金额" id="_label-1">充值金额</p>
+                    <!-- <input ng-model="recharge.value" type="text" placeholder="请输入充值金额" ng-keyup="onKeyUp()"> -->
+                    <div class="keyboardWrapper">
+                        <input type="text"  placeholder="请输入充值金额" ng-model="recharge.value" name="recharge.value" boardtype="v1" keyboard>
+                        <div class="imitateCursor animation">{{recharge.value}}</div>
+                    </div>
+                </label>
+                <div class="row g-fz-12 tips">
+                    <div class="col"><i class="g-c99">手续费：</i><span ng-bind="(recharge.value*rate)|currency:''"></span>元</div>
+                    <div class="col"><i class="g-c99">到账金额：</i><span ng-bind="(recharge.value-recharge.value*rate)|currency:''"></span>元</div>
+                </div>
+            </li>
+			
+             <li>
+                <label class="item item-input g-mt-10 borderDashed">
+                    <p class="input-label">银行预留的手机号</p>
+                    <!-- <input type="text" placeholder="请输入手机号码" name="mbPhn" ng-model="user.bank_mbPhn" required="required" ng-blur="checkTel()" /> -->
+                    <div class="keyboardWrapper">
+                        <input type="text"  placeholder="请输入手机号码" ng-model="user.bank_mbPhn" name="user.bank_mbPhn" boardtype="v2" keyboard>
+                        <div class="imitateCursor animation">{{user.bank_mbPhn}}</div>
+                    </div>
+                </label>
+            </li>
+			
+        </ul>
+        
+        <div class="g-m-10 ">
+            <a class="button button-block  button-orange" ng-click="successForm()" ng-disabled="!(recharge.value&&hasCard)">
+                立即充值
+            </a>
+        </div>
+        <div class=" g-m-10 tip">
+            <p class="g-c66">费率说明：</p>
+            <ul>
+                <li><p class="g-c99">-如果您是投资人，充值免收手续费；</p></li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

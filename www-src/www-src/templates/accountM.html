@@ -1,0 +1,44 @@
+<ion-view  view-title="账户管理" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+          <i class="icon ion-ios-arrow-left color-fff"></i>
+        </button>
+      </ion-nav-buttons>
+
+   <ion-content class="background" id="accountM" overflow-scroll="true" contentScroll >
+   	  <div id="membercenterIndex" class="list">
+        <a class="item  item-icon-right g-mb-10" href="#/userInfo">
+          <p>
+            <span class="pl20 cgray">
+              <div class="baseInfo">
+                <div class="pr">
+                  <img ng-src="http://39.97.234.111/base/userFiles/{{data.gcphoto}}" style="width:60px; height:60px; " class="photo">
+                  <!-- <div class="level">
+                    <span class="levelIcon level{{data.level}}"></span>
+                    <span class="levelTxt">V{{data.level}}</span>
+                  </div> -->
+               
+                </div>  
+              </div>
+            </span>
+            <span class="item-note info">个人信息</span>
+            <i class="icon ion-chevron-right" style="font-size:1em;"></i>
+          </p>
+        </a>
+        <!-- <p class="item item-icon-right g-mt-10 b-mark">
+          <span class="g-fz-14 g-c66">绑定手机</span>
+          <a class="g-f-r item-note g-fz-14" href="#/tab/updatePhn"><span>{{user.mbPhn | formatMoblie}}</span><i class="icon ion-chevron-right" style="font-size:1em;"></i></a>
+        </p> -->
+        <a  class="item  item-icon-right b-mark g-mt-10" href="#/passwordM">
+          <p>密码管理<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <!-- <a  class="item  item-icon-right b-mark" href="#/bdFb">
+          <p>榜单发布<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a  class="item  item-icon-right b-mark" href="#/hdFb">
+          <p>活动发布<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+      </div>
+
+   </ion-content>
+</ion-view>

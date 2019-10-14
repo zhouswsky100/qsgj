@@ -1,0 +1,114 @@
+<ion-view  view-title="投资详情" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="g-c66" id="investDetail" overflow-scroll="true" >
+    	<p class="title">
+        <span><span ng-bind="dataInfo.body.LN_NM"></span><span class="state g-ml-5 green" ng-if="dataInfo.body" ng-bind="dataInfo.body.CRED_LN_STS_DESC"></span></span>
+        <a class="g-f-r" href="javascript:;" ng-if="dataInfo.body" ng-click="original(dataInfo.body.Z_LN_NO,dataInfo.body.tlPrd)">原借款标</a>
+      </p>
+    	<ul class="list">
+    		<li class="g-mb-10">
+	    		<div class="row itemTitle" ng-click="toggleMenu(arrowDown1,menuState1)">
+	    			<div class="col">项目信息</div>
+	    			<div class="col g-ta-r arrow" ng-class="{true:'ion-android-arrow-dropdown',false:'ion-android-arrow-dropup'}[arrowDown1.show]"></div>
+	    		</div>
+	    		<div class="content" ng-show="menuState1.show">
+	    			<div class="row">
+		    			<div class="col">转让本金</div>
+		    			<div class="col g-ta-r"><span ng-bind="dataInfo.body.LN_AMT | number:2"></span>元</div>
+		    		</div>
+            <div class="row">
+              <div class="col">剩余期限</div>
+              <div class="col g-ta-r"><span ng-bind="dataInfo.body.LN_TERM"></span>天</div>
+            </div>
+            <div class="row">
+              <div class="col">年利率</div>
+              <div class="col g-ta-r"><span ng-bind="dataInfo.body.LN_RATE"></span>%</div>
+            </div>
+            <div class="row">
+              <div class="col">还款方式</div>
+              <div class="col g-ta-r" ng-bind="dataInfo.body.PAY_METH_DESC"></div>
+            </div>
+            <div class="row">
+              <div class="col">到期日</div>
+              <div class="col g-ta-r" ng-bind="dataInfo.body.MSTRTNDT"></div>
+            </div>
+	    		</div>
+    		</li>
+			<li class="g-mb-10">
+	    		<div class="row itemTitle" ng-click="toggleMenu(arrowDown2,menuState2)">
+	    			<div class="col">收款详情</div>
+	    			<div class="col g-ta-r arrow" ng-class="{true:'ion-android-arrow-dropdown',false:'ion-android-arrow-dropup'}[arrowDown2.show]"></div>
+	    		</div>
+	    		<div class="content" ng-show="menuState2.show">
+	    			<div class="row">
+		    			<div class="col">已转让金额</div>
+		    			<div class="col g-ta-r"><span ng-bind="dataInfo.body.TRANSFER_AMT"></span>元</div>
+		    		</div>
+            <div class="row">
+              <div class="col">转让比例</div>
+              <div class="col g-ta-r"><span>100</span>%</div>
+            </div>
+	    		</div>
+    		</li>
+    		<li class="g-mb-10">
+    			<div class="row itemTitle" ng-click="toggleMenu(arrowDown3,menuState3)">
+	    			<div class="col">转让明细</div>
+	    			<div class="col g-ta-r arrow" ng-class="{true:'ion-android-arrow-dropdown',false:'ion-android-arrow-dropup'}[arrowDown3.show]"></div>
+	    		</div>
+	    		<div class="content g-ta-c" ng-show="menuState3.show">
+	    			<div class="row">
+		    			<div class="col">交易时间</div>
+		    			<div class="col">转让金额</div>
+		    			<div class="col g-ta-r">受让会员</div>
+		    		</div>
+		    		<div class="row" ng-repeat="message in dataInfo.ivsList">
+		    			<div class="col" ng-bind="message.IVS_TIME"></div>
+		    			<div class="col" ng-bind="message.BID_TOT_AMT"></div>
+		    			<div class="col g-ta-r" ng-bind="message.CI_NM"></div>
+		    		</div>
+	    		</div>
+    		</li>
+    		<li class="g-mb-10">
+    			<div class="row itemTitle" ng-click="toggleMenu(arrowDown4,menuState4)">
+	    			<div class="col">资金流水</div>
+	    			<div class="col g-ta-r arrow" ng-class="{true:'ion-android-arrow-dropdown',false:'ion-android-arrow-dropup'}[arrowDown4.show]"></div>
+	    		</div>
+	    		<div class="content" ng-show="menuState4.show">
+            <div class="row">
+              <div class="col">交易时间</div>
+              <div class="col">交易类型</div>
+              <div class="col g-ta-r">交易金额</div>
+            </div>
+            <div class="row" ng-repeat="message in dataInfo.selIvsFntMap">
+              <div class="col" ng-bind="message.txTm"></div>
+              <div class="col" ng-bind="message.txTypDesc"></div>
+              <div class="col g-ta-r"><span ng-bind="message.ipFlg=='P'?'-':'+'"></span><span ng-bind="message.txAmt | number:2"></span>元</div>
+            </div>
+	    		</div>
+    		</li>
+    		<li class="mb-50" >
+    			<div class="row itemTitle" ng-click="toggleMenu(arrowDown5,menuState5)">
+	    			<div class="col">项目合同</div>
+	    			<div class="col g-ta-r arrow" ng-class="{true:'ion-android-arrow-dropdown',false:'ion-android-arrow-dropup'}[arrowDown5.show]"></div>
+	    		</div>
+	    		<div class="content" ng-show="menuState5.show">
+            <div ng-repeat="contract in dataInfo.cntifiList">
+              <div class="item item-icon-right g-mt-10" ng-if="contract.fddViewUrl" ng-click="viewToFadadaContract(contract.fddViewUrl)">
+                <p>《<span ng-bind="contract.cntplNm"></span>》<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+              </div>
+              <div class="item item-icon-right g-mt-10" ng-if="!contract.fddViewUrl" ng-click="viewToOldContract(contract.cnflNo)">
+                <p>《<span ng-bind="contract.cntplNm"></span>》<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+              </div>
+            </div>  
+	    		</div>
+    		</li>
+    	</ul>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="orange" ng-if="dataInfo.body.CRED_LN_STS == '1'">
+      <a class="title g-cff noUnderline" href="javascript:void(0)" ng-click="stopCreditTransfer()">终止债转</a>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view view-title="银行卡认证" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content class="background" id="cardCertify" overflow-scroll="true" >
+      <div ng-if="user.IDTYP=='01' || user.IDTYP=='0'">
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">绑定银行卡</p>
+          <p><span ng-bind="bank.name"></span>（尾号<span ng-bind="bank.acno | limitTo:-4"></span>）</p>
+        </label>
+        <div class="notice g-m-10">
+          温馨提示:
+          <p>
+            1. 请使用需认证的银行卡，完成一笔充值，即认证成功。<br/>
+            2. 充值金额1元起，无手续费。<br/>
+            3. 请使用储蓄卡进行认证，暂不支持信用卡。<br/>
+          </p>
+        </div>
+        <a class="button button-block button-orange g-m-10" href="#/quickPayment">立即充值</a>
+      </div>
+      <div ng-if="user.IDTYP=='02'">
+        <p class="g-p-10">温馨提示:</p>
+        <p class="g-pl-5 g-plr-10 indent">APP暂不支持港澳台客户进行银行卡认证，请登录合拍在线官网，登录个人中心，进入“账户管理-我的银行卡”进行认证，不便之处，敬请见谅。</p>
+        <!-- <label class="item item-input g-mtb-10">
+          <p class="input-label">绑定银行卡</p>
+          <p><span>平安银行（尾号1234）</span></p>
+        </label>
+        <div class="notice g-m-10">
+          温馨提示:
+          <p>
+            1. 提交认证申请后，我们将向您银行卡转账一笔小金额款，请在下一步填写该笔转账的具体金额，金额正确即完成认证。<br/>
+            2. 请使用储蓄卡进行认证，暂不支持信用卡。
+          </p>
+        </div>
+        <a class="button button-block button-orange g-m-10" href="#/tab/cardCertifyHand">提交认证</a> -->
+      </div>
+    </ion-content>
+</ion-view>

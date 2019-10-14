@@ -1,0 +1,20 @@
+<ion-view view-title="快捷充值" hide-tabs="true" hide-nav-bar="false" hide-back-button="true">
+   <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+   </ion-nav-buttons>
+   <ion-content id="rechargeSuccess" class="background" overflow-scroll="true" style="overflow-y:auto;overflow-x:hidden;">
+      <div class="item tabs tabs-icon-top">
+	      <span class="tab-item">
+	        <i class="icon ion-checkmark-circled"></i>
+	        <span class="g-fz-b2 g-ta-c g-fw-b">充值成功！</span>
+	      </span>
+      </div> 
+      <div class="g-m-10">
+            <a class="button button-block  button-orange" ng-click="toView('tab.memberCenter')">
+                返回个人中心
+            </a>
+      </div>
+    </ion-content>
+</ion-view>

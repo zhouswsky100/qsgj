@@ -1,0 +1,1630 @@
+[
+  {
+    "file": "apk/adv.json",
+    "hash": "b80786badcfed1e757c904abbb8a1fd6"
+  },
+  {
+    "file": "apk/city.json",
+    "hash": "9c441cd4e7ad7e0f4940b2c5a98c8a15"
+  },
+  {
+    "file": "apk/version.json",
+    "hash": "94899fa8b7055c0558b83e3fba59c1ce"
+  },
+  {
+    "file": "css/find.css",
+    "hash": "6be31e48daf6cbca9d50378eeaebfee3"
+  },
+  {
+    "file": "css/home.css",
+    "hash": "b32c617c195f34e96bae7c002f32a189"
+  },
+  {
+    "file": "css/invest.css",
+    "hash": "45e34f0a19161d74ad6cfcde695287ca"
+  },
+  {
+    "file": "css/memberCenter.css",
+    "hash": "df2b972840c71395b2f152ee739999e7"
+  },
+  {
+    "file": "css/nrd.css",
+    "hash": "8fb7da61a281d279fee1b8e9902f2678"
+  },
+  {
+    "file": "css/sign.css",
+    "hash": "f6a14b443bb1cdaeeb0a5a00cca28d33"
+  },
+  {
+    "file": "css/style.css",
+    "hash": "0ed785b21cae1a41d1df12158ae55717"
+  },
+  {
+    "file": "dest/app.min.css",
+    "hash": "21d6058d792f600d92d286b36b306cbf"
+  },
+  {
+    "file": "dest/app.min.js",
+    "hash": "fc9a45c6152261ae91368f3b75cfadb1"
+  },
+  {
+    "file": "dest/lib.min.css",
+    "hash": "fd9efcc9d8a97d54bdb220ce916383fd"
+  },
+  {
+    "file": "dest/lib.min.js",
+    "hash": "5bfc055f1f13f60fcfc014d2f89f660c"
+  },
+  {
+    "file": "fonts/iconfontHp.eot",
+    "hash": "86807ced6a7cea9a091eb7dd542e5003"
+  },
+  {
+    "file": "fonts/iconfontHp.svg",
+    "hash": "df343884548fd2198e221db0e1297012"
+  },
+  {
+    "file": "fonts/iconfontHp.ttf",
+    "hash": "edefdcf49d8cd3abbce440fa71cfcef8"
+  },
+  {
+    "file": "fonts/iconfontHp.woff",
+    "hash": "6a3b9cb8ddf32386fd0ec135a62daaf7"
+  },
+  {
+    "file": "fonts/ionicons.eot",
+    "hash": "2c2ae068be3b089e0a5b59abb1831550"
+  },
+  {
+    "file": "fonts/ionicons.svg",
+    "hash": "621bd386841f74e0053cb8e67f8a0604"
+  },
+  {
+    "file": "fonts/ionicons.ttf",
+    "hash": "24712f6c47821394fba7942fbb52c3b2"
+  },
+  {
+    "file": "fonts/ionicons.woff",
+    "hash": "05acfdb568b3df49ad31355b19495d4a"
+  },
+  {
+    "file": "img/adminShop.png",
+    "hash": "66457a7fdc793fcc452067ed5e2743d5"
+  },
+  {
+    "file": "img/appNrdImg1.png",
+    "hash": "d22d928dcca2841dbb64fca1ee390d8d"
+  },
+  {
+    "file": "img/appNrdImg2.png",
+    "hash": "61ec1eebcdba2181911eb37542c34e99"
+  },
+  {
+    "file": "img/appNrdImg3.png",
+    "hash": "a1bf72635ce22bbaa349b49db62b3fc9"
+  },
+  {
+    "file": "img/button_active.png",
+    "hash": "7e204196ab5528c5dae717a039f0bf71"
+  },
+  {
+    "file": "img/button_active2.png",
+    "hash": "e184dbec4523654aaf82a8eabf0b836a"
+  },
+  {
+    "file": "img/button.png",
+    "hash": "e83aa77ec4498ea5b9e74df4b2c73e14"
+  },
+  {
+    "file": "img/calendar/daishou1.png",
+    "hash": "9758acd7fabbfc851824fdae9c3be775"
+  },
+  {
+    "file": "img/calendar/daishou2.png",
+    "hash": "a317c986042eb70d0a4f7aff69836371"
+  },
+  {
+    "file": "img/calendar/today.png",
+    "hash": "af1be14d12af759945f111f6f42e7356"
+  },
+  {
+    "file": "img/calendar/yishou1.png",
+    "hash": "c1e218541099f30ac0c6a76464c260a9"
+  },
+  {
+    "file": "img/calendar/yishou2.png",
+    "hash": "d47f512c848f600d377fb968f6a18e09"
+  },
+  {
+    "file": "img/calendar/yizhuan1.png",
+    "hash": "c1a1ffb5917c6185ae37ae9d61dc4b65"
+  },
+  {
+    "file": "img/calendar/yizhuan2.png",
+    "hash": "dc915f52f282414be63cdb30d94a74a3"
+  },
+  {
+    "file": "img/calendar/yuqi1.png",
+    "hash": "e7a035826dc8101b6b62ccaf1399dbcd"
+  },
+  {
+    "file": "img/calendar/yuqi2.png",
+    "hash": "cdbf08216da4b8ba9d59171b87f03e7a"
+  },
+  {
+    "file": "img/cbd.png",
+    "hash": "f5aa713f46b00702a3e4e463abdfc901"
+  },
+  {
+    "file": "img/cly.png",
+    "hash": "c98cbbbbe8139978870e03e9828e32da"
+  },
+  {
+    "file": "img/default_banner.jpg",
+    "hash": "3982035083089afe998179d08bd49445"
+  },
+  {
+    "file": "img/gszxIcon.png",
+    "hash": "01265365ff0d5567237c8024ff9986e6"
+  },
+  {
+    "file": "img/hly.png",
+    "hash": "d54b7f16af8e092ec0c7459895ddf62f"
+  },
+  {
+    "file": "img/inteicon.png",
+    "hash": "01be21effb9189e0c456c4b5064de2dc"
+  },
+  {
+    "file": "img/ionic.png",
+    "hash": "6d8bf94e7dbe09eacc7207b6254c878b"
+  },
+  {
+    "file": "img/jjs.png",
+    "hash": "09829044136f38dc459c099d2ed05379"
+  },
+  {
+    "file": "img/line_diagonal1.png",
+    "hash": "b500a77c10ad37c2bc6cbfcb599e7b3f"
+  },
+  {
+    "file": "img/line_diagonal2.png",
+    "hash": "37f0e3cf24f98f0ba447055a39d19ffd"
+  },
+  {
+    "file": "img/line_hor.png",
+    "hash": "ce01464ccf906a96e743eaa7e3f68679"
+  },
+  {
+    "file": "img/line_ver.png",
+    "hash": "6cd8d6af8db01c7b4ccc4282dc2149c8"
+  },
+  {
+    "file": "img/loding.gif",
+    "hash": "2a24299457bd9e114d633f1df342b8d8"
+  },
+  {
+    "file": "img/logo.png",
+    "hash": "5a5ae045eabc2aeb7a23ec2a15a0932f"
+  },
+  {
+    "file": "img/mine/accountIcon.png",
+    "hash": "ab4a54ddd2c8c98998e1de9b38a6d2bc"
+  },
+  {
+    "file": "img/mine/banner_bg.jpg",
+    "hash": "b1464801e42317fef0182d92ac6d8aad"
+  },
+  {
+    "file": "img/mine/calendarIcon.png",
+    "hash": "5900995ffceb4a4db19181e3dae193e5"
+  },
+  {
+    "file": "img/mine/capitalIcon.png",
+    "hash": "dc8d63fb65af5dc694a843d26e6a73eb"
+  },
+  {
+    "file": "img/mine/investIcon.png",
+    "hash": "08cd3db7f8f3fc7c7fe9a76be5c50ce2"
+  },
+  {
+    "file": "img/mine/levelIcon.png",
+    "hash": "61684ca75ec65a2449be16901d316b38"
+  },
+  {
+    "file": "img/mine/ticketIcon.png",
+    "hash": "78f937c135e6f622390cf63de06fe4d9"
+  },
+  {
+    "file": "img/mtbdIcon.png",
+    "hash": "b8413edaf110e29cff2a961ae8ec27a8"
+  },
+  {
+    "file": "img/nrdIcon01.png",
+    "hash": "1645c74eef0065035cf4b49b5ec1e22a"
+  },
+  {
+    "file": "img/nrdIcon02.png",
+    "hash": "96c3b3fac00b59b9f666deb27395db7e"
+  },
+  {
+    "file": "img/nrdIcon03.png",
+    "hash": "a2d8db76ca60c29d7a73585080bc0fce"
+  },
+  {
+    "file": "img/nrdIcon04.png",
+    "hash": "c2115f91adafb9a0e65dbd994da49bd5"
+  },
+  {
+    "file": "img/nrdManage/rankIcon1-active.png",
+    "hash": "c05ad99285b03340132652e9aa418e4e"
+  },
+  {
+    "file": "img/nrdManage/rankIcon1.png",
+    "hash": "5aef2cb50fe6bb8304aeca1c2b5e7ad0"
+  },
+  {
+    "file": "img/nrdManage/rankIcon2-active.png",
+    "hash": "1348f616be992718c8f9ff1111ea046d"
+  },
+  {
+    "file": "img/nrdManage/rankIcon2.png",
+    "hash": "a2fecff49bd3055ad90910388703720b"
+  },
+  {
+    "file": "img/nrdManage/shareIcon-1.png",
+    "hash": "33eb69a72c8137b34b4054a02174127a"
+  },
+  {
+    "file": "img/nrdManage/shareIcon-2.png",
+    "hash": "f0ddc86070d63ad8ff3038a420cb1622"
+  },
+  {
+    "file": "img/nrdManage/shareIcon-3.png",
+    "hash": "d4d8f816cf87c13ebc660db1a99381b0"
+  },
+  {
+    "file": "img/nrdManage/shareIcon-4.png",
+    "hash": "09ee189767660b94ca193fd8dc6991e9"
+  },
+  {
+    "file": "img/nrdSignup/close@x1.png",
+    "hash": "97088431df81c7fcaa449de32ad49291"
+  },
+  {
+    "file": "img/nrdSignup/close@x2.png",
+    "hash": "cc0e0b823f53e389a9d44ae3f53b9131"
+  },
+  {
+    "file": "img/nrdSignup/loading.gif",
+    "hash": "2cbc2bdf017b65c24c66fa1d28b158d3"
+  },
+  {
+    "file": "img/photo.png",
+    "hash": "e906632b8a9812d2e8c09bbf55305ad2"
+  },
+  {
+    "file": "img/ptb.png",
+    "hash": "6124d49c8e67d98b0217ce3faa53c360"
+  },
+  {
+    "file": "img/ptsjIcon.png",
+    "hash": "55c1daf89c0fdc882535158cd44a44c2"
+  },
+  {
+    "file": "img/rankShop.png",
+    "hash": "fb60501622933a75a8d0a983a7cdc476"
+  },
+  {
+    "file": "img/rmhdIcon.png",
+    "hash": "8988739d3c28fa9199a7a3327af65a47"
+  },
+  {
+    "file": "img/shopBrand.png",
+    "hash": "df205d1eac63436f0aff84aec8150d3f"
+  },
+  {
+    "file": "img/syd.png",
+    "hash": "4acf7cd6763a35c2fc566fbaf7ad7adf"
+  },
+  {
+    "file": "img/ticket1.png",
+    "hash": "e499e7e24b9d8d92c39238c062ab2eb8"
+  },
+  {
+    "file": "img/ticket2.png",
+    "hash": "b90fd6079c44ac2c68d1274febc7a006"
+  },
+  {
+    "file": "img/tkgsIcon.png",
+    "hash": "50e577ef6474ecca8d93d4df973caa09"
+  },
+  {
+    "file": "img/tzznIcon.png",
+    "hash": "4d135db7c4ff14979b277342c2377852"
+  },
+  {
+    "file": "img/viewShop.png",
+    "hash": "08178c2faed48b9f89f3ce2ff76fc6ca"
+  },
+  {
+    "file": "img/wdrwIcon.png",
+    "hash": "66fc9b10adcc49d2e2a445d2c2d8ee01"
+  },
+  {
+    "file": "img/wechatShare.png",
+    "hash": "8897cdaf82040957737deed69847b24a"
+  },
+  {
+    "file": "img/wly.png",
+    "hash": "b725cfef65003ea1729857447fe6198b"
+  },
+  {
+    "file": "img/xfd.png",
+    "hash": "968aeaa5fb417800af6527535a299365"
+  },
+  {
+    "file": "img/xsb.png",
+    "hash": "28a90bac111aac1db03ce3bf64c5b983"
+  },
+  {
+    "file": "img/zzb.png",
+    "hash": "91f3ee0d4bfadb61611eb8a47b634afe"
+  },
+  {
+    "file": "index.html",
+    "hash": "cd958f358b1c7ce178edee5a22536242"
+  },
+  {
+    "file": "js/app.js",
+    "hash": "a96081043614de27cc367d071d434bbd"
+  },
+  {
+    "file": "js/config.js",
+    "hash": "d3e59af45347d3d0c2daeed397b155dd"
+  },
+  {
+    "file": "js/configDest.js",
+    "hash": "3ba19f63a19e031dc5c381153f90846f"
+  },
+  {
+    "file": "js/configTest.js",
+    "hash": "50131a9cecc0c03467d84c03b0d4ebb8"
+  },
+  {
+    "file": "js/configTrunk.js",
+    "hash": "4e683739d8fba703ecd5d0d748556eb6"
+  },
+  {
+    "file": "js/controllers.js",
+    "hash": "941c5993110fcd56daa17a4a91df48e3"
+  },
+  {
+    "file": "js/des3.js",
+    "hash": "329b50d820113c43b3fef9a2cbef68b7"
+  },
+  {
+    "file": "js/directive.js",
+    "hash": "53f9325226cc135af94ec8286d7b9234"
+  },
+  {
+    "file": "js/H5lock.js",
+    "hash": "628b501c9b07dc70f0cd5f4062c3528f"
+  },
+  {
+    "file": "js/md5.js",
+    "hash": "24ae387e10d4290697ac6e1e1f51ac5d"
+  },
+  {
+    "file": "js/router.js",
+    "hash": "de4647b508911d79d1ac9d4fc38b3ecb"
+  },
+  {
+    "file": "js/services.js",
+    "hash": "684550dfa703c751cdc7a6dd80d4c7bc"
+  },
+  {
+    "file": "js/SQLitePlugin.js",
+    "hash": "5b7a5b953631a1426e24480d8ae0093e"
+  },
+  {
+    "file": "js/unit.js",
+    "hash": "b7002568bff39a22db03d83ebe7e63b4"
+  },
+  {
+    "file": "json/city.json",
+    "hash": "9c441cd4e7ad7e0f4940b2c5a98c8a15"
+  },
+  {
+    "file": "lib/angular-animate/.bower.json",
+    "hash": "010b867dbb2c1b49a5a9cb0c76d49f57"
+  },
+  {
+    "file": "lib/angular-animate/angular-animate.js",
+    "hash": "b68e8f144976dece7a1ce65a2846ab4e"
+  },
+  {
+    "file": "lib/angular-animate/angular-animate.min.js",
+    "hash": "aaf1ba9258e668a19657f3abdfc34934"
+  },
+  {
+    "file": "lib/angular-animate/angular-animate.min.js.map",
+    "hash": "74e55d013380f71c07963279659b9439"
+  },
+  {
+    "file": "lib/angular-animate/bower.json",
+    "hash": "99f3d881eb7d15c0164d4d770e20234b"
+  },
+  {
+    "file": "lib/angular-animate/index.js",
+    "hash": "1bcc4e661ab8ddc751d1a9a8942b370b"
+  },
+  {
+    "file": "lib/angular-animate/README.md",
+    "hash": "58710557c21dbca7678a772110df57fd"
+  },
+  {
+    "file": "lib/angular-sanitize/.bower.json",
+    "hash": "f8c204ac6e58f1f7f0fb7938e065ada4"
+  },
+  {
+    "file": "lib/angular-sanitize/angular-sanitize.js",
+    "hash": "598cc903edadd88dcd916ce4a6828e21"
+  },
+  {
+    "file": "lib/angular-sanitize/angular-sanitize.min.js",
+    "hash": "0839c9b8fa725970d0d02022feeb3969"
+  },
+  {
+    "file": "lib/angular-sanitize/angular-sanitize.min.js.map",
+    "hash": "aa406c67c713af72a1cf857c56740308"
+  },
+  {
+    "file": "lib/angular-sanitize/bower.json",
+    "hash": "72782671a28b37fae23b0afe3a54fcbd"
+  },
+  {
+    "file": "lib/angular-sanitize/index.js",
+    "hash": "349b703c665246d4f1919931c6c3fb54"
+  },
+  {
+    "file": "lib/angular-sanitize/README.md",
+    "hash": "0393eb3f95cb21bf3463828d73d897de"
+  },
+  {
+    "file": "lib/angular-ui-router/.bower.json",
+    "hash": "1944660830eb287a439e9b64493680b8"
+  },
+  {
+    "file": "lib/angular-ui-router/api/angular-ui-router.d.ts",
+    "hash": "c06948a70fbce386351b5e86e26b1e34"
+  },
+  {
+    "file": "lib/angular-ui-router/bower.json",
+    "hash": "0e375aa5429ed49e31819d44bc1a28e9"
+  },
+  {
+    "file": "lib/angular-ui-router/CHANGELOG.md",
+    "hash": "9b835ba94bdb9bed629c1ff48b4c5a59"
+  },
+  {
+    "file": "lib/angular-ui-router/CONTRIBUTING.md",
+    "hash": "5aae5da7663eca1ed79d21b150c609c7"
+  },
+  {
+    "file": "lib/angular-ui-router/LICENSE",
+    "hash": "a15eea38307d9c2119d5a9e16211f29a"
+  },
+  {
+    "file": "lib/angular-ui-router/README.md",
+    "hash": "956d62926dce204f4659b0d619f2c0c1"
+  },
+  {
+    "file": "lib/angular-ui-router/release/angular-ui-router.js",
+    "hash": "749a18f80f375e3049975f190a7bfc4e"
+  },
+  {
+    "file": "lib/angular-ui-router/release/angular-ui-router.min.js",
+    "hash": "04c594b762aba521277ee747b28745d5"
+  },
+  {
+    "file": "lib/angular-ui-router/src/common.js",
+    "hash": "7cef018108cb4f4571f22b00d9324b82"
+  },
+  {
+    "file": "lib/angular-ui-router/src/resolve.js",
+    "hash": "8b3e76a8e9242408f366a840cd202105"
+  },
+  {
+    "file": "lib/angular-ui-router/src/state.js",
+    "hash": "3de988c7a35995b2c910258776d8d086"
+  },
+  {
+    "file": "lib/angular-ui-router/src/stateDirectives.js",
+    "hash": "9827d4eb264a7fb3d05f1b910b1391f3"
+  },
+  {
+    "file": "lib/angular-ui-router/src/stateFilters.js",
+    "hash": "84bba4f51e00086d8fe2f93fa1efbf15"
+  },
+  {
+    "file": "lib/angular-ui-router/src/templateFactory.js",
+    "hash": "8299e97e32fcfd3cc983df3085cc1369"
+  },
+  {
+    "file": "lib/angular-ui-router/src/urlMatcherFactory.js",
+    "hash": "f93993b00aa676ee329141ef294488e6"
+  },
+  {
+    "file": "lib/angular-ui-router/src/urlRouter.js",
+    "hash": "34193659b7b21f4f451f20a2878c00c0"
+  },
+  {
+    "file": "lib/angular-ui-router/src/view.js",
+    "hash": "64214a63924fc3eb6588ed7726485d2b"
+  },
+  {
+    "file": "lib/angular-ui-router/src/viewDirective.js",
+    "hash": "83174466bc2791816e67939b0243ed28"
+  },
+  {
+    "file": "lib/angular-ui-router/src/viewScroll.js",
+    "hash": "a899f6b7b01fe905406c4373a0603a23"
+  },
+  {
+    "file": "lib/angular/.bower.json",
+    "hash": "b95a8fb43f8e4d490f759f705cdd4df6"
+  },
+  {
+    "file": "lib/angular/angular-csp.css",
+    "hash": "3c6496d2475bec5850eec95eb066944a"
+  },
+  {
+    "file": "lib/angular/angular.js",
+    "hash": "91c010035d4ef0c08e1134341af1e06c"
+  },
+  {
+    "file": "lib/angular/angular.min.js",
+    "hash": "f363ad9d29fbebc0f5f4c96a23e577cd"
+  },
+  {
+    "file": "lib/angular/angular.min.js.gzip",
+    "hash": "790eb99faad383550550eca0fb24b57f"
+  },
+  {
+    "file": "lib/angular/angular.min.js.map",
+    "hash": "c24bff63ea8a613ee3c0efe50cd5feb0"
+  },
+  {
+    "file": "lib/angular/bower.json",
+    "hash": "7cdb3fe2b03ebf26021e376c0a3046bc"
+  },
+  {
+    "file": "lib/angular/index.js",
+    "hash": "4a6b945464e73d96c4eddaff73a45417"
+  },
+  {
+    "file": "lib/angular/README.md",
+    "hash": "1875d8cc22054116d6aadb363f501fbf"
+  },
+  {
+    "file": "lib/echart/china.js",
+    "hash": "5b5e6566dd8e7613b3cc06aa7c9b4e0c"
+  },
+  {
+    "file": "lib/echart/echarts.min.js",
+    "hash": "2ba7ecc96586548cf2f01d3efaef6e76"
+  },
+  {
+    "file": "lib/gesture/patternlock.css",
+    "hash": "1586ac9ea893ffb696791f36acaa14cf"
+  },
+  {
+    "file": "lib/gesture/patternlock.js",
+    "hash": "659f59123a6f6f659d4effda4d901d3f"
+  },
+  {
+    "file": "lib/ionic-citypicker/bower.json",
+    "hash": "c8a2d7ef1cb7cea1aded022075cb55f3"
+  },
+  {
+    "file": "lib/ionic-citypicker/dist/ionic-citypicker.min.js",
+    "hash": "542cce4232dd343b9c8d52a511154623"
+  },
+  {
+    "file": "lib/ionic-citypicker/gulpfile.js",
+    "hash": "9ee37e8036c427c1e8ffbf7280d7dfc7"
+  },
+  {
+    "file": "lib/ionic-citypicker/licence.txt",
+    "hash": "04db9c02bdf5b6ee24a3924149af0621"
+  },
+  {
+    "file": "lib/ionic-citypicker/README.md",
+    "hash": "8a0e469b093fcc375ac9bad8678c93db"
+  },
+  {
+    "file": "lib/ionic-citypicker/src/js/ionic-citypicker-directive.js",
+    "hash": "8f64e4cd49a74f0e2ba8e0f4eded16f1"
+  },
+  {
+    "file": "lib/ionic-citypicker/src/js/ionic-citypicker-service.js",
+    "hash": "a5403b22b7d41708922982b586f26b27"
+  },
+  {
+    "file": "lib/ionic-citypicker/src/js/ionic-citypicker.js",
+    "hash": "01e8918096c320206da97b8c94d342e0"
+  },
+  {
+    "file": "lib/ionic-citypicker/src/style/ionic-citypicker.css",
+    "hash": "f50909391234677a70bbc3bcdc72ecf9"
+  },
+  {
+    "file": "lib/ionic-citypicker/src/templates/ionic-citypicker.html",
+    "hash": "5e76855ddcc662f3925b96ec111dc559"
+  },
+  {
+    "file": "lib/ionic/css/ionic.css",
+    "hash": "274805f429f376dd7ad2c6d3238fe11e"
+  },
+  {
+    "file": "lib/ionic/css/ionic.min.css",
+    "hash": "69b6aba4f6d47c03b5be1fbd5aed153b"
+  },
+  {
+    "file": "lib/ionic/fonts/ionicons.eot",
+    "hash": "2c2ae068be3b089e0a5b59abb1831550"
+  },
+  {
+    "file": "lib/ionic/fonts/ionicons.svg",
+    "hash": "621bd386841f74e0053cb8e67f8a0604"
+  },
+  {
+    "file": "lib/ionic/fonts/ionicons.ttf",
+    "hash": "24712f6c47821394fba7942fbb52c3b2"
+  },
+  {
+    "file": "lib/ionic/fonts/ionicons.woff",
+    "hash": "05acfdb568b3df49ad31355b19495d4a"
+  },
+  {
+    "file": "lib/ionic/js/angular-ui/angular-ui-router.js",
+    "hash": "1f7fe3573d463743394e98d8b00eb228"
+  },
+  {
+    "file": "lib/ionic/js/angular-ui/angular-ui-router.min.js",
+    "hash": "83f32131b638a8686a43510fbd645b1b"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-animate.js",
+    "hash": "11974f7151cb3bc9c5d4820756c60d18"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-animate.min.js",
+    "hash": "abf4748a7ef6bb5b610ecb5ab749afae"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-resource.js",
+    "hash": "f9e3e662c0698e830be89599d7620e0f"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-resource.min.js",
+    "hash": "97796a250538882e4d26ddf37e05f208"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-sanitize.js",
+    "hash": "3327cce34c3af9a2088cbc8fa9d62c84"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular-sanitize.min.js",
+    "hash": "bacfe60d661bf26faa119cebc50c6518"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular.js",
+    "hash": "7ee4960c3fdfa8a88b3b540e19fcf7ff"
+  },
+  {
+    "file": "lib/ionic/js/angular/angular.min.js",
+    "hash": "d2342622316f832ef1333c74e41354ca"
+  },
+  {
+    "file": "lib/ionic/js/ionic-angular.js",
+    "hash": "0323097db585d40eab7a71d414d8d9c0"
+  },
+  {
+    "file": "lib/ionic/js/ionic-angular.min.js",
+    "hash": "c81f119bbecf436bfaa17c28ff3ef095"
+  },
+  {
+    "file": "lib/ionic/js/ionic.bundle.js",
+    "hash": "0ff2d86a483237d943b5d5f12d7790ac"
+  },
+  {
+    "file": "lib/ionic/js/ionic.bundle.min.js",
+    "hash": "e0cc14dc4c94a45d368932afd38c0614"
+  },
+  {
+    "file": "lib/ionic/js/ionic.js",
+    "hash": "e5455b6c32f086d880d60203df0d9d84"
+  },
+  {
+    "file": "lib/ionic/js/ionic.min.js",
+    "hash": "bbf477571ff58642f262d70a93694f6d"
+  },
+  {
+    "file": "lib/ionic/scss/_action-sheet.scss",
+    "hash": "d0c6449f31db02323aa6e7f56ef55e67"
+  },
+  {
+    "file": "lib/ionic/scss/_animations.scss",
+    "hash": "5596f74cb1ee03f9faf453ad4ee11807"
+  },
+  {
+    "file": "lib/ionic/scss/_backdrop.scss",
+    "hash": "7ff048e091b39f6615db62ee136ef040"
+  },
+  {
+    "file": "lib/ionic/scss/_badge.scss",
+    "hash": "c7b1b0e3049754fc22b45730e6c560fa"
+  },
+  {
+    "file": "lib/ionic/scss/_bar.scss",
+    "hash": "aac5621aef2e18ec8b1357dbab753000"
+  },
+  {
+    "file": "lib/ionic/scss/_button-bar.scss",
+    "hash": "797376c7cc46dbec7589be9ecacd6689"
+  },
+  {
+    "file": "lib/ionic/scss/_button.scss",
+    "hash": "78ec8db7cd9d771f011dcff61e8f81fd"
+  },
+  {
+    "file": "lib/ionic/scss/_checkbox.scss",
+    "hash": "89a0987dd24210f16863d7ba2c7312bd"
+  },
+  {
+    "file": "lib/ionic/scss/_form.scss",
+    "hash": "169f7a6e449aa9e1bed20a1f30887c97"
+  },
+  {
+    "file": "lib/ionic/scss/_grid.scss",
+    "hash": "9a87c565e397bb73b7f467726a63e01c"
+  },
+  {
+    "file": "lib/ionic/scss/_items.scss",
+    "hash": "e4c46d2f4ba12769d254cc066cd27989"
+  },
+  {
+    "file": "lib/ionic/scss/_list.scss",
+    "hash": "0ab8daf57764aac25bf68aa0b0e6c776"
+  },
+  {
+    "file": "lib/ionic/scss/_loading.scss",
+    "hash": "9f23e266d43a432bbf07a8677d1d1592"
+  },
+  {
+    "file": "lib/ionic/scss/_menu.scss",
+    "hash": "c12d33c8bea78495b2571665e35cb192"
+  },
+  {
+    "file": "lib/ionic/scss/_mixins.scss",
+    "hash": "2f2cd7b2b96f1af3142c30138b2f2b0c"
+  },
+  {
+    "file": "lib/ionic/scss/_modal.scss",
+    "hash": "38e8624ef28a495e7a01341915516bd1"
+  },
+  {
+    "file": "lib/ionic/scss/_platform.scss",
+    "hash": "db73214ac171e89a966c24d5320fe096"
+  },
+  {
+    "file": "lib/ionic/scss/_popover.scss",
+    "hash": "924a0474d4e58b3280e7d1ebf1938a55"
+  },
+  {
+    "file": "lib/ionic/scss/_popup.scss",
+    "hash": "988126e645408f1e5a270934520c20ac"
+  },
+  {
+    "file": "lib/ionic/scss/_progress.scss",
+    "hash": "19a19537d8e9483db7bde8a7febd43f6"
+  },
+  {
+    "file": "lib/ionic/scss/_radio.scss",
+    "hash": "9e5544332590f92c25ea065140610b03"
+  },
+  {
+    "file": "lib/ionic/scss/_range.scss",
+    "hash": "ae2eb0fc86bdcef56346885dcb76370f"
+  },
+  {
+    "file": "lib/ionic/scss/_refresher.scss",
+    "hash": "23c7b98a85caf376b414f4ed5a713831"
+  },
+  {
+    "file": "lib/ionic/scss/_reset.scss",
+    "hash": "319f0fb2d58da7fc89222752c5e527a4"
+  },
+  {
+    "file": "lib/ionic/scss/_scaffolding.scss",
+    "hash": "9bb74fc2540444de042fd9949101762f"
+  },
+  {
+    "file": "lib/ionic/scss/_select.scss",
+    "hash": "7b40e394e01f33ebc89fcfc89f826410"
+  },
+  {
+    "file": "lib/ionic/scss/_slide-box.scss",
+    "hash": "ae10f39144dc0f6b5b24fb6e811e992a"
+  },
+  {
+    "file": "lib/ionic/scss/_slides.scss",
+    "hash": "504700ae567875f003c7fd1571a482e1"
+  },
+  {
+    "file": "lib/ionic/scss/_spinner.scss",
+    "hash": "472ae7eb35a68c22078b1d56b10f35be"
+  },
+  {
+    "file": "lib/ionic/scss/_tabs.scss",
+    "hash": "5d92af59a2653b035857d6a77e606520"
+  },
+  {
+    "file": "lib/ionic/scss/_toggle.scss",
+    "hash": "09146009f139820a34375ec3dc70c5a0"
+  },
+  {
+    "file": "lib/ionic/scss/_transitions.scss",
+    "hash": "c060678db2049bbca8833bf769d65dd1"
+  },
+  {
+    "file": "lib/ionic/scss/_type.scss",
+    "hash": "db602af625137bdc4d95b262d77a15c1"
+  },
+  {
+    "file": "lib/ionic/scss/_util.scss",
+    "hash": "c7af3ffdcc728e1c6f44061ed6120c15"
+  },
+  {
+    "file": "lib/ionic/scss/_variables.scss",
+    "hash": "92a9250ee7fe39133f561297266b180e"
+  },
+  {
+    "file": "lib/ionic/scss/ionic.scss",
+    "hash": "a102a720475b3304d099fc3c94e7f619"
+  },
+  {
+    "file": "lib/ionic/scss/ionicons/_ionicons-font.scss",
+    "hash": "9a1734051fa60f52fdbdd74001b0f0e0"
+  },
+  {
+    "file": "lib/ionic/scss/ionicons/_ionicons-icons.scss",
+    "hash": "fcdab55027fe7da71f277ee58fad686a"
+  },
+  {
+    "file": "lib/ionic/scss/ionicons/_ionicons-variables.scss",
+    "hash": "0af49648c5756e4a96eb1eb70f016ee3"
+  },
+  {
+    "file": "lib/ionic/scss/ionicons/ionicons.scss",
+    "hash": "37204d759a9eb7bfc074034fd1bf95fb"
+  },
+  {
+    "file": "lib/ionic/version.json",
+    "hash": "2230fb053b68d338caf012e86feff1f5"
+  },
+  {
+    "file": "lib/ngCordova/.bower.json",
+    "hash": "1e05ae338f0039064ec47910080fb4f3"
+  },
+  {
+    "file": "lib/ngCordova/bower.json",
+    "hash": "cc32572d0b43b2b477c20f062625eabb"
+  },
+  {
+    "file": "lib/ngCordova/CHANGELOG.md",
+    "hash": "319d415151c9ffaa470f0a2d11150949"
+  },
+  {
+    "file": "lib/ngCordova/dist/ng-cordova-mocks.js",
+    "hash": "07592c4465e5ee268693fd1902b496fd"
+  },
+  {
+    "file": "lib/ngCordova/dist/ng-cordova-mocks.min.js",
+    "hash": "a58ec142076fec7665f85beb4a447d6a"
+  },
+  {
+    "file": "lib/ngCordova/dist/ng-cordova.js",
+    "hash": "1120bb3a7b669876c495728d2794ba99"
+  },
+  {
+    "file": "lib/ngCordova/dist/ng-cordova.min.js",
+    "hash": "9dc74ba14b6c4d8bb10150c2f9b8208e"
+  },
+  {
+    "file": "lib/ngCordova/LICENSE",
+    "hash": "ab7dad271bdb3c7354537ee825775294"
+  },
+  {
+    "file": "lib/ngCordova/README.md",
+    "hash": "38bcf699c7f8f7eb1c0a86429f8573d0"
+  },
+  {
+    "file": "lib/ngstorage/.bower.json",
+    "hash": "d114caf083c6b2e0d72d6987c47e02ff"
+  },
+  {
+    "file": "lib/ngstorage/.editorconfig",
+    "hash": "80993bdc988e9ddea296b8b06b93c408"
+  },
+  {
+    "file": "lib/ngstorage/.gitattributes",
+    "hash": "38ae1a027056b8f97be9eec85eff9147"
+  },
+  {
+    "file": "lib/ngstorage/.npmignore",
+    "hash": "c5660568f1641599bc468fb6c3fcf330"
+  },
+  {
+    "file": "lib/ngstorage/bower.json",
+    "hash": "a74441b2c138d444535649b21f125b88"
+  },
+  {
+    "file": "lib/ngstorage/LICENSE",
+    "hash": "f1f7669b18ce8bb65baf5122a07f8953"
+  },
+  {
+    "file": "lib/ngstorage/ngStorage.js",
+    "hash": "79135472288bccdf4abfdd9eb889071c"
+  },
+  {
+    "file": "lib/ngstorage/ngStorage.min.js",
+    "hash": "c8617aa6579d3ca2d5a8188179f6cf79"
+  },
+  {
+    "file": "lib/ngstorage/package.js",
+    "hash": "e116011d9a39a2e0180c7a323b829885"
+  },
+  {
+    "file": "lib/ngstorage/README.md",
+    "hash": "57cda8481822fa59e44ce8e326a033ba"
+  },
+  {
+    "file": "main.html",
+    "hash": "73c5eb1e620013d88bda2c0c612bada1"
+  },
+  {
+    "file": "page/assetEchart.html",
+    "hash": "748172b1add304d473f765b2fea4db81"
+  },
+  {
+    "file": "page/css/ionic.min.css",
+    "hash": "69b6aba4f6d47c03b5be1fbd5aed153b"
+  },
+  {
+    "file": "page/css/patternlock.css",
+    "hash": "1586ac9ea893ffb696791f36acaa14cf"
+  },
+  {
+    "file": "page/echart.html",
+    "hash": "e659bd605592d251305060af49d37817"
+  },
+  {
+    "file": "page/gestrue.html",
+    "hash": "a0e9240312b318ddc9da79903a966fd8"
+  },
+  {
+    "file": "page/investZcPage.html",
+    "hash": "bb3a5ea4bc71b4fbad7d9be80fa1089b"
+  },
+  {
+    "file": "page/isAutoAuth.html",
+    "hash": "287bb5ed6925f50e93e23639e1e22568"
+  },
+  {
+    "file": "page/js/china.js",
+    "hash": "5b5e6566dd8e7613b3cc06aa7c9b4e0c"
+  },
+  {
+    "file": "page/js/echarts.min.js",
+    "hash": "2ba7ecc96586548cf2f01d3efaef6e76"
+  },
+  {
+    "file": "page/js/patternlock.js",
+    "hash": "659f59123a6f6f659d4effda4d901d3f"
+  },
+  {
+    "file": "page/rechargeSuccess.html",
+    "hash": "a7ce19fd1149834012a139e5f139c1a5"
+  },
+  {
+    "file": "page/withdrawZcPage.html",
+    "hash": "20d48053c995962b3eded1caace1ef3a"
+  },
+  {
+    "file": "page/zcSetTradePassword.html",
+    "hash": "c2028b93748a06ad15d89fea27ecba90"
+  },
+  {
+    "file": "templates/about.html",
+    "hash": "2a0f7da4d7fe78536aae9f96364fd5a4"
+  },
+  {
+    "file": "templates/accountM.html",
+    "hash": "02c52ba97b50ecfc4d09b5a0dc56637b"
+  },
+  {
+    "file": "templates/addBanks.html",
+    "hash": "c3e52907edd862cfd313bd1b1e24b20c"
+  },
+  {
+    "file": "templates/addBanksZc.html",
+    "hash": "08430f30eff61a54a2009f781c709ff4"
+  },
+  {
+    "file": "templates/addKqBanks.html",
+    "hash": "7a068d6ac2ce6031b858f05a2a40221a"
+  },
+  {
+    "file": "templates/Announcement.html",
+    "hash": "d9c7ac1ec641b5368ab49c6462e853dc"
+  },
+  {
+    "file": "templates/AnnouncementContent.html",
+    "hash": "109b103fc3e6e6817be75d8b8dfce8c3"
+  },
+  {
+    "file": "templates/assetStatistics.html",
+    "hash": "aa3e6f49de10354069516f6eb57b1d34"
+  },
+  {
+    "file": "templates/banksInfo.html",
+    "hash": "2440915b201d7e6cf2d2d4105fbf6d14"
+  },
+  {
+    "file": "templates/banksInfoZc.html",
+    "hash": "25d2bc214e3067b86600de848875782e"
+  },
+  {
+    "file": "templates/banner.html",
+    "hash": "3ef73ef6ee2ee8e227fae02d8f758b32"
+  },
+  {
+    "file": "templates/bidClyDetail.html",
+    "hash": "44e1c325692b3b70b690528abfbd24e0"
+  },
+  {
+    "file": "templates/bidDetail.html",
+    "hash": "b0d9e594be7b83f1d6162b2858a2fea2"
+  },
+  {
+    "file": "templates/bidHistory.html",
+    "hash": "5c80be40bbe2c834fe97609db2290b8e"
+  },
+  {
+    "file": "templates/bidHlyDetail.html",
+    "hash": "e32b437fd44bd1842859f4a85e2e4f0d"
+  },
+  {
+    "file": "templates/bidList.html",
+    "hash": "502469c444e423647b8a7d575ed1c205"
+  },
+  {
+    "file": "templates/bidListCly.html",
+    "hash": "77ff23240ea5871573bd267d052134b1"
+  },
+  {
+    "file": "templates/bidListNewFish.html",
+    "hash": "bda5951e387e48794fcbd6c45e4b8b27"
+  },
+  {
+    "file": "templates/bidWlyDetail.html",
+    "hash": "6305dc2a9da17fe7433570d2638171ed"
+  },
+  {
+    "file": "templates/bidZzbDetail.html",
+    "hash": "e8912702f3ac3d4a413f62bd64b02e72"
+  },
+  {
+    "file": "templates/calendar.html",
+    "hash": "4c39fc796594d1963f429ea075dd2fe7"
+  },
+  {
+    "file": "templates/capitalFlow.html",
+    "hash": "ac221862db39793f68491de0e8da100b"
+  },
+  {
+    "file": "templates/capitalFlowQuery.html",
+    "hash": "93bb72a7582675c36aacf5bda25811ec"
+  },
+  {
+    "file": "templates/capitalM.html",
+    "hash": "5995d4585e98cd8c93773be5ffb46d6f"
+  },
+  {
+    "file": "templates/capitalSuccess.html",
+    "hash": "df650705be73b5c4fa303943bd75b5ad"
+  },
+  {
+    "file": "templates/capitalSupervision.html",
+    "hash": "63b7c92c16b3a9e489a8e4b5dd14afa7"
+  },
+  {
+    "file": "templates/capitalSupervisionYet.html",
+    "hash": "640780ea8c8129b8b7ef5dc7a0b7a25c"
+  },
+  {
+    "file": "templates/cardCertify-hand.html",
+    "hash": "6189fa367b6160e3f740b7168efa9fcc"
+  },
+  {
+    "file": "templates/cardCertify.html",
+    "hash": "3b507024270357568ff2d2760dd5d52b"
+  },
+  {
+    "file": "templates/chat-detail.html",
+    "hash": "223e513ba94a9a709222ce7ec1400902"
+  },
+  {
+    "file": "templates/chooseCity.html",
+    "hash": "91342d4152d4ca28413640fcde059f11"
+  },
+  {
+    "file": "templates/contract.html",
+    "hash": "50078ecd87761496d6cd38e3298a3b38"
+  },
+  {
+    "file": "templates/doing.html",
+    "hash": "de969ea8fb90fdcb7236063f6ba648bd"
+  },
+  {
+    "file": "templates/forgetLoginPassword1.html",
+    "hash": "c550c2a92e59bb165c19550bbc941b1d"
+  },
+  {
+    "file": "templates/forgetLoginPassword2.html",
+    "hash": "567ec825d23e8022ee0e1a2d634c1909"
+  },
+  {
+    "file": "templates/forgetLoginPassword3.html",
+    "hash": "738d2e0cd025c23f6b4b7be15783f30e"
+  },
+  {
+    "file": "templates/forgetLoginPasswordSuccess.html",
+    "hash": "f1779de04c5c34d53d4a50e96314eeca"
+  },
+  {
+    "file": "templates/gesturePwd.html",
+    "hash": "f451167fc2b7648a860d85f878f0080e"
+  },
+  {
+    "file": "templates/institutionDetail.html",
+    "hash": "d7f699fa8640434c028afd6e94a8411c"
+  },
+  {
+    "file": "templates/invest.html",
+    "hash": "5cd1b1b16debef874da219284d39b664"
+  },
+  {
+    "file": "templates/investDetail.html",
+    "hash": "c9fc16a17066484e451fe594353712ac"
+  },
+  {
+    "file": "templates/investHly.html",
+    "hash": "bed1904ee611894b344e32661998f0e5"
+  },
+  {
+    "file": "templates/investHlyProtocol.html",
+    "hash": "4489e3737fdcbaed5e87d009ff56e649"
+  },
+  {
+    "file": "templates/investHlyRecord.html",
+    "hash": "2050f57c640d1b445a6f327bb4a2626a"
+  },
+  {
+    "file": "templates/investJjsProtocol.html",
+    "hash": "8df66eec655a625910ef160797609025"
+  },
+  {
+    "file": "templates/investProtocol.html",
+    "hash": "0ed6c78a14f0c9dfb7ddd05f851f4b8f"
+  },
+  {
+    "file": "templates/investRecord.html",
+    "hash": "53d9ee5f3d9f9de25822597aed8df4bc"
+  },
+  {
+    "file": "templates/investSuccess.html",
+    "hash": "788221499119ce9664ff39ee385d3c41"
+  },
+  {
+    "file": "templates/investSyd.html",
+    "hash": "c47133122313af761a8bb4aff3026e60"
+  },
+  {
+    "file": "templates/investSydProtocol.html",
+    "hash": "ee8b6e36994a45e479453b78af4d8563"
+  },
+  {
+    "file": "templates/investTickets.html",
+    "hash": "955dd2f552112101fac1dae71831a4ad"
+  },
+  {
+    "file": "templates/investWly.html",
+    "hash": "cb464a622c6c55f57d3adab355ca88f7"
+  },
+  {
+    "file": "templates/investWlyProtocol.html",
+    "hash": "01a47e8bcea5a15866c44fabac6923bf"
+  },
+  {
+    "file": "templates/investWlyRecord.html",
+    "hash": "27f39b6aeb8aeee36f7baf9b5d23faf1"
+  },
+  {
+    "file": "templates/investYzzDetail.html",
+    "hash": "000cbde281c0c768a62106fbbc8ddbc6"
+  },
+  {
+    "file": "templates/investZzb.html",
+    "hash": "18c8117804df02a2ca7d9dd2888c5539"
+  },
+  {
+    "file": "templates/investZzbProtocol.html",
+    "hash": "14be9d5e24a8b14d6f7d9b8ebfd6ed57"
+  },
+  {
+    "file": "templates/largePayment.html",
+    "hash": "fc1eb6796e28f575a94a7308de32bb0c"
+  },
+  {
+    "file": "templates/loading.html",
+    "hash": "cd65e9982fb5410c67da8b19b3a8a2c0"
+  },
+  {
+    "file": "templates/login.html",
+    "hash": "457a26891c4d22b6cf02f9b500eaae17"
+  },
+  {
+    "file": "templates/modifyRate.html",
+    "hash": "a694e63f59c01c28334060a4e54a57d1"
+  },
+  {
+    "file": "templates/myInvest.html",
+    "hash": "eb1ccda302b8b367c8a2609addf3b6c7"
+  },
+  {
+    "file": "templates/myInvestM.html",
+    "hash": "4c7e36278e1ec7fe3f10e06f1df5142f"
+  },
+  {
+    "file": "templates/myInvestNew.html",
+    "hash": "65e8b753520884c81696debd5f7f4eed"
+  },
+  {
+    "file": "templates/myTasks.html",
+    "hash": "d62f6c7f23011369f835aabb012d2dd3"
+  },
+  {
+    "file": "templates/nrdApply.html",
+    "hash": "b3d4d25d4366011cfd0e90cdc3881fc5"
+  },
+  {
+    "file": "templates/nrdAutoBid.html",
+    "hash": "92db6d505954325cd9f88bea3dfda718"
+  },
+  {
+    "file": "templates/nrdBidDetail.html",
+    "hash": "49f627cedd7f6932ded8c558362ebbf2"
+  },
+  {
+    "file": "templates/nrdBidQuery.html",
+    "hash": "2999c85f3beb65c0138e6aff85073e7c"
+  },
+  {
+    "file": "templates/nrdClientList.html",
+    "hash": "0bce5edaeeda2f2031dc4b3ca6f09efb"
+  },
+  {
+    "file": "templates/nrdExtend.html",
+    "hash": "f58dc10cd9bdbc7a20d65bbc3e327e85"
+  },
+  {
+    "file": "templates/nrdInfo.html",
+    "hash": "7473efa41a9ba26c3cbb134ffc1c7e74"
+  },
+  {
+    "file": "templates/nrdInfoQuery.html",
+    "hash": "abdecaf58869ba5602fe62a6c7968f9b"
+  },
+  {
+    "file": "templates/nrdInformation.html",
+    "hash": "092d1f9033b6acab77e62fc93e1905cf"
+  },
+  {
+    "file": "templates/nrdInnerBorrow.html",
+    "hash": "ee6f5fbb9180a1e3e1e6d4105f7e3eac"
+  },
+  {
+    "file": "templates/nrdInnerBorrowDetail.html",
+    "hash": "beb1841cfceda53eac89f750f818fca2"
+  },
+  {
+    "file": "templates/nrdManualBid.html",
+    "hash": "bb716ae37c2ec0088e591027e6701a65"
+  },
+  {
+    "file": "templates/nrdManualDetail.html",
+    "hash": "f1b8548ed6ce4eaa2513a4e0328bc29a"
+  },
+  {
+    "file": "templates/nrdPreview.html",
+    "hash": "2c9cbd68b73054767ca1c65b5745c230"
+  },
+  {
+    "file": "templates/nrdPutAway.html",
+    "hash": "eabd18fdfc5a1123749f266af33b31b3"
+  },
+  {
+    "file": "templates/nrdRankList.html",
+    "hash": "ba8c88a887f7830ae208f513d89b128b"
+  },
+  {
+    "file": "templates/nrdReturnPlan.html",
+    "hash": "78f5ed43ace1a599ff51f0b251bb6361"
+  },
+  {
+    "file": "templates/nrdRwmExtend.html",
+    "hash": "4f0a95d8f220a9b933a13aa458ea404d"
+  },
+  {
+    "file": "templates/nrdShopInfo.html",
+    "hash": "66db75f6d6c896baf0726f89d055cf34"
+  },
+  {
+    "file": "templates/nrdShopM.html",
+    "hash": "186d35ba375d0417e535182dbcda967a"
+  },
+  {
+    "file": "templates/nrdSuccess.html",
+    "hash": "7c11bbf6e009d6dc88823d1f1f87c92f"
+  },
+  {
+    "file": "templates/passwordM.html",
+    "hash": "a787656b12ef91a89b352323d9c9d924"
+  },
+  {
+    "file": "templates/planDetail.html",
+    "hash": "c55f73076c824b079b4b68aebf92f807"
+  },
+  {
+    "file": "templates/platformData.html",
+    "hash": "7901be6b0c981d9492ffd46522ff18a3"
+  },
+  {
+    "file": "templates/projectDetail.html",
+    "hash": "a04b7c3a3f3ec9f27fb7193b314d0eca"
+  },
+  {
+    "file": "templates/projectHlyDetail.html",
+    "hash": "5ca938efbf22e885f52ad5c2ebcc697f"
+  },
+  {
+    "file": "templates/projectResource.html",
+    "hash": "43aa0db2585cdd185d76e39d44303d1c"
+  },
+  {
+    "file": "templates/projectWlyDetail.html",
+    "hash": "87033cb21c6ef05e189c93d9a39e5463"
+  },
+  {
+    "file": "templates/quickMoneyPayment.html",
+    "hash": "9cbc16b01b41b3d6851ad74bbceb3bb1"
+  },
+  {
+    "file": "templates/quickMoneySelectBank.html",
+    "hash": "b2df9444a5bf21ed8c80371eefd328a7"
+  },
+  {
+    "file": "templates/quickPayment.html",
+    "hash": "f6a7e3f453bd62133142ccf522410a24"
+  },
+  {
+    "file": "templates/quickPaymentZc.html",
+    "hash": "5f64b3a3fa6b221d0897840ba177a06e"
+  },
+  {
+    "file": "templates/quitHly.html",
+    "hash": "415949e6a001311b0bd03c68e547fa02"
+  },
+  {
+    "file": "templates/realName.html",
+    "hash": "a4240634a78a0fde6d759fc98086800b"
+  },
+  {
+    "file": "templates/recharge.html",
+    "hash": "901affcae4bc1b0c1e50c2dad00041b5"
+  },
+  {
+    "file": "templates/rechargeBankTransfer.html",
+    "hash": "bbcc02061c7dd6ef1166f80429b59355"
+  },
+  {
+    "file": "templates/rechargeSuccess.html",
+    "hash": "3b3edca880e43d813831fa16d1dc704b"
+  },
+  {
+    "file": "templates/record.html",
+    "hash": "dd8bb4602a5d67b8ec72adb5a7ae8c31"
+  },
+  {
+    "file": "templates/recordInfo.html",
+    "hash": "7d7e80a3fa000dceb690e77bf4be9aa2"
+  },
+  {
+    "file": "templates/recordQuery.html",
+    "hash": "1d670f38afb9300bddc827efa11a3496"
+  },
+  {
+    "file": "templates/register1.html",
+    "hash": "42197542d44a4d0adbf223d4e0d6850a"
+  },
+  {
+    "file": "templates/register2.html",
+    "hash": "cff43869d23fd8c4cb9301b07ecec088"
+  },
+  {
+    "file": "templates/registerSuccess.html",
+    "hash": "5186cdaec953e8f1531ea63ca79dada4"
+  },
+  {
+    "file": "templates/regularPlan.html",
+    "hash": "3221c62206406bcd683fb25eb915de88"
+  },
+  {
+    "file": "templates/resetTradePwd.html",
+    "hash": "0d0232817e33e720e3734051e14161c4"
+  },
+  {
+    "file": "templates/resetZcTradePwd-unSetPwd.html",
+    "hash": "dd2e86483857c69a048639e2a4a722b9"
+  },
+  {
+    "file": "templates/resetZcTradePwd-valid.html",
+    "hash": "1955286ffc68bc2221d945ca9c99433a"
+  },
+  {
+    "file": "templates/resetZcTradeZc-unSetZc.html",
+    "hash": "60e7671690aef2f5d2153f8260ab3973"
+  },
+  {
+    "file": "templates/safeAuthen.html",
+    "hash": "08b0a4c18510091f8b26aaacadb628e0"
+  },
+  {
+    "file": "templates/safety-applyCertificate.html",
+    "hash": "e89ca67da52efe6a7b2ccc1bb5f0d4fe"
+  },
+  {
+    "file": "templates/safety-success.html",
+    "hash": "9abd002cf0e4c330fc176e9e07e994e2"
+  },
+  {
+    "file": "templates/safety.html",
+    "hash": "a0437e47ebbedfe43fb336bada23a2eb"
+  },
+  {
+    "file": "templates/safetyContract.html",
+    "hash": "1887eb5dbdd56443b15f3434e3b5cd74"
+  },
+  {
+    "file": "templates/tab-find.html",
+    "hash": "12fb82eeb666b59aee3530d2fc0f97a0"
+  },
+  {
+    "file": "templates/tab-home.html",
+    "hash": "2a27c298e11ceeac076f4419a811cffc"
+  },
+  {
+    "file": "templates/tab-investIndex.html",
+    "hash": "210f8633e57843714045a1ba0bc135af"
+  },
+  {
+    "file": "templates/tab-investIndexNrd.html",
+    "hash": "c7b96bccc9fcb9f7b392c79739935fef"
+  },
+  {
+    "file": "templates/tab-memberCenter.html",
+    "hash": "bd1f31c56249b625783e0b3aab299c97"
+  },
+  {
+    "file": "templates/tab-more.html",
+    "hash": "c5ffd4a51c5283898ce46a6d7c356bf7"
+  },
+  {
+    "file": "templates/tab-nrdDis.html",
+    "hash": "84528f37a9745c6b9dd81a4736f2daed"
+  },
+  {
+    "file": "templates/tab-nrdState.html",
+    "hash": "e24591304f4dc0713fe94f4b98abaf28"
+  },
+  {
+    "file": "templates/tab-shop.html",
+    "hash": "c152769b5445c959be74adf6b18725a1"
+  },
+  {
+    "file": "templates/tabs.html",
+    "hash": "20b07239c7d353f4e03dd9b25360582f"
+  },
+  {
+    "file": "templates/temp.html",
+    "hash": "fc328154a8d5f1e76ebf03dca51460af"
+  },
+  {
+    "file": "templates/updateLoginPwd.html",
+    "hash": "913b845d82339af5a7f09358395b6b6d"
+  },
+  {
+    "file": "templates/updatePhn.html",
+    "hash": "590a72808dfc07f448b3c9fb8dca561f"
+  },
+  {
+    "file": "templates/updatePhnStep2.html",
+    "hash": "e69f6f383d1251d33452d6492f2e0e60"
+  },
+  {
+    "file": "templates/updatePhnStep2Zc.html",
+    "hash": "e69f6f383d1251d33452d6492f2e0e60"
+  },
+  {
+    "file": "templates/updateTradePwd.html",
+    "hash": "efbc5b592cc1451a067da06d01e2bd18"
+  },
+  {
+    "file": "templates/userInfo.html",
+    "hash": "4ca9d5c366dc605f667548877ca5f39b"
+  },
+  {
+    "file": "templates/wechatPayment.html",
+    "hash": "213500d476e29a0e713a2d84f1d4f8d3"
+  },
+  {
+    "file": "templates/withdraw.html",
+    "hash": "294c2fe2d24395af72a3a1a87f0454bd"
+  },
+  {
+    "file": "templates/withdrawFee.html",
+    "hash": "dc6e86c4d750127d86415a392a732ed1"
+  },
+  {
+    "file": "templates/withdrawIptPwd.html",
+    "hash": "306be073ccb846695f9ca86442138de6"
+  },
+  {
+    "file": "templates/withdrawList.html",
+    "hash": "c7d685042945a76dc49a86a1c6d5c266"
+  },
+  {
+    "file": "templates/withdrawSuccess.html",
+    "hash": "53d79bb7a3a26fd1ff5a19ea911d0c76"
+  },
+  {
+    "file": "templates/withdrawZc.html",
+    "hash": "6607af3674e7ea63223bdec80e940f06"
+  },
+  {
+    "file": "templates/zcSetTradePassword.html",
+    "hash": "52895ed6a4444b1aacd0d4b76cd64c3d"
+  },
+  {
+    "file": "test.html",
+    "hash": "bd85d8ca846f4be8d56cfd4974904ddb"
+  },
+  {
+    "file": "trunk.html",
+    "hash": "d051959b81c8ffa2e5184cb378ef7912"
+  }
+]

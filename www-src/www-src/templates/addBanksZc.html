@@ -1,0 +1,49 @@
+<ion-view  view-title="添加银行卡" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" overflow-scroll="true" >
+    <div class="list" id="addBanks">
+      <div class="g-pr-10 g-pl-10 g-pt-10">为了您的资金安全，只能添加实名认证真实姓名的开户银行卡</div>
+      <form name="mTradePwd" novalidate>
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">开户名</p>
+          <p class="mrb3"><span ng-bind="user.acNm"></span></p>
+        </label>
+        <!-- <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <p class="input-label">银行卡号</p>
+            <input class="mrb3" id="bankCode" type="text" ng-model="add.cardNumber" placeholder="请输入银行卡号" ng-blur="checkBank()">
+            </label>
+            <button class="csBtn" ng-click="showBanks()" class="button button-small">
+              查看支持银行
+            </button>
+        </div>
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">
+            开户银行
+          </p>
+          <p class="mrb3"><span ng-bind="bchName"></span></p>
+        </label>
+ -->
+        <label class="item item-input g-mtb-10">
+          <p class="input-label">手机号</p>
+          <p class="mrb3"><span ng-bind="user.mbPhn"></span></p>
+        </label>
+        <!-- <div class="item item-input g-mtb-10">
+          <p class="input-label">验证码</p>
+          <input class="mrb3" type="text" class="getMsgCodeIpt" placeholder="请输入短信验证码" name="valiCode" ng-model="user.smsCode" required="required">
+          <div ng-click="getMsgCode()" class="getmsgcode">
+            <getmsgcode></getmsgcode>
+          </div>
+        </div> -->
+        <div class="g-m-10 ">
+          <input type="submit" class="button button-block button-orange" value="确定" ng-click="add()" />
+
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

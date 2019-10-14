@@ -1,0 +1,78 @@
+<ion-view view-title="我要投资" hide-tabs="true" hide-back-button="true">
+  <!-- <div class="bar bar-header  bar-royal">
+      <a href="#/app/capture" class="button button-icon icon ion-gear-a"></a>
+      <h1 class="title">Header</h1>
+      <a href="#/app/playlists" class="button button-icon icon ion-heart"></a>
+  </div> -->
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+ <!--  <ion-nav-buttons side="right">
+    <a class="button button-clear button-light" href="#" ng-click="goProtocol()">
+      协议
+    </a>
+  </ion-nav-buttons> -->
+  <ion-content class="background myInvest g-c66" id="myInvest" overflow-scroll="true" >
+      <div class="item item-input g-pb-10 b-mark" style="padding-top:16px;"> 
+            <span>投资金额：</span>
+            <!-- <input name = "investMoney" class="orangeInput investInput1" type="text" placeholder="请输入投资金额" ng-model="invest.money" required 
+            ng-required="true" ng-blur="blur()"> -->
+            <div class="keyboardWrapper">
+              <input  class="orangeInput investInput1" type="text" placeholder="请输入投资金额" ng-model="invest.money" name="invest.money" ng-blur="blur()" boardtype="v1" keyboard>
+              <div class="imitateCursor animation">{{invest.money}}</div>
+            </div>
+             
+            <i class="input1-yuan g-c99">元</i>
+            <span  class="allTxt1 g-cf36026" ng-click="investAll()">全部</span>
+      </div>
+      <div class="item g-pt-10 g-pb-10 g-mb-10 g-ta-r">
+          <span class="g-c99">可投金额：{{CAN_BID_BAL | number:2}}元</span>
+      </div>
+      <div class="item g-mb-10 item-icon-right">
+          <span><span>可用余额：</span>{{keyye | number:2}}元</span>
+          <a class="g-f-r g-c99 g-fz-14" href="#/recharge">立即充值</a>
+          <p><i class="icon ion-chevron-right" style="font-size: 1em;"></i></p>
+      </div>
+      <ion-item class="item-remove-animate item-icon-right g-fz-14 b-mark" type="item-text-wrap" ng-click="toInvestTickets()">
+        投资券
+        <span class="item-note">
+          <span ng-if="!noUseTicket&&!showTicket"><span class="orangeInput">{{listCount}}</span>张可用</span>
+          <span ng-if="!noUseTicket&&showTicket"><span ng-bind="useTicket"></span>元投资券</span>
+          <span ng-if="noUseTicket">暂无可用的投资券</span>
+		  
+		  
+        </span>
+        <i ng-if="!noUseTicket" class="icon ion-chevron-right" style="font-size: 1em;"></i>
+      </ion-item>
+      <ion-item class="g-mb-10 g-pt-10 g-pb-10">
+        <span class="g-mr-10 g-c99">投资券返现：{{freePay | number:2}}元</span>
+      </ion-item>
+      <ion-item>
+        <span class="g-mr-10">预期收益：</span><span class="orangeInput f-16">{{income | formatMoneyFloor | number:2}}</span>
+        <span>元</span>
+      </ion-item>
+      <div style="padding:16px;">
+        <input class="invest-checkBox" type="checkbox" id="checkBox" ng-checked="checkBox.value" ng-model="checkBox.value">
+        同意并签署
+        <a ng-click= "goProtocol(1)">《借款合同》</a>
+        <a ng-click="goProtocol(2)">《出借人及出借人金额明细表》</a>
+        <a ng-click="goProtocol(3)">《居间服务协议》</a>
+        <a ng-click="goProtocol(4)">《合拍在线投资（出借）权利义务说明书》</a>
+        <a ng-if="isSignCertAuth != '1'" href="javascript:;" ng-click="showBook()">《数字证书用户使用责任书》</a>
+        <a ng-if="isSignCertAuth != '1'" href="javascript:;" ng-click="showApply()">《自动调用数字证书授权申请书》</a>
+      </div>
+      <div class="g-m-10">
+        <button class="button  button-orange button-block" ng-click="showPopup()">
+          同意协议并投资
+        </button>
+      </div>
+      <div class="g-ta-c">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-anquan"></use>
+        </svg>
+        合拍在线通过“等级保护三级认证”，系统安全可靠，放心交易
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,88 @@
+<ion-view  view-title="活力盈项目详情" hide-tabs="true">
+  <div id="projectDetail">
+    <ion-content class="background" overflow-scroll="true" >
+      <div class="">
+        <ul class="g-slide-tab item tabs hlytabs">
+          <li ng-class="slideIndex==0?'current':''" class="tab-item">
+            <a href="#" ng-click="activeSlide(0)">计划详情</a>
+          </li>
+          <li ng-class="slideIndex==1?'current':''" class="tab-item">
+            <a href="#" ng-click="activeSlide(1)">已投项目</a>
+          </li>
+        </ul>
+      </div>
+
+      <ion-slide-box  active-slide="slideIndex" show-pager="false" does-continue="false" id="projectSlide" ng-style="myStyle" ng-init="lockSlide()">
+        <ion-slide>
+          <ul class="box1 content">
+            <li class="g-pb-10">
+              <ul class="g-mb-10 g-plr-10" id="wlyul">
+                <li>
+                    <span class="subTitle g-f-l">产品名称：</span>
+                    <span class="subContent" ng-bind="body.proDetail.plan_name"></span>
+                </li>
+                <li>
+                    <span class="subTitle g-f-l">产品介绍：</span>
+                    <span class="subContent"><span ng-bind="body.proDetail.plan_desc"></span>详情参见《<a href="#" ng-click="goHlyCnt()">活力盈产品说明书</a>》</span>
+                </li>
+                <li>
+                  <span class="subTitle g-f-l">预期利率：</span>
+                  <span class="subContent">年化<span ng-bind="body.proDetail.rate"></span>%（每一笔投资以加入计划 时利率为准）</span>
+                </li>
+                <li>
+                  <span class="subTitle g-f-l">计划期限：</span>
+                  <span class="subContent"><span ng-bind="body.proDetail.term"></span>天（最短持有1天，最长投资期限为360天，以投资者实际期限内申请退出日为持有计划的最终退出日期）</span>
+                </li>
+                <li>
+                  <span class="subTitle g-f-l">单人上限：</span>
+                  <span class="subContent">每人单笔投资限额<span ng-bind="body.proDetail.MAX_AMT"></span>元，每人加入活力盈总金额不得超过<span ng-bind="body.proDetail.lIMIT_IVSAMT"></span>元</span>
+                </li>
+                <li>
+                    <span class="subTitle g-f-l">退出方式：</span>
+                    <span class="subContent" ng-bind="body.proDetail.expire_exit_way"></span>
+                </li>
+                <li>
+                    <span class="subTitle g-f-l">退出规则：</span>
+                    <div class="subContent" ng-repeat="item in body.proDetail.ahead_exit_way">
+                      <span>{{item}}</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="subTitle g-f-l">费用：</span>
+                    <p class="subContent" ng-repeat="item in body.proDetail.fee_arr">
+                      <span>{{item.fee_typ_desc}}</span>：<span>{{item.fee_rate}}</span>%
+                    </p>
+                </li>
+                <li>
+                    <span class="subTitle g-f-l">保障模式：</span>
+                    <span class="subContent" ng-bind="body.proDetail.securit_pattern"></span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <table class="g-list">
+              <thead>
+              <tr>
+                <th width="50%">借款标</th>
+                <th width="50%">投资金额</th>
+              </tr>
+              </thead>
+            </table>
+            <ul ng-if="body.invProject.noData" class="g-listNoData g-fz-b1">
+              <li class="icon ion-ios-paper-outline g-c99" style="font-size:5em;"></li>
+              <li class="g-c99">暂无数据</li>
+            </ul>
+            <ul class="wlylist wlyready">
+              <li ng-repeat="item in body.invProject.list"><span>{{item.LN_NM}}</span><span>{{item.LN_AMT | currency: ''}}</span></li>
+            </ul>
+            
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      <ion-infinite-scroll ng-if="!body.invProject.moreData" immediate-check="false" on-infinite="body.invProject.loadMore()" distance="5%" icon="ion-load-a"></ion-infinite-scroll>
+    </ion-content>
+  </div>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="注册" hide-tabs="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <span class="iconfont icon-change" ng-click="viewToLogin()"></span>
+  </ion-nav-buttons>
+
+  <ion-content class="background" id="registerNew" overflow-scroll="true">
+	<div class="formWrapper">
+	    <div class="item-input item">
+	    	<span class="iconfont icon-phone"></span>
+	    	<div class="keyboardWrapper">
+			    <input class="g-pl-5 ng-pristine ng-untouched ng-valid" type="text"  placeholder="请输入注册手机号码" ng-model="register.tel" name="register.tel" boardtype="v2" keyboard>
+			    <div class="imitateCursor animation">{{register.tel}}</div>
+		    </div>
+		</div>
+		<div class="item item-input">
+			<span class="iconfont icon-lock"></span>
+		    <div ng-show="!hasClose" class="keyboardWrapper">
+				<input  type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="设置密码(6-16位)" ng-model="register.password" name="register.password1" password="register.password"  keyboard>
+			    <div class="imitateCursor animation">{{!hasClose?register.password:register.password1}}</div>
+		    </div>
+			<div ng-show="hasClose" class="keyboardWrapper">
+				<input  type="text" class="getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="设置密码(6-16位)" ng-model="register.password1" name="register.password1" password="register.password"  keyboard>
+			    <div class="imitateCursor animation">{{!hasClose?register.password:register.password1}}</div>
+		    </div>
+	      	<span ng-if="!hasClose" class="iconfont icon-eye g-pr-10" ng-click="closeEye()"></span>
+	      	<span ng-if="hasClose" class="iconfont icon-eye-off g-pr-10" ng-click="closeEye()"></span>
+	    </div>
+		<div class="item item-input g-pr-10">
+			<span class="iconfont icon-safe"></span>
+			<div class="keyboardWrapper">
+		        <input type="text"  class="g-pl-5 getMsgCodeIpt ng-pristine ng-untouched ng-valid" placeholder="短信验证码" ng-model="register.msgCode" name="register.msgCode" boardtype="v2" keyboard>
+		        <div class="imitateCursor animation">{{register.msgCode}}</div>
+	        </div>
+	        <div ng-click="getMsgCode()" class="getmsgcode">
+	            <getmsgcode1 tel="{{register.tel}}"></getmsgcode1>
+	        </div>
+	  	</div>
+	  	<p ng-show="register.tip" class="registerTip g-pt-5">验证码短信已发送到您的手机上，5分钟内有效</p>
+
+	    <div class="g-mtb-10 recommendWrapper">
+	    	<p ng-click="showRecommend()">
+	    		<span ng-if="!show" class="showArrow ion-arrow-right-b"></span>
+				<span ng-if="show" class="showArrow ion-arrow-down-b"></span>
+				<span class="orangeColor">邀请人手机号码</span>
+	    	</p>
+	    	<div class="keyboardWrapper">
+		      	<input ng-show="show" type="text" class="g-pl-5 getMsgCodeIpt recommend ng-pristine ng-untouched ng-valid" placeholder="请输入推荐码或手机号码" ng-model="register.recommend" name="register.recommend" keyboard>
+		      	<div class="imitateCursor animation-gray">{{register.recommend}}</div>
+		    </div>
+	    </div>
+    </div>
+  	
+	<div class="g-mlr-10 registerBtn">
+	    <a ng-class="{'button-gray':isGray}" class="button button-block  button-orange" ng-click="next()" ng-disabled="!(register.tel && register.password && register.msgCode)">
+	        立即注册
+	        <ion-spinner ng-if="isGray" icon="dots" class="spinner-light request-spinner"></ion-spinner>
+	    </a>
+	</div>
+
+	<p class="g-m-10 g-ta-c">注册即表示您已同意
+      <a class="orangeColor" ng-click="registerCnt()">《合拍在线注册协议》</a>
+    </p>
+
+    <p class="g-m-10 g-ta-c">已有账号？<a class="orangeColor" ng-click="viewToLogin()">马上登录</a></p>
+    <div class="registerBanner" ng-click="inAppBrowserRef.openUrl(registerImg.linkUrl)">
+	    <img ng-src="{{registerImg.url}}" alt="{{registerImg.title}}">
+	</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view view-title="" hide-tabs="false" hide-back-button="true">
+  <ion-nav-title>
+    <span >榜单发布</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i>
+    </button>
+  </ion-nav-buttons>
+  <div id="home">
+  <ion-content class="background"  overflow-scroll="true" >
+		<form enctype="multipart/form-data" id="bdform"> 
+	    <div  >
+			<div class="item-input item g-mt-10">
+				<span class="g-fz-14 g-c66">榜单标题:</span>
+				<div class="keyboardWrapper">
+				<input type="text"  placeholder="请输入榜单标题" ng-model="bd.title">
+				</div>
+			</div>
+		  
+			<div class=" item">
+				<p class="g-fz-14 g-c66">榜单描述:</p>
+				
+				<textarea col="20" style="width: 100%;border-radius: 5px;border: solid 1px #ccc;" rows="7"  placeholder="请输入榜单描述" name="bdcontent1"  ng-model="bd.temp"></textarea>
+				
+			</div>
+			<div class="item item-input  " style="display: none">
+				<span class="g-fz-14 g-c66">榜单描述:</span>
+				<textarea col="20" rows="4" style=" border: solid 1px #ccc;" placeholder="请输入榜单描述" ng-model="bd.miaoshu" name="bdcontent" id="bdmiaoshu" ></textarea>
+			</div>
+			<div class="item-input item ">
+				<span class="g-fz-14 g-c66">悬赏金额:</span>
+				<div class="keyboardWrapper">
+				<input type="text"  placeholder="请输入赠送数量" ng-model="bd.amount" name="bdxsje"  >
+				<input  style=" display: none;" name="bdhyid" id="bdhyid" value="14" placeholder="获取的是登陆用户的编号">
+				</div>
+			</div>
+			<div>
+				<span class="addImg" ng-click="addImg()">添加图片</span>
+			</div>
+			<div id="addImg">
+			
+			</div>
+			
+			<div class="g-plr-10">
+					<input type="submit" ng-show="ajaxFlg" class="button button-block button-orange" value="发布"  ng-click="fbBd()">
+			</div>
+			<div class="g-plr-10">
+				<input type="submit" ng-show="!ajaxFlg" class="button button-block button-orange"  style="background: #ccc;" value="发布" >
+			</div>
+		 </div>
+		</form>
+  </ion-content>
+</div>
+</ion-view>

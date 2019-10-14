@@ -1,0 +1,53 @@
+<ion-view  view-title="转账充值" hide-tabs="true" hide-back-button="true"> 
+	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background" overflow-scroll="true" >
+    	<div class="list" id="rechargeBankTransfer">
+				<div class="g-m-10">
+					<b>充值方式：</b>
+					<p>您可以通过网上银行、手机银行将资金转账到江西银行存管专户（<span class="g-cf36026">只能用绑定银行卡转入，银行到账后自动充值到绑定卡对应的存管子账户，其他卡转账会退回。</span>）</p>
+				</div>
+    			<p class="g-m-10">合拍江西银行存管专户信息：</p>
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">收款方用户名</p>
+			        <span class="g-fz-14">深圳市合拍在线互联网金融服务有限公司</span>
+			    </label>
+			    <div class="item item-input g-mtb-10">
+			        <p class="input-label">收款方账号</p>
+					<input type="text" class="g-fz-14" name="acNo" readonly="true" value="{{bankNo}}" />
+			        <div class="copy" ng-click="copyBank()">复制</div>
+			    </div>
+
+          <label class="item item-input g-mt-10 borderDashed">
+              <div class="input-label g-c66 g-fz-14" aria-label="收款银行" id="_label-6">
+                  收款银行
+              </div>
+              <p class="ng-binding">江西银行</p>
+          </label>
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">开户城市</p>
+			        <span class="g-fz-14">江西省南昌市</span>
+			    </label>
+			    <label class="item item-input g-mtb-10">
+			        <p class="input-label">开户支行</p>
+			        <span class="g-fz-14">江西银行南昌铁路支行营业部</span>
+			    </label>
+			    <div class="g-m-10 g-fz-12 g-pt-10">
+			    	<b>温馨提示：</b>
+			    	<p>
+						- <span class="g-cf36026"><b>仅支持使用绑定银行卡转入，其他方式转入均会被银行退回，退回时间大概在1-2个工作日内。</b></span><br/>
+						- <span class="g-cf36026"><b>同天多笔或多次转账，请每次转入不同金额，便于识别到账，避免出现账不平问题。</b></span><br/>
+						- 因江西银行原名为南昌银行，如搜索不到江西银行，可在选择时发卡行选择南昌银行；<br/>
+						- 部分银行网银客户端，如工行、农行、建行、交通银行，收款银行需选择“城市商业银行”，才可以找到“江西银行南昌铁路支行营业部”；<br/>
+						- 转账到账之后，在会员中心点击"刷新余额"按钮查询是否到账，建议转账成功3分钟后再查询；<br/>
+						- 转账额度取决于您的发卡行限制，合拍本身并无限制；<br/>
+						- 如有疑问请咨询客服。
+			    	</p>
+			    </div>
+		</div>
+
+    </ion-content>
+</ion-view>

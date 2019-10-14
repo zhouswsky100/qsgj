@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+  </head>
+  <body>
+  <!--  <form action="https://yintong.com.cn/llpayh5/authpay.htm" method="post" class="J-llpay" id="mform"> -->
+   <form action="https://wap.lianlianpay.com/authpay.htm" method="post" class="J-llpay" id="mform">
+          <input type="hidden" id="reqData" name="req_data" />
+    </form>
+    <form action="https://mpay.fuiou.com:16128/timbnew/timb01.pay" method="post" id="fuioupay">
+    <!-- <form action="http://www-1.fuiou.com:18670/mobile_pay/timbnew/timb01.pay" method="post" id="fuioupay"> -->
+        <input type="hidden" id="mchntCd" name="mchntCd" value='' />
+        <input type="hidden" id="orderid" name="orderid" value='' />
+        <input type="hidden" id="ono" name="ono" value='' />
+        <input type="hidden" id="backurl" name="backurl" value='' />
+        <input type="hidden" id="reurl" name="reurl" value='' />
+        <input type="hidden" id="homeurl" name="homeurl" value='' />
+        <input type="hidden" id="name" name="name" value='' />      
+        <input type="hidden" id="sfz" name="sfz" value='' />
+        <input type="hidden" id="md5" name="md5" value='' />
+    </form>
+    <form action="" method="post" id="jxyhPay">
+      <input type="hidden" id="txAmount" name="txAmount" value='' />
+      <input type="hidden" id="idType" name="idType" value='' />
+      <input type="hidden" id="accountId" name="accountId" value='' />
+      <input type="hidden" id="acqRes" name="acqRes" value='' />
+      <input type="hidden" id="seqNo" name="seqNo" value='' />
+      <input type="hidden" id="txDate" name="txDate" value='' />
+      <input type="hidden" id="version" name="version" value='' />
+      <input type="hidden" id="currency" name="currency" value='' />
+      <input type="hidden" id="cardNo" name="cardNo" value='' />
+      <input type="hidden" id="txTime" name="txTime" value='' />
+      <input type="hidden" id="txCode" name="txCode" value='' />
+      <input type="hidden" id="realName" name="name" value='' />
+      <input type="hidden" id="retUrl" name="retUrl" value='' />
+      <input type="hidden" id="notifyUrl" name="notifyUrl" value='' />
+      <input type="hidden" id="forgotPwdUrl" name="forgotPwdUrl" value='' />
+      <input type="hidden" id="idNo" name="idNo" value='' />
+      <input type="hidden" id="userIP" name="userIP" value='' />
+      <input type="hidden" id="bankCode" name="bankCode" value='' />
+      <input type="hidden" id="sign" name="sign" value='' />
+      <input type="hidden" id="channel" name="channel" value='' />
+      <input type="hidden" id="instCode" name="instCode" value='' />
+      <input type="hidden" id="mobile" name="mobile" value='' />
+    </form>
+    <script>
+        var href=decodeURIComponent(window.location.href);
+        var decodeHref = decodeURIComponent(href);
+        var data=decodeHref.substring(decodeHref.indexOf("=")+1,decodeHref.indexOf("@")),type=decodeHref.substring(decodeHref.indexOf("@")+1);
+        if(type=="0"){//快捷充值
+          document.getElementById('reqData').value=data;
+          document.getElementById('mform').submit();
+        }else if(type=="1"){//大额充值
+          var data=JSON.parse(data);
+          document.getElementById('mchntCd').value=data.mchntCd;
+          document.getElementById('orderid').value=data.orderid;
+          document.getElementById('ono').value=data.ono;
+          document.getElementById('backurl').value=data.backurl;
+          document.getElementById('reurl').value=data.reurl;
+          document.getElementById('homeurl').value=data.homeurl;
+          document.getElementById('name').value=data.name;
+          document.getElementById('sfz').value=data.sfz;
+          document.getElementById('md5').value=data.md5;
+          document.getElementById('fuioupay').submit();
+        }else if(type=="2"){ //江西银行充值
+          var data=JSON.parse(data);
+          document.getElementById('jxyhPay').attributes['action'].value=data.payPageUrl;
+          document.getElementById('txAmount').value=data.txAmount;
+          document.getElementById('idType').value=data.idType;
+          document.getElementById('accountId').value=data.accountId;
+          document.getElementById('acqRes').value=data.acqRes;
+          document.getElementById('seqNo').value=data.seqNo;
+          document.getElementById('txDate').value=data.txDate;
+          document.getElementById('version').value=data.version;
+          document.getElementById('currency').value=data.currency;
+          document.getElementById('cardNo').value=data.cardNo;
+          document.getElementById('txTime').value=data.txTime;
+          document.getElementById('txCode').value=data.txCode;
+          document.getElementById('realName').value=data.name;
+          document.getElementById('retUrl').value=data.retUrl;
+          document.getElementById('notifyUrl').value=data.notifyUrl;
+          document.getElementById('forgotPwdUrl').value=data.forgotPwdUrl;
+          document.getElementById('idNo').value=data.idNo;
+          document.getElementById('userIP').value=data.userIP;
+          document.getElementById('bankCode').value=data.bankCode;
+          document.getElementById('sign').value=data.sign;
+          document.getElementById('channel').value=data.channel;
+          document.getElementById('instCode').value=data.instCode;
+          document.getElementById('mobile').value=data.mobile;
+          document.getElementById('jxyhPay').submit();
+        }
+    </script>
+  </body>
+</html>

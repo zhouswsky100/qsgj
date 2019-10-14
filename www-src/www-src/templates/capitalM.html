@@ -1,0 +1,29 @@
+<ion-view  view-title="资金管理" hide-tabs="true" hide-back-button="true">
+    <ion-nav-buttons side="left">
+      <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+        <i class="icon ion-ios-arrow-left color-fff"></i> 
+      </button>
+    </ion-nav-buttons> 
+   <ion-content class="background" id="accountM" overflow-scroll="true" >
+   	  <div class="list">
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/assetStatistics">
+          <p>资产统计<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/tab/capitalFlow">
+          <p>资金流水<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/recharge">
+          <p>账户充值<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" href="#/withdraw">
+          <p>账户提现<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <a class="item  item-icon-right g-mtb-10" ng-click="viewToRecord()">
+          <p>充提记录<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a>
+        <!-- <a class="item  item-icon-right g-mtb-10" href="#/investTickets/1">
+          <p>我的投资券<i class="icon ion-chevron-right" style="font-size:1em;"></i></p>
+        </a> -->
+      </div>
+   </ion-content>
+</ion-view>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ECharts</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <style type="text/css">
+    .h200{height:140px;}
+    .item{padding: 5px;font-size: 14px;}
+    </style>
+    <script src="./js/echarts.min.js"> </script>
+    <script src="./js/china.js"></script>
+  </head>
+  <body id="echart">
+      <div class="row">
+        <div class="col h200" id="pie1"></div>
+      </div>
+     
+      <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart_pie1 = echarts.init(document.getElementById('pie1'));        
+        var option_pie1 = {
+                color: ['#fdb12a','#476bd9','#ff6650','#1dab91','#88c23a','#09b9eb'],
+                title : {
+                    text: '资产总额(元)',
+                    subtext:"",
+                    textStyle:{fontSize:12,baseline:'top'},
+                    subtextStyle:{color:'#ff6650'},
+                    x: 'center',
+                    y: 'center'
+                },
+                legend: {
+                    show:false,
+                    orient: 'vertical',
+                    x: 'center',
+                    y: 'center',
+                    textStyle:{fontSize:9},
+                    itemWidth: 8,
+                    itemHeight:8,
+                    itemGap:5,
+                    selectedMode:false,
+                    data:[]
+                },
+                series: [
+                    {
+                        type:'pie',
+                        radius: ['50%', '90%'],
+                        avoidLabelOverlap: false,
+                        hoverAnimation:false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '10'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: true
+                            }
+                        },
+                        center:['50%','50%'],
+                        data:[]
+                    }
+                ]
+            };
+        window.addEventListener('message',function(msg){
+          var names = ['可用金额','冻结资金','待收本金','待收垫付','锁定金额'];
+          var series = new Array();
+          var seriesJson = eval(msg.data.first_data);
+            series[0] = {name:names[0],value:Number(seriesJson.ACC_VAL_BAL)};
+            series[1] = {name:names[1],value:Number(seriesJson.ACC_FRZ_AMT)};
+            series[2] = {name:names[2],value:Number(seriesJson.MAIN_SRP_PRN_AMT)};
+            series[3] = {name:names[3],value:Number(seriesJson.DS_DF_INTEREST)};
+            series[4] = {name:names[4],value:Number(seriesJson.LC_PRN_AMT)};
+          option_pie1.title.subtext =Number( seriesJson.ASSET_TOTAL_AMT);
+          option_pie1.series[0].data = series;
+          myChart_pie1.setOption(option_pie1);         
+        });
+    </script>
+  </body>
+</html>

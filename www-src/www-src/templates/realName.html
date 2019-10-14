@@ -1,0 +1,60 @@
+<ion-view view-title="实名认证" hide-tabs="true" hide-back-button="true">
+  	<ion-nav-buttons side="left">
+    	<button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      	<i class="icon ion-ios-arrow-left color-fff"></i> 
+    	</button>
+  	</ion-nav-buttons>
+    <ion-content class="background queryStyle" id="realName" overflow-scroll="true" >
+    	<div class="list">
+    		<form name="realName" novalidate>
+			  	<label class="item item-input item-select">
+			    	<div class="input-label">身份证类型</div>
+			    	<select ng-model="data.idtype" ng-change="idTypeChanged()">
+				    	<option value="01">大陆居民</option>
+				    	<option value="02">港澳台居民</option>
+			    	</select>
+			  	</label>
+			  	<div ng-if="showMian">
+			  		<label class="item item-input">
+				    	<div class="input-label">真实姓名</div>
+				    	<div class="keyWord">
+				    		<input type="text" required class="g-ta-r" value="" name="cirelnm" placeholder="请输入您的真实姓名" ng-model="data.cirelnm">
+				    	</div>
+				  	</label>
+				  	<label class="item item-input">
+				    	<div class="input-label">身份证号</div>
+				    	<div class="keyWord">
+				    		<input type="text" required class="g-ta-r" value="" name="idno" placeholder="请输入您的身份证号码" ng-model="data.idno">
+				    	</div>
+				  	</label>
+			  	</div>
+			  	<div ng-if="!showMian">
+			  		<label class="item item-input item-select">
+				    	<div class="input-label">所属地区</div>
+				    	<select ng-model="data.idCardType">
+					    	<option value="710000">香港</option>
+					    	<option value="720000">澳门</option>
+					    	<option value="730000">台湾</option>
+				    	</select>
+				  	</label>
+			  		<label class="item item-input">
+				    	<div class="input-label">真实姓名</div>
+				    	<div class="keyWord">
+				    		<input type="text" class="g-ta-r" value="" name="cirelnm" placeholder="请输入您的真实姓名" ng-model="data.cirelnm">
+				    	</div>
+				  	</label>
+				  	<label class="item item-input">
+				    	<div class="input-label">证件号码</div>
+				    	<div class="keyWord">
+				    		<input type="text" class="g-ta-r" value="" name="idno" placeholder="请输入您的身份证号码" ng-model="data.idno">
+				    	</div>
+				  	</label>
+			  	</div>
+				<div class="wrapper">
+					<button class="button button-orange button-block" ng-click="realNameBtn(realName)">确定</button>
+				</div>
+		    </form>
+		</div>
+		
+    </ion-content>
+</ion-view>

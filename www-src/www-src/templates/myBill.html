@@ -1,0 +1,82 @@
+<ion-view view-title="投资月账单" hide-tabs="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-light button-clear header-item" ng-click="goBackView()">
+      <i class="icon ion-ios-arrow-left color-fff"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="background" id="myBill" overflow-scroll="true" >
+  <div class="container background g-p-t0">
+        <div id="myBillnew1">
+            <p>
+            {{graphical_data.first_data.STA_YEAR}}/{{graphical_data.first_data.STA_MOTH}}(账单日期:{{graphical_data.first_month}}至{{graphical_data.last_month}})
+            <button ng-click="openPopover($event)"  class="date_fr"></button>
+            </p>
+        </div>
+        <div class="myBill_content_1">
+            <div class="title1">
+               <p>{{graphical_data.first_data.STA_MOTH}}月资产总额情况</p>
+            </div>
+            <div id="pie1" style="width: 100%;height:200px;">
+              <iframe id="assetEchartIframe1" name="assetEchartIframe1" ng-src="page/myBillEchart1.html" width="100%" height="200px" scrolling="no"></iframe>
+            </div>
+        </div>
+        <div class="myBill_content_line-bg"></div>
+        <div class="myBill_content_2">
+            <div class="title1">
+                <p>{{graphical_data.first_data.STA_MOTH}}月资产总额组成</p>
+            </div>
+            <div class="myBill_content_2_center">
+                <div class="ct2_left">
+                    <div id="pie2" style="width: 100%;height:140px;">
+                     <iframe id="assetEchartIframe2" name="assetEchartIframe2" ng-src="page/myBillEchart2.html" width="100%" height="140px" scrolling="no"></iframe>
+                    </div>
+                </div>
+                <div class="ct2_right">
+                    <ul class="list">
+                        <li><div><p class="money"><span class="styleIcon iicon1"></span>可用余额:<span>{{graphical_data.first_data.ACC_VAL_BAL}}</span></p></div></li>
+                        <li><div><p class="money"><span class="styleIcon iicon2"></span>冻结资金:<span>{{graphical_data.first_data.ACC_FRZ_AMT}}</span></p></div></li>
+                        <li><div><p class="money"><span class="styleIcon iicon3"></span>待收本金:<span>{{graphical_data.first_data.MAIN_SRP_PRN_AMT}}</span></p></div></li>
+                        <li><div><p class="money"><span class="styleIcon iicon4"></span>待收垫付:<span>{{graphical_data.first_data.DS_DF_INTEREST}}</span></p></div></li>
+                        <li><div><p class="money"><span class="styleIcon iicon5"></span>锁定资金:<span>{{graphical_data.first_data.LC_PRN_AMT}}</span></p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="myBill_content_line-bg"></div>
+        <div class="myBill_content_3">
+            <div class="title1">
+                <p>{{graphical_data.first_data.STA_MOTH}}月进出账目汇总</p>
+            </div>
+            <div class="myBill_content_3_center">
+                    <div class="myBill_3_center_top">
+                        <p><span class="up_money">上月可用余额:<i>{{graphical_data.first_data.LST_ACC_VAL_BAL}}</i></span><span class="up_date">{{graphical_data.first_data.LST_STA_TIME}}</span></p>
+                    </div>
+                    <div class="myBill_3_center_cen">
+                        <ul>
+                            <li>+充值金额:{{graphical_data.first_data.RECHARGE_AMT}}</li>
+                            <li>-投资金额:{{graphical_data.first_data.INV_AMT}}</li>
+                            <li>+投资券返利:{{graphical_data.first_data.HPB_INCOME_AMT}}</li>
+                            <li>+回款金额:{{graphical_data.first_data.RETURN_INV_AMT}}</li>
+                            <li>+赚取收益:{{graphical_data.first_data.INV_INCOME_AMT}}</li>
+                            <li>-支付手续费:{{graphical_data.first_data.OUT_FEE_AMT}}</li>
+                            <li>-提现金额:{{graphical_data.first_data.WITHDRAW_AMT}}</li>
+                        </ul>
+                    </div>
+                    <div class="myBill_3_center_bottom">
+                        <p><span class="up_money">本月可用余额<i>{{graphical_data.first_data.ACC_VAL_BAL}}</i></span><span class="up_date">{{graphical_data.first_data.STA_TIME}}</span></p>
+                    </div>
+            </div>
+            <div class="bottom"><p>如遇到部分还款或债传时间段中生成账单，数据有偏差，资产总额以全部还款时为准</p></div>
+      <script id="my-popover.html" type="text/ng-template">
+      <ion-popover-view class="my_bill_popo" ng-style="my_bill_popo_obj">
+        <ion-content>
+          <p   ng-repeat="key in graphical_data.data_key" ng-click="toalert(key)">
+                     {{graphical_data.first_data.STA_YEAR}}年 {{graphical_data.data_md[key]}}
+                 </p>
+        </ion-content>
+      </ion-popover-view>
+      </script> 
+        </div>
+    </div>
+   </ion-content>
+</ion-view>

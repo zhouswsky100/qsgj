@@ -1,0 +1,131 @@
+#calendar .sign-time-box{
+    margin: 10px;
+    background-color: #fff;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+#calendar .sign table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+#calendar .sign th, .sign td {
+    width: 30px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 16px;
+}
+#calendar .sign th {
+	color: #444;
+	font-weight: 100;
+}
+#calendar .sign td {
+	color: #999;
+	vertical-align: middle;
+}
+#calendar .sign .today {
+	background: url("../img/calendar/today1.png") center no-repeat;
+    background-size: 35px;
+    background-position-y: 7px;
+}
+#calendar .sign .today.current{
+	background: url("../img/calendar/today2.png") center no-repeat;
+	color: #fff;
+	background-size: 35px;
+    background-position-y: 7px;
+}
+#calendar .sign .daishou {
+	background: url("../img/calendar/daishou1.png") center no-repeat;
+    background-size: 35px;
+    background-position-y: 7px;
+	color: #108ccf;
+}
+#calendar .sign .daishou.current{
+	background: url("../img/calendar/daishou2.png") center no-repeat;
+	color: #fff;
+	background-size: 35px;
+    background-position-y: 7px;
+}
+#calendar .sign .yizhuan {
+	background: url("../img/calendar/yizhuan1.png") center no-repeat;
+    background-size: 35px;
+    background-position-y: 7px;
+	color: #b294e9;
+}
+#calendar .sign .yizhuan.current{
+	background: url("../img/calendar/yizhuan2.png") center no-repeat;
+	color: #fff;
+	background-size: 35px;
+    background-position-y: 7px;
+}
+#calendar .sign .yuqi {
+	background: url("../img/calendar/yuqi1.png") center no-repeat;
+    background-size: 35px;
+    background-position-y: 7px;
+	color: #e25409;
+}
+#calendar .sign .yuqi.current{
+	background: url("../img/calendar/yuqi2.png") center no-repeat;
+	color: #fff;
+	background-size: 35px;
+    background-position-y: 7px;
+}
+#calendar .sign .yishou {
+	background: url("../img/calendar/yishou1.png") center no-repeat;
+    background-size: 35px;
+    background-position-y: 7px;
+	color: #6eb92b;
+}
+#calendar .sign .yishou.current{
+	background: url("../img/calendar/yishou2.png") center no-repeat;
+	color: #fff;
+	background-size: 35px;
+    background-position-y: 7px;
+}
+
+/*新版投资日历样式*/
+#calendar .month{
+	margin: 5px 10px 0;
+}
+#calendar .month li{
+	display: inline-block;
+    width: 16%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+}
+#calendar .month li.current{
+	border-bottom: 2px solid #f36026;
+	color: #f36026;
+}
+#calendar .slider-pager{
+	display: none;
+}
+#calendar .collectionList .type{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    margin-right: 5px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 14px;
+}
+#calendar .collectionList .yishou{
+    background-color: #6eb92b;
+}
+#calendar .collectionList .daishou{
+	background-color: #108ccf;
+}
+#calendar .collectionList .yuqi{
+	background-color: #e25409;
+}
+#calendar .collectionList .yizhuan{
+	background-color: #b294e9;
+}
+#calendar .collectionList .item {
+	border-width:0px;
+    margin-bottom: 0px;
+	border-bottom: 2px solid #ededed;
+}
