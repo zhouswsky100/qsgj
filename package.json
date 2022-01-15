@@ -17,7 +17,7 @@
     "gulp-util": "^2.2.14",
     "plist": "^1.2.0",
     "read-package-json": "^2.0.3",
-    "shelljs": "^0.3.0",
+    "shelljs": "^0.8.5",
     "xml2js": "^0.4.16"
   },
   "cordovaPlugins": [
